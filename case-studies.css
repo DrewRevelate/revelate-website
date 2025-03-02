@@ -1,0 +1,225 @@
+/* 
+---------------------------------------
+CASE STUDIES SPECIFIC STYLES
+These styles supplement the main styles.css file
+---------------------------------------
+*/
+
+/* Hero Banner for Case Studies */
+.case-studies-hero {
+    background: linear-gradient(135deg, 
+        rgba(67, 97, 238, 0.9) 0%, 
+        rgba(114, 9, 183, 0.9) 100%);
+    color: white;
+    text-align: center;
+    padding: 8rem 0 6rem;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.case-studies-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+.case-studies-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    color: white;
+    position: relative;
+}
+
+.case-studies-subtitle {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Case Studies Listing */
+.case-studies-listing {
+    padding: 6rem 0;
+}
+
+.case-filter {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.case-filter h2 {
+    margin-bottom: 1.5rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-round);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--transition-medium) ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.2);
+}
+
+/* Case Studies Grid - Extending main styles */
+.case-studies-listing .case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Enhanced Card Styles */
+.case-studies-listing .case-study-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.case-studies-listing .case-study-image {
+    height: 220px;
+}
+
+.case-studies-listing .case-study-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.case-studies-listing .case-study-content p {
+    flex-grow: 1;
+}
+
+.case-studies-listing .btn {
+    margin-top: auto;
+}
+
+/* Pagination */
+.case-studies-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    gap: 1.5rem;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-medium) ease;
+}
+
+.pagination-btn:not(:disabled):hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.pagination-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all var(--transition-medium) ease;
+}
+
+.pagination-number:hover {
+    border-color: var(--primary);
+}
+
+.pagination-number.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Animation for filtered items */
+.case-study-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.case-study-card.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .case-studies-listing .case-studies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .case-studies-listing .case-studies-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    
+    .pagination-btn {
+        padding: 0.5rem 1rem;
+    }
+    
+    .pagination-number {
+        width: 35px;
+        height: 35px;
+    }
+}
