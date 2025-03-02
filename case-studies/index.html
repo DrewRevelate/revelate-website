@@ -1,365 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study | Revelate Operations</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles - Reusing the main site's CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Case Study Specific Styles */
+        .case-study-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, 
+                rgba(248, 249, 250, 0.9) 0%, 
+                rgba(233, 236, 239, 0.9) 100%);
+            overflow: hidden;
+        }
+
+        .case-study-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(72, 149, 239, 0.08) 0%, transparent 70%),
+                radial-gradient(circle at 85% 85%, rgba(157, 78, 221, 0.08) 0%, transparent 70%);
+        }
+
+        .case-study-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .case-study-tag {
+            display: inline-block;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-round);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .case-study-metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .case-study-metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .case-study-metric-label {
+            color: var(--gray);
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .case-study-section {
+            padding: 6rem 0;
+            background: linear-gradient(to bottom,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(245, 247, 250, 0.8) 100%);
+        }
+
+        .case-study-section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .case-study-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.5s ease;
+        }
+
+        .case-study-image:hover {
+            transform: scale(1.02);
+        }
+
+        .case-study-quote {
+            background: white;
+            border-left: 5px solid var(--primary);
+            padding: 2rem;
+            margin: 3rem 0;
+            font-style: italic;
+            color: var(--gray-dark);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .case-study-quote::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--primary-light);
+            opacity: 0.2;
+        }
+
+        .case-study-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .case-study-cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Case Study | Revelate Operations&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Font Awesome for icons --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Google Fonts - Inter with preloading strategy --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Our custom stylesheet --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="styles.css"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Meta tags for SEO --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="description" content="Revelate Operations case study showcasing how we transformed a client's data strategy and drove business growth."&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="keywords" content="data consulting, case study, business transformation, revenue operations"&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Navigation --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav id="navbar" aria-label="Main navigation"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container navbar-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="index.html" class="logo" aria-label="Revelate Operations Home"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="logo-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h1&gt;REVELATE&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;i class="fas fa-bars"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="nav-links" id="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html#features" class="nav-link"&gt;Services&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html#how-it-works" class="nav-link"&gt;Process&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html#team" class="nav-link"&gt;About Us&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html#case-studies" class="nav-link"&gt;Case Studies&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html#contact" class="nav-link"&gt;Contact&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#" class="btn btn-primary nav-cta" id="portal-btn"&gt;Client Portal&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Case Study Hero --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="case-study-hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="case-study-hero-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="case-tag"&gt;SaaS&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1&gt;Optimizing Sales Pipeline Visibility&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="case-study-subtitle"&gt;How we helped TechForward Solutions transform their sales operations through strategic data integration and CRM optimization.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="case-study-hero-metrics"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-metric"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="metric-value"&gt;+35%&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="metric-label"&gt;Sales Conversion&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-metric"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="metric-value"&gt;-40%&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="metric-label"&gt;Reporting Time&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="case-study-hero-image"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;img src="images/dashboard-illustration.svg" alt="Sales Dashboard Visualization"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Case Study Challenge --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="case-study-section challenge"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="case-study-section-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;The Challenge&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;TechForward Solutions was struggling with fragmented data across multiple platforms, leading to inefficient sales processes, lack of visibility, and missed opportunities. Their sales team was spending more time managing data than actually selling.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="challenge-details"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="challenge-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-chart-bar"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3&gt;Inconsistent Reporting&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;Manual data compilation from multiple sources caused delays and inaccuracies in reporting.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="challenge-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-database"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3&gt;Data Silos&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;Critical customer and sales information was spread across disconnected systems.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="challenge-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-clock"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3&gt;Inefficient Processes&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;Sales representatives spent excessive time on administrative tasks instead of client engagement.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Case Study Solution --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="case-study-section solution"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="case-study-section-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Our Solution&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Revelate Operations implemented a comprehensive CRM optimization strategy, consolidating five disparate data sources into a unified Salesforce environment with custom dashboards and automated workflows.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="solution-steps"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="solution-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="step-number"&gt;1&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="step-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3&gt;Data Integration&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;Consolidated data from marketing, sales, customer success, and financial platforms into a single source of truth.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="solution-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="step-number"&gt;2&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="step-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3&gt;Custom Dashboard Development&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;Created interactive, real-time dashboards providing unprecedented visibility into the sales pipeline.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="solution-step"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="step-number"&gt;3&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="step-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h3&gt;Workflow Automation&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;Implemented automated lead scoring, routing, and follow-up processes to streamline sales operations.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Case Study Results --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="case-study-section results"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="case-study-section-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Transformative Results&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;By leveraging data-driven insights and optimizing their technological ecosystem, TechForward Solutions achieved remarkable improvements across key performance metrics.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="results-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="result-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="result-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-chart-line"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Sales Conversion&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="result-metric"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="metric-value"&gt;+35%&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="metric-label"&gt;Increase&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Significant boost in sales conversion rates through targeted, data-informed strategies.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="result-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="result-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-clock"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Reporting Efficiency&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="result-metric"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="metric-value"&gt;-40%&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="metric-label"&gt;Reduction&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Dramatic decrease in time spent on manual reporting and data management.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="result-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="result-icon"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;i class="fas fa-users"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Team Productivity&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="result-metric"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="metric-value"&gt;+25%&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;span class="metric-label"&gt;Improvement&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Enhanced sales team productivity by reducing administrative overhead.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Client Testimonial --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="case-study-testimonial"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="testimonial-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="testimonial-quote"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;"Revelate Operations didn't just optimize our CRM; they transformed how we view and use our data. Their strategic approach has been game-changing for our sales organization."&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="testimonial-author"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;img src="images/testimonial-1.jpg" alt="Sarah Johnson" class="author-image"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="author-info"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h4&gt;Sarah Johnson&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;VP of Sales, TechForward Solutions&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- CTA --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="case-study-cta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="cta-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2&gt;Ready to Transform Your Data Strategy?&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Let's discuss how Revelate Operations can unlock your business's full potential through data-driven insights.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="index.html#contact" class="btn btn-accent btn-large"&gt;Schedule a Consultation&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- More Case Studies --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="more-case-studies"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Explore More Case Studies&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="case-studies-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="case-study-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-study-image"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="images/dashboard-illustration.svg" alt="Marketing ROI Dashboard"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="case-tag"&gt;Marketing&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-study-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Data-Driven Marketing Transformation&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="case-client"&gt;Growify&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="btn btn-outline btn-sm"&gt;Read Case Study&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="case-study-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-study-image"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="images/dashboard-illustration.svg" alt="Customer Success Dashboard"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="case-tag"&gt;Customer Success&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="case-study-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3&gt;Reducing Churn with Predictive Analytics&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="case-client"&gt;Nexus Technologies&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="btn btn-outline btn-sm"&gt;Read Case Study&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Footer (same as index.html) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="footer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="footer-brand"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="footer-logo"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h2&gt;REVELATE&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="footer-about"&gt;Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="footer-social"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="social-link" aria-label="LinkedIn"&gt;&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="social-link" aria-label="Facebook"&gt;&lt;i class="fab fa-facebook"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;a href="#" class="social-link" aria-label="Instagram"&gt;&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="footer-links-column"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="footer-heading"&gt;Services&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="footer-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#features"&gt;CRM Management&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#features"&gt;Business Intelligence&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#features"&gt;Lead Generation&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#features"&gt;Data Integration&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#features"&gt;GTM Strategy&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#features"&gt;Customer Retention&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="footer-links-column"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="footer-heading"&gt;Company&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="footer-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#team"&gt;About Us&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#how-it-works"&gt;Our Process&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#case-studies"&gt;Case Studies&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="#"&gt;Careers&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li class="footer-link"&gt;&lt;a href="index.html#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="footer-contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="footer-heading"&gt;Contact Us&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="footer-contact-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-map-marker-alt footer-contact-icon"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;123 Business Avenue, Suite 400, San Francisco, CA 94107&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="footer-contact-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-phone footer-contact-icon"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;(555) 123-4567&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="footer-contact-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;i class="fas fa-envelope footer-contact-icon"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span&gt;info@revelateops.com&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-divider"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="footer-bottom"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&amp;copy; 2025 Revelate Operations, LLC. All rights reserved.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="footer-legal"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="#"&gt;Privacy Policy&lt;/a&gt; | &lt;a href="#"&gt;Terms of Service&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Login Modal --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal" id="login-modal" aria-hidden="true" role="dialog"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-header"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="modal-title"&gt;Client Portal Login&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="close-modal" aria-label="Close modal"&gt;&amp;times;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;form id="login-form"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="email-login" class="form-label"&gt;Email&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="email" id="email-login" class="form-control" placeholder="Your Email" required&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="form-feedback"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;label for="password-login" class="form-label"&gt;Password&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;input type="password" id="password-login" class="form-control" placeholder="Your Password" required&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="form-feedback"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button type="submit" class="btn btn-primary" style="width: 100%;"&gt;Sign In&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="modal-footer"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#"&gt;Forgot Password?&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Scroll to Top Button --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;i class="fas fa-arrow-up"&gt;&lt;/i&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- JavaScript --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="script.js"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+    <!-- Navigation (Reusing from main site) -->
+    <nav id="navbar" aria-label="Main navigation">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo" aria-label="Revelate Operations Home">
+                <div class="logo-container">
+                    <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
+                    <h1>REVELATE</h1>
+                </div>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#features" class="nav-link">Services</a>
+                <a href="index.html#how-it-works" class="nav-link">Process</a>
+                <a href="index.html#team" class="nav-link">About Us</a>
+                <a href="case-studies.html" class="nav-link">Case Studies</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <div class="case-study-hero-content">
+                <span class="case-study-tag">SaaS Analytics</span>
+                <h1>Optimizing Sales Pipeline Visibility for TechForward Solutions</h1>
+                <p class="hero-subtitle">A comprehensive data transformation that revolutionized how TechForward tracks, manages, and accelerates their sales processes.</p>
+                
+                <div class="case-study-metrics">
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">+35%</div>
+                        <div class="case-study-metric-label">Sales Conversion</div>
+                    </div>
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">-40%</div>
+                        <div class="case-study-metric-label">Reporting Time</div>
+                    </div>
+                    <div class="case-study-metric">
+                        <div class="case-study-metric-value">5</div>
+                        <div class="case-study-metric-label">Months to Implementation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background & Challenge -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-section-content">
+                <h2 class="text-center mb-5">The Challenge</h2>
+                <div class="case-study-image">
+                    <img src="images/dashboard-illustration.svg" alt="TechForward Challenge Visualization">
+                </div>
+                <p>TechForward Solutions was struggling with fragmented data across multiple platforms. Their sales team was spending more time gathering data than actually selling. Multiple CRM systems, spreadsheets, and disconnected reporting tools created a complex, inefficient ecosystem that obscured critical insights.</p>
+                
+                <div class="case-study-quote">
+                    "We were drowning in data but starving for actionable insights. Our sales process felt like navigating through a dense fog." 
+                    <div class="mt-3 text-right">- Sarah Johnson, VP of Sales</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-section-content">
+                <h2 class="text-center mb-5">Our Solution</h2>
+                <div class="case-study-image">
+                    <img src="images/dashboard-illustration.svg" alt="Revelate Solution Visualization">
+                </div>
+                <p>Revelate Operations implemented a comprehensive data integration and CRM optimization strategy:</p>
+                <ul>
+                    <li>Consolidated five disparate data sources into a unified Salesforce environment</li>
+                    <li>Developed custom dashboards with real-time performance tracking</li>
+                    <li>Created automated reporting workflows</li>
+                    <li>Implemented advanced lead scoring and opportunity tracking mechanisms</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="case-study-section-content">
+                <h2 class="text-center mb-5">Transformative Results</h2>
+                <div class="case-study-image">
+                    <img src="images/dashboard-illustration.svg" alt="Results Visualization">
+                </div>
+                <p>The implementation yielded remarkable outcomes:</p>
+                <ul>
+                    <li>Sales conversion rates increased by 35%</li>
+                    <li>Reporting time reduced by 40%</li>
+                    <li>Enhanced visibility into sales pipeline</li>
+                    <li>Improved cross-team collaboration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-study-cta">
+        <div class="container">
+            <div class="case-study-cta-content">
+                <h2>Ready to Transform Your Business Data?</h2>
+                <p>Let's discuss how we can help you unlock your organization's full potential.</p>
+                <a href="index.html#contact" class="btn btn-light btn-large mt-4">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Reusing from main site) -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer content from index.html -->
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                        <h2>REVELATE</h2>
+                    </div>
+                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Rest of footer content remains the same as in index.html -->
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="index.html#features">CRM Management</a></li>
+                        <li class="footer-link"><a href="index.html#features">Business Intelligence</a></li>
+                        <li class="footer-link"><a href="index.html#features">Lead Generation</a></li>
+                        <li class="footer-link"><a href="index.html#features">Data Integration</a></li>
+                        <li class="footer-link"><a href="index.html#features">GTM Strategy</a></li>
+                        <li class="footer-link"><a href="index.html#features">Customer Retention</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="index.html#team">About Us</a></li>
+                        <li class="footer-link"><a href="index.html#how-it-works">Our Process</a></li>
+                        <li class="footer-link"><a href="case-studies.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone footer-contact-icon"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope footer-contact-icon"></i>
+                        <span>info@revelateops.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button
