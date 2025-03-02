@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Revelate Operations</title>
+    <link rel="stylesheet" href="/revelate-website/styles.css">
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .error-description {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" aria-label="Main navigation">
+        <div class="container navbar-container">
+            <a href="/revelate-website/" class="logo" aria-label="Revelate Operations Home">
+                <div class="logo-container">
+                    <img src="/revelate-website/images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
+                    <h1>REVELATE</h1>
+                </div>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/revelate-website/#features" class="nav-link">Services</a>
+                <a href="/revelate-website/#how-it-works" class="nav-link">Process</a>
+                <a href="/revelate-website/#team" class="nav-link">About Us</a>
+                <a href="/revelate-website/case-studies/" class="nav-link">Case Studies</a>
+                <a href="/revelate-website/#contact" class="nav-link">Contact</a>
+                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Error Content -->
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Page Not Found</h1>
+        <p class="error-description">We couldn't find the page you were looking for. It might have been moved, renamed, or doesn't exist.</p>
+        <div class="error-actions">
+            <a href="/revelate-website/" class="btn btn-primary btn-large">Back to Home</a>
+            <a href="/revelate-website/#contact" class="btn btn-outline btn-large">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Footer (Simplified) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="/revelate-website/privacy-policy/">Privacy Policy</a> | <a href="/revelate-website/terms-of-service/">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/revelate-website/script.js"></script>
+</body>
+</html>
