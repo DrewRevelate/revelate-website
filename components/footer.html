@@ -1,0 +1,161 @@
+<!-- Footer Component -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="/images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                    <h2>REVELATE</h2>
+                </div>
+                <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-column">
+                <h3 class="footer-heading">Services</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/index.html#features">CRM Management</a></li>
+                    <li class="footer-link"><a href="/index.html#features">Business Intelligence</a></li>
+                    <li class="footer-link"><a href="/index.html#features">Lead Generation</a></li>
+                    <li class="footer-link"><a href="/index.html#features">Data Integration</a></li>
+                    <li class="footer-link"><a href="/index.html#features">GTM Strategy</a></li>
+                    <li class="footer-link"><a href="/index.html#features">Customer Retention</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links-column">
+                <h3 class="footer-heading">Company</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="/index.html#team">About Us</a></li>
+                    <li class="footer-link"><a href="/index.html#how-it-works">Our Process</a></li>
+                    <li class="footer-link"><a href="/case-studies.html">Case Studies</a></li>
+                    <li class="footer-link"><a href="#">Careers</a></li>
+                    <li class="footer-link"><a href="#">Blog</a></li>
+                    <li class="footer-link"><a href="/index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3 class="footer-heading">Contact Us</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                    <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone footer-contact-icon"></i>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope footer-contact-icon"></i>
+                    <span>info@revelateops.com</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal" id="login-modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Client Portal Login</h2>
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email-login" class="form-label">Email</label>
+                    <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
+                    <div class="form-feedback"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password-login" class="form-label">Password</label>
+                    <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                    <div class="form-feedback"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Modal functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const portalBtn = document.getElementById('portal-btn');
+        const loginModal = document.getElementById('login-modal');
+        const closeModal = document.querySelector('.close-modal');
+        const loginForm = document.getElementById('login-form');
+        
+        // Open modal when clicking portal button
+        if (portalBtn && loginModal) {
+            portalBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.style.display = 'flex';
+                loginModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                
+                // Focus the first input field
+                setTimeout(() => {
+                    const firstInput = loginModal.querySelector('input');
+                    if (firstInput) firstInput.focus();
+                }, 100);
+            });
+        }
+        
+        // Close modal when clicking X
+        if (closeModal && loginModal) {
+            closeModal.addEventListener('click', function() {
+                closeLoginModal();
+            });
+        }
+        
+        // Close modal when clicking outside of it
+        if (loginModal) {
+            window.addEventListener('click', function(e) {
+                if (e.target === loginModal) {
+                    closeLoginModal();
+                }
+            });
+            
+            // Close modal on escape key
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && loginModal.style.display === 'flex') {
+                    closeLoginModal();
+                }
+            });
+        }
+        
+        function closeLoginModal() {
+            if (!loginModal) return;
+            
+            loginModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restore scrolling
+            
+            // Add a fade-out animation
+            loginModal.style.opacity = '0';
+            setTimeout(() => {
+                loginModal.style.display = 'none';
+                loginModal.style.opacity = '1';
+            }, 300);
+        }
+    });
+</script>
