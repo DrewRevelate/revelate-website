@@ -639,7 +639,6 @@ p {
     max-width: 650px;
     z-index: var(--z-normal);
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
-    animation: float 8s ease-in-out infinite;
 }
 
 .hero-shape {
@@ -656,7 +655,7 @@ p {
     background: var(--primary-light);
     border-radius: 50%;
     filter: blur(30px);
-    animation: float 10s ease-in-out infinite;
+    animation: float 12s ease-in-out infinite;
 }
 
 .shape-2 {
@@ -667,7 +666,7 @@ p {
     background: var(--secondary-light);
     border-radius: 50%;
     filter: blur(20px);
-    animation: float 8s ease-in-out infinite 1s;
+    animation: float 12s ease-in-out infinite 1s;
 }
 
 .shape-3 {
