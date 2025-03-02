@@ -84,21 +84,55 @@ These styles are specific to individual case study pages
 }
 
 .case-metric-large {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #e4e7eb 100%);
     padding: 1.5rem;
     border-radius: var(--radius-md);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     min-width: 180px;
     flex: 1;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     text-align: center;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.1),
+        0 0 5px rgba(255, 255, 255, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.8);
+    color: var(--gray-dark);
+}
+
+.case-metric-large::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shimmer 5s infinite linear;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
 }
 
 .case-metric-large:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.15),
+        0 0 10px rgba(255, 255, 255, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .case-metric-large .metric-value {
@@ -106,11 +140,20 @@ These styles are specific to individual case study pages
     font-weight: 700;
     display: block;
     margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 2;
 }
 
 .case-metric-large .metric-label {
     font-size: 1rem;
-    opacity: 0.9;
+    color: var(--gray-dark);
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
 }
 
 /* Case Study Content Layout */
