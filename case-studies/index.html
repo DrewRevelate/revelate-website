@@ -3,339 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study | Revelate Operations</title>
+    <!-- ===== TITLE: Update with specific case study name ===== -->
+    <title>Case Study: Client Name | Revelate Operations</title>
     
-    <!-- Font Awesome for icons -->
+    <!-- ===== META TAGS: Update for SEO ===== -->
+    <meta name="description" content="Learn how Revelate Operations helped [Client Name] achieve [Key Result] through data-driven [Solution Type] solutions.">
+    <meta name="keywords" content="data consulting, case study, [client industry], [solution type]">
+    
+    <!-- ===== FONTS & ICONS: Don't change unless updating site-wide ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Styles - Reusing the main site's CSS -->
-<link rel="stylesheet" href="/styles.css">
-    
-    <style>
-        /* Case Study Specific Styles */
-        .case-study-hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, 
-                rgba(248, 249, 250, 0.9) 0%, 
-                rgba(233, 236, 239, 0.9) 100%);
-            overflow: hidden;
-        }
-
-        .case-study-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(72, 149, 239, 0.08) 0%, transparent 70%),
-                radial-gradient(circle at 85% 85%, rgba(157, 78, 221, 0.08) 0%, transparent 70%);
-        }
-
-        .case-study-hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
-            text-align: center;
-        }
-
-        .case-study-tag {
-            display: inline-block;
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-round);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .case-study-metrics {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .case-study-metric {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .case-study-metric-value {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .case-study-metric-label {
-            color: var(--gray);
-            margin-top: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .case-study-section {
-            padding: 6rem 0;
-            background: linear-gradient(to bottom,
-                rgba(255, 255, 255, 1) 0%,
-                rgba(245, 247, 250, 0.8) 100%);
-        }
-
-        .case-study-section-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .case-study-image {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.5s ease;
-        }
-
-        .case-study-image:hover {
-            transform: scale(1.02);
-        }
-
-        .case-study-quote {
-            background: white;
-            border-left: 5px solid var(--primary);
-            padding: 2rem;
-            margin: 3rem 0;
-            font-style: italic;
-            color: var(--gray-dark);
-            box-shadow: var(--shadow-sm);
-            position: relative;
-        }
-
-        .case-study-quote::before {
-            content: """;
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 6rem;
-            color: var(--primary-light);
-            opacity: 0.2;
-        }
-
-        .case-study-cta {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            padding: 4rem 0;
-            margin-top: 4rem;
-        }
-
-        .case-study-cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-    </style>
+    <!-- ===== STYLESHEETS: Don't change unless updating site-wide ===== -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study.css">
 </head>
+
 <body>
-    <!-- Navigation (Reusing from main site) -->
+    <!-- =================================================================
+         NAVIGATION: Copy from main site to maintain consistency
+         ================================================================= -->
     <nav id="navbar" aria-label="Main navigation">
-        <div class="container navbar-container">
-            <a href="index.html" class="logo" aria-label="Revelate Operations Home">
-                <div class="logo-container">
-                    <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
-                    <h1>REVELATE</h1>
-                </div>
-            </a>
-            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html#features" class="nav-link">Services</a>
-                <a href="index.html#how-it-works" class="nav-link">Process</a>
-                <a href="index.html#team" class="nav-link">About Us</a>
-                <a href="case-studies.html" class="nav-link">Case Studies</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
-                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
-            </div>
-        </div>
+        <!-- Copy navbar code from main site -->
     </nav>
 
-    <!-- Case Study Hero -->
-    <section class="case-study-hero">
+    <!-- =================================================================
+         CASE STUDY HERO: Update for each case study
+         ================================================================= -->
+    <section class="case-hero">
         <div class="container">
-            <div class="case-study-hero-content">
-                <span class="case-study-tag">SaaS Analytics</span>
-                <h1>Optimizing Sales Pipeline Visibility for TechForward Solutions</h1>
-                <p class="hero-subtitle">A comprehensive data transformation that revolutionized how TechForward tracks, manages, and accelerates their sales processes.</p>
+            <div class="case-hero-content">
+                <!-- BREADCRUMB: Update links as needed -->
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="case-studies.html">Case Studies</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Client Name</span>
+                </div>
                 
-                <div class="case-study-metrics">
-                    <div class="case-study-metric">
-                        <div class="case-study-metric-value">+35%</div>
-                        <div class="case-study-metric-label">Sales Conversion</div>
-                    </div>
-                    <div class="case-study-metric">
-                        <div class="case-study-metric-value">-40%</div>
-                        <div class="case-study-metric-label">Reporting Time</div>
-                    </div>
-                    <div class="case-study-metric">
-                        <div class="case-study-metric-value">5</div>
-                        <div class="case-study-metric-label">Months to Implementation</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Background & Challenge -->
-    <section class="case-study-section">
-        <div class="container">
-            <div class="case-study-section-content">
-                <h2 class="text-center mb-5">The Challenge</h2>
-                <div class="case-study-image">
-                    <img src="images/dashboard-illustration.svg" alt="TechForward Challenge Visualization">
-                </div>
-                <p>TechForward Solutions was struggling with fragmented data across multiple platforms. Their sales team was spending more time gathering data than actually selling. Multiple CRM systems, spreadsheets, and disconnected reporting tools created a complex, inefficient ecosystem that obscured critical insights.</p>
+                <!-- CLIENT CATEGORY TAG: Update with appropriate industry/vertical -->
+                <div class="case-tag">SaaS</div>
                 
-                <div class="case-study-quote">
-                    "We were drowning in data but starving for actionable insights. Our sales process felt like navigating through a dense fog." 
-                    <div class="mt-3 text-right">- Sarah Johnson, VP of Sales</div>
+                <!-- CASE STUDY TITLE: Update with client name and project focus -->
+                <h1 class="case-title">How We Optimized <span class="text-gradient">Client Name's</span> Data Pipeline for Real-Time Decision Making</h1>
+                
+                <!-- CASE SUMMARY: Brief overview of the case study -->
+                <p class="case-summary">Brief overview of the project and key results achieved. This should be compelling enough to make the reader want to continue. Aim for 2-3 sentences that capture the essence of the transformation.</p>
+                
+                <!-- KEY METRICS: Update with 2-4 key performance indicators -->
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <span class="metric-value">+35%</span>
+                        <span class="metric-label">Revenue Growth</span>
+                    </div>
+                    <div class="case-metric">
+                        <span class="metric-value">-40%</span>
+                        <span class="metric-label">Reporting Time</span>
+                    </div>
+                    <div class="case-metric">
+                        <span class="metric-value">3x</span>
+                        <span class="metric-label">ROI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- HERO IMAGE: Replace with client-specific imagery -->
+            <div class="case-hero-image">
+                <img src="images/case-studies/client-dashboard.jpg" alt="Client Name Dashboard" width="600" height="400">
+            </div>
+        </div>
+        
+        <!-- DECORATIVE ELEMENTS: Can be customized for visual interest -->
+        <div class="hero-shape shape-1"></div>
+        <div class="hero-shape shape-2"></div>
+    </section>
+
+    <!-- =================================================================
+         CLIENT OVERVIEW: Basic information about the client
+         ================================================================= -->
+    <section class="case-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <!-- LEFT COLUMN: Client information -->
+                <div class="client-info">
+                    <!-- CLIENT LOGO: Replace with actual client logo -->
+                    <div class="client-logo">
+                        <img src="images/case-studies/client-logo.png" alt="Client Name Logo" width="200" height="80">
+                    </div>
+                    
+                    <!-- CLIENT DETAILS: Update with actual client information -->
+                    <div class="client-details">
+                        <div class="detail-item">
+                            <h4>Industry</h4>
+                            <p>SaaS / Technology</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Company Size</h4>
+                            <p>250+ Employees</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Location</h4>
+                            <p>San Francisco, CA</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Project Duration</h4>
+                            <p>4 Months</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RIGHT COLUMN: Project overview -->
+                <div class="project-overview">
+                    <h2>Project Overview</h2>
+                    <p>Provide a more detailed overview of the project here. Explain who the client is, what their business is about, and the general scope of the project. This should be about 100-150 words that give enough context for the reader to understand the case study.</p>
+                    
+                    <!-- SERVICES PROVIDED: Update with actual services -->
+                    <div class="services-provided">
+                        <h3>Services Provided</h3>
+                        <ul class="service-tags">
+                            <li>Data Integration</li>
+                            <li>Dashboard Development</li>
+                            <li>Business Intelligence</li>
+                            <li>Predictive Analytics</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution -->
-    <section class="case-study-section">
+    <!-- =================================================================
+         PROCESS TIMELINE: Visual representation of the project phases
+         ================================================================= -->
+    <section class="case-process">
         <div class="container">
-            <div class="case-study-section-content">
-                <h2 class="text-center mb-5">Our Solution</h2>
-                <div class="case-study-image">
-                    <img src="images/dashboard-illustration.svg" alt="Revelate Solution Visualization">
+            <h2 class="section-title">Our Approach</h2>
+            
+            <!-- PROCESS TIMELINE: Update steps for each case study -->
+            <div class="process-timeline">
+                <!-- PHASE 1 -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery</h3>
+                        <p>Describe the discovery phase of the project. What did you learn about their existing systems, challenges, and goals? What research or assessments did you conduct?</p>
+                        <ul class="step-highlights">
+                            <li>Key discovery activity or finding</li>
+                            <li>Another important discovery element</li>
+                            <li>Critical insight from this phase</li>
+                        </ul>
+                    </div>
                 </div>
-                <p>Revelate Operations implemented a comprehensive data integration and CRM optimization strategy:</p>
-                <ul>
-                    <li>Consolidated five disparate data sources into a unified Salesforce environment</li>
-                    <li>Developed custom dashboards with real-time performance tracking</li>
-                    <li>Created automated reporting workflows</li>
-                    <li>Implemented advanced lead scoring and opportunity tracking mechanisms</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results -->
-    <section class="case-study-section">
-        <div class="container">
-            <div class="case-study-section-content">
-                <h2 class="text-center mb-5">Transformative Results</h2>
-                <div class="case-study-image">
-                    <img src="images/dashboard-illustration.svg" alt="Results Visualization">
+                
+                <!-- PHASE 2 -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Strategy</h3>
+                        <p>Explain the strategic plan you developed based on the discovery phase. How did you approach solving their problems? What solutions did you recommend and why?</p>
+                        <ul class="step-highlights">
+                            <li>Key strategic decision or approach</li>
+                            <li>Solution architecture or framework</li>
+                            <li>Expected outcomes and metrics</li>
+                        </ul>
+                    </div>
                 </div>
-                <p>The implementation yielded remarkable outcomes:</p>
-                <ul>
-                    <li>Sales conversion rates increased by 35%</li>
-                    <li>Reporting time reduced by 40%</li>
-                    <li>Enhanced visibility into sales pipeline</li>
-                    <li>Improved cross-team collaboration</li>
-                </ul>
+                
+                <!-- PHASE 3 -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Implementation</h3>
+                        <p>Detail the implementation phase. What did you build or configure? How did you integrate with existing systems? What was the timeline and process?</p>
+                        <ul class="step-highlights">
+                            <li>Technical implementation details</li>
+                            <li>Integration points and challenges</li>
+                            <li>Deployment strategy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- PHASE 4 -->
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Optimization</h3>
+                        <p>Describe how you refined the solution after initial implementation. What adjustments were made? How did you ensure adoption and success?</p>
+                        <ul class="step-highlights">
+                            <li>Post-implementation improvements</li>
+                            <li>Training and adoption strategies</li>
+                            <li>Ongoing support structure</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="case-study-cta">
+    <!-- =================================================================
+         CHALLENGE SECTION: Detail the client's problems
+         ================================================================= -->
+    <section class="case-challenge">
         <div class="container">
-            <div class="case-study-cta-content">
-                <h2>Ready to Transform Your Business Data?</h2>
-                <p>Let's discuss how we can help you unlock your organization's full potential.</p>
-                <a href="index.html#contact" class="btn btn-light btn-large mt-4">Schedule a Consultation</a>
+            <div class="section-grid">
+                <div class="section-content">
+                    <h2 class="section-title">The Challenge</h2>
+                    <p>Outline the specific business challenges the client was facing that prompted them to seek your help. This should clearly articulate the pain points and why they were significant.</p>
+                    <p>Expand on the problems in more detail, explaining the impact these issues were having on the business. You might include failed previous attempts to solve the problem, growing concerns, or competitive pressures.</p>
+                    
+                    <!-- CHALLENGE BULLETS: Update with specific challenges -->
+                    <ul class="challenge-list">
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h4>Challenge 1</h4>
+                                <p>Describe the first major challenge in detail. What was happening and why was it problematic?</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h4>Challenge 2</h4>
+                                <p>Describe the second major challenge in detail. How was it affecting operations or business outcomes?</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h4>Challenge 3</h4>
+                                <p>Describe the third major challenge in detail. What were the consequences of not addressing it?</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- CHALLENGE VISUAL: Replace with relevant visualization -->
+                <div class="section-visual">
+                    <img src="images/case-studies/challenge-visual.svg" alt="Visual representation of the challenges" width="500" height="400">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (Reusing from main site) -->
+    <!-- =================================================================
+         SOLUTION SECTION: Detail your approach and what you built
+         ================================================================= -->
+    <section class="case-solution">
+        <div class="container">
+            <h2 class="section-title">Our Solution</h2>
+            <p class="section-subtitle">Explain your overall approach to solving the client's challenges. This should be a high-level summary before diving into the specific components.</p>
+            
+            <!-- SOLUTION COMPONENTS: Update with actual solution details -->
+            <div class="solution-grid">
+                <!-- COMPONENT 1 -->
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Integration</h3>
+                    <p>Describe this component of your solution. What did you implement? How did it work? Why was this approach chosen?</p>
+                    <ul class="solution-features">
+                        <li>Key feature or technology used</li>
+                        <li>Critical implementation detail</li>
+                        <li>Integration with existing systems</li>
+                    </ul>
+                </div>
+                
+                <!-- COMPONENT 2 -->
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Describe this component of your solution. What metrics or insights were highlighted? How was it designed for usability?</p>
+                    <ul class="solution-features">
+                        <li>Key feature or technology used</li>
+                        <li>Critical implementation detail</li>
+                        <li>User experience considerations</li>
+                    </ul>
+                </div>
+                
+                <!-- COMPONENT 3 -->
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Predictive Model</h3>
+                    <p>Describe this component of your solution. What algorithms or approaches were used? How was the model trained and validated?</p>
+                    <ul class="solution-features">
+                        <li>Key feature or technology used</li>
+                        <li>Critical implementation detail</li>
+                        <li>Accuracy and performance metrics</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- SOLUTION VISUAL: Replace with actual screenshot or diagram -->
+            <div class="solution-visual">
+                <h3>The Final Implementation</h3>
+                <img src="images/case-studies/solution-dashboard.jpg" alt="Screenshot of implemented solution" width="1000" height="600">
+                <p class="image-caption">Caption describing the solution screenshot. Explain what the reader is seeing and its significance.</p>
+            </div>
+            
+            <!-- TECHNOLOGIES USED: Update with actual tech stack -->
+            <div class="technologies">
+                <h3>Technologies Used</h3>
+                <div class="tech-logos">
+                    <div class="tech-logo">
+                        <img src="images/tech/snowflake.png" alt="Snowflake" width="100" height="50">
+                        <span>Snowflake</span>
+                    </div>
+                    <div class="tech-logo">
+                        <img src="images/tech/tableau.png" alt="Tableau" width="100" height="50">
+                        <span>Tableau</span>
+                    </div>
+                    <div class="tech-logo">
+                        <img src="images/tech/python.png" alt="Python" width="100" height="50">
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-logo">
+                        <img src="images/tech/salesforce.png" alt="Salesforce" width="100" height="50">
+                        <span>Salesforce</span>
+                    </div>
+                    <!-- Add more tech logos as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         RESULTS SECTION: Detail the outcomes and impact
+         ================================================================= -->
+    <section class="case-results">
+        <div class="container">
+            <div class="section-grid">
+                <div class="section-content">
+                    <h2 class="section-title">The Results</h2>
+                    <p>Summarize the overall impact of your solution. This should highlight the transformation and tie back to the original challenges. Focus on concrete, measurable results.</p>
+                    
+                    <!-- RESULTS METRICS: Update with actual outcomes -->
+                    <div class="results-metrics">
+                        <div class="result-metric-card">
+                            <div class="result-value">35%</div>
+                            <div class="result-label">Increase in Revenue</div>
+                            <p class="result-detail">Explain how your solution contributed to this specific metric. What changed to make this possible?</p>
+                        </div>
+                        
+                        <div class="result-metric-card">
+                            <div class="result-value">40%</div>
+                            <div class="result-label">Reduction in Reporting Time</div>
+                            <p class="result-detail">Explain how your solution contributed to this specific metric. What efficiencies were gained?</p>
+                        </div>
+                        
+                        <div class="result-metric-card">
+                            <div class="result-value">3x</div>
+                            <div class="result-label">Return on Investment</div>
+                            <p class="result-detail">Explain how your solution contributed to this specific metric. What was the cost vs. benefit calculation?</p>
+                        </div>
+                    </div>
+                    
+                    <p class="results-summary">Provide additional context about the results beyond the metrics. How did these improvements impact the client's business strategically? What unexpected benefits emerged? How have these changes positioned the client for future success?</p>
+                </div>
+                
+                <!-- RESULTS VISUAL: Replace with actual data visualization -->
+                <div class="section-visual">
+                    <div class="results-chart">
+                        <img src="images/case-studies/results-chart.svg" alt="Chart showing before and after results" width="500" height="400">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         TESTIMONIAL SECTION: Client feedback
+         ================================================================= -->
+    <section class="case-testimonial">
+        <div class="container">
+            <div class="testimonial-container">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <blockquote>
+                        Include a powerful quote from the client about the project and its impact. This should be authentic and specific to the work completed. The quote should ideally mention both the experience of working with you and the outcomes achieved.
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <img src="images/case-studies/client-contact.jpg" alt="Client Name, Position" width="80" height="80">
+                        <div class="author-details">
+                            <h4>Client Contact Name</h4>
+                            <p>Position, Company Name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         RELATED CASE STUDIES: Suggest other relevant case studies
+         ================================================================= -->
+    <section class="related-cases">
+        <div class="container">
+            <h2 class="section-title">Related Case Studies</h2>
+            <p class="section-subtitle">Explore more success stories similar to this one</p>
+            
+            <div class="related-cases-grid">
+                <!-- RELATED CASE 1: Update with actual related case -->
+                <div class="related-case-card">
+                    <div class="case-study-image">
+                        <img src="images/case-studies/related-case-1.jpg" alt="Related Case Study 1" width="350" height="200">
+                        <div class="case-tag">SaaS</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Related Case Study Title</h3>
+                        <p class="case-client">Client Name</p>
+                        <p>Brief description of the related case study. What was the challenge and solution?</p>
+                        <a href="case-study-1.html" class="btn btn-outline btn-sm">Read Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- RELATED CASE 2: Update with actual related case -->
+                <div class="related-case-card">
+                    <div class="case-study-image">
+                        <img src="images/case-studies/related-case-2.jpg" alt="Related Case Study 2" width="350" height="200">
+                        <div class="case-tag">Analytics</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Related Case Study Title</h3>
+                        <p class="case-client">Client Name</p>
+                        <p>Brief description of the related case study. What was the challenge and solution?</p>
+                        <a href="case-study-2.html" class="btn btn-outline btn-sm">Read Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         CTA SECTION: Encourage contact
+         ================================================================= -->
+    <section class="case-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready for Similar Results?</h2>
+                <p class="cta-description">Let's discuss how we can help you transform your data into actionable insights that drive growth and efficiency.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Contact Us</a>
+                    <a href="case-studies.html" class="btn btn-outline btn-large">More Case Studies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================================
+         FOOTER: Copy from main site to maintain consistency
+         ================================================================= -->
     <footer class="footer">
-        <div class="container">
-            <!-- Footer content from index.html -->
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
-                        <h2>REVELATE</h2>
-                    </div>
-                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Rest of footer content remains the same as in index.html -->
-                <div class="footer-links-column">
-                    <h3 class="footer-heading">Services</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html#features">CRM Management</a></li>
-                        <li class="footer-link"><a href="index.html#features">Business Intelligence</a></li>
-                        <li class="footer-link"><a href="index.html#features">Lead Generation</a></li>
-                        <li class="footer-link"><a href="index.html#features">Data Integration</a></li>
-                        <li class="footer-link"><a href="index.html#features">GTM Strategy</a></li>
-                        <li class="footer-link"><a href="index.html#features">Customer Retention</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links-column">
-                    <h3 class="footer-heading">Company</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="index.html#team">About Us</a></li>
-                        <li class="footer-link"><a href="index.html#how-it-works">Our Process</a></li>
-                        <li class="footer-link"><a href="case-studies.html">Case Studies</a></li>
-                        <li class="footer-link"><a href="#">Careers</a></li>
-                        <li class="footer-link"><a href="#">Blog</a></li>
-                        <li class="footer-link"><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Contact Us</h3>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
-                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone footer-contact-icon"></i>
-                        <span>(555) 123-4567</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope footer-contact-icon"></i>
-                        <span>info@revelateops.com</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-divider"></div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
+        <!-- Copy footer code from main site -->
     </footer>
 
     <!-- Scroll to Top Button -->
     <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
-    </button
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
