@@ -4,9 +4,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load shared components
-    loadComponent('nav-placeholder', 'components/navigation.html');
-    loadComponent('footer-placeholder', 'components/footer.html');
+    // Load shared components 
+    // Detect if we're in a subdirectory by checking URL path
+    const pathSegments = window.location.pathname.split('/').filter(segment => segment !== '');
+    const basePath = pathSegments.length > 1 ? '../'.repeat(pathSegments.length - 1) : './';
+    
+    loadComponent('nav-placeholder', basePath + 'components/navigation.html');
+    loadComponent('footer-placeholder', basePath + 'components/footer.html');
     
     // Function to load a component into a placeholder
     function loadComponent(placeholderId, componentPath) {
