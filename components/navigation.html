@@ -1,0 +1,80 @@
+<!-- Navigation Component -->
+<nav id="navbar" aria-label="Main navigation">
+    <div class="container navbar-container">
+        <a href="/index.html" class="logo" aria-label="Revelate Operations Home">
+            <div class="logo-container">
+                <img src="/images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
+                <h1>REVELATE</h1>
+            </div>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="/index.html#features" class="nav-link">Services</a>
+            <a href="/index.html#how-it-works" class="nav-link">Process</a>
+            <a href="/index.html#team" class="nav-link">About Us</a>
+            <a href="/case-studies.html" class="nav-link">Case Studies</a>
+            <a href="/index.html#contact" class="nav-link">Contact</a>
+            <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    // Script to handle active navigation links
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get current page URL
+        const currentPage = window.location.pathname;
+        
+        // Set active navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            
+            // Check if the link matches the current page
+            if (currentPage.includes('case-studies') && linkHref.includes('case-studies')) {
+                link.classList.add('active');
+            } else if (currentPage === '/' || currentPage === '/index.html') {
+                if (linkHref.includes('index.html') || linkHref === '/') {
+                    link.classList.add('active');
+                }
+            }
+        });
+        
+        // Mobile menu toggle functionality 
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinksDiv = document.querySelector('.nav-links');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+                this.setAttribute('aria-expanded', !expanded);
+                navLinksDiv.classList.toggle('active');
+                
+                // Change icon based on state
+                const icon = this.querySelector('i');
+                if (expanded) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+        }
+        
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinksDiv.classList.remove('active');
+                if (mobileToggle) {
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    });
+</script>
