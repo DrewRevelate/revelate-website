@@ -116,6 +116,8 @@ function initTestimonialSlider() {
     const prevButton = document.getElementById('prev-testimonial');
     const nextButton = document.getElementById('next-testimonial');
     
+    if (!testimonials.length) return; // Guard clause
+    
     let currentTestimonial = 0;
     const testimonialCount = testimonials.length;
     
@@ -128,10 +130,12 @@ function initTestimonialSlider() {
         // Hide all testimonials
         testimonials.forEach(testimonial => {
             testimonial.classList.remove('active');
+            testimonial.style.display = 'none';
         });
         
         // Show the selected testimonial
         testimonials[index].classList.add('active');
+        testimonials[index].style.display = 'block';
         
         // Update current index
         currentTestimonial = index;
@@ -170,7 +174,7 @@ function initTestimonialSlider() {
         showTestimonial(currentTestimonial + 1);
     }, 6000);
     
-    // Stop auto-advance when user interacts with testimonials
+    // Stop auto-advance when user interacts
     [prevButton, nextButton, ...testimonialDots].forEach(el => {
         if (el) {
             el.addEventListener('click', function() {
