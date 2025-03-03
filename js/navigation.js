@@ -60,6 +60,9 @@ function initMobileMenu() {
 /**
  * Highlight active navigation links based on current URL
  */
+/**
+ * Highlight active navigation links based on current URL
+ */
 function highlightActiveLinks() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
@@ -67,18 +70,18 @@ function highlightActiveLinks() {
     navLinks.forEach(link => {
         const linkHref = link.getAttribute('href');
         
-        // If we're on the homepage
-        if (currentPath === '/' || currentPath.includes('index.html')) {
-            if (linkHref === 'index.html' || linkHref === '/') {
-                link.classList.add('active');
-            }
+        // For home page
+        if ((currentPath === '/' || currentPath.endsWith('index.html')) && 
+            (linkHref === 'index.html' || linkHref === './')) {
+            link.classList.add('active');
         } 
-        // For other pages, check if the link's href is in the current path
-        else if (linkHref && currentPath.includes(linkHref)) {
+        // For other pages
+        else if (linkHref && currentPath.includes(linkHref) && linkHref !== 'index.html') {
             link.classList.add('active');
         }
-        // Special case for directories
-        else if (currentPath.includes('case-studies') && linkHref && linkHref.includes('case-studies')) {
+        // For directories like case-studies
+        else if (currentPath.includes('case-studies') && 
+                linkHref && linkHref.includes('case-studies')) {
             link.classList.add('active');
         }
     });
