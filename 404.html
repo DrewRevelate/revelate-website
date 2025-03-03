@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found | Revelate Operations</title>
-    <link rel="stylesheet" href="/revelate-website/styles.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    
     <style>
         .error-container {
-            min-height: 80vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            min-height: 80vh;
             padding: 2rem;
         }
         
@@ -20,22 +31,43 @@
             font-size: 8rem;
             font-weight: 700;
             line-height: 1;
+            margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .error-message {
-            font-size: 2rem;
+            max-width: 600px;
             margin-bottom: 2rem;
+            color: var(--gray);
+            font-size: 1.2rem;
         }
         
-        .error-description {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            color: var(--gray);
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -43,9 +75,9 @@
     <!-- Navigation -->
     <nav id="navbar" aria-label="Main navigation">
         <div class="container navbar-container">
-            <a href="/revelate-website/" class="logo" aria-label="Revelate Operations Home">
+            <a href="index.html" class="logo" aria-label="Revelate Operations Home">
                 <div class="logo-container">
-                    <img src="/revelate-website/images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
+                    <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
                     <h1>REVELATE</h1>
                 </div>
             </a>
@@ -53,40 +85,125 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="nav-links">
-                <a href="/revelate-website/#features" class="nav-link">Services</a>
-                <a href="/revelate-website/#how-it-works" class="nav-link">Process</a>
-                <a href="/revelate-website/#team" class="nav-link">About Us</a>
-                <a href="/revelate-website/case-studies/" class="nav-link">Case Studies</a>
-                <a href="/revelate-website/#contact" class="nav-link">Contact</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="approach.html" class="nav-link">Our Approach</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="case-studies/index.html" class="nav-link">Case Studies</a>
+                <a href="contact.html" class="nav-link">Contact</a>
                 <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
             </div>
         </div>
     </nav>
 
-    <!-- Error Content -->
-    <div class="error-container">
+    <!-- 404 Error Content -->
+    <main class="error-container">
         <div class="error-code">404</div>
-        <h1 class="error-message">Page Not Found</h1>
-        <p class="error-description">We couldn't find the page you were looking for. It might have been moved, renamed, or doesn't exist.</p>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">The page you're looking for doesn't exist or has been moved. Please check the URL or navigate back to our homepage.</p>
         <div class="error-actions">
-            <a href="/revelate-website/" class="btn btn-primary btn-large">Back to Home</a>
-            <a href="/revelate-website/#contact" class="btn btn-outline btn-large">Contact Us</a>
+            <a href="index.html" class="btn btn-primary btn-large">Back to Home</a>
+            <a href="contact.html" class="btn btn-outline btn-large">Contact Support</a>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer (Simplified) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                        <h2>REVELATE</h2>
+                    </div>
+                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="services.html#crm">CRM Management</a></li>
+                        <li class="footer-link"><a href="services.html#bi">Business Intelligence</a></li>
+                        <li class="footer-link"><a href="services.html#integration">Data Integration</a></li>
+                        <li class="footer-link"><a href="services.html#lead-gen">Lead Generation</a></li>
+                        <li class="footer-link"><a href="services.html#gtm">GTM Strategy</a></li>
+                        <li class="footer-link"><a href="services.html#retention">Customer Retention</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="about.html">About Us</a></li>
+                        <li class="footer-link"><a href="approach.html">Our Process</a></li>
+                        <li class="footer-link"><a href="case-studies/index.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone footer-contact-icon"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope footer-contact-icon"></i>
+                        <span>info@revelateops.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
                 <div class="footer-legal">
-                    <a href="/revelate-website/privacy-policy/">Privacy Policy</a> | <a href="/revelate-website/terms-of-service/">Terms of Service</a>
+                    <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal" aria-hidden="true" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Client Portal Login</h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email-login" class="form-label">Email</label>
+                        <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password-login" class="form-label">Password</label>
+                        <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
-    <script src="/revelate-website/script.js"></script>
+    <script src="js/navigation.js"></script>
 </body>
 </html>
