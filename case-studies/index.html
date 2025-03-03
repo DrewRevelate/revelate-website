@@ -3,457 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ===== TITLE: Update with specific case study name ===== -->
-    <title>Case Study: TechForward Solutions | Revelate Operations</title>
+    <title>Case Studies | Revelate Operations</title>
     
-    <!-- ===== META TAGS: Update for SEO ===== -->
-    <meta name="description" content="Learn how Revelate Operations helped TechForward Solutions achieve 35% increased sales conversion through data-driven CRM integration solutions.">
-    <meta name="keywords" content="data consulting, case study, SaaS industry, CRM implementation">
-    
-    <!-- ===== FONTS & ICONS: Don't change unless updating site-wide ===== -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- ===== STYLESHEETS: Don't change unless updating site-wide ===== -->
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../case-studies.css">
-    <link rel="stylesheet" href="../case-study-detail.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="../css/main.css">
+    
+    <!-- Case Studies specific styles -->
+    <link rel="stylesheet" href="../css/case-studies.css">
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Explore how Revelate Operations has helped businesses transform through innovative, data-driven solutions.">
+    <meta name="keywords" content="data consulting case studies, SaaS success stories, data analytics examples">
 </head>
-
 <body>
-    <div id="nav-placeholder"></div>
-
-    <!-- =================================================================
-         CASE STUDY HERO: Update for each case study
-         ================================================================= -->
-    <section class="case-hero">
-        <div class="container">
-            <div class="case-hero-content">
-                <!-- BREADCRUMB: Update links as needed -->
-                <div class="breadcrumb">
-                    <a href="index.html">Home</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <a href="case-studies.html">Case Studies</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>Client Name</span>
+    <!-- Navigation -->
+    <nav id="navbar" aria-label="Main navigation">
+        <div class="container navbar-container">
+            <a href="../index.html" class="logo" aria-label="Revelate Operations Home">
+                <div class="logo-container">
+                    <img src="../images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
+                    <h1>REVELATE</h1>
                 </div>
-                
-                <!-- CLIENT CATEGORY TAG: Update with appropriate industry/vertical -->
-                <div class="case-tag">SaaS</div>
-                
-                <!-- CASE STUDY TITLE: Update with client name and project focus -->
-                <h1 class="case-title">How We Optimized <span class="text-gradient">Client Name's</span> Data Pipeline for Real-Time Decision Making</h1>
-                
-                <!-- CASE SUMMARY: Brief overview of the case study -->
-                <p class="case-summary">Brief overview of the project and key results achieved. This should be compelling enough to make the reader want to continue. Aim for 2-3 sentences that capture the essence of the transformation.</p>
-                
-                <!-- KEY METRICS: Update with 2-4 key performance indicators -->
-                <div class="case-metrics">
-                    <div class="case-metric">
-                        <span class="metric-value">+35%</span>
-                        <span class="metric-label">Revenue Growth</span>
-                    </div>
-                    <div class="case-metric">
-                        <span class="metric-value">-40%</span>
-                        <span class="metric-label">Reporting Time</span>
-                    </div>
-                    <div class="case-metric">
-                        <span class="metric-value">3x</span>
-                        <span class="metric-label">ROI</span>
-                    </div>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="../services.html" class="nav-link">Services</a>
+                <a href="../approach.html" class="nav-link">Our Approach</a>
+                <a href="../about.html" class="nav-link">About Us</a>
+                <a href="../case-studies/index.html" class="nav-link">Case Studies</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header case-studies-header">
+        <div class="container">
+            <h1 class="page-title">Client Success <span class="text-gradient">Stories</span></h1>
+            <p class="page-subtitle">See how we've transformed businesses through data-driven insights and solutions</p>
+        </div>
+    </section>
+
+    <!-- Case Studies Filter & Grid -->
+    <section class="case-studies-section">
+        <div class="container">
+            <div class="filter-section">
+                <h2 class="filter-title">Explore Our Case Studies</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Industries</button>
+                    <button class="filter-btn" data-filter="saas">SaaS</button>
+                    <button class="filter-btn" data-filter="marketing">Marketing</button>
+                    <button class="filter-btn" data-filter="customer-success">Customer Success</button>
                 </div>
             </div>
             
-            <!-- HERO IMAGE: Replace with client-specific imagery -->
-            <div class="case-hero-image">
-                <img src="images/case-studies/client-dashboard.jpg" alt="Client Name Dashboard" width="600" height="400">
-            </div>
-        </div>
-        
-        <!-- DECORATIVE ELEMENTS: Can be customized for visual interest -->
-        <div class="hero-shape shape-1"></div>
-        <div class="hero-shape shape-2"></div>
-    </section>
-
-    <!-- =================================================================
-         CLIENT OVERVIEW: Basic information about the client
-         ================================================================= -->
-    <section class="case-overview">
-        <div class="container">
-            <div class="overview-grid">
-                <!-- LEFT COLUMN: Client information -->
-                <div class="client-info">
-                    <!-- CLIENT LOGO: Replace with actual client logo -->
-                    <div class="client-logo">
-                        <img src="images/case-studies/client-logo.png" alt="Client Name Logo" width="200" height="80">
-                    </div>
-                    
-                    <!-- CLIENT DETAILS: Update with actual client information -->
-                    <div class="client-details">
-                        <div class="detail-item">
-                            <h4>Industry</h4>
-                            <p>SaaS / Technology</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Company Size</h4>
-                            <p>250+ Employees</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Location</h4>
-                            <p>San Francisco, CA</p>
-                        </div>
-                        <div class="detail-item">
-                            <h4>Project Duration</h4>
-                            <p>4 Months</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- RIGHT COLUMN: Project overview -->
-                <div class="project-overview">
-                    <h2>Project Overview</h2>
-                    <p>Provide a more detailed overview of the project here. Explain who the client is, what their business is about, and the general scope of the project. This should be about 100-150 words that give enough context for the reader to understand the case study.</p>
-                    
-                    <!-- SERVICES PROVIDED: Update with actual services -->
-                    <div class="services-provided">
-                        <h3>Services Provided</h3>
-                        <ul class="service-tags">
-                            <li>Data Integration</li>
-                            <li>Dashboard Development</li>
-                            <li>Business Intelligence</li>
-                            <li>Predictive Analytics</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         PROCESS TIMELINE: Visual representation of the project phases
-         ================================================================= -->
-    <section class="case-process">
-        <div class="container">
-            <h2 class="section-title">Our Approach</h2>
-            
-            <!-- PROCESS TIMELINE: Update steps for each case study -->
-            <div class="process-timeline">
-                <!-- PHASE 1 -->
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Discovery</h3>
-                        <p>Describe the discovery phase of the project. What did you learn about their existing systems, challenges, and goals? What research or assessments did you conduct?</p>
-                        <ul class="step-highlights">
-                            <li>Key discovery activity or finding</li>
-                            <li>Another important discovery element</li>
-                            <li>Critical insight from this phase</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- PHASE 2 -->
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Strategy</h3>
-                        <p>Explain the strategic plan you developed based on the discovery phase. How did you approach solving their problems? What solutions did you recommend and why?</p>
-                        <ul class="step-highlights">
-                            <li>Key strategic decision or approach</li>
-                            <li>Solution architecture or framework</li>
-                            <li>Expected outcomes and metrics</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- PHASE 3 -->
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Implementation</h3>
-                        <p>Detail the implementation phase. What did you build or configure? How did you integrate with existing systems? What was the timeline and process?</p>
-                        <ul class="step-highlights">
-                            <li>Technical implementation details</li>
-                            <li>Integration points and challenges</li>
-                            <li>Deployment strategy</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- PHASE 4 -->
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Optimization</h3>
-                        <p>Describe how you refined the solution after initial implementation. What adjustments were made? How did you ensure adoption and success?</p>
-                        <ul class="step-highlights">
-                            <li>Post-implementation improvements</li>
-                            <li>Training and adoption strategies</li>
-                            <li>Ongoing support structure</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         CHALLENGE SECTION: Detail the client's problems
-         ================================================================= -->
-    <section class="case-challenge">
-        <div class="container">
-            <div class="section-grid">
-                <div class="section-content">
-                    <h2 class="section-title">The Challenge</h2>
-                    <p>Outline the specific business challenges the client was facing that prompted them to seek your help. This should clearly articulate the pain points and why they were significant.</p>
-                    <p>Expand on the problems in more detail, explaining the impact these issues were having on the business. You might include failed previous attempts to solve the problem, growing concerns, or competitive pressures.</p>
-                    
-                    <!-- CHALLENGE BULLETS: Update with specific challenges -->
-                    <ul class="challenge-list">
-                        <li>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div>
-                                <h4>Challenge 1</h4>
-                                <p>Describe the first major challenge in detail. What was happening and why was it problematic?</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div>
-                                <h4>Challenge 2</h4>
-                                <p>Describe the second major challenge in detail. How was it affecting operations or business outcomes?</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-exclamation-circle"></i>
-                            <div>
-                                <h4>Challenge 3</h4>
-                                <p>Describe the third major challenge in detail. What were the consequences of not addressing it?</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- CHALLENGE VISUAL: Replace with relevant visualization -->
-                <div class="section-visual">
-                    <img src="images/case-studies/challenge-visual.svg" alt="Visual representation of the challenges" width="500" height="400">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         SOLUTION SECTION: Detail your approach and what you built
-         ================================================================= -->
-    <section class="case-solution">
-        <div class="container">
-            <h2 class="section-title">Our Solution</h2>
-            <p class="section-subtitle">Explain your overall approach to solving the client's challenges. This should be a high-level summary before diving into the specific components.</p>
-            
-            <!-- SOLUTION COMPONENTS: Update with actual solution details -->
-            <div class="solution-grid">
-                <!-- COMPONENT 1 -->
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Integration</h3>
-                    <p>Describe this component of your solution. What did you implement? How did it work? Why was this approach chosen?</p>
-                    <ul class="solution-features">
-                        <li>Key feature or technology used</li>
-                        <li>Critical implementation detail</li>
-                        <li>Integration with existing systems</li>
-                    </ul>
-                </div>
-                
-                <!-- COMPONENT 2 -->
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Analytics Dashboard</h3>
-                    <p>Describe this component of your solution. What metrics or insights were highlighted? How was it designed for usability?</p>
-                    <ul class="solution-features">
-                        <li>Key feature or technology used</li>
-                        <li>Critical implementation detail</li>
-                        <li>User experience considerations</li>
-                    </ul>
-                </div>
-                
-                <!-- COMPONENT 3 -->
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Predictive Model</h3>
-                    <p>Describe this component of your solution. What algorithms or approaches were used? How was the model trained and validated?</p>
-                    <ul class="solution-features">
-                        <li>Key feature or technology used</li>
-                        <li>Critical implementation detail</li>
-                        <li>Accuracy and performance metrics</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- SOLUTION VISUAL: Replace with actual screenshot or diagram -->
-            <div class="solution-visual">
-                <h3>The Final Implementation</h3>
-                <img src="images/case-studies/solution-dashboard.jpg" alt="Screenshot of implemented solution" width="1000" height="600">
-                <p class="image-caption">Caption describing the solution screenshot. Explain what the reader is seeing and its significance.</p>
-            </div>
-            
-            <!-- TECHNOLOGIES USED: Update with actual tech stack -->
-            <div class="technologies">
-                <h3>Technologies Used</h3>
-                <div class="tech-logos">
-                    <div class="tech-logo">
-                        <img src="images/tech/snowflake.png" alt="Snowflake" width="100" height="50">
-                        <span>Snowflake</span>
-                    </div>
-                    <div class="tech-logo">
-                        <img src="images/tech/tableau.png" alt="Tableau" width="100" height="50">
-                        <span>Tableau</span>
-                    </div>
-                    <div class="tech-logo">
-                        <img src="images/tech/python.png" alt="Python" width="100" height="50">
-                        <span>Python</span>
-                    </div>
-                    <div class="tech-logo">
-                        <img src="images/tech/salesforce.png" alt="Salesforce" width="100" height="50">
-                        <span>Salesforce</span>
-                    </div>
-                    <!-- Add more tech logos as needed -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         RESULTS SECTION: Detail the outcomes and impact
-         ================================================================= -->
-    <section class="case-results">
-        <div class="container">
-            <div class="section-grid">
-                <div class="section-content">
-                    <h2 class="section-title">The Results</h2>
-                    <p>Summarize the overall impact of your solution. This should highlight the transformation and tie back to the original challenges. Focus on concrete, measurable results.</p>
-                    
-                    <!-- RESULTS METRICS: Update with actual outcomes -->
-                    <div class="results-metrics">
-                        <div class="result-metric-card">
-                            <div class="result-value">35%</div>
-                            <div class="result-label">Increase in Revenue</div>
-                            <p class="result-detail">Explain how your solution contributed to this specific metric. What changed to make this possible?</p>
-                        </div>
-                        
-                        <div class="result-metric-card">
-                            <div class="result-value">40%</div>
-                            <div class="result-label">Reduction in Reporting Time</div>
-                            <p class="result-detail">Explain how your solution contributed to this specific metric. What efficiencies were gained?</p>
-                        </div>
-                        
-                        <div class="result-metric-card">
-                            <div class="result-value">3x</div>
-                            <div class="result-label">Return on Investment</div>
-                            <p class="result-detail">Explain how your solution contributed to this specific metric. What was the cost vs. benefit calculation?</p>
-                        </div>
-                    </div>
-                    
-                    <p class="results-summary">Provide additional context about the results beyond the metrics. How did these improvements impact the client's business strategically? What unexpected benefits emerged? How have these changes positioned the client for future success?</p>
-                </div>
-                
-                <!-- RESULTS VISUAL: Replace with actual data visualization -->
-                <div class="section-visual">
-                    <div class="results-chart">
-                        <img src="images/case-studies/results-chart.svg" alt="Chart showing before and after results" width="500" height="400">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         TESTIMONIAL SECTION: Client feedback
-         ================================================================= -->
-    <section class="case-testimonial">
-        <div class="container">
-            <div class="testimonial-container">
-                <div class="testimonial-quote">
-                    <i class="fas fa-quote-left"></i>
-                    <blockquote>
-                        Include a powerful quote from the client about the project and its impact. This should be authentic and specific to the work completed. The quote should ideally mention both the experience of working with you and the outcomes achieved.
-                    </blockquote>
-                    <div class="testimonial-author">
-                        <img src="images/case-studies/client-contact.jpg" alt="Client Name, Position" width="80" height="80">
-                        <div class="author-details">
-                            <h4>Client Contact Name</h4>
-                            <p>Position, Company Name</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =================================================================
-         RELATED CASE STUDIES: Suggest other relevant case studies
-         ================================================================= -->
-    <section class="related-cases">
-        <div class="container">
-            <h2 class="section-title">Related Case Studies</h2>
-            <p class="section-subtitle">Explore more success stories similar to this one</p>
-            
-            <div class="related-cases-grid">
-                <!-- RELATED CASE 1: Update with actual related case -->
-                <div class="related-case-card">
+            <div class="case-studies-grid">
+                <!-- Case Study 1 -->
+                <div class="case-study-card" data-category="saas">
                     <div class="case-study-image">
-                        <img src="images/case-studies/related-case-1.jpg" alt="Related Case Study 1" width="350" height="200">
+                        <img src="../images/case-studies/techforward-thumb.jpg" alt="TechForward Case Study">
                         <div class="case-tag">SaaS</div>
                     </div>
                     <div class="case-study-content">
-                        <h3>Related Case Study Title</h3>
-                        <p class="case-client">Client Name</p>
-                        <p>Brief description of the related case study. What was the challenge and solution?</p>
-                        <a href="case-study-1.html" class="btn btn-outline btn-sm">Read Case Study</a>
+                        <h3>Optimizing Sales Pipeline Visibility</h3>
+                        <p class="case-client">TechForward Solutions</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="metric-value">+35%</span>
+                                <span class="metric-label">Sales Conversion</span>
+                            </div>
+                            <div class="case-metric">
+                                <span class="metric-value">-40%</span>
+                                <span class="metric-label">Reporting Time</span>
+                            </div>
+                        </div>
+                        <p>We helped TechForward consolidate five disparate data sources into a unified Salesforce environment with custom dashboards, giving leadership unprecedented visibility into their sales pipeline.</p>
+                        <a href="case-study-1.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
                     </div>
                 </div>
                 
-                <!-- RELATED CASE 2: Update with actual related case -->
-                <div class="related-case-card">
+                <!-- Case Study 2 -->
+                <div class="case-study-card" data-category="marketing">
                     <div class="case-study-image">
-                        <img src="images/case-studies/related-case-2.jpg" alt="Related Case Study 2" width="350" height="200">
-                        <div class="case-tag">Analytics</div>
+                        <img src="../images/case-studies/growify-thumb.jpg" alt="Growify Case Study">
+                        <div class="case-tag">Marketing</div>
                     </div>
                     <div class="case-study-content">
-                        <h3>Related Case Study Title</h3>
-                        <p class="case-client">Client Name</p>
-                        <p>Brief description of the related case study. What was the challenge and solution?</p>
-                        <a href="case-study-2.html" class="btn btn-outline btn-sm">Read Case Study</a>
+                        <h3>Data-Driven Marketing Transformation</h3>
+                        <p class="case-client">Growify</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="metric-value">+42%</span>
+                                <span class="metric-label">Marketing ROI</span>
+                            </div>
+                            <div class="case-metric">
+                                <span class="metric-value">+68%</span>
+                                <span class="metric-label">Lead Quality</span>
+                            </div>
+                        </div>
+                        <p>By implementing advanced attribution modeling and creating a centralized marketing analytics platform, we helped Growify optimize their channel mix and dramatically improve campaign performance.</p>
+                        <a href="case-study-2.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="case-study-card" data-category="customer-success">
+                    <div class="case-study-image">
+                        <img src="../images/case-studies/nexus-thumb.jpg" alt="Nexus Case Study">
+                        <div class="case-tag">Customer Success</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Reducing Churn with Predictive Analytics</h3>
+                        <p class="case-client">Nexus Technologies</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="metric-value">-23%</span>
+                                <span class="metric-label">Customer Churn</span>
+                            </div>
+                            <div class="case-metric">
+                                <span class="metric-value">+18%</span>
+                                <span class="metric-label">Expansion Revenue</span>
+                            </div>
+                        </div>
+                        <p>We developed a customer health scoring system that identified at-risk accounts before they churned, allowing the success team to proactively address issues and drive additional value.</p>
+                        <a href="case-study-3.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 4 -->
+                <div class="case-study-card" data-category="saas">
+                    <div class="case-study-image">
+                        <img src="../images/case-studies/cloudconnect-thumb.jpg" alt="CloudConnect Case Study">
+                        <div class="case-tag">SaaS</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Data Integration for Enterprise SaaS</h3>
+                        <p class="case-client">CloudConnect Solutions</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="metric-value">+55%</span>
+                                <span class="metric-label">Processing Speed</span>
+                            </div>
+                            <div class="case-metric">
+                                <span class="metric-value">-30%</span>
+                                <span class="metric-label">Support Tickets</span>
+                            </div>
+                        </div>
+                        <p>We helped CloudConnect unify their disjointed data landscape by implementing a modern ETL pipeline, resulting in faster insights and reduced reliance on IT for reports.</p>
+                        <a href="case-study-4.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 5 -->
+                <div class="case-study-card" data-category="marketing">
+                    <div class="case-study-image">
+                        <img src="../images/case-studies/marketpulse-thumb.jpg" alt="MarketPulse Case Study">
+                        <div class="case-tag">Marketing</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Lead Generation Optimization</h3>
+                        <p class="case-client">MarketPulse Digital</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="metric-value">+62%</span>
+                                <span class="metric-label">Qualified Leads</span>
+                            </div>
+                            <div class="case-metric">
+                                <span class="metric-value">-25%</span>
+                                <span class="metric-label">Cost Per Acquisition</span>
+                            </div>
+                        </div>
+                        <p>Through audience analysis and targeted campaign optimization, we transformed MarketPulse's lead generation approach, dramatically increasing both quality and quantity of leads.</p>
+                        <a href="case-study-5.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
+                    </div>
+                </div>
+                
+                <!-- Case Study 6 -->
+                <div class="case-study-card" data-category="customer-success">
+                    <div class="case-study-image">
+                        <img src="../images/case-studies/techsprint-thumb.jpg" alt="TechSprint Case Study">
+                        <div class="case-tag">Customer Success</div>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Customer Onboarding Transformation</h3>
+                        <p class="case-client">TechSprint Software</p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <span class="metric-value">-35%</span>
+                                <span class="metric-label">Time-to-Value</span>
+                            </div>
+                            <div class="case-metric">
+                                <span class="metric-value">+40%</span>
+                                <span class="metric-label">Feature Adoption</span>
+                            </div>
+                        </div>
+                        <p>We redesigned TechSprint's onboarding process using data-driven insights, reducing time-to-value and significantly improving early product adoption metrics.</p>
+                        <a href="case-study-6.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
                     </div>
                 </div>
             </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-prev" disabled aria-label="Previous page">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <div class="pagination-numbers">
+                    <span class="pagination-number active" data-page="1" aria-current="true">1</span>
+                    <span class="pagination-number" data-page="2">2</span>
+                </div>
+                <button class="pagination-next" aria-label="Next page">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
     </section>
-
-    <!-- =================================================================
-         CTA SECTION: Encourage contact
-         ================================================================= -->
-    <section class="case-cta">
+    
+    <!-- Industries We Serve -->
+    <section class="industries-section light">
         <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready for Similar Results?</h2>
-                <p class="cta-description">Let's discuss how we can help you transform your data into actionable insights that drive growth and efficiency.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary btn-large">Contact Us</a>
-                    <a href="case-studies.html" class="btn btn-outline btn-large">More Case Studies</a>
+            <h2 class="section-title text-center">Industries We Serve</h2>
+            <p class="section-subtitle text-center">Our data-driven approach delivers results across diverse sectors</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>SaaS & Technology</h3>
+                    <p>We help SaaS companies optimize their revenue operations, from lead generation to customer retention, driving sustainable growth.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Financial Services</h3>
+                    <p>We enable financial institutions to leverage their data for improved customer insights, risk management, and operational efficiency.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce & Retail</h3>
+                    <p>We help retailers create seamless omnichannel experiences through integrated data and personalized customer journeys.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>We support healthcare providers in improving patient outcomes and operational efficiency through data-driven decision making.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>We help manufacturers optimize supply chains, improve quality control, and enhance operational visibility through data integration.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>We empower marketing agencies with comprehensive analytics and attribution modeling to maximize campaign ROI.</p>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Data?</h2>
+                <p class="cta-description">Let's start a conversation about how we can help you unlock the full potential of your data and drive business growth.</p>
+                <a href="../contact.html" class="btn btn-light btn-large">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
 
-    <div id="footer-placeholder"></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                        <h2>REVELATE</h2>
+                    </div>
+                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../services.html#crm">CRM Management</a></li>
+                        <li class="footer-link"><a href="../services.html#bi">Business Intelligence</a></li>
+                        <li class="footer-link"><a href="../services.html#integration">Data Integration</a></li>
+                        <li class="footer-link"><a href="../services.html#lead-gen">Lead Generation</a></li>
+                        <li class="footer-link"><a href="../services.html#gtm">GTM Strategy</a></li>
+                        <li class="footer-link"><a href="../services.html#retention">Customer Retention</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="../about.html">About Us</a></li>
+                        <li class="footer-link"><a href="../approach.html">Our Process</a></li>
+                        <li class="footer-link"><a href="index.html">Case Studies</a></li>
+                        <li class="footer-link"><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
+                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone footer-contact-icon"></i>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope footer-contact-icon"></i>
+                        <span>info@revelateops.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="../privacy-policy.html">Privacy Policy</a> | <a href="../terms-of-service.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal" aria-hidden="true" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Client Portal Login</h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email-login" class="form-label">Email</label>
+                        <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password-login" class="form-label">Password</label>
+                        <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Scroll to Top Button -->
     <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
@@ -461,7 +402,8 @@
     </button>
 
     <!-- JavaScript -->
-    <script src="../script.js"></script>
-    <script src="../components.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/case-studies.js"></script>
 </body>
 </html>
