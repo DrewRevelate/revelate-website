@@ -47,40 +47,5 @@
                 link.classList.add('active');
             }
         });
-        
-        // Mobile menu toggle functionality 
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinksDiv = document.querySelector('.nav-links');
-        
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-                this.setAttribute('aria-expanded', !expanded);
-                navLinksDiv.classList.toggle('active');
-                
-                // Change icon based on state
-                const icon = this.querySelector('i');
-                if (expanded) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                }
-            });
-        }
-        
-        // Close mobile menu when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navLinksDiv.classList.remove('active');
-                if (mobileToggle) {
-                    mobileToggle.setAttribute('aria-expanded', 'false');
-                    const icon = mobileToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        });
     });
 </script>

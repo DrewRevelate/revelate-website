@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.getElementById('navbar');
     
     function handleNavbarScroll() {
-        if (window.scrollY > 50) {
+        if (navbar && window.scrollY > 50) {
             navbar.classList.add('scrolled');
-        } else {
+        } else if (navbar) {
             navbar.classList.remove('scrolled');
         }
     }
@@ -24,45 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleNavbarScroll);
     // Call once on load to set initial state
     handleNavbarScroll();
-    
-    /**
-     * MOBILE MENU TOGGLE
-     * Handles showing/hiding the mobile menu
-     */
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
-            const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-            this.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('active');
-            
-            // Change icon based on state
-            const icon = this.querySelector('i');
-            if (expanded) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            }
-        });
-    }
-    
-    // Close mobile menu when clicking a link
-    const navLinksArray = document.querySelectorAll('.nav-link');
-    navLinksArray.forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.classList.remove('active');
-            if (mobileToggle) {
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                const icon = mobileToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    });
     
     /**
      * SMOOTH SCROLL
@@ -100,110 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         logo.addEventListener('mouseleave', function() {
             this.style.background = 'transparent';
-        });
-    }
-    
-    /**
-     * LOGIN MODAL
-     * Handles showing/hiding the login modal
-     */
-    const portalBtn = document.getElementById('portal-btn');
-    const loginModal = document.getElementById('login-modal');
-    const closeModal = document.querySelector('.close-modal');
-    const loginForm = document.getElementById('login-form');
-    
-    if (portalBtn && loginModal) {
-        portalBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            loginModal.style.display = 'flex';
-            loginModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-            
-            // Focus the first input field
-            setTimeout(() => {
-                const firstInput = loginModal.querySelector('input');
-                if (firstInput) firstInput.focus();
-            }, 100);
-        });
-    }
-    
-    if (closeModal && loginModal) {
-        closeModal.addEventListener('click', function() {
-            closeLoginModal();
-        });
-    }
-    
-    // Close modal when clicking outside of it
-    if (loginModal) {
-        window.addEventListener('click', function(e) {
-            if (e.target === loginModal) {
-                closeLoginModal();
-            }
-        });
-        
-        // Close modal on escape key
-        window.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && loginModal.style.display === 'flex') {
-                closeLoginModal();
-            }
-        });
-    }
-    
-    function closeLoginModal() {
-        if (!loginModal) return;
-        
-        loginModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = ''; // Restore scrolling
-        
-        // Add a fade-out animation
-        loginModal.style.opacity = '0';
-        setTimeout(() => {
-            loginModal.style.display = 'none';
-            loginModal.style.opacity = '1';
-        }, 300);
-    }
-    
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validate the form
-            let isValid = true;
-            const email = document.getElementById('email-login');
-            const password = document.getElementById('password-login');
-            const emailFeedback = email.nextElementSibling;
-            const passwordFeedback = password.nextElementSibling;
-            
-            // Reset previous validation
-            email.classList.remove('is-invalid');
-            password.classList.remove('is-invalid');
-            emailFeedback.textContent = '';
-            passwordFeedback.textContent = '';
-            
-            // Email validation
-            if (!email.value.trim()) {
-                email.classList.add('is-invalid');
-                emailFeedback.textContent = 'Email is required';
-                isValid = false;
-            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-                email.classList.add('is-invalid');
-                emailFeedback.textContent = 'Please enter a valid email address';
-                isValid = false;
-            }
-            
-            // Password validation
-            if (!password.value) {
-                password.classList.add('is-invalid');
-                passwordFeedback.textContent = 'Password is required';
-                isValid = false;
-            }
-            
-            if (isValid) {
-                // Simulate login success
-                alert('This would normally log you into the client portal. Feature coming soon!');
-                closeLoginModal();
-                loginForm.reset();
-            }
         });
     }
     
@@ -516,7 +373,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id]');
     
     function highlightNavLink() {
+        if (sections.length === 0) return;
+        
         const scrollPosition = window.scrollY + 100;
+        const navLinksArray = document.querySelectorAll('.nav-link');
+        
+        if (navLinksArray.length === 0) return;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
@@ -525,9 +387,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 navLinksArray.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
+                    const href = link.getAttribute('href') || '';
+                    if (href.includes(`#${sectionId}`)) {
                         link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
                     }
                 });
             }
@@ -535,7 +399,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     window.addEventListener('scroll', highlightNavLink);
-    highlightNavLink();
+    // Delay highlighting to ensure components have loaded
+    setTimeout(highlightNavLink, 500);
     
     /**
      * SCROLL TO TOP BUTTON
