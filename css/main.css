@@ -1779,3 +1779,280 @@ textarea.form-control {
 .skip-nav:focus {
     top: 0;
 }
+/* 
+These are additional CSS styles that should be added to main.css
+to improve responsive design, animations, and fix functional issues
+*/
+
+/* Improved Mobile Menu */
+.nav-links {
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Buttons */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::after,
+.btn:focus::after {
+    left: 0;
+}
+
+/* Improved Feature Cards */
+.feature-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-details {
+    display: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card.expanded .feature-details {
+    display: block;
+    opacity: 1;
+    max-height: 1000px;
+}
+
+.feature-link {
+    margin-top: auto;
+    transition: all 0.3s ease;
+}
+
+.feature-card.expanded .feature-link i {
+    transform: rotate(90deg);
+}
+
+/* Improved Testimonial Slider */
+.testimonial-card {
+    transition: all 0.5s ease-in-out;
+}
+
+.testimonial-card.active {
+    display: block;
+    animation: fadeInRight 0.5s ease forwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* FAQ Section Styles */
+.faq-item {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.faq-toggle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(245, 247, 250, 0.5);
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 1.5rem 0;
+}
+
+.faq-item.open .faq-question {
+    background: rgba(67, 97, 238, 0.03);
+}
+
+.faq-item.open .faq-toggle {
+    transform: rotate(180deg);
+}
+
+/* Form Feedback Improvements */
+.form-control.is-invalid {
+    border-color: var(--error);
+}
+
+.form-feedback {
+    color: var(--error);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    min-height: 1.25rem;
+}
+
+/* Modal Improvements */
+.modal {
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.modal[style*="display: flex"] .modal-content {
+    transform: scale(1);
+}
+
+/* Enhanced Animations for Elements */
+.animate {
+    transition-delay: var(--delay, 0s);
+}
+
+/* Improved Responsive Design */
+@media (max-width: 992px) {
+    .features-grid,
+    .team-carousel,
+    .approach-overview-grid,
+    .case-studies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .value-prop-grid,
+    .story-grid,
+    .intro-grid,
+    .contact-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .value-prop-image,
+    .story-image,
+    .intro-image {
+        order: -1;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    .contact-form-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid,
+    .case-studies-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .hero-metrics {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .filter-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --space-xl: 3rem;
+        --space-lg: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .testimonial-content {
+        font-size: 1.1rem;
+    }
+    
+    .tech-logos {
+        gap: 1rem;
+    }
+}
