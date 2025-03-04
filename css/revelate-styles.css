@@ -821,9 +821,82 @@ section {
   margin-bottom: 0.5rem;
 }
 
+/* Stats Section */
+.stats {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+  color: white;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  gap: 2rem;
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 200px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 0;
+  height: 80%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-item:last-child::after {
+  display: none;
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+
+.stat-number::after {
+  content: '%';
+  font-size: 1.75rem;
+  position: absolute;
+  top: 0.5rem;
+  right: -1.5rem;
+  opacity: 0.8;
+}
+
+.stat-item:first-child .stat-number::after {
+  content: '+';
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
 /* Testimonials */
 .testimonials-slider {
   position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-slider-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -835,12 +908,30 @@ section {
   box-shadow: var(--shadow-md);
   display: none;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 300px;
 }
 
 .testimonial-card.active {
   display: block;
   opacity: 1;
+  position: relative;
+  z-index: 2;
+  transform: translateX(0);
+}
+
+.testimonial-card.previous {
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.testimonial-card.next {
+  transform: translateX(100%);
+  z-index: 1;
 }
 
 .testimonial-content {
@@ -851,6 +942,19 @@ section {
   position: relative;
   font-weight: 300;
   font-style: italic;
+  padding-left: 2rem;
+  border-left: 4px solid var(--primary-light);
+}
+
+.testimonial-content::before {
+  content: """;
+  font-size: 4rem;
+  color: var(--primary-light);
+  opacity: 0.3;
+  position: absolute;
+  top: -1.5rem;
+  left: -0.5rem;
+  font-family: Georgia, serif;
 }
 
 .testimonial-author {
@@ -859,6 +963,9 @@ section {
   gap: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   padding-top: 1.5rem;
+  background: rgba(248, 249, 250, 0.5);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
 }
 
 .author-image {
@@ -870,12 +977,26 @@ section {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.author-info h4 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.author-info p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 0;
+}
+
 .testimonial-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
   gap: 1.5rem;
+  position: relative;
+  z-index: 5;
 }
 
 .testimonial-control {
@@ -1389,6 +1510,50 @@ textarea.form-control {
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -1399,6 +1564,17 @@ textarea.form-control {
   from {
     opacity: 0;
     transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
