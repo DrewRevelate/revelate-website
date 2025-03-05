@@ -9,18 +9,20 @@
 /* Fix for the case study hero section */
 .case-studies-hero {
     padding: var(--space-12) 0 0;
-    margin-top: 80px; /* Add this line */
+    margin-top: 80px;
     background-color: white;
     position: relative;
     overflow: hidden;
     text-align: center;
-}.container {
+}
+
+.case-studies-hero .container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Equal width columns */
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-6);
     align-items: center;
-    padding-top: var(--space-8); /* Add more padding at the top */
-    padding-bottom: var(--space-6); /* Add padding at the bottom */
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-6);
 }
 
 .case-study-hero-content {
