@@ -6,88 +6,23 @@
 /* ==========================================
    Case Study Hero Section
    ========================================== */
-.case-study-hero {
-    padding: var(--space-10) 0 0;
-    background-color: white;
-    position: relative;
-    overflow: hidden;
-}
-
+/* Fix for the case study hero section */
 .case-study-hero .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Equal width columns */
     gap: var(--space-6);
     align-items: center;
+    padding-top: var(--space-8); /* Add more padding at the top */
+    padding-bottom: var(--space-6); /* Add padding at the bottom */
 }
 
-.case-study-breadcrumbs {
-    margin-bottom: var(--space-4);
-    font-size: var(--font-size-sm);
-    color: var(--gray);
-}
-
-.case-study-breadcrumbs a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.case-study-breadcrumbs a:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
-}
-
-.client-logo {
-    margin-bottom: var(--space-4);
-    max-width: 200px;
-}
-
-.client-logo img {
-    max-width: 100%;
-    height: auto;
-}
-
-.case-study-hero h1 {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--space-4);
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    font-size: var(--font-size-xl);
-    color: var(--gray);
-    margin-bottom: var(--space-6);
-    max-width: 95%;
-}
-
-.case-study-meta {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-    margin-top: var(--space-6);
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--light-alt);
-}
-
-.meta-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.meta-label {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--gray);
-    margin-bottom: var(--space-1);
-}
-
-.meta-value {
-    font-size: var(--font-size-md);
-    color: var(--dark);
+.case-study-hero-content {
+    max-width: 100%; /* Ensure content can fill its column */
+    padding-right: var(--space-4); /* Add some right padding */
 }
 
 .case-study-hero-image {
-    position: relative;
+    width: 100%; /* Ensure image container uses full width */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,15 +33,55 @@
     height: auto;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+    object-fit: cover; /* Maintain aspect ratio while covering container */
 }
 
-.case-study-hero-wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    line-height: 0;
-    z-index: 1;
+/* Ensure proper spacing for meta items */
+.case-study-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4) var(--space-6); /* Increase horizontal gap */
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--light-alt);
+}
+
+/* Add more breathing room for hero section on larger screens */
+@media (min-width: 1200px) {
+    .case-study-hero .container {
+        max-width: 1200px; /* Slightly wider container on large screens */
+        padding-top: var(--space-10);
+    }
+}
+
+/* Improved responsive layout for smaller screens */
+@media (max-width: 991px) {
+    .case-study-hero .container {
+        grid-template-columns: 1fr; /* Stack vertically on smaller screens */
+        gap: var(--space-8);
+        text-align: center;
+        padding-top: var(--space-6);
+    }
+    
+    .case-study-hero-content {
+        order: 2;
+        padding-right: 0;
+    }
+    
+    .case-study-hero-image {
+        order: 1;
+        margin-bottom: var(--space-4);
+    }
+
+    .case-study-meta {
+        grid-template-columns: repeat(2, 1fr); /* Keep two columns for meta on medium screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .case-study-meta {
+        grid-template-columns: 1fr; /* Single column for meta on small screens */
+    }
 }
 
 /* ==========================================
