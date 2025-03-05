@@ -196,6 +196,10 @@ ol[class] {
     transform: translateY(0);
 }
 
+.page-hero {
+    margin-top: 80px; /* Consistent header offset */
+}
+
 /* ==========================================
    3. Typography
    ========================================== */
