@@ -4,19 +4,27 @@
  */
 
 /* ==========================================
-   Services Hero Section
+   Services Hero Section - Updated Layout
    ========================================== */
 .services-hero {
-    padding: var(--space-12) 0 0;
+    padding: var(--space-8) 0 0; /* Reduced from space-12 */
     background-color: white;
     position: relative;
     overflow: hidden;
 }
 
+.services-hero-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
 .services-hero-content {
+    flex: 1;
     max-width: 600px;
     position: relative;
     z-index: 2;
+    padding-bottom: var(--space-8); /* Space for the wave */
 }
 
 .services-hero h1 {
@@ -27,7 +35,7 @@
     font-size: var(--font-size-xl);
     color: var(--gray);
     margin-bottom: var(--space-6);
-    max-width: 90%;
+    max-width: 95%;
 }
 
 .services-hero-cta {
@@ -37,19 +45,27 @@
 }
 
 .services-hero-image {
+    flex: 1;
     position: relative;
-    margin-left: auto;
-    margin-top: var(--space-6);
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.services-hero-wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    line-height: 0;
-    z-index: 1;
+.services-hero-image img {
+    max-width: 100%;
+    height: auto;
+    animation: subtle-float 8s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
 }
 
 .hero-shape-1 {
@@ -64,12 +80,48 @@
     animation: float 6s ease-in-out infinite alternate;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
+.services-hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 1;
+}
+
+/* Responsive adjustments for the hero section */
+@media (max-width: 991px) {
+    .services-hero-wrapper {
+        flex-direction: column;
     }
-    100% {
-        transform: translateY(-20px) rotate(5deg);
+    
+    .services-hero-content {
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: var(--space-6);
+    }
+    
+    .services-hero-cta {
+        justify-content: center;
+    }
+    
+    .hero-subtitle {
+        max-width: 100%;
+    }
+    
+    .services-hero-image {
+        margin-top: var(--space-4); /* Reduced from space-6 */
+    }
+}
+
+@media (max-width: 767px) {
+    .services-hero {
+        padding-top: var(--space-6); /* Further reduced for mobile */
+    }
+    
+    .services-hero-cta {
+        flex-direction: column;
+        gap: var(--space-3);
     }
 }
 
