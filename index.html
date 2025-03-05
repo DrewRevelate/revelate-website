@@ -83,19 +83,128 @@
     <header id="header">
         <div class="container">
             <div class="header-inner">
-<!-- Updated Logo in header -->
-<a href="/" class="logo" aria-label="Revelate Operations Home">
-    <div class="logo-container">
-        <div class="logo-graphic relative">
-            <div class="main-orbit absolute"></div>
-            <div class="inner-orbit absolute"></div>
-            <div class="center-dot absolute"></div>
+import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
+
+const AnimatedLogo = () => {
+  const [expanded, setExpanded] = useState(false);
+  const [pulsating, setPulsating] = useState(false);
+  
+  // Trigger expansion after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setExpanded(true);
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Start pulsating after expansion is complete
+  useEffect(() => {
+    if (expanded) {
+      const timer = setTimeout(() => {
+        setPulsating(true);
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [expanded]);
+  
+  // Animation for text expansion
+  const textProps = useSpring({
+    width: expanded ? '220px' : '80px',
+    config: { tension: 120, friction: 14 }
+  });
+  
+  // Orbital animation for logo
+  const orbitAnimation = useSpring({
+    from: { transform: 'rotate(0deg)' },
+    to: { transform: 'rotate(360deg)' },
+    config: { duration: 20000 },
+    loop: true
+  });
+  
+  // Inner orbit animation (opposite direction)
+  const innerOrbitAnimation = useSpring({
+    from: { transform: 'rotate(360deg)' },
+    to: { transform: 'rotate(0deg)' },
+    config: { duration: 12000 },
+    loop: true
+  });
+  
+  // Dot animation
+  const dotAnimation = useSpring({
+    from: { transform: 'scale(1)' },
+    to: { transform: 'scale(1.2)' },
+    config: { duration: 2000 },
+    loop: { reverse: true }
+  });
+  
+  return (
+    <div className="logo-container flex items-center gap-3">
+      {/* Animated Logo Graphic */}
+      <div className="logo-graphic relative w-12 h-12">
+        {/* Main orbit */}
+        <animated.div 
+          className="absolute top-0 left-0 w-full h-full rounded-full"
+          style={{
+            border: '2px solid transparent',
+            borderTopColor: '#4361ee',
+            borderBottomColor: '#7209b7',
+            ...orbitAnimation
+          }}
+        />
+        
+        {/* Inner orbit */}
+        <animated.div 
+          className="absolute top-2 left-2 w-8 h-8 rounded-full"
+          style={{
+            border: '1.5px solid transparent',
+            borderTopColor: '#4895ef',
+            borderLeftColor: '#9d4edd',
+            ...innerOrbitAnimation
+          }}
+        />
+        
+        {/* Center dot */}
+        <animated.div 
+          className="absolute top-4 left-4 w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-purple-600"
+          style={dotAnimation}
+        />
+      </div>
+      
+      {/* Text container with fixed width that animates */}
+      <animated.div 
+        className="overflow-hidden"
+        style={textProps}
+      >
+        <div className={`logo-text text-xl font-bold ${pulsating ? 'animate-cosmic-pulse' : ''}`}>
+          {expanded ? 'Revelate Operations' : 'RevOps'}
         </div>
-        <div class="logo-text-container">
-            <span class="logo-text" id="logo-text">RevOps</span>
-        </div>
+      </animated.div>
+      
+      {/* Add CSS for cosmic pulse animation */}
+      <style jsx>{`
+        @keyframes cosmicPulse {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        .animate-cosmic-pulse {
+          background: linear-gradient(135deg, #4361ee, #7209b7, #4895ef, #9d4edd);
+          background-size: 300% 300%;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: cosmicPulse 8s ease infinite;
+        }
+      `}</style>
     </div>
-</a>
+  );
+};
+
+export default AnimatedLogo;
                 
                 <nav aria-label="Main navigation">
                     <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
