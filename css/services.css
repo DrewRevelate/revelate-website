@@ -130,43 +130,48 @@
 }
 
 /* ==========================================
-   Service Detail Sections
+   Service Detail Headers and Icons
    ========================================== */
-/* More efficient service detail header */
-.service-detail {
-  padding: var(--space-6) 0; /* Significantly reduced from space-12 */
-  position: relative;
-  overflow: hidden; /* Ensures animations stay contained */
-}
-
 .service-detail-header {
-  text-align: left; /* Changed from center */
+  text-align: left;
   max-width: 900px;
-  margin: 0 auto var(--space-4); /* Reduced margin */
+  margin: 0 auto var(--space-5);
+  padding-top: 0;
   display: flex;
   align-items: center;
   gap: var(--space-4);
 }
 
 .service-detail-icon {
-  width: 50px; /* Smaller icon */
+  width: 50px;
   height: 50px;
-  min-width: 50px; /* Prevents shrinking */
-  margin: 0; /* Removed margin */
+  min-width: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
-/* Stack title and description horizontally */
+.service-detail-icon i {
+  font-size: var(--font-size-xl);
+  display: block;
+}
+
 .service-detail-header-text {
   flex: 1;
 }
 
 .service-detail-header h2 {
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-3xl);
 }
 
 .service-detail-header .lead {
-    max-width: 700px;
-    margin: 0 auto;
+  margin: 0;
+  color: var(--gray);
 }
 
 .service-detail-grid {
