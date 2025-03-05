@@ -658,3 +658,38 @@
         background-color: rgba(67, 97, 238, 0.05);
     }
 }
+/* Add to your services.css file */
+.service-detail-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-5); /* Reduced from space-8 */
+    padding-top: 0; /* Add this */
+}
+
+/* Reduce space between header and content */
+.service-detail {
+    padding: var(--space-8) 0; /* Reduced from space-12 */
+}
+
+/* Make the icon smaller and reduce its margin */
+.service-detail-icon {
+    width: 60px; /* Reduced from 80px */
+    height: 60px; /* Reduced from 80px */
+    margin: 0 auto var(--space-3); /* Reduced from space-4 */
+}
+
+/* Reduce space below heading */
+.service-detail-header h2 {
+    margin-bottom: var(--space-2); /* Reduced from space-3 */
+}
+
+/* Reduce space between features */
+.service-features {
+    margin-top: var(--space-4); /* Reduced from space-6 */
+    gap: var(--space-4); /* Reduced from space-5 */
+}
+
+/* Tighten up spacing within each feature */
+.service-feature {
+    gap: var(--space-3); /* Reduced from space-4 */
+}
