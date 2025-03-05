@@ -132,36 +132,36 @@
 /* ==========================================
    Service Detail Sections
    ========================================== */
+/* More efficient service detail header */
 .service-detail {
-    padding: var(--space-12) 0;
-    position: relative;
-}
-
-.service-detail.alt-background {
-    background-color: var(--light);
+  padding: var(--space-6) 0; /* Significantly reduced from space-12 */
+  position: relative;
+  overflow: hidden; /* Ensures animations stay contained */
 }
 
 .service-detail-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto var(--space-8);
+  text-align: left; /* Changed from center */
+  max-width: 900px;
+  margin: 0 auto var(--space-4); /* Reduced margin */
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 .service-detail-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-3xl);
-    margin: 0 auto var(--space-4);
+  width: 50px; /* Smaller icon */
+  height: 50px;
+  min-width: 50px; /* Prevents shrinking */
+  margin: 0; /* Removed margin */
+}
+
+/* Stack title and description horizontally */
+.service-detail-header-text {
+  flex: 1;
 }
 
 .service-detail-header h2 {
-    margin-bottom: var(--space-3);
+  margin-bottom: var(--space-1);
 }
 
 .service-detail-header .lead {
@@ -170,27 +170,36 @@
 }
 
 .service-detail-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-    align-items: center;
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* Gives more space to content */
+  gap: var(--space-6);
+  align-items: center;
+  position: relative;
 }
 
+/* For right-positioned content, like in alternative sections */
 .service-detail-grid.reverse {
-    direction: rtl;
+  grid-template-columns: 2fr 3fr; /* Reversed proportions */
+  direction: ltr; /* Reset direction */
 }
 
-.service-detail-grid.reverse > div {
-    direction: ltr;
+.service-detail-grid.reverse .service-detail-content {
+  order: 2; /* Move content to right */
 }
 
-.service-detail-content {
-    position: relative;
+.service-detail-grid.reverse .service-detail-image {
+  order: 1; /* Move image to left */
 }
 
-.service-detail-content h3 {
-    margin-bottom: var(--space-4);
-    color: var(--dark);
+/* Position image slightly overlapping the content area */
+.service-detail-image {
+  position: relative;
+  transform: translateX(20px); /* Moves it slightly to the right */
+  z-index: 2;
+}
+
+.service-detail-grid.reverse .service-detail-image {
+  transform: translateX(-20px); /* Moves it slightly to the left for reverse layouts */
 }
 
 .service-features {
@@ -245,36 +254,36 @@
 }
 
 .service-testimonial {
-    position: absolute;
-    bottom: -30px;
-    right: -20px;
-    background-color: white;
-    padding: var(--space-4);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    max-width: 300px;
-    z-index: 3;
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  background-color: white;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(67, 97, 238, 0.05);
+  max-width: 270px;
+  z-index: 5; /* Ensure it's above everything */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-testimonial p {
-    font-style: italic;
-    color: var(--gray-dark);
-    margin-bottom: var(--space-4);
-    font-size: var(--font-size-sm);
+.service-detail-grid.reverse .service-testimonial {
+  right: auto;
+  left: -10px;
 }
 
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+.service-testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(67, 97, 238, 0.1);
 }
 
+/* Better author image styling */
 .testimonial-author img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial-author h5 {
@@ -741,4 +750,73 @@
     box-shadow: none;
     background-color: #f0f0f0; /* Light gray fallback if image is missing */
     border: 1px solid #e0e0e0;
+}
+/* Background animation */
+.service-detail {
+  position: relative;
+}
+
+.service-detail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(120deg, rgba(67, 97, 238, 0.03), rgba(114, 9, 183, 0.02));
+  z-index: 0;
+  opacity: 0.7;
+}
+
+/* Animated floating shapes */
+.service-detail::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(114, 9, 183, 0.02));
+  top: 20%;
+  right: -50px;
+  z-index: 0;
+  animation: float-shape 15s ease-in-out infinite alternate;
+}
+
+.service-detail.alt-background::after {
+  left: -50px;
+  right: auto;
+  animation-delay: -7s;
+}
+
+@keyframes float-shape {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    border-radius: 50%;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05) rotate(5deg);
+    border-radius: 40% 60% 60% 40%;
+  }
+  100% {
+    transform: translateY(30px) scale(0.95) rotate(-5deg);
+    border-radius: 60% 40% 40% 60%;
+  }
+}
+
+/* Ensure content stays above animations */
+.service-detail-content, 
+.service-detail-image, 
+.service-detail-header {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add subtle pulsing effect to the SVG */
+.service-detail-image img {
+  animation: subtle-pulse 8s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
 }
