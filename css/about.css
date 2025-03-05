@@ -8,6 +8,7 @@
    ========================================== */
 .about-hero {
     padding: var(--space-12) 0 0;
+    margin-top: 80px;  /* Add this line */
     background-color: white;
     position: relative;
     overflow: hidden;
