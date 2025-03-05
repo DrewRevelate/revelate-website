@@ -5,443 +5,452 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revelate Operations | Data-Driven SaaS Consulting</title>
     
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Consolidated stylesheet -->
-    <link rel="stylesheet" href="css/revelate-styles.css">
-    
-    <!-- Meta tags for SEO -->
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Revelate Operations transforms your raw data into actionable insights, driving revenue growth through innovative, data-driven solutions for SaaS companies.">
-    <meta name="keywords" content="data consulting, revenue operations, SaaS consulting, data analytics, business intelligence, CRM management">
-    <meta property="og:title" content="Revelate Operations | Data-Driven SaaS Consulting">
-    <meta property="og:description" content="Transform your raw data into strategic wealth with Revelate Operations' data-driven SaaS consulting services.">
+    <meta name="keywords" content="salesforce consulting, revenue operations, RevOps, SaaS consulting, data integration, CRM optimization, business intelligence">
+    
+    <!-- Open Graph / Social Media Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://revelateops.com/">
-    <link rel="canonical" href="https://revelateops.com/">
+    <meta property="og:title" content="Revelate Operations | Data-Driven SaaS Consulting">
+    <meta property="og:description" content="Transform your raw data into strategic wealth with Revelate Operations' data-driven SaaS consulting services.">
+    <meta property="og:image" content="https://revelateops.com/images/og-image.jpg">
     
-    <!-- Structured data for organization -->
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Revelate Operations | Data-Driven SaaS Consulting">
+    <meta name="twitter:description" content="Transform your raw data into strategic wealth with Revelate Operations' data-driven SaaS consulting services.">
+    <meta name="twitter:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (with performance optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    
+    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Revelate Operations",
-      "url": "https://revelateops.com",
-      "logo": "https://revelateops.com/images/revelate-spiral-logo.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Revelate Operations",
+        "url": "https://revelateops.com",
+        "logo": "https://revelateops.com/images/revelate-spiral-logo.png",
+        "description": "Data-driven SaaS consulting specializing in Salesforce, CRM management and business intelligence solutions.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Business Avenue, Suite 400",
+            "addressLocality": "Boston",
+            "addressRegion": "MA",
+            "postalCode": "02108",
+            "addressCountry": "US"
+        },
         "telephone": "+1-555-123-4567",
-        "contactType": "customer service"
-      }
+        "email": "info@revelateops.com",
+        "priceRange": "$$",
+        "openingHours": "Mo,Tu,We,Th,Fr 09:00-17:00",
+        "sameAs": [
+            "https://www.linkedin.com/company/revelateops",
+            "https://twitter.com/revelateops"
+        ],
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "42.3601",
+                "longitude": "-71.0589"
+            },
+            "geoRadius": "50000"
+        }
     }
     </script>
 </head>
 <body>
-    <!-- Skip navigation link for accessibility -->
-    <a href="#main-content" class="skip-nav">Skip to main content</a>
-
-    <!-- Navigation -->
-    <nav id="navbar" aria-label="Main navigation">
-        <div class="container navbar-container">
-            <a href="index.html" class="logo" aria-label="Revelate Operations Home">
-                <div class="logo-container">
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo" aria-label="Revelate Operations Home">
                     <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
-                    <h1>REVELATE</h1>
-                </div>
-            </a>
-            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="approach.html" class="nav-link">Our Approach</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="case-studies/index.html" class="nav-link">Case Studies</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+                    <span class="logo-text">REVELATE</span>
+                </a>
+                
+                <nav aria-label="Main navigation">
+                    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
+                    
+                    <ul id="main-menu" class="nav-links">
+                        <li class="nav-item"><a href="/services.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/approach.html" class="nav-link">Our Approach</a></li>
+                        <li class="nav-item"><a href="/about.html" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="/case-studies/index.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </nav>
-
+    </header>
+    
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-container">
+        <section class="hero-section">
+            <div class="container">
                 <div class="hero-content">
-                    <span class="pre-title">Data-Driven SaaS Consulting</span>
-                    <h1 class="hero-title">Transform Raw Data Into <span class="text-gradient">Strategic Wealth</span></h1>
-                    <p class="hero-subtitle">Stop drowning in data without insights. Revelate Operations converts your fragmented data landscape into a unified system driving revenue growth and operational excellence.</p>
+                    <span class="eyebrow">Data-Driven SaaS Consulting</span>
+                    <h1 class="hero-title">Transform Raw Data Into <span class="gradient-text">Strategic Wealth</span></h1>
+                    <p class="hero-subtitle">Stop drowning in data without insights. We convert your fragmented data landscape into a unified system driving revenue growth and operational excellence.</p>
+                    
                     <div class="hero-metrics">
-                        <div class="hero-metric animate" data-delay="0.2">
-                            <span class="metric-value">40%</span>
+                        <div class="metric" data-value="40">
+                            <span class="metric-value"><span class="counter">0</span>%</span>
                             <span class="metric-label">Average Revenue Growth</span>
                         </div>
-                        <div class="hero-metric animate" data-delay="0.4">
-                            <span class="metric-value">85%</span>
+                        <div class="metric" data-value="85">
+                            <span class="metric-value"><span class="counter">0</span>%</span>
                             <span class="metric-label">Increase in Data Utilization</span>
                         </div>
                     </div>
-                    <div class="hero-buttons">
-                        <a href="contact.html" class="btn btn-accent btn-large">Get Started</a>
-                        <a href="services.html" class="btn btn-outline btn-large">Explore Services</a>
+                    
+                    <div class="hero-cta">
+                        <a href="/contact.html" class="btn btn-primary btn-lg">Get Started</a>
+                        <a href="/services.html" class="btn btn-outline btn-lg">Explore Services</a>
                     </div>
                 </div>
-                <div class="hero-image-container">
-                    <img src="images/dashboard-illustration.svg" alt="Data Dashboard" class="hero-image">
+                
+                <div class="hero-image">
+                    <img src="images/dashboard-illustration.svg" alt="Data Dashboard Visualization" width="600" height="500">
+                    <div class="hero-shape-1"></div>
+                    <div class="hero-shape-2"></div>
+                </div>
+            </div>
+            
+            <div class="hero-wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+                </svg>
+            </div>
+        </section>
+        
+        <!-- Trusted By Section -->
+        <section class="trusted-by-section">
+            <div class="container">
+                <h2 class="trusted-by-title">Trusted By</h2>
+                <div class="trusted-by-logos">
+                    <div class="logo-item"><img src="images/clients/client-logo-1.svg" alt="Client 1"></div>
+                    <div class="logo-item"><img src="images/clients/client-logo-2.svg" alt="Client 2"></div>
+                    <div class="logo-item"><img src="images/clients/client-logo-3.svg" alt="Client 3"></div>
+                    <div class="logo-item"><img src="images/clients/client-logo-4.svg" alt="Client 4"></div>
+                    <div class="logo-item"><img src="images/clients/client-logo-5.svg" alt="Client 5"></div>
                 </div>
             </div>
         </section>
-
-        <!-- Services Overview -->
-        <section id="services-overview" class="section-bg-gray">
+        
+        <!-- Services Section -->
+        <section class="services-section" id="services">
             <div class="container">
-                <h2 class="section-title text-center">Our Services</h2>
-                <p class="section-subtitle text-center">Comprehensive solutions designed to transform your revenue operations and unlock the full potential of your data.</p>
+                <div class="section-header">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Comprehensive solutions designed to transform your revenue operations</p>
+                </div>
                 
-                <div class="features-grid">
+                <div class="services-grid">
                     <!-- Service 1 -->
-                    <div class="feature-card animate">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
                         </div>
-                        <h3 class="feature-title">CRM Management</h3>
-                        <p class="feature-description">Expert setup and optimization of CRM systems, allowing you to focus on utilizing the tool to its fullest potential rather than getting bogged down in technical details.</p>
-                        <a href="services.html#crm" class="feature-link">
-                            <span class="link-text">Learn More</span> 
+                        <h3 class="service-title">CRM Management</h3>
+                        <p class="service-description">Expert Salesforce implementation, optimization, and support that drives adoption and maximizes your ROI.</p>
+                        <a href="/services.html#crm" class="service-link">
+                            <span>Learn More</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     
                     <!-- Service 2 -->
-                    <div class="feature-card animate" data-delay="0.2">
-                        <div class="feature-icon">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="feature-title">Business Intelligence</h3>
-                        <p class="feature-description">Transform complex data into actionable insights with interactive dashboards and predictive analytics, leveraging our expertise in Tableau, Looker, and other BI tools.</p>
-                        <a href="services.html#bi" class="feature-link">
-                            <span class="link-text">Learn More</span> 
+                        <h3 class="service-title">Business Intelligence</h3>
+                        <p class="service-description">Transform complex data into actionable insights with custom dashboards and predictive analytics.</p>
+                        <a href="/services.html#bi" class="service-link">
+                            <span>Learn More</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     
                     <!-- Service 3 -->
-                    <div class="feature-card animate" data-delay="0.4">
-                        <div class="feature-icon">
-                            <i class="fas fa-database"></i>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
                         </div>
-                        <h3 class="feature-title">Data Integration</h3>
-                        <p class="feature-description">Streamline your data landscape by integrating disparate sources into a unified, accurate, and accessible platform using our ETL and data warehousing expertise.</p>
-                        <a href="services.html#integration" class="feature-link">
-                            <span class="link-text">Learn More</span> 
+                        <h3 class="service-title">Data Integration</h3>
+                        <p class="service-description">Seamlessly connect your tech stack to create a unified data ecosystem that eliminates silos.</p>
+                        <a href="/services.html#integration" class="service-link">
+                            <span>Learn More</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="service-title">Customer Retention</h3>
+                        <p class="service-description">Implement data-driven strategies to increase loyalty, reduce churn, and grow customer lifetime value.</p>
+                        <a href="/services.html#retention" class="service-link">
+                            <span>Learn More</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="text-center mt-5">
-                    <a href="services.html" class="btn btn-primary">View All Services</a>
+                <div class="section-cta">
+                    <a href="/services.html" class="btn btn-primary">View All Services</a>
                 </div>
             </div>
         </section>
-
-        <!-- Stats Section -->
-        <section class="stats">
+        
+        <!-- Process Section -->
+        <section class="process-section" id="process">
             <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="150">0</div>
-                        <div class="stat-label">Tech Stacks Optimized</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="85">0</div>
-                        <div class="stat-label">Increase in Data Utilization</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-count="40">0</div>
-                        <div class="stat-label">Average Revenue Growth</div>
-                    </div>
+                <div class="section-header">
+                    <h2 class="section-title">Our Process</h2>
+                    <p class="section-subtitle">A systematic methodology to transform your data into strategic wealth</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Approach Overview -->
-        <section id="approach-overview" class="section-bg-light">
-            <div class="container">
-                <h2 class="section-title text-center">Our Approach</h2>
-                <p class="section-subtitle text-center">A systematic methodology to transform your data into strategic wealth</p>
                 
                 <div class="process-steps">
-                    <!-- Step 1 -->
-                    <div class="process-step animate">
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="0">
                         <div class="step-number">1</div>
                         <div class="step-content">
                             <h3>Discovery</h3>
-                            <p>We begin with a comprehensive assessment of your current systems, processes, and challenges to identify opportunities for improvement.</p>
+                            <p>We analyze your current systems, processes, and pain points to understand your unique challenges and objectives.</p>
                         </div>
                     </div>
                     
-                    <!-- Step 2 -->
-                    <div class="process-step animate" data-delay="0.2">
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="100">
                         <div class="step-number">2</div>
                         <div class="step-content">
                             <h3>Strategy</h3>
-                            <p>Based on our findings, we develop a tailored roadmap that aligns with your business objectives and addresses your specific challenges.</p>
+                            <p>We develop a tailored roadmap with clear milestones, addressing both quick wins and long-term transformation.</p>
                         </div>
                     </div>
                     
-                    <!-- Step 3 -->
-                    <div class="process-step animate" data-delay="0.4">
+                    <div class="process-step" data-aos="fade-right" data-aos-delay="200">
                         <div class="step-number">3</div>
                         <div class="step-content">
                             <h3>Implementation</h3>
-                            <p>Our team of experts executes the plan, configuring systems, integrating data sources, and building custom solutions as needed.</p>
+                            <p>Our team executes the plan using best practices and agile methodologies to ensure quality and minimize disruption.</p>
                         </div>
                     </div>
                     
-                    <!-- Step 4 -->
-                    <div class="process-step animate" data-delay="0.6">
+                    <div class="process-step" data-aos="fade-left" data-aos-delay="300">
                         <div class="step-number">4</div>
                         <div class="step-content">
                             <h3>Optimization</h3>
-                            <p>We continuously monitor, refine, and enhance your solutions to ensure they deliver maximum value over time.</p>
+                            <p>We continuously refine and enhance your solution based on user feedback and evolving business needs.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-center mt-5">
-                    <a href="approach.html" class="btn btn-primary">Learn More About Our Process</a>
+                <div class="section-cta">
+                    <a href="/approach.html" class="btn btn-primary">Learn More About Our Approach</a>
                 </div>
             </div>
         </section>
-
-        <!-- Case Studies Showcase -->
-        <section id="case-studies-showcase" class="section-bg-gray">
+        
+        <!-- Results Section -->
+        <section class="results-section">
             <div class="container">
-                <h2 class="section-title text-center">Success Stories</h2>
-                <p class="section-subtitle text-center">See how we've helped businesses transform their operations through data</p>
+                <div class="section-header">
+                    <h2 class="section-title">Real Results for Real Businesses</h2>
+                    <p class="section-subtitle">See how we've helped companies like yours achieve measurable outcomes</p>
+                </div>
                 
-                <div class="case-studies-grid">
-                    <!-- Case Study 1 -->
-                    <div class="case-study-card animate">
-                        <div class="case-study-image">
-                            <img src="images/case-studies/techforward-thumb.jpg" alt="TechForward Case Study">
-                            <div class="case-tag">SaaS</div>
-                        </div>
-                        <div class="case-study-content">
-                            <h3>Optimizing Sales Pipeline Visibility</h3>
-                            <p class="case-client">TechForward Solutions</p>
-                            <div class="case-metrics">
-                                <div class="case-metric">
-                                    <span class="metric-value">+35%</span>
-                                    <span class="metric-label">Sales Conversion</span>
-                                </div>
-                                <div class="case-metric">
-                                    <span class="metric-value">-40%</span>
-                                    <span class="metric-label">Reporting Time</span>
-                                </div>
+                <div class="results-grid">
+                    <!-- Result Card 1 -->
+                    <div class="result-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="result-tag">SaaS</div>
+                        <h3 class="result-title">35% Increase in Sales Conversion</h3>
+                        <p class="result-client">TechForward Solutions</p>
+                        <p class="result-description">We consolidated five disparate data sources into a unified Salesforce environment, giving leadership unprecedented pipeline visibility.</p>
+                        <div class="result-metrics">
+                            <div class="result-metric">
+                                <span class="metric-value">35%</span>
+                                <span class="metric-label">Sales Conversion</span>
                             </div>
-                            <p>We helped TechForward consolidate five disparate data sources into a unified Salesforce environment with custom dashboards, giving leadership unprecedented visibility into their sales pipeline.</p>
-                            <a href="case-studies/case-study-1.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
+                            <div class="result-metric">
+                                <span class="metric-value">40%</span>
+                                <span class="metric-label">Less Reporting Time</span>
+                            </div>
                         </div>
+                        <a href="/case-studies/case-study-1.html" class="btn btn-outline btn-sm">Read Case Study</a>
                     </div>
                     
-                    <!-- Case Study 2 -->
-                    <div class="case-study-card animate" data-delay="0.2">
-                        <div class="case-study-image">
-                            <img src="images/case-studies/growify-thumb.jpg" alt="Growify Case Study" loading="lazy">
-                            <div class="case-tag">Marketing</div>
-                        </div>
-                        <div class="case-study-content">
-                            <h3>Data-Driven Marketing Transformation</h3>
-                            <p class="case-client">Growify</p>
-                            <div class="case-metrics">
-                                <div class="case-metric">
-                                    <span class="metric-value">+42%</span>
-                                    <span class="metric-label">Marketing ROI</span>
-                                </div>
-                                <div class="case-metric">
-                                    <span class="metric-value">+68%</span>
-                                    <span class="metric-label">Lead Quality</span>
-                                </div>
+                    <!-- Result Card 2 -->
+                    <div class="result-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="result-tag">Marketing</div>
+                        <h3 class="result-title">42% Higher Marketing ROI</h3>
+                        <p class="result-client">Growify</p>
+                        <p class="result-description">Our advanced attribution modeling and centralized analytics platform helped optimize their marketing mix and campaign performance.</p>
+                        <div class="result-metrics">
+                            <div class="result-metric">
+                                <span class="metric-value">42%</span>
+                                <span class="metric-label">Marketing ROI</span>
                             </div>
-                            <p>By implementing advanced attribution modeling and creating a centralized marketing analytics platform, we helped Growify optimize their channel mix and dramatically improve campaign performance.</p>
-                            <a href="case-studies/case-study-2.html" class="btn btn-outline btn-sm">Read Full Case Study</a>
+                            <div class="result-metric">
+                                <span class="metric-value">68%</span>
+                                <span class="metric-label">Lead Quality</span>
+                            </div>
                         </div>
+                        <a href="/case-studies/case-study-2.html" class="btn btn-outline btn-sm">Read Case Study</a>
                     </div>
                 </div>
                 
-                <div class="text-center mt-5">
-                    <a href="case-studies/index.html" class="btn btn-primary">View All Case Studies</a>
+                <div class="section-cta">
+                    <a href="/case-studies/index.html" class="btn btn-primary">View All Case Studies</a>
                 </div>
             </div>
         </section>
-
-        <!-- Team Overview -->
-        <section id="team-overview" class="section-bg-light">
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
             <div class="container">
-                <h2 class="section-title text-center">Meet Our Team</h2>
-                <p class="section-subtitle text-center">Get to know the experts behind the revelations</p>
-                
-                <div class="grid grid-2">
-                    <div class="team-card animate">
-                        <div class="team-image-container">
-                            <img src="images/drew-lambert.jpg" alt="Drew Lambert" class="team-image" loading="lazy">
-                            <div class="team-social">
-                                <a href="#" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="social-link" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Drew Lambert</h3>
-                            <span class="team-position">Co-Founder & CEO</span>
-                            <p class="team-bio">Drew embodies the true spirit of a Salesforce professional with over 300 Trailhead badges and more than 20 super badges. His expertise extends beyond Salesforce to sales engagement, customer retention, and lead generation.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="team-card animate" data-delay="0.2">
-                        <div class="team-image-container">
-                            <img src="images/melanie-tummino.jpg" alt="Melanie Tummino" class="team-image" loading="lazy">
-                            <div class="team-social">
-                                <a href="#" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="social-link" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Melanie Tummino</h3>
-                            <span class="team-position">Co-Founder & CTO</span>
-                            <p class="team-bio">Melanie is a data enthusiast with a proven track record of translating complex data insights into actionable business strategies. With over six years of experience across the data spectrum, she excels at making complex data understandable.</p>
-                        </div>
-                    </div>
+                <div class="section-header">
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="section-subtitle">Don't just take our word for it</p>
                 </div>
                 
-                <div class="text-center mt-5">
-                    <a href="about.html#team" class="btn btn-primary">Meet the Full Team</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section id="testimonials" class="section-bg-gray">
-            <div class="container">
-                <h2 class="section-title text-center">Client Success Stories</h2>
-                <p class="section-subtitle text-center">Hear from businesses we've helped transform through the power of data</p>
-                
-                <div class="testimonials-slider">
-                    <div class="testimonial-slider-inner" id="testimonial-slider" style="min-height: 350px;">
+                <div class="testimonials-slider" id="testimonials-slider">
+                    <div class="testimonials-track">
                         <!-- Testimonial 1 -->
-                        <div class="testimonial-card active" data-company="techforward">
-                            <div class="testimonial-content">
-                                Revelate Operations completely transformed how we utilize our data. Their expertise in CRM optimization and data analytics has resulted in a 35% increase in our sales conversion rate and significantly improved customer retention.
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="images/testimonials/sarah-johnson.jpg" alt="Sarah Johnson" class="author-image" loading="lazy">
-                                <div class="author-info">
-                                    <h4>Sarah Johnson</h4>
-                                    <p>VP of Sales, TechForward Solutions</p>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p>Revelate Operations completely transformed how we utilize our data. Their expertise in CRM optimization and data analytics has resulted in a 35% increase in our sales conversion rate and significantly improved customer retention.</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonials/sarah-johnson.jpg" alt="Sarah Johnson" class="author-image">
+                                    <div class="author-info">
+                                        <h4>Sarah Johnson</h4>
+                                        <p>VP of Sales, TechForward Solutions</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Testimonial 2 -->
-                        <div class="testimonial-card" data-company="growify">
-                            <div class="testimonial-content">
-                                We were drowning in data but starving for insights before partnering with Revelate. They helped us build a data-driven culture throughout our organization. Our marketing ROI improved by 42% within just 3 months of implementing their recommendations.
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="images/testimonials/michael-chen.jpg" alt="Michael Chen" class="author-image" loading="lazy">
-                                <div class="author-info">
-                                    <h4>Michael Chen</h4>
-                                    <p>CMO, Growify</p>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p>We were drowning in data but starving for insights before partnering with Revelate. They helped us build a data-driven culture throughout our organization. Our marketing ROI improved by 42% within just 3 months of implementing their recommendations.</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonials/michael-chen.jpg" alt="Michael Chen" class="author-image">
+                                    <div class="author-info">
+                                        <h4>Michael Chen</h4>
+                                        <p>CMO, Growify</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Testimonial 3 -->
-                        <div class="testimonial-card" data-company="nexus">
-                            <div class="testimonial-content">
-                                The team at Revelate Operations provided clear, actionable insights that transformed our sales process. Their data integration work eliminated hours of manual reporting and gave our sales team the visibility they needed to close more deals.
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="images/testimonials/jasmine-rodriguez.jpg" alt="Jasmine Rodriguez" class="author-image" loading="lazy">
-                                <div class="author-info">
-                                    <h4>Jasmine Rodriguez</h4>
-                                    <p>Sales Director, Nexus Technologies</p>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-content">
+                                    <p>The team at Revelate Operations provided clear, actionable insights that transformed our sales process. Their data integration work eliminated hours of manual reporting and gave our sales team the visibility they needed to close more deals.</p>
+                                </div>
+                                <div class="testimonial-author">
+                                    <img src="images/testimonials/jasmine-rodriguez.jpg" alt="Jasmine Rodriguez" class="author-image">
+                                    <div class="author-info">
+                                        <h4>Jasmine Rodriguez</h4>
+                                        <p>Sales Director, Nexus Technologies</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="testimonial-controls">
-                        <button class="testimonial-control" id="prev-testimonial" aria-label="Previous testimonial">
+                        <button class="testimonial-arrow prev-arrow" aria-label="Previous testimonial">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        <div class="testimonial-dots" id="testimonial-dots">
-                            <span class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></span>
-                            <span class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></span>
-                            <span class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></span>
+                        <div class="testimonial-dots">
+                            <button class="testimonial-dot active" aria-label="Testimonial 1" data-index="0"></button>
+                            <button class="testimonial-dot" aria-label="Testimonial 2" data-index="1"></button>
+                            <button class="testimonial-dot" aria-label="Testimonial 3" data-index="2"></button>
                         </div>
-                        <button class="testimonial-control" id="next-testimonial" aria-label="Next testimonial">
+                        <button class="testimonial-arrow next-arrow" aria-label="Next testimonial">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Value Proposition -->
-        <section class="section-bg-light">
+        
+        <!-- Expertise Section -->
+        <section class="expertise-section">
             <div class="container">
-                <div class="two-column">
-                    <div class="value-prop-content">
+                <div class="expertise-grid">
+                    <div class="expertise-content" data-aos="fade-right">
                         <h2>Why Choose Revelate Operations?</h2>
-                        <p>We bring a unique combination of technical expertise and business acumen to every engagement. Our team understands both the complexities of data systems and the strategic priorities of modern businesses.</p>
+                        <p class="lead">We bring a unique combination of technical expertise and business acumen to every engagement.</p>
                         
-                        <div class="d-flex flex-column gap-3 mt-4">
-                            <div class="highlight-item animate">
-                                <div class="highlight-icon">
+                        <div class="expertise-points">
+                            <div class="expertise-point">
+                                <div class="point-icon">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <div class="highlight-content">
+                                <div class="point-content">
                                     <h3>End-to-End Expertise</h3>
                                     <p>From data collection to visualization and strategic decision-making</p>
                                 </div>
                             </div>
                             
-                            <div class="highlight-item animate" data-delay="0.1">
-                                <div class="highlight-icon">
+                            <div class="expertise-point">
+                                <div class="point-icon">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <div class="highlight-content">
+                                <div class="point-content">
                                     <h3>Tailored Solutions</h3>
                                     <p>Custom approaches based on your unique business needs</p>
                                 </div>
                             </div>
                             
-                            <div class="highlight-item animate" data-delay="0.2">
-                                <div class="highlight-icon">
+                            <div class="expertise-point">
+                                <div class="point-icon">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <div class="highlight-content">
+                                <div class="point-content">
                                     <h3>Results-Focused</h3>
                                     <p>Measurable outcomes and ROI-driven implementations</p>
                                 </div>
                             </div>
                             
-                            <div class="highlight-item animate" data-delay="0.3">
-                                <div class="highlight-icon">
+                            <div class="expertise-point">
+                                <div class="point-icon">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <div class="highlight-content">
+                                <div class="point-content">
                                     <h3>Knowledge Transfer</h3>
                                     <p>We empower your team to maintain and extend solutions</p>
                                 </div>
@@ -449,129 +458,145 @@
                         </div>
                     </div>
                     
-                    <div class="value-prop-image">
-                        <img src="images/value-proposition.svg" alt="Data-Driven Decision Making" width="500" height="400" loading="lazy">
+                    <div class="expertise-image" data-aos="fade-left">
+                        <img src="images/expertise-illustration.svg" alt="Data-Driven Decision Making">
+                        <div class="expertise-shape"></div>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- CTA Section -->
-        <section class="cta">
+        <section class="cta-section">
             <div class="container">
                 <div class="cta-content">
                     <h2 class="cta-title">Ready to Transform Your Data?</h2>
                     <p class="cta-description">Let's start a conversation about how we can help you unlock the full potential of your data and drive business growth.</p>
-                    <a href="contact.html" class="btn btn-light btn-large">Contact Us Today</a>
+                    <a href="/contact.html" class="btn btn-light btn-lg">Contact Us Today</a>
                 </div>
             </div>
         </section>
     </main>
-
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
+                <div class="footer-info">
+                    <a href="/" class="footer-logo">
                         <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
-                        <h2>REVELATE</h2>
-                    </div>
-                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                        <span>REVELATE</span>
+                    </a>
+                    <p class="footer-description">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/revelateops" aria-label="LinkedIn" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/revelateops" aria-label="Twitter" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/revelateops" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-links-column">
+                <div class="footer-links">
                     <h3 class="footer-heading">Services</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="services.html#crm">CRM Management</a></li>
-                        <li class="footer-link"><a href="services.html#bi">Business Intelligence</a></li>
-                        <li class="footer-link"><a href="services.html#integration">Data Integration</a></li>
-                        <li class="footer-link"><a href="services.html#lead-gen">Lead Generation</a></li>
-                        <li class="footer-link"><a href="services.html#gtm">GTM Strategy</a></li>
-                        <li class="footer-link"><a href="services.html#retention">Customer Retention</a></li>
+                    <ul class="footer-nav">
+                        <li><a href="/services.html#crm">CRM Management</a></li>
+                        <li><a href="/services.html#bi">Business Intelligence</a></li>
+                        <li><a href="/services.html#integration">Data Integration</a></li>
+                        <li><a href="/services.html#lead-gen">Lead Generation</a></li>
+                        <li><a href="/services.html#gtm">GTM Strategy</a></li>
+                        <li><a href="/services.html#retention">Customer Retention</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-links-column">
+                <div class="footer-links">
                     <h3 class="footer-heading">Company</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="about.html">About Us</a></li>
-                        <li class="footer-link"><a href="approach.html">Our Process</a></li>
-                        <li class="footer-link"><a href="case-studies/index.html">Case Studies</a></li>
-                        <li class="footer-link"><a href="contact.html">Contact</a></li>
+                    <ul class="footer-nav">
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/approach.html">Our Process</a></li>
+                        <li><a href="/case-studies/index.html">Case Studies</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-contact">
                     <h3 class="footer-heading">Contact Us</h3>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
-                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone footer-contact-icon"></i>
-                        <span>(555) 123-4567</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope footer-contact-icon"></i>
-                        <span>info@revelateops.com</span>
-                    </div>
+                    <address class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Business Avenue, Suite 400<br>Boston, MA 02108</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+15551234567">(555) 123-4567</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:info@revelateops.com">info@revelateops.com</a></span>
+                        </div>
+                    </address>
                 </div>
             </div>
             
-            <div class="footer-divider"></div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
-                </div>
+                <p class="copyright">&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+                <ul class="legal-links">
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
     </footer>
-
-    <!-- Login Modal -->
-    <div class="modal" id="login-modal" aria-hidden="true" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Client Portal Login</h2>
-                <button class="close-modal" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="login-form">
-                    <div class="form-group">
-                        <label for="email-login" class="form-label">Email</label>
-                        <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
-                        <div class="form-feedback"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password-login" class="form-label">Password</label>
-                        <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
-                        <div class="form-feedback"></div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a href="#">Forgot Password?</a>
+    
+    <!-- Client Portal Modal -->
+    <div class="modal" id="portal-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Client Portal Login</h2>
+                    <button class="modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <div class="form-options">
+                                <div class="form-remember">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
-
+    
     <!-- JavaScript -->
-    <script src="js/navigation.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/portal.js"></script>
 </body>
 </html>
