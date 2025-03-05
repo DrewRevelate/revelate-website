@@ -1290,3 +1290,83 @@ section {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+/* Logo Animation Styles */
+.logo-graphic {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.main-orbit {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #4361ee;
+  border-bottom-color: #7209b7;
+  animation: spin-slow 20s linear infinite;
+}
+
+.inner-orbit {
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: #4895ef;
+  border-left-color: #9d4edd;
+  animation: spin-reverse 12s linear infinite;
+}
+
+.center-dot {
+  top: 20px;
+  left: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4361ee, #7209b7);
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+.logo-text-container {
+  overflow: hidden;
+  transition: width 1s ease-in-out;
+  width: 80px;
+}
+
+.logo-text-container.expanded {
+  width: 220px;
+}
+
+.logo-text.cosmic-pulse {
+  background: linear-gradient(135deg, #4361ee, #7209b7, #4895ef, #9d4edd);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: cosmicPulse 8s ease infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+@keyframes cosmicPulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
