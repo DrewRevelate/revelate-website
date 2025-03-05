@@ -3,605 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Revelate Operations</title>
+    <title>About Us | Revelate Operations | Data-Driven SaaS Consulting</title>
     
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Meet the Revelate Operations team - data and SaaS experts helping companies leverage their data to drive growth and operational excellence.">
+    <meta name="keywords" content="Revelate Operations, revenue operations, RevOps, SaaS consulting, data integration, Salesforce expertise, business intelligence, team">
     
-    <!-- Google Fonts - Inter -->
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://revelateops.com/about.html">
+    <meta property="og:title" content="About Revelate Operations | Meet Our Team">
+    <meta property="og:description" content="Meet the passionate experts behind Revelate Operations who transform business data into strategic insights and actionable growth strategies.">
+    <meta property="og:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Revelate Operations | Meet Our Team">
+    <meta name="twitter:description" content="Meet the passionate experts behind Revelate Operations who transform business data into strategic insights and actionable growth strategies.">
+    <meta name="twitter:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Meta tags for SEO -->
-    <meta name="description" content="Meet the team behind Revelate Operations and learn about our mission to transform data into strategic wealth for SaaS businesses.">
-    <meta name="keywords" content="about us, data consultants, revenue operations experts, saas consulting team">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/logo-effect.css">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://revelateops.com/about.html"
+        },
+        "headline": "About Revelate Operations",
+        "description": "Meet the team behind Revelate Operations, experts in data-driven SaaS consulting and revenue operations.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Revelate Operations",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://revelateops.com/images/revelate-spiral-logo.png"
+            }
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar" aria-label="Main navigation">
-        <div class="container navbar-container">
-            <a href="index.html" class="logo" aria-label="Revelate Operations Home">
-                <div class="logo-container">
-                    <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
-                    <h1>REVELATE</h1>
-                </div>
-            </a>
-            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="approach.html" class="nav-link">Our Approach</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="case-studies/index.html" class="nav-link">Case Studies</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header & Navigation -->
+    <header id="header">
         <div class="container">
-            <h1 class="page-title">About <span class="text-gradient">Us</span></h1>
-            <p class="page-subtitle">Meet the team behind the revelations</p>
-        </div>
-    </section>
-
-    <!-- Our Story -->
-    <section class="our-story light">
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-content">
-                    <h2>Our Story</h2>
-                    <p>Revelate Operations was founded in 2021 by Drew Lambert and Melanie Tummino, who recognized a critical gap in the SaaS consulting landscape. Both had extensive experience working with SaaS companies and witnessed firsthand how many organizations were struggling to harness the full potential of their data.</p>
-                    <p>Having worked on opposite sides of the revenue operations spectrum – Drew in sales operations and Melanie in data analytics – they realized that the most powerful solutions came from bridging these worlds. They founded Revelate with a clear mission: to help SaaS companies transform their raw data into strategic wealth.</p>
-                    <p>What began as a two-person consultancy has grown into a team of specialists who bring deep expertise across the entire revenue operations spectrum. Today, we're proud to partner with clients ranging from high-growth startups to established enterprises, helping them unlock the full potential of their data assets.</p>
+            <div class="header-inner">
+                <!-- Logo in header -->
+                <a href="index.html" class="logo" aria-label="Revelate Operations Home">
+                    <div class="logo-container">
+                        <div class="logo-image">
+                            <img src="images/logo.png" alt="Revelate Logo" width="100" height="100">
+                        </div>
+                    </div>
+                </a>
+                
+                <nav aria-label="Main navigation">
+                    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
                     
-                    <div class="milestones">
-                        <div class="milestone">
-                            <span class="milestone-year">2021</span>
-                            <div class="milestone-content">
-                                <h4>Founded in San Francisco</h4>
-                                <p>Drew and Melanie launch Revelate Operations with a focus on data-driven SaaS consulting.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="milestone">
-                            <span class="milestone-year">2022</span>
-                            <div class="milestone-content">
-                                <h4>Team Expansion</h4>
-                                <p>Growing to a team of 10 specialists across data analytics, CRM management, and business intelligence.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="milestone">
-                            <span class="milestone-year">2023</span>
-                            <div class="milestone-content">
-                                <h4>Service Evolution</h4>
-                                <p>Expanded service offerings to include comprehensive revenue operations solutions.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="milestone">
-                            <span class="milestone-year">Today</span>
-                            <div class="milestone-content">
-                                <h4>Industry Leader</h4>
-                                <p>Recognized as a leading data operations consultancy with clients across North America and Europe.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="story-image">
-                    <img src="images/about-story.jpg" alt="Revelate Operations Team" width="500" height="600">
-                </div>
+                    <ul id="main-menu" class="nav-links">
+                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="approach.html" class="nav-link">Our Approach</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li>
+                        <li class="nav-item"><a href="case-studies/index.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </section>
-
-    <!-- Mission & Values -->
-    <section class="mission-values gray">
-        <div class="container">
-            <div class="mission-container">
-                <div class="mission-section">
-                    <h2>Our Mission</h2>
-                    <p>To transform raw data into strategic wealth for forward-thinking organizations by bridging the gap between technical excellence and business outcomes.</p>
-                </div>
-                
-                <div class="vision-section">
-                    <h2>Our Vision</h2>
-                    <p>A world where every business decision is informed by accurate data, where insights are accessible to all, and where companies can fully leverage their data assets to drive growth and innovation.</p>
-                </div>
-            </div>
-            
-            <div class="values-heading">
-                <h2 class="section-title text-center">Our Core Values</h2>
-                <p class="section-subtitle text-center">The principles that guide our work and culture</p>
-            </div>
-            
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-bullseye"></i>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-wrapper">
+                    <div class="about-hero-content">
+                        <span class="eyebrow">Our Story</span>
+                        <h1>Meet the Team Behind <span class="gradient-text">Data Transformation</span></h1>
+                        <p class="hero-subtitle">We're passionate experts on a mission to help companies unlock the full potential of their data and drive sustainable growth through innovative strategies and solutions.</p>
+                        <div class="about-hero-cta">
+                            <a href="#team" class="btn btn-primary">Meet Our Team</a>
+                            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                        </div>
                     </div>
-                    <h3>Data Integrity</h3>
-                    <p>We believe that high-quality, reliable data is the foundation of all effective business decisions. We maintain rigorous standards for data accuracy, consistency, and completeness in everything we do.</p>
+                    
+                    <div class="about-hero-image">
+                        <img src="images/about-illustration.svg" alt="Revelate Operations Team" width="550" height="450">
+                        <div class="hero-shape-1"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-hero-wave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                    <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+                </svg>
+            </div>
+        </section>
+        
+        <!-- Our Mission Section -->
+        <section class="mission-section" id="mission">
+            <div class="container">
+                <div class="mission-wrapper">
+                    <div class="mission-content" data-aos="fade-right">
+                        <span class="eyebrow">Our Mission</span>
+                        <h2>Driving Revenue Growth Through Data & Analysis</h2>
+                        <p class="lead">We believe that every company sits atop their own 'data oil well', rich with untapped potential. Our mission is to help you harness this potential to fuel growth and operational excellence.</p>
+                        
+                        <p>At Revelate Operations, we understand that the most successful companies aren't just equipped with the best tools; they operate with the best processes. We offer you the right technology and methodologies to not only access the right data but to extract meaningful insights and comprehensive knowledge.</p>
+                        
+                        <p>With our expertise, your data is elevated to new heights, empowering you to make informed, strategic decisions for your business's growth. We're committed to transforming how businesses leverage their data, creating streamlined, compelling strategies and data-driven decision-making processes.</p>
+                        
+                        <div class="mission-values">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h3>Data-Driven Decisions</h3>
+                                    <p>We believe in making informed decisions based on accurate, comprehensive data analysis.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h3>Client Partnership</h3>
+                                    <p>We work alongside your team, serving as strategic partners rather than just service providers.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="value-content">
+                                    <h3>Innovative Solutions</h3>
+                                    <p>We continuously explore new methodologies and technologies to keep you ahead of the curve.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mission-image" data-aos="fade-left">
+                        <img src="images/mission-illustration.svg" alt="Our Mission">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section class="team-section" id="team">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Leadership Team</h2>
+                    <p class="section-subtitle">Get to know the talented individuals behind the revelation</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
+                <div class="team-members">
+                    <!-- Drew Lambert -->
+                    <div class="team-member" data-aos="fade-up">
+                        <div class="member-image">
+                            <img src="images/drew_lambert.jpg" alt="Drew Lambert - Co-Founder & SaaS Expert">
+                            <div class="member-social">
+                                <a href="https://www.linkedin.com/in/drewblambert/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/drewblambert" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-content">
+                            <h3>Drew Lambert</h3>
+                            <p class="member-title">Co-Founder & SaaS Expert</p>
+                            
+                            <div class="member-bio">
+                                <p>Drew embodies the true spirit of a Salesforce professional. His expertise in Salesforce architecture transcends mere technical skills; it is a craft he approaches with genuine passion and dedication.</p>
+                                
+                                <p>His journey began in college and has deepened over the years. Today, Drew holds an impressive record of over 300 Trailhead badges and more than 20 super badges, a testament to his commitment to mastering Salesforce.</p>
+                                
+                                <p>Over the course of his career, Drew has contributed his skills to more than 150 company tech stacks, demonstrating an exceptional ability to adapt to and enhance diverse business environments. His expertise extends beyond Salesforce, encompassing areas such as sales engagement, customer retention, and lead generation.</p>
+                                
+                                <p>With an acute understanding of these critical components in today's competitive landscape, Drew navigates the complex world of modern technological ecosystems with ease and assurance.</p>
+                                
+                                <p>Drew's broad knowledge of these systems, combined with his extensive experience, establishes him as a valuable asset in the field of revenue operations.</p>
+                            </div>
+                            
+                            <div class="member-expertise">
+                                <span>Salesforce Architecture</span>
+                                <span>CRM Optimization</span>
+                                <span>Sales Enablement</span>
+                                <span>Revenue Operations</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Melanie Tummino -->
+                    <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member-image">
+                            <img src="images/Melanie_tummino.jpg" alt="Melanie Tummino - Co-Founder & Data Expert">
+                            <div class="member-social">
+                                <a href="https://www.linkedin.com/in/melanietummino/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://twitter.com/melanietummino" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-content">
+                            <h3>Melanie Tummino</h3>
+                            <p class="member-title">Co-Founder & Data Expert</p>
+                            
+                            <div class="member-bio">
+                                <p>Melanie is a data enthusiast with a proven track record of translating complex data insights into actionable business strategies and insightful dashboards. Her expertise lies in fostering cross-functional collaboration, bridging the gap between analytics and business objectives, and making complex data understandable to stakeholders at all levels.</p>
+                                
+                                <p>With over six years of hands-on experience, Melanie has worn many hats across the data spectrum, from data architecture and engineering to data science, data warehousing, and ultimately, data analytics. Her versatility in these roles demonstrates her adaptability and her commitment to leveraging data for comprehensive business intelligence.</p>
+                                
+                                <p>A data whiz in the truest sense, Melanie enjoys drawing insights from every facet of an organization, using data to create powerhouse analytics that drive growth and reinforce core business operations. Her work is instrumental in shaping data-driven cultures, helping companies make informed decisions rooted in solid evidence and predictive analysis.</p>
+                                
+                                <p>Melanie's deep-rooted passion for data fuels her drive to develop compelling dashboards that track trends in real time, transforming raw data into meaningful narratives. Her dedication and technical expertise make her an invaluable asset in today's data-driven landscape, where informed decision-making is more crucial than ever.</p>
+                            </div>
+                            
+                            <div class="member-expertise">
+                                <span>Data Analytics</span>
+                                <span>Business Intelligence</span>
+                                <span>Dashboard Development</span>
+                                <span>Data Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-cta">
+                    <p>Interested in joining our team?</p>
+                    <a href="careers.html" class="btn btn-outline">View Open Positions</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Philosophy Section -->
+        <section class="philosophy-section" id="philosophy">
+            <div class="container">
+                <div class="philosophy-wrapper">
+                    <div class="philosophy-content" data-aos="fade-up">
+                        <span class="eyebrow">Our Philosophy</span>
+                        <h2>More About Our Brand</h2>
+                        
+                        <div class="philosophy-text">
+                            <p>Revelate Ops represents the quintessence of expertise, experience, and a refreshingly humble approach. We redefine traditional business paradigms, creating a brand narrative that resonates deeply and leaves a lasting impact. Our core mission is to empower businesses, transforming them from ordinary entities into platforms for growth and operational supremacy.</p>
+                            
+                            <p>Leveraging state-of-the-art tools and delivering invaluable insights, we equip our clients with the necessary resources to excel in a dynamic business landscape. Our success stems from an acute ability to foresee industry trends and adapt to evolving market conditions.</p>
+                            
+                            <p>This pursuit of knowledge, combined with an awareness of market dynamics, cements our position as leaders in operational excellence. Revelate Ops, led by the founders Drew and Melanie, champions a philosophy of humility and empathy. We believe true success transcends mere achievements; it's about creating a positive, lasting impact.</p>
+                            
+                            <p>This ethos is the heart of Revelate Ops, inspiring businesses to aim for excellence through collaboration, innovation, and strategic success. With Revelate Ops, you're not just extracting data; you're unlocking a reservoir of strategic wealth, guiding your business towards unprecedented success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Philosophy Tiles -->
+            <div class="philosophy-tiles">
+                <div class="tile" data-aos="fade-up">
+                    <div class="tile-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Client Partnership</h3>
-                    <p>We view ourselves as an extension of our clients' teams, fully investing in their success. We collaborate closely, communicate openly, and align our solutions with their specific business goals.</p>
+                    <h3>Partnership Approach</h3>
+                    <p>We work alongside your team as true partners, ensuring knowledge transfer and sustainable success.</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
+                <div class="tile" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tile-icon">
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    <h3>Continuous Innovation</h3>
-                    <p>The data landscape is constantly evolving, and so are we. We stay at the forefront of industry trends, tools, and methodologies to deliver the most effective and innovative solutions to our clients.</p>
+                    <h3>Results-Focused</h3>
+                    <p>We measure our success by the tangible outcomes we help our clients achieve.</p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Results-Driven</h3>
-                    <p>We measure our success by the tangible outcomes we create for our clients. Every recommendation, implementation, and strategy is designed with clear business impact in mind.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Collaborative Excellence</h3>
-                    <p>We bring together diverse expertise and perspectives to create holistic solutions. We believe the best results come from cross-functional collaboration and knowledge sharing.</p>
-                </div>
-                
-                <div class="value-card">
-                    <div class="value-icon">
+                <div class="tile" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tile-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>Continuous Learning</h3>
-                    <p>We're committed to ongoing growth and development, both for ourselves and our clients. We invest in expanding our knowledge and share those insights freely.</p>
+                    <p>We're committed to staying at the forefront of industry developments and technological advancements.</p>
+                </div>
+                
+                <div class="tile" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tile-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Adaptable Solutions</h3>
+                    <p>We tailor our approach to each client's unique needs, challenges, and objectives.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Leadership Team -->
-    <section id="team" class="leadership-team light">
-        <div class="container">
-            <h2 class="section-title text-center">Meet Our Leadership Team</h2>
-            <p class="section-subtitle text-center">The talented individuals driving our mission forward</p>
-            
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image-container">
-                        <img src="images/drew-lambert.jpg" alt="Drew Lambert" class="team-image">
-                        <div class="team-social">
-                            <a href="#" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Drew Lambert</h3>
-                        <span class="team-position">Co-Founder & CEO</span>
-                        <p class="team-bio">Drew embodies the true spirit of a Salesforce professional with over 300 Trailhead badges and more than 20 super badges. His expertise extends beyond Salesforce to sales engagement, customer retention, and lead generation.</p>
-                    </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="about-testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Clients Say</h2>
+                    <p class="section-subtitle">Success stories from businesses we've helped transform</p>
                 </div>
                 
-                <div class="team-card">
-                    <div class="team-image-container">
-                        <img src="images/melanie-tummino.jpg" alt="Melanie Tummino" class="team-image">
-                        <div class="team-social">
-                            <a href="#" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Melanie Tummino</h3>
-                        <span class="team-position">Co-Founder & CTO</span>
-                        <p class="team-bio">Melanie is a data enthusiast with a proven track record of translating complex data insights into actionable business strategies. With over six years of experience across the data spectrum, she excels at making complex data understandable.</p>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-image-container">
-                        <img src="images/michael-chen.jpg" alt="Michael Chen" class="team-image">
-                        <div class="team-social">
-                            <a href="#" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Michael Chen</h3>
-                        <span class="team-position">Director of Analytics</span>
-                        <p class="team-bio">Michael brings over a decade of experience in data science and analytics, having previously led business intelligence teams at several Fortune 500 companies. He specializes in predictive modeling and machine learning applications.</p>
-                    </div>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-image-container">
-                        <img src="images/sarah-johnson.jpg" alt="Sarah Johnson" class="team-image">
-                        <div class="team-social">
-                            <a href="#" class="social-link" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" class="social-link" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-info">
-                        <h3 class="team-name">Sarah Johnson</h3>
-                        <span class="team-position">Director of Client Success</span>
-                        <p class="team-bio">Sarah ensures that our clients receive exceptional service and achieve their desired outcomes. With her background in customer success leadership at SaaS companies, she understands how to drive adoption and maximize value.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Extended Team -->
-    <section class="extended-team">
-        <div class="container">
-            <h2 class="section-title text-center">Our Extended Team</h2>
-            <p class="section-subtitle text-center">Specialized experts who bring diverse skillsets to our client engagements</p>
-            
-            <div class="expertise-grid">
-                <div class="expertise-area">
-                    <div class="expertise-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Data Engineers</h3>
-                    <p>Experts in building robust data pipelines, ETL processes, and system integrations</p>
-                </div>
-                
-                <div class="expertise-area">
-                    <div class="expertise-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>BI Specialists</h3>
-                    <p>Masters of visualization and reporting across Tableau, Power BI, and Looker</p>
-                </div>
-                
-                <div class="expertise-area">
-                    <div class="expertise-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>CRM Architects</h3>
-                    <p>Certified experts in Salesforce, HubSpot, and other leading CRM platforms</p>
-                </div>
-                
-                <div class="expertise-area">
-                    <div class="expertise-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Marketing Technologists</h3>
-                    <p>Specialists in marketing automation, attribution, and campaign analytics</p>
-                </div>
-                
-                <div class="expertise-area">
-                    <div class="expertise-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Solution Developers</h3>
-                    <p>Custom application developers who extend and enhance platform capabilities</p>
-                </div>
-                
-                <div class="expertise-area">
-                    <div class="expertise-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Data Scientists</h3>
-                    <p>Advanced analysts who develop predictive models and derive complex insights</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Working With Us -->
-    <section class="working-with-us light">
-        <div class="container">
-            <h2 class="section-title text-center">Working With Us</h2>
-            <p class="section-subtitle text-center">What you can expect when partnering with Revelate Operations</p>
-            
-            <div class="working-grid">
-                <div class="working-card">
-                    <div class="working-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Transparent Communication</h3>
-                    <p>We believe in open, honest, and regular communication. You'll always know where your project stands, what we're working on, and what's coming next.</p>
-                </div>
-                
-                <div class="working-card">
-                    <div class="working-icon">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <h3>Dedicated Team</h3>
-                    <p>You'll work with a consistent team throughout your project, led by a dedicated project manager who serves as your primary point of contact.</p>
-                </div>
-                
-                <div class="working-card">
-                    <div class="working-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>Collaborative Process</h3>
-                    <p>We work closely with your team, involving key stakeholders at every stage to ensure the solution meets your specific needs and objectives.</p>
-                </div>
-                
-                <div class="working-card">
-                    <div class="working-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Agile Methodology</h3>
-                    <p>We use agile project management approaches, delivering value in iterative cycles that allow for feedback and refinement.</p>
-                </div>
-                
-                <div class="working-card">
-                    <div class="working-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Knowledge Transfer</h3>
-                    <p>We don't just deliver solutions; we ensure your team understands how to use and maintain them through comprehensive training and documentation.</p>
-                </div>
-                
-                <div class="working-card">
-                    <div class="working-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Ongoing Support</h3>
-                    <p>Our relationship doesn't end at implementation. We offer various support options to ensure continued success and optimization.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials gray">
-        <div class="container">
-            <h2 class="section-title text-center">What Our Clients Say</h2>
-            <p class="section-subtitle text-center">Hear from the businesses we've helped transform</p>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-slider-inner" id="testimonial-slider">
+                <div class="testimonial-slider" id="testimonial-slider">
                     <!-- Testimonial 1 -->
-                    <div class="testimonial-card" data-company="techforward">
-                        <div class="testimonial-header">
-                            <div class="testimonial-company-logo">
-                                <div class="company-initial">T</div>
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Working with Drew and Melanie has been transformative for our business. Their deep expertise in both Salesforce and data analytics helped us create a truly integrated tech stack that has significantly improved our operational efficiency and sales performance."</p>
                             </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-content">
-                            Revelate Operations completely transformed how we utilize our data. Their expertise in CRM optimization and data analytics has resulted in a 35% increase in our sales conversion rate and significantly improved customer retention.
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/testimonials/sarah-johnson.jpg" alt="Sarah Johnson" class="author-image">
-                            <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <p class="author-company">VP of Sales, TechForward Solutions</p>
+                            <div class="testimonial-author">
+                                <img src="images/testimonials/testimonial-1.jpg" alt="Alex Thompson" class="author-image">
+                                <div class="author-info">
+                                    <h4>Alex Thompson</h4>
+                                    <p>CEO, CloudTech Solutions</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial 2 -->
-                    <div class="testimonial-card" data-company="growify">
-                        <div class="testimonial-header">
-                            <div class="testimonial-company-logo">
-                                <div class="company-initial">G</div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"Revelate Operations helped us understand the true value of our data. The dashboards and analytics they implemented have given us unprecedented insights into our customer behavior and business performance. Our decision-making is now faster and more accurate."</p>
                             </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-content">
-                            We were drowning in data but starving for insights before partnering with Revelate. They helped us build a data-driven culture throughout our organization. Our marketing ROI improved by 42% within just 3 months of implementing their recommendations.
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/testimonials/michael-chen.jpg" alt="Michael Chen" class="author-image">
-                            <div class="author-info">
-                                <h4>Michael Chen</h4>
-                                <p class="author-company">CMO, Growify</p>
+                            <div class="testimonial-author">
+                                <img src="images/testimonials/testimonial-2.jpg" alt="Sarah Johnson" class="author-image">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>VP of Operations, GrowthMatrix</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial 3 -->
-                    <div class="testimonial-card" data-company="nexus">
-                        <div class="testimonial-header">
-                            <div class="testimonial-company-logo">
-                                <div class="company-initial">N</div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p>"What sets Revelate apart is their holistic approach to revenue operations. They didn't just implement tools; they helped us create processes and strategies that aligned our sales, marketing, and customer success teams. The impact on our revenue growth has been substantial."</p>
                             </div>
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-content">
-                            The team at Revelate Operations provided clear, actionable insights that transformed our sales process. Their data integration work eliminated hours of manual reporting and gave our sales team the visibility they needed to close more deals.
-                        </div>
-                        <div class="testimonial-author">
-                            <img src="images/testimonials/jasmine-rodriguez.jpg" alt="Jasmine Rodriguez" class="author-image">
-                            <div class="author-info">
-                                <h4>Jasmine Rodriguez</h4>
-                                <p class="author-company">Sales Director, Nexus Technologies</p>
+                            <div class="testimonial-author">
+                                <img src="images/testimonials/testimonial-3.jpg" alt="Michael Chen" class="author-image">
+                                <div class="author-info">
+                                    <h4>Michael Chen</h4>
+                                    <p>CRO, InnovateX</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-controls">
-                    <button class="testimonial-control" id="prev-testimonial" aria-label="Previous testimonial">
+                    <button class="testimonial-arrow prev-arrow" aria-label="Previous testimonial">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <div class="testimonial-dots" id="testimonial-dots">
-                        <span class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></span>
-                        <span class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></span>
-                        <span class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></span>
+                    <div class="testimonial-dots">
+                        <button class="testimonial-dot active" aria-label="Testimonial 1" data-index="0"></button>
+                        <button class="testimonial-dot" aria-label="Testimonial 2" data-index="1"></button>
+                        <button class="testimonial-dot" aria-label="Testimonial 3" data-index="2"></button>
                     </div>
-                    <button class="testimonial-control" id="next-testimonial" aria-label="Next testimonial">
+                    <button class="testimonial-arrow next-arrow" aria-label="Next testimonial">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Our Team -->
-    <section class="join-team light">
-        <div class="container">
-            <div class="join-container">
-                <div class="join-content">
-                    <h2>Join Our Team</h2>
-                    <p>We're always looking for talented individuals who are passionate about data and helping businesses grow. At Revelate Operations, you'll work with cutting-edge technologies, tackle complex challenges, and grow your skills in a collaborative environment.</p>
-                    <p>If you're interested in joining our team, check out our current openings or send us your resume.</p>
-                    <a href="contact.html" class="btn btn-primary">View Open Positions</a>
-                </div>
-                <div class="join-image">
-                    <img src="images/join-team.jpg" alt="Join our team" width="500" height="400">
+                
+                <div class="testimonials-cta">
+                    <a href="case-studies/index.html" class="btn btn-primary">Read Our Case Studies</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Transform Your Data?</h2>
-                <p class="cta-description">Let's start a conversation about how we can help you unlock the full potential of your data and drive business growth.</p>
-                <a href="contact.html" class="btn btn-light btn-large">Contact Us Today</a>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="about-faq" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Answers to common questions about our company and approach</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-column">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                How did Revelate Operations get started?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Revelate Operations was founded by Drew Lambert and Melanie Tummino, who saw a critical gap in how businesses were utilizing their data. With complementary expertise in Salesforce implementation and data analytics, they joined forces to create a consultancy that helps companies transform their data into strategic assets that drive growth and operational excellence.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                What makes Revelate Operations different from other consultancies?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Our unique strength lies in our dual expertise in both technical implementation and strategic business analysis. We don't just configure systems; we align technology with business processes and strategic objectives. Our approach focuses on tangible results, knowledge transfer, and long-term partnership rather than creating dependencies on our services.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                What industries do you work with?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>While we specialize in SaaS and technology companies, our methodologies and solutions can be applied across various industries. We've successfully worked with clients in healthcare, financial services, professional services, manufacturing, and non-profit sectors. Our approach is adaptable to any organization looking to better leverage their data for growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-column">
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                How long does a typical engagement last?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>The length of our engagements varies based on the scope and complexity of the project. Initial implementations or transformations typically range from 2-6 months, while ongoing strategic partnerships can extend for years. We focus on delivering quick wins within the first 30 days while working toward more comprehensive long-term solutions.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                Do you work with small businesses or only enterprise clients?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We work with businesses of all sizes, from startups to enterprise organizations. Our solutions are scalable and can be tailored to fit your specific needs and budget. We believe that companies at any stage can benefit from data-driven operations and thoughtful technology implementation.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 6 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                How do you measure success in your projects?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We establish clear, measurable KPIs at the beginning of every engagement. These typically include metrics like revenue growth, process efficiency improvements, user adoption rates, reduction in manual effort, and return on investment. We regularly report on these metrics throughout our engagement to ensure we're delivering tangible value.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-cta">
+                    <p>Still have questions?</p>
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-wrapper">
+                    <div class="stat-item" data-aos="fade-up">
+                        <div class="stat-value"><span class="stat-counter" data-count="150">0</span>+</div>
+                        <div class="stat-label">Companies Transformed</div>
+                    </div>
+                    
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-value"><span class="stat-counter" data-count="35">0</span>%</div>
+                        <div class="stat-label">Average Revenue Growth</div>
+                    </div>
+                    
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-value"><span class="stat-counter" data-count="300">0</span>+</div>
+                        <div class="stat-label">Trailhead Badges</div>
+                    </div>
+                    
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-value"><span class="stat-counter" data-count="85">0</span>%</div>
+                        <div class="stat-label">Data Utilization Increase</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Operations?</h2>
+                    <p class="cta-description">Let's start a conversation about how Revelate Operations can help you unlock the full potential of your data and drive business growth.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-light btn-lg">Schedule a Consultation</a>
+                        <a href="services.html" class="btn btn-outline btn-light btn-lg">Explore Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">
                         <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
-                        <h2>REVELATE</h2>
-                    </div>
-                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                        <span>REVELATE</span>
+                    </a>
+                    <p class="footer-description">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links-column">
-                    <h3 class="footer-heading">Services</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="services.html#crm">CRM Management</a></li>
-                        <li class="footer-link"><a href="services.html#bi">Business Intelligence</a></li>
-                        <li class="footer-link"><a href="services.html#integration">Data Integration</a></li>
-                        <li class="footer-link"><a href="services.html#lead-gen">Lead Generation</a></li>
-                        <li class="footer-link"><a href="services.html#gtm">GTM Strategy</a></li>
-                        <li class="footer-link"><a href="services.html#retention">Customer Retention</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links-column">
-                    <h3 class="footer-heading">Company</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="about.html">About Us</a></li>
-                        <li class="footer-link"><a href="approach.html">Our Process</a></li>
-                        <li class="footer-link"><a href="case-studies/index.html">Case Studies</a></li>
-                        <li class="footer-link"><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Contact Us</h3>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
-                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone footer-contact-icon"></i>
-                        <span>(555) 123-4567</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope footer-contact-icon"></i>
-                        <span>info@revelateops.com</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-divider"></div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Login Modal -->
-    <div class="modal" id="login-modal" aria-hidden="true" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Client Portal Login</h2>
-                <button class="close-modal" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="login-form">
-                    <div class="form-group">
-                        <label for="email-login" class="form-label">Email</label>
-                        <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
-                        <div class="form-feedback"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password-login" class="form-label">Password</label>
-                        <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
-                        <div class="form-feedback"></div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a href="#">Forgot Password?</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="js/navigation.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+                        <a href="https://linkedin.com/company/revelateops" aria-label="LinkedIn" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/revelateops" aria-label="Twitter" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
