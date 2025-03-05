@@ -9,6 +9,7 @@
 .approach-hero {
     padding: var(--space-12) 0 0;
     background-color: white;
+    margin-top: 80px;
     position: relative;
     overflow: hidden;
 }
