@@ -543,3 +543,121 @@
                         <a href="https://twitter.com/revelateops" aria-label="Twitter" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
+                        <a href="https://instagram.com/revelateops" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-nav">
+                        <li><a href="services.html#crm">CRM Management</a></li>
+                        <li><a href="services.html#bi">Business Intelligence</a></li>
+                        <li><a href="services.html#integration">Data Integration</a></li>
+                        <li><a href="services.html#lead-gen">Lead Generation</a></li>
+                        <li><a href="services.html#gtm">GTM Strategy</a></li>
+                        <li><a href="services.html#retention">Customer Retention</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-nav">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="approach.html">Our Process</a></li>
+                        <li><a href="case-studies/index.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <address class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Business Avenue, Suite 400<br>Boston, MA 02108</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+15551234567">(555) 123-4567</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:info@revelateops.com">info@revelateops.com</a></span>
+                        </div>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+                <ul class="legal-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Client Portal Modal -->
+    <div class="modal" id="portal-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Client Portal Login</h2>
+                    <button class="modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <div class="form-options">
+                                <div class="form-remember">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="js/portal.js"></script>
+    <script src="js/about.js"></script>
+    
+    <!-- AOS (Animate on Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>
