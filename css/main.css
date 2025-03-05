@@ -425,7 +425,7 @@ section {
 }
 
 .logo:hover img {
-    transform: rotate(15deg);
+    transform: rotate(10deg);
 }
 
 .nav-links {
