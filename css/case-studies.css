@@ -7,6 +7,7 @@
    Case Study Hero Section
    ========================================== */
 /* Fix for the case study hero section */
+/* Updated Case Studies Hero Styles to match other pages */
 .case-studies-hero {
     padding: var(--space-12) 0 0;
     margin-top: 80px;
@@ -14,36 +15,73 @@
     position: relative;
     overflow: hidden;
     text-align: left;
-
 }
 
-.case-studies-hero .container {
+.case-studies-hero-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
+    gap: var(--space-8);
+    align-items: center;
     padding-top: var(--space-8);
     padding-bottom: var(--space-6);
 }
 
 .case-studies-hero-content {
-    max-width: 800px;
-    margin: 0; /* Remove auto margins */
-    padding-bottom: var(--space-8);
+    max-width: 600px;
 }
 
-.case-study-hero-image {
-    width: 100%; /* Ensure image container uses full width */
+.case-studies-hero-image {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.case-study-hero-image img {
+.case-studies-hero-image img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    object-fit: cover; /* Maintain aspect ratio while covering container */
+    position: relative;
+    z-index: 1;
+}
+
+.hero-shape-1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    animation: pulse 8s infinite alternate;
+}
+
+.case-studies-hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+@media (max-width: 991px) {
+    .case-studies-hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-8);
+    }
+    
+    .case-studies-hero-content {
+        order: 2;
+        max-width: 100%;
+    }
+    
+    .case-studies-hero-image {
+        order: 1;
+    }
+    
+    .case-studies-hero-cta {
+        justify-content: center;
+    }
 }
 
 /* Ensure proper spacing for meta items */
