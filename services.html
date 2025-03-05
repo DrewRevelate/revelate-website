@@ -34,14 +34,13 @@
     <!-- Font Awesome (with performance optimization) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <!-- Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/logo-effect.css">
-
-    <!-- Animations -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/logo-effect.css">    
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
@@ -86,11 +85,12 @@
                     </button>
                     
                     <ul id="main-menu" class="nav-links">
-                      <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-<li class="nav-item"><a href="approach.html" class="nav-link">Our Approach</a></li>
-<li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-<li class="nav-item"><a href="case-studies/index.html" class="nav-link">Case Studies</a></li>
-<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
+                        <li class="nav-item"><a href="approach.html" class="nav-link">Our Approach</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="case-studies/index.html" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
                     </ul>
                 </nav>
             </div>
@@ -776,14 +776,17 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 50
+        });
+    </script>
     <script src="js/services.js"></script>
     <script src="js/portal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true
-  });
-</script>
 </body>
 </html>
