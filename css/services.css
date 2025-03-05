@@ -709,3 +709,27 @@
         font-size: var(--font-size-lg);
     }
 }
+/* Make the overall page more compact */
+section {
+    padding: var(--space-8) 0; /* General section padding reduction */
+}
+
+.section-header {
+    margin-bottom: var(--space-6); /* Reduced from space-8 */
+}
+
+.services-overview {
+    padding-top: var(--space-6); /* Reduced from space-12 */
+}
+
+.service-category-grid {
+    margin-top: var(--space-4); /* Reduced from space-8 */
+}
+
+.why-choose-us {
+    padding: var(--space-8) 0; /* Reduced from space-12 */
+}
+
+.faq-section {
+    padding: var(--space-8) 0; /* Reduced from space-12 */
+}
