@@ -14,8 +14,7 @@
     position: relative;
     overflow: hidden;
     text-align: center;
-}
-.container {
+}.container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Equal width columns */
     gap: var(--space-6);
