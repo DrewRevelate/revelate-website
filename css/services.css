@@ -229,6 +229,7 @@
     z-index: 2;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+   opacity: 100%;
 }
 
 .service-detail-shape {
