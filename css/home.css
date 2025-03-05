@@ -424,15 +424,28 @@
     position: relative;
 }
 
+/* Add to home.css to fix testimonial slider */
 .testimonials-track {
-    display: flex;
-    transition: transform var(--transition-normal);
     position: relative;
+    height: auto;
+    min-height: 300px; /* Set minimum height to prevent layout shifts */
+    width: 100%;
 }
 
 .testimonial-slide {
-    min-width: 100%;
-    transition: opacity var(--transition-normal);
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(50px);
+    pointer-events: none;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    pointer-events: auto;
 }
 
 .testimonial-card {
