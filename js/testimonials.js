@@ -169,50 +169,45 @@ function initTestimonialsSlider() {
         startAutoplay();
     }
     
-    /**
-     * Navigate to a specific slide
-     * @param {number} index - The slide index to go to
-     */
-    function goToSlide(index) {
-        // Handle index bounds (loop around if needed)
-        let targetIndex = index;
-        
-        if (targetIndex < 0) {
-            targetIndex = slideCount - 1;
-        } else if (targetIndex >= slideCount) {
-            targetIndex = 0;
-        }
-        
-        // If already on the target slide, do nothing
-        if (targetIndex === currentIndex) return;
-        
-        // Get current active slide and direction of movement
-        const currentSlide = slides[currentIndex];
-        const nextSlide = slides[targetIndex];
-        const direction = targetIndex > currentIndex ? 'next' : 'prev';
-        
-        // Exit if slides not found
-        if (!currentSlide || !nextSlide) return;
-        
-        // Apply appropriate transition classes based on direction
-        currentSlide.classList.remove('active');
-        currentSlide.setAttribute('aria-hidden', 'true');
-        
-        nextSlide.classList.add('active');
-        nextSlide.removeAttribute('aria-hidden');
-        
-        // Update dots
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === targetIndex);
-            dot.setAttribute('aria-current', i === targetIndex ? 'true' : 'false');
-        });
-        
-        // Update current index
-        currentIndex = targetIndex;
-        
-        // Update slider height
-        setTimeout(updateSliderHeight, 100);
+ /**
+ * Navigate to a specific slide
+ * @param {number} index - The slide index to go to
+ */
+function goToSlide(index) {
+    // Handle index bounds (loop around if needed)
+    let targetIndex = index;
+    
+    if (targetIndex < 0) {
+        targetIndex = slideCount - 1;
+    } else if (targetIndex >= slideCount) {
+        targetIndex = 0;
     }
+    
+    // If already on the target slide, do nothing
+    if (targetIndex === currentIndex) return;
+    
+    // Hide all slides first
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        slide.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Then show the target slide
+    slides[targetIndex].classList.add('active');
+    slides[targetIndex].removeAttribute('aria-hidden');
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === targetIndex);
+        dot.setAttribute('aria-current', i === targetIndex ? 'true' : 'false');
+    });
+    
+    // Update current index
+    currentIndex = targetIndex;
+    
+    // Update slider height
+    setTimeout(updateSliderHeight, 10);
+}
     
     /**
      * Pause autoplay when slider is hovered
