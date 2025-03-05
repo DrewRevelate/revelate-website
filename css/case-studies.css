@@ -13,6 +13,8 @@
     background-color: white;
     position: relative;
     overflow: hidden;
+    text-align: left;
+
 }
 
 .case-studies-hero .container {
@@ -23,9 +25,10 @@
     padding-bottom: var(--space-6);
 }
 
-.case-study-hero-content {
-    max-width: 100%; /* Ensure content can fill its column */
-    padding-right: var(--space-4); /* Add some right padding */
+.case-studies-hero-content {
+    max-width: 800px;
+    margin: 0; /* Remove auto margins */
+    padding-bottom: var(--space-8);
 }
 
 .case-study-hero-image {
