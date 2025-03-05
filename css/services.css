@@ -693,3 +693,52 @@
 .service-feature {
     gap: var(--space-3); /* Reduced from space-4 */
 }
+/* Add to your services.css file */
+
+/* Fix the testimonial card styling */
+.service-testimonial {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    background-color: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    z-index: 3;
+    border: 1px solid rgba(67, 97, 238, 0.1);
+}
+
+/* Remove the background shape behind the testimonial */
+.service-detail-shape {
+    display: none; /* This removes the purple background shape */
+}
+
+/* Make the service image container simpler */
+.service-detail-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: none; /* Remove any background */
+    border: none; /* Remove any border */
+}
+
+.service-detail-image img {
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+    border-radius: var(--radius-lg); 
+    box-shadow: none; /* Remove shadow from the image */
+    background-color: white;
+}
+
+/* Fix the author image display */
+.testimonial-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: none;
+    background-color: #f0f0f0; /* Light gray fallback if image is missing */
+    border: 1px solid #e0e0e0;
+}
