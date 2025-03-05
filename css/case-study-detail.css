@@ -1,6 +1,6 @@
 /* 
 ---------------------------------------
-CASE STUDY DETAIL STYLES
+CASE STUDY DETAIL STYLES - IMPROVED
 These styles are specific to individual case study pages
 ---------------------------------------
 */
@@ -30,8 +30,131 @@ These styles are specific to individual case study pages
     z-index: 0;
 }
 
+/* For case study hero section with side-by-side layout */
+.case-hero {
+    background: linear-gradient(135deg, 
+        rgba(67, 97, 238, 0.9) 0%, 
+        rgba(114, 9, 183, 0.9) 100%);
+    color: white;
+    padding: 8rem 0 4rem;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.case-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.case-hero .container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.case-hero-content {
+    flex: 1;
+}
+
+.case-hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.case-hero-image img {
+    max-width: 100%;
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: white;
+}
+
+.breadcrumb i {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.breadcrumb span {
+    color: white;
+}
+
+.case-tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-round, 50px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.case-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    color: white;
+    position: relative;
+}
+
+.case-summary {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+.case-study-category {
+    margin-bottom: 1.5rem;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-round, 50px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .case-study-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 2rem;
     max-width: 800px;
     position: relative;
@@ -50,7 +173,7 @@ These styles are specific to individual case study pages
     width: auto;
     background: white;
     padding: 0.75rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 8px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -68,10 +191,42 @@ These styles are specific to individual case study pages
     margin-top: 3rem;
 }
 
+.case-metrics {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.case-metric {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md, 8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.case-metric .metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.case-metric .metric-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    line-height: 1.3;
+}
+
 .case-metric-large {
     background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #e4e7eb 100%);
     padding: 1.5rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 8px);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     min-width: 180px;
@@ -85,7 +240,7 @@ These styles are specific to individual case study pages
         0 5px 15px rgba(0, 0, 0, 0.1),
         0 0 5px rgba(255, 255, 255, 0.5),
         inset 0 0 10px rgba(255, 255, 255, 0.8);
-    color: var(--gray-dark);
+    color: var(--gray-dark, #1b263b);
 }
 
 .case-metric-large::before {
@@ -125,7 +280,7 @@ These styles are specific to individual case study pages
     font-weight: 700;
     display: block;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary, #4361ee), var(--secondary, #7209b7));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -135,7 +290,7 @@ These styles are specific to individual case study pages
 
 .case-metric-large .metric-label {
     font-size: 1rem;
-    color: var(--gray-dark);
+    color: var(--gray-dark, #1b263b);
     font-weight: 500;
     position: relative;
     z-index: 2;
@@ -164,7 +319,7 @@ These styles are specific to individual case study pages
 .case-section h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: var(--dark);
+    color: var(--dark, #0d1b2a);
     position: relative;
     padding-bottom: 0.75rem;
 }
@@ -176,19 +331,19 @@ These styles are specific to individual case study pages
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    background: linear-gradient(90deg, var(--primary, #4361ee), var(--primary-light, #4895ef));
     border-radius: 3px;
 }
 
 .case-section p {
-    color: var(--gray-dark);
+    color: var(--gray-dark, #1b263b);
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
 
 .case-section ul {
-    color: var(--gray-dark);
+    color: var(--gray-dark, #1b263b);
     font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
@@ -199,6 +354,177 @@ These styles are specific to individual case study pages
     margin-bottom: 0.75rem;
 }
 
+/* Case Study Overview */
+.case-overview {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+}
+
+.client-info, .project-overview {
+    background-color: white;
+    border-radius: var(--radius-lg, 16px);
+    padding: 2.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.client-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.client-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.detail-item h4 {
+    font-size: 0.9rem;
+    color: var(--gray, #415a77);
+    margin-bottom: 0.5rem;
+}
+
+.detail-item p {
+    font-size: 1.1rem;
+    color: var(--dark, #0d1b2a);
+    font-weight: 500;
+}
+
+.services-provided {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.services-provided h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+.service-tags li {
+    background: rgba(67, 97, 238, 0.1);
+    color: var(--primary, #4361ee);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-round, 50px);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Process Timeline */
+.case-process {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+}
+
+.process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    height: 100%;
+    width: 2px;
+    background: rgba(67, 97, 238, 0.2);
+    z-index: 0;
+}
+
+.process-step:last-child::before {
+    display: none;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary, #4361ee), var(--secondary, #7209b7));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.step-content {
+    background-color: white;
+    border-radius: var(--radius-lg, 16px);
+    padding: 2.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary, #4361ee);
+}
+
+.step-content p {
+    margin-bottom: 1.5rem;
+}
+
+.step-highlights {
+    background-color: rgba(67, 97, 238, 0.05);
+    border-radius: var(--radius-md, 8px);
+    padding: 1.5rem;
+    list-style-type: none;
+}
+
+.step-highlights li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.step-highlights li:last-child {
+    margin-bottom: 0;
+}
+
+.step-highlights li::before {
+    content: '•';
+    color: var(--primary, #4361ee);
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
 /* Solution Grid */
 .solution-grid {
     display: grid;
@@ -207,23 +533,23 @@ These styles are specific to individual case study pages
     margin: 2.5rem 0;
 }
 
-.solution-item {
+.solution-card, .solution-item {
     background: rgba(67, 97, 238, 0.03);
     padding: 2rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 8px);
     border: 1px solid rgba(67, 97, 238, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.solution-item:hover {
+.solution-card:hover, .solution-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-md, 0 4px 16px rgba(0,0,0,0.08));
 }
 
 .solution-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    background: linear-gradient(135deg, var(--primary-light, #4895ef), var(--primary, #4361ee));
     color: white;
     display: flex;
     align-items: center;
@@ -234,16 +560,227 @@ These styles are specific to individual case study pages
     box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
 }
 
-.solution-item h3 {
+.solution-card h3, .solution-item h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: var(--dark);
+    color: var(--dark, #0d1b2a);
 }
 
-.solution-item p {
-    color: var(--gray);
+.solution-card p, .solution-item p {
+    color: var(--gray, #415a77);
     font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.solution-features {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.solution-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--gray-dark, #1b263b);
+}
+
+.solution-features li:last-child {
     margin-bottom: 0;
+}
+
+.solution-features li::before {
+    content: '✓';
+    color: var(--primary, #4361ee);
+    position: absolute;
+    left: 0;
+}
+
+.solution-visual {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.solution-visual h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--dark, #0d1b2a);
+}
+
+.solution-visual img {
+    max-width: 100%;
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--gray, #415a77);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.technologies {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.technologies h3 {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.tech-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.tech-logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.tech-logo span {
+    font-size: 0.85rem;
+    color: var(--gray, #415a77);
+}
+
+/* Challenge Section */
+.case-challenge {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.section-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-visual img {
+    max-width: 100%;
+    border-radius: var(--radius-lg, 16px);
+}
+
+.challenge-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.challenge-list li {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.challenge-list li:last-child {
+    margin-bottom: 0;
+}
+
+.challenge-list li i {
+    width: 50px;
+    height: 50px;
+    background: rgba(231, 76, 60, 0.1);
+    color: var(--error, #e74c3c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.challenge-list li h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark, #0d1b2a);
+}
+
+.challenge-list li p {
+    margin-bottom: 0;
+}
+
+/* Results Section */
+.case-results {
+    padding: 6rem 0;
+    background-color: white;
+}
+
+.results-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.result-metric-card {
+    background-color: white;
+    border-radius: var(--radius-lg, 16px);
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.result-metric-card:hover {
+    transform: translateY(-5px);
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary, #4361ee);
+    margin-bottom: 0.5rem;
+}
+
+.result-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark, #0d1b2a);
+    margin-bottom: 1rem;
+}
+
+.result-detail {
+    color: var(--gray, #415a77);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.results-chart {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: var(--radius-lg, 16px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.results-summary {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+    color: var(--dark, #0d1b2a);
 }
 
 /* Implementation Timeline */
@@ -259,7 +796,7 @@ These styles are specific to individual case study pages
     left: 25px;
     width: 3px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    background: linear-gradient(to bottom, var(--primary, #4361ee), var(--secondary, #7209b7));
     border-radius: 3px;
 }
 
@@ -278,14 +815,14 @@ These styles are specific to individual case study pages
     width: 50px;
     height: 50px;
     background: white;
-    color: var(--primary);
+    color: var(--primary, #4361ee);
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border: 3px solid var(--primary);
+    border: 3px solid var(--primary, #4361ee);
     z-index: 1;
     font-size: 1.2rem;
 }
@@ -294,20 +831,20 @@ These styles are specific to individual case study pages
     flex: 1;
     padding: 1.5rem;
     background: white;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md, 8px);
+    box-shadow: var(--shadow-sm, 0 2px 10px rgba(0,0,0,0.05));
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .timeline-content h4 {
     font-size: 1.3rem;
     margin-bottom: 0.75rem;
-    color: var(--dark);
+    color: var(--dark, #0d1b2a);
 }
 
 .timeline-content p {
     margin-bottom: 0;
-    color: var(--gray);
+    color: var(--gray, #415a77);
 }
 
 /* Results Section */
@@ -329,7 +866,7 @@ These styles are specific to individual case study pages
 .metric-circle {
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    background: linear-gradient(135deg, var(--primary-light, #4895ef), var(--primary, #4361ee));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -365,16 +902,79 @@ These styles are specific to individual case study pages
 }
 
 .result-metric p {
-    color: var(--gray-dark);
+    color: var(--gray-dark, #1b263b);
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 0;
 }
 
 /* Testimonial Box */
+.case-testimonial {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+}
+
+.testimonial-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonial-quote {
+    background: white;
+    border-radius: var(--radius-lg, 16px);
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.testimonial-quote i {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 3rem;
+    color: rgba(67, 97, 238, 0.1);
+}
+
+.testimonial-quote blockquote {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-style: italic;
+    color: var(--gray-dark, #1b263b);
+    margin: 0 0 2.5rem;
+    padding-left: 3rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.testimonial-author img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.author-details h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    color: var(--dark, #0d1b2a);
+}
+
+.author-details p {
+    font-size: 0.95rem;
+    color: var(--gray, #415a77);
+    margin-bottom: 0;
+}
+
+/* Testimonial Box (alternative style) */
 .testimonial-box {
     background: rgba(67, 97, 238, 0.03);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-lg, 16px);
     padding: 3rem;
     margin: 3rem 0;
     position: relative;
@@ -386,7 +986,7 @@ These styles are specific to individual case study pages
     top: 2rem;
     left: 2rem;
     font-size: 2.5rem;
-    color: var(--primary);
+    color: var(--primary, #4361ee);
     opacity: 0.2;
 }
 
@@ -394,19 +994,19 @@ These styles are specific to individual case study pages
     font-size: 1.2rem;
     line-height: 1.8;
     font-style: italic;
-    color: var(--gray-dark);
+    color: var(--gray-dark, #1b263b);
     margin: 0 0 2rem;
     padding-left: 2rem;
 }
 
-.testimonial-author {
+.testimonial-box .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-top: 2rem;
 }
 
-.testimonial-author .author-image {
+.testimonial-box .author-image {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -415,15 +1015,96 @@ These styles are specific to individual case study pages
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial-author .author-info h4 {
+.testimonial-box .author-info h4 {
     margin-bottom: 0.25rem;
     font-size: 1.1rem;
 }
 
-.testimonial-author .author-info p {
-    color: var(--gray);
+.testimonial-box .author-info p {
+    color: var(--gray, #415a77);
     font-size: 0.9rem;
     margin-bottom: 0;
+}
+
+/* Related Case Studies */
+.related-cases {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+}
+
+.related-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.related-case-card {
+    background-color: white;
+    border-radius: var(--radius-lg, 16px);
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.related-case-card:hover {
+    transform: translateY(-5px);
+}
+
+.related-case-card .case-study-image {
+    height: 200px;
+    position: relative;
+}
+
+.related-case-card .case-study-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-case-card .case-study-content {
+    padding: 2rem;
+}
+
+.related-case-card .case-study-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-case-card .case-client {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* CTA Section */
+.case-cta {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--primary, #4361ee), var(--secondary, #7209b7));
+    color: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 /* Sidebar */
@@ -434,17 +1115,17 @@ These styles are specific to individual case study pages
 
 .info-box {
     background: white;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 8px);
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-sm, 0 2px 10px rgba(0,0,0,0.05));
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .info-box h3 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
-    color: var(--dark);
+    color: var(--dark, #0d1b2a);
     padding-bottom: 0.75rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -467,7 +1148,7 @@ These styles are specific to individual case study pages
 }
 
 .info-list li i {
-    color: var(--primary);
+    color: var(--primary, #4361ee);
     font-size: 1.2rem;
     width: 30px;
     text-align: center;
@@ -480,13 +1161,13 @@ These styles are specific to individual case study pages
 .info-list li strong {
     display: block;
     font-size: 0.9rem;
-    color: var(--gray);
+    color: var(--gray, #415a77);
     margin-bottom: 0.25rem;
 }
 
 .info-list li span {
     font-size: 1rem;
-    color: var(--dark);
+    color: var(--dark, #0d1b2a);
 }
 
 .services-list {
@@ -507,7 +1188,7 @@ These styles are specific to individual case study pages
 }
 
 .services-list li i {
-    color: var(--primary);
+    color: var(--primary, #4361ee);
     font-size: 1rem;
 }
 
@@ -531,7 +1212,7 @@ These styles are specific to individual case study pages
 .related-case-image {
     width: 80px;
     height: 60px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-sm, 4px);
     overflow: hidden;
     flex-shrink: 0;
 }
@@ -549,18 +1230,18 @@ These styles are specific to individual case study pages
 .related-case-content h4 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
-    color: var(--dark);
+    color: var(--dark, #0d1b2a);
     transition: color 0.3s ease;
 }
 
 .related-case-content p {
     font-size: 0.9rem;
-    color: var(--gray);
+    color: var(--gray, #415a77);
     margin-bottom: 0;
 }
 
 .related-case:hover .related-case-content h4 {
-    color: var(--primary);
+    color: var(--primary, #4361ee);
 }
 
 .cta-box {
@@ -576,12 +1257,13 @@ These styles are specific to individual case study pages
 
 .cta-box p {
     margin-bottom: 1.5rem;
-    color: var(--gray);
+    color: var(--gray, #415a77);
 }
 
 /* More Case Studies Section */
 .more-case-studies {
     padding: 5rem 0;
+    background-color: var(--light, #f8f9fa);
 }
 
 .more-case-studies .case-studies-grid {
@@ -610,6 +1292,42 @@ These styles are specific to individual case study pages
     
     .solution-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .case-hero .container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .process-step {
+        grid-template-columns: 60px 1fr;
+        gap: 1.5rem;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .process-step::before {
+        left: 30px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
 }
 
@@ -645,8 +1363,92 @@ These styles are specific to individual case study pages
         padding: 2rem;
     }
     
+    .testimonial-author {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .case-metrics {
+        flex-wrap: wrap;
+    }
+    
+    .tech-logos {
+        gap: 1.5rem;
+    }
+    
     .more-case-studies .case-studies-grid {
         grid-template-columns: 1fr;
         max-width: 500px;
+    }
+    
+    .case-cta {
+        padding: 4rem 0;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .case-study-header, .case-hero {
+        padding: 5rem 0 3rem;
+    }
+    
+    .case-study-title, .case-title {
+        font-size: 2rem;
+    }
+    
+    .case-metrics {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .case-metric {
+        width: 100%;
+    }
+    
+    .results-metrics {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-quote {
+        padding: 2rem;
+    }
+    
+    .testimonial-quote blockquote {
+        font-size: 1.1rem;
+        padding-left: 0;
+    }
+    
+    .testimonial-quote i {
+        display: none;
+    }
+    
+    .related-cases-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-item {
+        gap: 1rem;
+    }
+    
+    .timeline-marker {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .case-section h2 {
+        font-size: 1.7rem;
     }
 }
