@@ -147,68 +147,6 @@
 }
 
 /* ==========================================
-   Trusted By Section
-   ========================================== */
-.trusted-by-section {
-    background-color: var(--light);
-    padding: var(--space-8) 0;
-    text-align: center;
-}
-
-.trusted-by-title {
-    font-size: var(--font-size-lg);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--gray);
-    margin-bottom: var(--space-6);
-    position: relative;
-    display: inline-block;
-}
-
-.trusted-by-title::before,
-.trusted-by-title::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 1px;
-    background-color: var(--gray-light);
-}
-
-.trusted-by-title::before {
-    left: -70px;
-}
-
-.trusted-by-title::after {
-    right: -70px;
-}
-
-.trusted-by-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-8);
-}
-
-.logo-item {
-    opacity: 0.7;
-    transition: all var(--transition-normal);
-    filter: grayscale(100%);
-}
-
-.logo-item:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: translateY(-5px);
-}
-
-.logo-item img {
-    max-height: 40px;
-    width: auto;
-}
-
-/* ==========================================
    Services Section
    ========================================== */
 .services-section {
@@ -321,6 +259,7 @@
     position: relative;
 }
 
+/* Add to home.css to fix the process timeline line */
 .process-steps::before {
     content: '';
     position: absolute;
@@ -329,7 +268,15 @@
     left: 24px;
     width: 2px;
     background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    z-index: 1;
+    z-index: 0; /* Changed from z-index: 1 to make it appear behind numbers */
+}
+
+.step-number {
+    /* Other properties remain the same */
+    z-index: 2; /* Increase z-index to ensure it's above the line */
+    position: relative; /* Ensure z-index works */
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    box-shadow: 0 0 0 4px white, 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .process-step {
