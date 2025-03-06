@@ -1,17 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
-        // Get the base URL from meta tag that we'll add to the head
-        const baseUrlMeta = document.querySelector('meta[name="base-url"]');
-        const baseUrl = baseUrlMeta ? baseUrlMeta.getAttribute('content') : '';
-        
         headerPlaceholder.innerHTML = `
             <div class="container">
                 <div class="header-inner">
-                    <a href="${baseUrl}/" class="logo" aria-label="Revelate Operations Home">
+                    <a href="index.html" class="logo" aria-label="Revelate Operations Home">
                         <div class="logo-container">
                             <div class="logo-image">
-                                <img src="${baseUrl}/assets/images/revelate-spiral-logo.png" alt="Revelate Logo">
+                                <img src="images/revelate-spiral-logo.png" alt="Revelate Logo">
                             </div>
                             <div class="logo-text">
                                 <span class="logo-text-main">REVELATE</span>
@@ -26,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         </button>
                         
                         <ul id="main-menu" class="nav-links">
-                            <li class="nav-item"><a href="${baseUrl}/services/" class="nav-link">Services</a></li>
-                            <li class="nav-item"><a href="${baseUrl}/approach/" class="nav-link">Our Approach</a></li>
-                            <li class="nav-item"><a href="${baseUrl}/about/" class="nav-link">About Us</a></li>
-                            <li class="nav-item"><a href="${baseUrl}/case-studies/" class="nav-link">Case Studies</a></li>
-                            <li class="nav-item"><a href="${baseUrl}/contact/" class="nav-link">Contact</a></li>
+                            <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="approach.html" class="nav-link">Our Approach</a></li>
+                            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                            <li class="nav-item"><a href="case-studies/index.html" class="nav-link">Case Studies</a></li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                             <li class="nav-item"><a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
                         </ul>
                     </nav>
