@@ -1,0 +1,27 @@
+# Site settings
+title: Revelate Operations
+description: Revelate Operations transforms your raw data into actionable insights, driving revenue growth through innovative, data-driven solutions for SaaS companies.
+baseurl: "/Revelate-Website-UAT"
+url: "https://DrewRevelate.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Include directories
+include:
+  - _pages
+
+# Collections
+collections:
+  services:
+    output: true
+    permalink: /services/:path/
+  case-studies:
+    output: true
+    permalink: /case-studies/:path/
