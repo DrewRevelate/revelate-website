@@ -1,8 +1,8 @@
 # Site settings
 title: Revelate Operations
 description: Revelate Operations transforms your raw data into actionable insights, driving revenue growth through innovative, data-driven solutions for SaaS companies.
-baseurl: "/Revelate-Website-UAT"
-url: "https://DrewRevelate.github.io"
+baseurl: ""
+url: "https://revelate-operations.herokuapp.com"
 
 # Build settings
 markdown: kramdown

@@ -1,0 +1,38 @@
+{
+  "name": "revelate-website",
+  "version": "1.0.0",
+  "description": "Revelate Operations Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s .",
+    "dev": "npx live-server --port=3000",
+    "build": "npm run optimize-images && npm run minify-css && npm run minify-js",
+    "optimize-images": "npx imagemin images/**/* --out-dir=images",
+    "minify-css": "npx cleancss -o css/main.min.css css/main.css && npx cleancss -o css/styles.min.css css/revelate-styles.css css/styles.css css/home.css css/about.css css/approach.css css/services.css css/case-studies.css",
+    "minify-js": "npx terser js/main.js js/animations.js js/navigation.js js/components.js -o js/bundle.min.js",
+    "lint": "npx stylelint css/*.css && npx eslint js/*.js",
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": [
+    "revelate",
+    "operations",
+    "consulting",
+    "website"
+  ],
+  "engines": {
+    "node": "18.x"
+  },
+  "author": "Revelate Operations",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.44.0",
+    "imagemin-cli": "^7.0.0",
+    "live-server": "^1.2.2",
+    "stylelint": "^15.10.1",
+    "terser": "^5.18.2"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
