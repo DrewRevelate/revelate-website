@@ -8,9 +8,33 @@ custom_css:
 custom_js:
   - animations
   - testimonials
+  - portal
   - logo-animation
 structured_data: '{"@context":"https://schema.org","@type":"ProfessionalService","name":"Revelate Operations","url":"https://revelateops.com","logo":"https://revelateops.com/images/revelate-spiral-logo.png","description":"Data-driven SaaS consulting specializing in Salesforce, CRM management and business intelligence solutions.","address":{"@type":"PostalAddress","streetAddress":"123 Business Avenue, Suite 400","addressLocality":"Boston","addressRegion":"MA","postalCode":"02108","addressCountry":"US"},"telephone":"+1-555-123-4567","email":"info@revelateops.com","priceRange":"$$","openingHours":"Mo,Tu,We,Th,Fr 09:00-17:00","sameAs":["https://www.linkedin.com/company/revelateops","https://twitter.com/revelateops"],"serviceArea":{"@type":"GeoCircle","geoMidpoint":{"@type":"GeoCoordinates","latitude":"42.3601","longitude":"-71.0589"},"geoRadius":"50000"}}'
 ---
+
+<!-- Explicitly include proper navigation -->
+<nav id="navbar" aria-label="Main navigation">
+    <div class="container navbar-container">
+        <a href="{{ '/' | relative_url }}" class="logo" aria-label="Revelate Operations Home">
+            <div class="logo-container">
+                <img src="{{ '/assets/images/revelate-spiral-logo.png' | relative_url }}" alt="Revelate Logo" width="50" height="50">
+                <h1>REVELATE</h1>
+            </div>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="{{ '/services/' | relative_url }}" class="nav-link">Services</a>
+            <a href="{{ '/approach/' | relative_url }}" class="nav-link">Our Approach</a>
+            <a href="{{ '/about/' | relative_url }}" class="nav-link">About Us</a>
+            <a href="{{ '/case-studies/' | relative_url }}" class="nav-link">Case Studies</a>
+            <a href="{{ '/contact/' | relative_url }}" class="nav-link">Contact</a>
+            <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+        </div>
+    </div>
+</nav>
 
 <!-- Hero Section -->
 <section class="hero-section">
