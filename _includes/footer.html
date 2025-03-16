@@ -1,57 +1,54 @@
 <footer class="footer">
     <div class="container">
-        <div class="footer-grid">
-            <div class="footer-info">
-                <a href="{{ '/' | relative_url }}" class="footer-logo">
-                    <img src="{{ '/assets/images/revelate-spiral-logo.png' | relative_url }}" alt="Revelate Logo" width="40" height="40">
-                    <span>REVELATE</span>
-                </a>
-                <p class="footer-description">{{ site.description }}</p>
-                <div class="footer-social">
-                    <a href="https://linkedin.com/company/revelateops" aria-label="LinkedIn" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3 class="footer-heading">Services</h3>
-                <ul class="footer-nav">
-                    <li><a href="{{ '/services/#crm' | relative_url }}">CRM Management</a></li>
-                    <li><a href="{{ '/services/#bi' | relative_url }}">Business Intelligence</a></li>
-                    <li><a href="{{ '/services/#integration' | relative_url }}">Data Integration</a></li>
-                    <li><a href="{{ '/services/#lead-gen' | relative_url }}">Lead Generation</a></li>
-                    <li><a href="{{ '/services/#gtm' | relative_url }}">GTM Strategy</a></li>
-                    <li><a href="{{ '/services/#retention' | relative_url }}">Customer Retention</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3 class="footer-heading">Company</h3>
-                <ul class="footer-nav">
-                    <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
-                    <li><a href="{{ '/approach/' | relative_url }}">Our Process</a></li>
-                    <li><a href="{{ '/case-studies/' | relative_url }}">Case Studies</a></li>
-                    <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h3 class="footer-heading">Contact Us</h3>
-                <address class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span><a href="mailto:contact@revelateops.com">contact@revelateops.com</a></span>
-                    </div>
-                </address>
-            </div>
+      <div class="footer-grid">
+        <div class="footer-info">
+          <a href="{{ '/' | relative_url }}" class="footer-logo">
+            <img src="{{ '/assets/images/revelate-spiral-logo.png' | relative_url }}" alt="Revelate Logo" width="40" height="40">
+            <span>REVELATE</span>
+          </a>
+          <p class="footer-description">{{ site.description }}</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/revelateops" aria-label="LinkedIn" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p class="copyright">&copy; {{ 'now' | date: "%Y" }} Revelate Operations, LLC. All rights reserved.</p>
-            <ul class="legal-links">
-                <li><a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a></li>
-                <li><a href="{{ '/terms-of-service/' | relative_url }}">Terms of Service</a></li>
-            </ul>
+        <div class="footer-links">
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-nav">
+            <li><a href="{{ '/services/#crm' | relative_url }}">CRM Management</a></li>
+            <li><a href="{{ '/services/#bi' | relative_url }}">Business Intelligence</a></li>
+            <li><a href="{{ '/services/#integration' | relative_url }}">Data Integration</a></li>
+            <li><a href="{{ '/services/#lead-gen' | relative_url }}">Lead Generation</a></li>
+            <li><a href="{{ '/services/#gtm' | relative_url }}">GTM Strategy</a></li>
+            <li><a href="{{ '/services/#retention' | relative_url }}">Customer Retention</a></li>
+          </ul>
         </div>
+        <div class="footer-links">
+          <h3 class="footer-heading">Company</h3>
+          <ul class="footer-nav">
+            <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
+            <li><a href="{{ '/approach/' | relative_url }}">Our Process</a></li>
+            <li><a href="{{ '/case-studies/' | relative_url }}">Case Studies</a></li>
+            <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3 class="footer-heading">Contact Us</h3>
+          <address class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span><a href="mailto:contact@revelateops.com">contact@revelateops.com</a></span>
+            </div>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; {{ 'now' | date: "%Y" }} Revelate Operations, LLC. All rights reserved.</p>
+        <ul class="legal-links">
+          <li><a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a></li>
+          <li><a href="{{ '/terms-of-service/' | relative_url }}">Terms of Service</a></li>
+        </ul>
+      </div>
     </div>
-</footer>
+  </footer>
