@@ -119,12 +119,34 @@ The website is compatible with:
 
 ## Deployment
 
-The website can be deployed to any static hosting provider:
+### GitHub Pages
+This website is primarily configured for GitHub Pages deployment with the following steps:
+1. Ensure your repository is configured for GitHub Pages in Settings
+2. Push changes to the main branch
+3. GitHub Actions will build and deploy the site automatically
 
-1. GitHub Pages
-2. Netlify
-3. Vercel
-4. AWS S3 + CloudFront
+### Heroku Deployment
+The website is also configured for Heroku deployment:
+
+1. Create a Heroku app: `heroku create revelate-operations`
+2. Add Ruby buildpack: `heroku buildpacks:add heroku/ruby`
+3. Configure _config.yml for Heroku (empty baseurl)
+4. Push to Heroku: `git push heroku main`
+
+### Local Development
+For local development:
+
+1. Install Ruby and Bundler
+2. Run `bundle install` to install dependencies
+3. Start Jekyll server: `bundle exec jekyll serve`
+4. Visit http://localhost:4000 in your browser
+
+### Other Deployment Options
+The website can also be deployed to other providers:
+
+1. Netlify
+2. Vercel
+3. AWS S3 + CloudFront
 
 ## License
 
