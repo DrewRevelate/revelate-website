@@ -2,7 +2,11 @@
 title: Revelate Operations
 description: Revelate Operations transforms your raw data into actionable insights, driving revenue growth through innovative, data-driven solutions for SaaS companies.
 baseurl: ""
-url: "https://revelate-operations.herokuapp.com"
+url: "https://revelate-operations-33be6715fef8.herokuapp.com"
+
+# Heroku production settings
+host: 0.0.0.0
+port: 5000
 
 # Build settings
 markdown: kramdown
