@@ -13,6 +13,21 @@ custom_js:
 structured_data: '{"@context":"https://schema.org","@type":"ProfessionalService","name":"Revelate Operations","url":"https://revelateops.com","logo":"https://revelateops.com/images/revelate-spiral-logo.png","description":"Data-driven SaaS consulting specializing in Salesforce, CRM management and business intelligence solutions.","address":{"@type":"PostalAddress","streetAddress":"123 Business Avenue, Suite 400","addressLocality":"Boston","addressRegion":"MA","postalCode":"02108","addressCountry":"US"},"telephone":"+1-555-123-4567","email":"info@revelateops.com","priceRange":"$$","openingHours":"Mo,Tu,We,Th,Fr 09:00-17:00","sameAs":["https://www.linkedin.com/company/revelateops","https://twitter.com/revelateops"],"serviceArea":{"@type":"GeoCircle","geoMidpoint":{"@type":"GeoCoordinates","latitude":"42.3601","longitude":"-71.0589"},"geoRadius":"50000"}}'
 ---
 
+<!-- Calendly Modal -->
+<div id="calendly-modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Schedule a Consultation</h2>
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body calendly-container">
+            <!-- Calendly inline widget -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/drewlambert/15-minute-intro-call?background_color=f1f2f4&text_color=0d0e12&primary_color=2b9fe3" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+</div>
+
 <!-- Explicitly include proper navigation -->
 <nav id="navbar" aria-label="Main navigation">
     <div class="container navbar-container">
@@ -56,7 +71,7 @@ structured_data: '{"@context":"https://schema.org","@type":"ProfessionalService"
             </div>
             
             <div class="hero-cta">
-                <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary btn-lg">Get Started</a>
+                <a href="#" class="btn btn-primary btn-lg calendly-trigger">Get Started</a>
                 <a href="{{ '/services/' | relative_url }}" class="btn btn-outline btn-lg">Explore Services</a>
             </div>
         </div>
@@ -313,7 +328,127 @@ structured_data: '{"@context":"https://schema.org","@type":"ProfessionalService"
         <div class="cta-content">
             <h2 class="cta-title">Ready to Transform Your Data?</h2>
             <p class="cta-description">Let's start a conversation about how we can help you unlock the full potential of your data and drive business growth.</p>
-            <a href="{{ '/contact/' | relative_url }}" class="btn btn-light btn-lg">Contact Us Today</a>
+            <a href="#" class="btn btn-light btn-lg calendly-trigger">Schedule a Consultation</a>
         </div>
     </div>
 </section>
+
+<!-- Calendly Modal JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements with the calendly-trigger class
+    const calendlyTriggers = document.querySelectorAll('.calendly-trigger');
+    const calendlyModal = document.getElementById('calendly-modal');
+    const closeModalBtn = calendlyModal.querySelector('.close-modal');
+    
+    // Add click event to all calendly trigger buttons
+    calendlyTriggers.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            calendlyModal.setAttribute('aria-hidden', 'false');
+            calendlyModal.classList.add('active');
+            document.body.classList.add('modal-open');
+        });
+    });
+    
+    // Close modal when clicking the close button
+    closeModalBtn.addEventListener('click', function() {
+        calendlyModal.setAttribute('aria-hidden', 'true');
+        calendlyModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    });
+    
+    // Close modal when clicking outside of modal content
+    calendlyModal.addEventListener('click', function(e) {
+        if (e.target === calendlyModal) {
+            calendlyModal.setAttribute('aria-hidden', 'true');
+            calendlyModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && calendlyModal.classList.contains('active')) {
+            calendlyModal.setAttribute('aria-hidden', 'true');
+            calendlyModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+    });
+});
+</script>
+
+<!-- Additional CSS for the Calendly Modal -->
+<style>
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #2b3452;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+.modal-body {
+    padding: 1rem 1.5rem;
+    overflow-y: auto;
+}
+
+.calendly-container {
+    height: 700px;
+    padding: 0;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+</style>
