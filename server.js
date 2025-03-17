@@ -26,6 +26,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Add Jekyll compatibility middleware
 app.use(jekyllMiddleware);
 
+// Handle favicon.ico to avoid 404 errors
+app.get('/favicon.ico', (req, res) => {
+  const faviconPath = path.join(__dirname, 'assets/images/favicon.png');
+  if (fs.existsSync(faviconPath)) {
+    res.sendFile(faviconPath);
+  } else {
+    res.status(204).end(); // No content if favicon doesn't exist
+  }
+});
+
 // Serve static files with proper caching
 app.use(express.static(path.join(__dirname, '/'), {
   maxAge: '1d'
