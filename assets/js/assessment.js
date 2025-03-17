@@ -212,9 +212,31 @@ function initAssessmentForm() {
                 assessmentForm.style.display = 'none';
                 loadingScreen.style.display = 'flex';
                 
+                // Get form data
+                const formData = new FormData(assessmentForm);
+                const assessmentData = {};
+                
+                // Convert FormData to object
+                for (const [key, value] of formData.entries()) {
+                    assessmentData[key] = value;
+                }
+                
                 // Process and display results after short delay
                 setTimeout(() => {
                     calculateResults();
+                    
+                    // Try to save to Google Drive
+                    if (window.RevOpsAPI && typeof window.RevOpsAPI.saveAssessmentToGoogleSheets === 'function') {
+                        window.RevOpsAPI.saveAssessmentToGoogleSheets(assessmentData)
+                            .then(() => {
+                                console.log('Assessment data saved to Google Drive');
+                            })
+                            .catch(error => {
+                                console.error('Failed to save assessment data to Google Drive:', error);
+                            });
+                    } else {
+                        console.log('Google Drive API not available for saving assessment data');
+                    }
                     
                     // Hide loading, show results
                     loadingScreen.style.display = 'none';

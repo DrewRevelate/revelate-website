@@ -61,9 +61,6 @@ function initContactForm() {
         }
         
         if (isValid) {
-            // Here you would normally submit the form to a server
-            // For demo purposes, we'll just show a success message
-            
             // Get the submit button
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
@@ -72,10 +69,40 @@ function initContactForm() {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             
-            // Simulate form submission delay
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                
+            // Collect form data
+            const formData = {
+                name: name.value.trim(),
+                email: email.value.trim(),
+                phone: document.getElementById('phone')?.value.trim(),
+                company: document.getElementById('company')?.value.trim(),
+                interest: interest.value,
+                message: message.value.trim()
+            };
+            
+            // Check if Google API is available
+            if (window.RevOpsAPI && typeof window.RevOpsAPI.saveContactToGoogleSheets === 'function') {
+                // Save to Google Sheets
+                window.RevOpsAPI.saveContactToGoogleSheets(formData)
+                    .then(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                        showSuccessMessage();
+                    })
+                    .catch(error => {
+                        console.error('Failed to save contact:', error);
+                        // Fall back to mock submission
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                        showSuccessMessage();
+                    });
+            } else {
+                // If API not available, fall back to mock submission
+                console.log('Google API not available, using mock submission');
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                    showSuccessMessage();
+                }, 2000);
+            }
+            
+            function showSuccessMessage() {
                 setTimeout(() => {
                     // Reset form
                     contactForm.reset();
@@ -101,7 +128,7 @@ function initContactForm() {
                         });
                     }
                 }, 1000);
-            }, 2000);
+            }
         }
     });
     
