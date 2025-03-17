@@ -15,7 +15,7 @@ const DISCOVERY_DOCS = [
 const SCOPES = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive';
 
 // Spreadsheet IDs for contacts and assessments
-const CONTACTS_SPREADSHEET_ID = 'YOUR_CONTACTS_SPREADSHEET_ID';
+const CONTACTS_SPREADSHEET_ID = '1av_zXI-ObPQmOPzFtoWVe2oQQ7ei8IcBJz74-Fj3yzI';
 const ASSESSMENT_SPREADSHEET_ID = 'YOUR_ASSESSMENT_SPREADSHEET_ID';
 
 // Initialize the Google API client
