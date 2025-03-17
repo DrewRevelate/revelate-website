@@ -91,7 +91,7 @@ function saveContactToGoogleSheets(contactData) {
       
       // Use the Sheets API to append data
       gapi.client.sheets.spreadsheets.values.append({
-        spreadsheetId: 1av_zXI-ObPQmOPzFtoWVe2oQQ7ei8IcBJz74-Fj3yzI,
+        spreadsheetId: '1av_zXI-ObPQmOPzFtoWVe2oQQ7ei8IcBJz74-Fj3yzI',
         range: 'Contacts!A:H', // Assuming columns A-H are for the contact data
         valueInputOption: 'USER_ENTERED',
         resource: { values }
