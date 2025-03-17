@@ -8,7 +8,7 @@ custom_css:
   - assessment
   - logo-effect
 custom_js:
-  - assessment
+  - revops-assessment
   - portal
   - animations
 structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"RevOps Maturity Assessment","description":"Discover your organization's revenue operations maturity and get personalized recommendations with our complimentary assessment tool.","mainEntity":{"@type":"Service","name":"RevOps Assessment","provider":{"@type":"Organization","name":"Revelate Operations"},"serviceType":"Business Assessment"}}'
@@ -74,6 +74,20 @@ structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"Rev
 
 <section class="assessment-tool">
     <div class="container">
-        <div id="revops-assessment-root"></div>
+        <div id="assessment-container"></div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Take Your RevOps to the Next Level?</h2>
+            <p class="cta-description">Schedule a complimentary consultation to discuss how our proven methodology can address your specific challenges and drive sustainable growth.</p>
+            <div class="cta-buttons">
+                <a href="{{ '/contact/' | relative_url }}" class="btn btn-light btn-lg">Schedule Consultation</a>
+                <a href="{{ '/case-studies/' | relative_url }}" class="btn btn-outline btn-light btn-lg">View Success Stories</a>
+            </div>
+        </div>
     </div>
 </section>
