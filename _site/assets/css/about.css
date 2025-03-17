@@ -1,0 +1,714 @@
+/**
+ * Revelate Operations - About Page Styles
+ * This file contains styles specific to the about page
+ */
+
+/* ==========================================
+   About Hero Section
+   ========================================== */
+   
+.about-hero {
+    padding: var(--space-12) 0 0;
+    margin-top: 80px;  /* Add this line */
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.about-hero-content {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    padding-bottom: var(--space-8); /* Space for the wave */
+}
+
+.about-hero h1 {
+    margin-bottom: var(--space-4);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--gray);
+    margin-bottom: var(--space-6);
+    max-width: 95%;
+}
+
+.about-hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.about-hero-image {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-hero-image img {
+    max-width: 100%;
+    height: auto;
+    animation: subtle-float 8s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-shape-1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+    top: -100px;
+    right: -100px;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite alternate;
+}
+
+.about-hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 1;
+}
+
+/* ==========================================
+   Mission Section
+   ========================================== */
+.mission-section {
+    padding: var(--space-12) 0;
+    background-color: var(--light);
+    position: relative;
+}
+
+.mission-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-10);
+    align-items: center;
+}
+
+.mission-content {
+    padding-right: var(--space-6);
+}
+
+.mission-content h2 {
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-4xl);
+}
+
+.mission-content .lead {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-5);
+}
+
+.mission-values {
+    margin-top: var(--space-8);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-5);
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+}
+
+.value-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+}
+
+.value-content h3 {
+    margin-bottom: var(--space-2);
+}
+
+.value-content p {
+    color: var(--gray);
+    margin-bottom: 0;
+}
+
+.mission-image {
+    position: relative;
+}
+
+.mission-image img {
+    max-width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================
+   Team Section
+   ========================================== */
+.team-section {
+    padding: var(--space-12) 0;
+    background-color: white;
+}
+
+.team-members {
+    margin-top: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+.team-member {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--space-6);
+    background-color: var(--light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.member-image {
+    position: relative;
+    height: 100%;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.member-social {
+    position: absolute;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    display: flex;
+    gap: var(--space-3);
+}
+
+.member-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.member-social a:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.member-content {
+    padding: var(--space-6);
+}
+
+.member-content h3 {
+    margin-bottom: var(--space-2);
+    font-size: var(--font-size-2xl);
+}
+
+.member-title {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+    display: block;
+}
+
+.member-bio {
+    margin-bottom: var(--space-4);
+}
+
+.member-bio p {
+    margin-bottom: var(--space-3);
+}
+
+.member-expertise {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.member-expertise span {
+    padding: var(--space-2) var(--space-3);
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.team-cta {
+    margin-top: var(--space-8);
+    text-align: center;
+}
+
+.team-cta p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+}
+
+/* ==========================================
+   Philosophy Section
+   ========================================== */
+.philosophy-section {
+    padding: var(--space-12) 0;
+    background-color: var(--light);
+    position: relative;
+}
+
+.philosophy-wrapper {
+    margin-bottom: var(--space-10);
+}
+
+.philosophy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-content h2 {
+    margin-bottom: var(--space-4);
+}
+
+.philosophy-text {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    text-align: left;
+    margin-top: var(--space-6);
+}
+
+.philosophy-tiles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    padding: 0 var(--space-6);
+}
+
+.tile {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tile-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+    margin: 0 auto var(--space-4);
+}
+
+.tile h3 {
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-lg);
+}
+
+.tile p {
+    color: var(--gray);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+}
+
+/* ==========================================
+   About Testimonials
+   ========================================== */
+.about-testimonials {
+    padding: var(--space-12) 0;
+    background-color: white;
+}
+
+.testimonial-slider {
+    position: relative;
+    max-width: 800px;
+    margin: var(--space-8) auto 0;
+}
+
+.testimonial-slide {
+    display: none;
+}
+
+.testimonial-slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial-card {
+    background-color: var(--light);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-content {
+    margin-bottom: var(--space-5);
+}
+
+.testimonial-content p {
+    font-size: var(--font-size-lg);
+    font-style: italic;
+    color: var(--gray-dark);
+    margin-bottom: 0;
+    position: relative;
+}
+
+.testimonial-content p::before,
+.testimonial-content p::after {
+    content: '"';
+    color: var(--primary);
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.testimonial-content p::before {
+    position: absolute;
+    left: -15px;
+    top: -10px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: var(--shadow-sm);
+}
+
+.author-info h4 {
+    margin-bottom: 0;
+    font-size: var(--font-size-md);
+}
+
+.author-info p {
+    color: var(--gray);
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+}
+
+.testimonial-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-5);
+}
+
+.testimonial-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid var(--light-alt);
+    color: var(--gray-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.testimonial-arrow:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.testimonial-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--light-alt);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.testimonial-dot.active {
+    background-color: var(--primary);
+    transform: scale(1.3);
+}
+
+.testimonials-cta {
+    text-align: center;
+    margin-top: var(--space-8);
+}
+
+/* ==========================================
+   About FAQ
+   ========================================== */
+.about-faq {
+    padding: var(--space-12) 0;
+    background-color: var(--light);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+.faq-item {
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--light-alt);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: var(--space-4) 0;
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    color: var(--dark);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question i {
+    transition: transform var(--transition-normal);
+    color: var(--primary);
+}
+
+.faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal), padding var(--transition-normal);
+}
+
+.faq-question[aria-expanded="true"] + .faq-answer {
+    max-height: 500px;
+    padding-bottom: var(--space-4);
+}
+
+.faq-cta {
+    text-align: center;
+    margin-top: var(--space-8);
+}
+
+.faq-cta p {
+    margin-bottom: var(--space-4);
+    font-size: var(--font-size-lg);
+}
+
+/* ==========================================
+   Stats Section
+   ========================================== */
+.stats-section {
+    padding: var(--space-10) 0;
+    background-color: var(--primary);
+    color: white;
+}
+
+.stats-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    text-align: center;
+}
+
+.stat-item {
+    padding: var(--space-4);
+}
+
+.stat-value {
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+}
+
+/* ==========================================
+   Responsive Adjustments
+   ========================================== */
+@media (max-width: 1199px) {
+    .philosophy-tiles {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+    
+    .stats-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8) var(--space-6);
+    }
+}
+
+@media (max-width: 991px) {
+    .about-hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-hero-content {
+        max-width: 100%;
+        padding-bottom: var(--space-6);
+    }
+    
+    .about-hero-cta {
+        justify-content: center;
+    }
+    
+    .mission-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+    
+    .mission-content {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .mission-image {
+        order: 1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .team-member {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-image {
+        height: 400px;
+    }
+    
+    .philosophy-text {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero-cta {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+    
+    .value-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .philosophy-tiles {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+    
+    .mission-content h2 {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .mission-content .lead {
+        font-size: var(--font-size-lg);
+    }
+    
+    .member-content {
+        padding: var(--space-4);
+    }
+}

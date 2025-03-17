@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Background Elements -->
+  <circle cx="300" cy="200" r="150" fill="#4361ee" opacity="0.05"/>
+  <circle cx="300" cy="200" r="100" fill="#7209b7" opacity="0.05"/>
+  
+  <!-- Main Central Data Visualization -->
+  <circle cx="300" cy="200" r="80" fill="white" stroke="#4361ee" stroke-width="2"/>
+  
+  <!-- Orbit Paths -->
+  <circle cx="300" cy="200" r="120" fill="none" stroke="#e0e6f0" stroke-width="1" stroke-dasharray="4,4"/>
+  <circle cx="300" cy="200" r="160" fill="none" stroke="#e0e6f0" stroke-width="1" stroke-dasharray="4,4"/>
+  
+  <!-- Central Icon -->
+  <circle cx="300" cy="200" r="30" fill="#4361ee"/>
+  <rect x="290" y="190" width="20" height="20" rx="2" fill="white"/>
+  <path d="M285,205 L295,215 L315,185" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Connected Data Points - Inner Orbit -->
+  <circle cx="365" cy="135" r="20" fill="white" stroke="#4361ee" stroke-width="2"/>
+  <rect x="360" y="130" width="10" height="10" rx="2" fill="#4361ee"/>
+  <line x1="329" y1="171" x2="350" y2="150" stroke="#4361ee" stroke-width="2" stroke-dasharray="4,2"/>
+  
+  <circle cx="365" cy="265" r="20" fill="white" stroke="#4361ee" stroke-width="2"/>
+  <rect x="360" y="260" width="10" height="10" rx="2" fill="#4361ee"/>
+  <line x1="329" y1="229" x2="350" y2="250" stroke="#4361ee" stroke-width="2" stroke-dasharray="4,2"/>
+  
+  <circle cx="235" cy="265" r="20" fill="white" stroke="#4361ee" stroke-width="2"/>
+  <rect x="230" y="260" width="10" height="10" rx="2" fill="#4361ee"/>
+  <line x1="271" y1="229" x2="250" y2="250" stroke="#4361ee" stroke-width="2" stroke-dasharray="4,2"/>
+  
+  <circle cx="235" cy="135" r="20" fill="white" stroke="#4361ee" stroke-width="2"/>
+  <rect x="230" y="130" width="10" height="10" rx="2" fill="#4361ee"/>
+  <line x1="271" y1="171" x2="250" y2="150" stroke="#4361ee" stroke-width="2" stroke-dasharray="4,2"/>
+  
+  <!-- Connected Data Points - Outer Orbit -->
+  <circle cx="420" cy="120" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M415,120 L425,120 M420,115 L420,125" stroke="#7209b7" stroke-width="2"/>
+  <line x1="375" y1="145" x2="407" y2="127" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="420" cy="280" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M415,280 L425,280 M420,275 L420,285" stroke="#7209b7" stroke-width="2"/>
+  <line x1="375" y1="255" x2="407" y2="273" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="180" cy="280" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M175,280 L185,280 M180,275 L180,285" stroke="#7209b7" stroke-width="2"/>
+  <line x1="225" y1="255" x2="193" y2="273" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="180" cy="120" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M175,120 L185,120 M180,115 L180,125" stroke="#7209b7" stroke-width="2"/>
+  <line x1="225" y1="145" x2="193" y2="127" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="460" cy="200" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M455,200 L465,200 M460,195 L460,205" stroke="#7209b7" stroke-width="2"/>
+  <line x1="380" y1="200" x2="445" y2="200" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="140" cy="200" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M135,200 L145,200 M140,195 L140,205" stroke="#7209b7" stroke-width="2"/>
+  <line x1="220" y1="200" x2="155" y2="200" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="300" cy="340" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M295,340 L305,340 M300,335 L300,345" stroke="#7209b7" stroke-width="2"/>
+  <line x1="300" y1="280" x2="300" y2="325" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <circle cx="300" cy="60" r="15" fill="white" stroke="#7209b7" stroke-width="2"/>
+  <path d="M295,60 L305,60 M300,55 L300,65" stroke="#7209b7" stroke-width="2"/>
+  <line x1="300" y1="120" x2="300" y2="75" stroke="#7209b7" stroke-width="1" stroke-dasharray="3,2"/>
+  
+  <!-- Star Burst Elements -->
+  <path d="M460,120 L465,115 L470,120 L465,125 Z" fill="#4361ee" opacity="0.5"/>
+  <path d="M360,320 L365,315 L370,320 L365,325 Z" fill="#4361ee" opacity="0.5"/>
+  <path d="M215,85 L220,80 L225,85 L220,90 Z" fill="#4361ee" opacity="0.5"/>
+  <path d="M140,280 L145,275 L150,280 L145,285 Z" fill="#4361ee" opacity="0.5"/>
+  
+  <!-- Abstract Data Wave -->
+  <path d="M150,200 C200,160 250,240 300,200 S400,120 450,200" 
+        fill="none" stroke="#4361ee" stroke-width="2" opacity="0.7"/>
+  
+  <path d="M150,220 C200,180 250,260 300,220 S400,140 450,220" 
+        fill="none" stroke="#7209b7" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Small Decorative Elements -->
+  <circle cx="220" cy="350" r="4" fill="#4361ee" opacity="0.3"/>
+  <circle cx="250" cy="330" r="3" fill="#4361ee" opacity="0.3"/>
+  <circle cx="190" cy="370" r="5" fill="#4361ee" opacity="0.3"/>
+  <circle cx="380" cy="350" r="4" fill="#7209b7" opacity="0.3"/>
+  <circle cx="410" cy="330" r="3" fill="#7209b7" opacity="0.3"/>
+  <circle cx="350" cy="370" r="5" fill="#7209b7" opacity="0.3"/>
+  
+  <circle cx="220" cy="50" r="4" fill="#4361ee" opacity="0.3"/>
+  <circle cx="250" cy="70" r="3" fill="#4361ee" opacity="0.3"/>
+  <circle cx="190" cy="30" r="5" fill="#4361ee" opacity="0.3"/>
+  <circle cx="380" cy="50" r="4" fill="#7209b7" opacity="0.3"/>
+  <circle cx="410" cy="70" r="3" fill="#7209b7" opacity="0.3"/>
+  <circle cx="350" cy="30" r="5" fill="#7209b7" opacity="0.3"/>
+  
+  <circle cx="480" cy="150" r="4" fill="#4361ee" opacity="0.3"/>
+  <circle cx="510" cy="170" r="3" fill="#4361ee" opacity="0.3"/>
+  <circle cx="490" cy="130" r="5" fill="#4361ee" opacity="0.3"/>
+  <circle cx="480" cy="250" r="4" fill="#7209b7" opacity="0.3"/>
+  <circle cx="510" cy="230" r="3" fill="#7209b7" opacity="0.3"/>
+  <circle cx="490" cy="270" r="5" fill="#7209b7" opacity="0.3"/>
+  
+  <circle cx="120" cy="150" r="4" fill="#4361ee" opacity="0.3"/>
+  <circle cx="90" cy="170" r="3" fill="#4361ee" opacity="0.3"/>
+  <circle cx="110" cy="130" r="5" fill="#4361ee" opacity="0.3"/>
+  <circle cx="120" cy="250" r="4" fill="#7209b7" opacity="0.3"/>
+  <circle cx="90" cy="230" r="3" fill="#7209b7" opacity="0.3"/>
+  <circle cx="110" cy="270" r="5" fill="#7209b7" opacity="0.3"/>
+</svg>
