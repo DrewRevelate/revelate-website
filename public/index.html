@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Revelate Operations</title>
   <meta http-equiv="refresh" content="0;url=https://revelate-operations-33be6715fef8.herokuapp.com/">
+  <script>
+    // Handle redirects for legacy URLs with .html extension
+    if (window.location.pathname.endsWith('.html')) {
+      const cleanPath = window.location.pathname.slice(0, -5);
+      window.location.href = 'https://revelate-operations-33be6715fef8.herokuapp.com' + cleanPath;
+    }
+  </script>
   <style>
     body {
       font-family: 'Arial', sans-serif;
