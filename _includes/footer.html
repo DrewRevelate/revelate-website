@@ -42,14 +42,6 @@
             <div class="footer-contact">
                 <h3 class="footer-heading">Contact Us</h3>
                 <div class="footer-contact-item">
-                    <i class="fas fa-map-marker-alt footer-contact-icon"></i>
-                    <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
-                </div>
-                <div class="footer-contact-item">
-                    <i class="fas fa-phone footer-contact-icon"></i>
-                    <a href="tel:+15551234567"><span>(555) 123-4567</span></a>
-                </div>
-                <div class="footer-contact-item">
                     <i class="fas fa-envelope footer-contact-icon"></i>
                     <a href="mailto:info@revelateops.com"><span>info@revelateops.com</span></a>
                 </div>
@@ -207,16 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Make footer contact info tappable on mobile
-  const phoneLink = document.querySelector('.footer-contact-item .fa-phone').parentElement.nextElementSibling;
-  if (phoneLink && !phoneLink.hasAttribute('href')) {
-    const phoneNumber = phoneLink.textContent.trim();
-    const phoneElement = document.createElement('a');
-    phoneElement.href = `tel:${phoneNumber.replace(/[^0-9+]/g, '')}`;
-    phoneElement.innerHTML = phoneLink.innerHTML;
-    phoneLink.parentElement.replaceChild(phoneElement, phoneLink);
-  }
-  
+  // Modified to remove phone-related code
   const emailLink = document.querySelector('.footer-contact-item .fa-envelope').parentElement.nextElementSibling;
   if (emailLink && !emailLink.hasAttribute('href')) {
     const email = emailLink.textContent.trim();
