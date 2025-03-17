@@ -1,73 +1,501 @@
-<header id="header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="{{ '/' | relative_url }}" class="logo" aria-label="Revelate Operations Home">
-        <div class="logo-container">
-          <div class="logo-wrapper">
-            <div class="logo-image">
-              <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Revelate Logo" width="48" height="48">
-            </div>
-            <div class="logo-text">
-              <span class="company-name">REVELATE</span>
-              <span class="company-tagline">Data-Driven Operations</span>
-            </div>
-          </div>
-        </div>
-      </a>
-      <nav aria-label="Main navigation">
-        <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
-          <span class="hamburger-icon"></span>
-        </button>
-        <ul id="main-menu" class="nav-links">
-          <li class="nav-item"><a href="{{ '/services/' | relative_url }}" class="nav-link {% if page.url contains '/services/' %}active{% endif %}">Services</a></li>
-          <li class="nav-item"><a href="{{ '/approach/' | relative_url }}" class="nav-link {% if page.url contains '/approach/' %}active{% endif %}">Our Approach</a></li>
-          <li class="nav-item"><a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url contains '/about/' %}active{% endif %}">About Us</a></li>
-          <li class="nav-item"><a href="{{ '/contact/' | relative_url }}" class="nav-link {% if page.url contains '/contact/' %}active{% endif %}">Contact</a></li>
-          <li class="nav-item"><a href="client.revelateops.com" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
-<!-- CSS to be added to your stylesheet -->
-<style>
-  .logo-container {
-    padding: 8px 0;
-  }
-  .logo-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  .logo-image {
-    margin-right: 12px;
-  }
-  .logo-image img {
-    display: block;
-    max-height: 48px;
-    width: auto;
-  }
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-  }
-  .company-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #333;
-    text-transform: uppercase;
-  }
-  .company-tagline {
-    font-size: 0.875rem;
-    color: #666;
-    font-weight: 400;
-  }
-  @media (max-width: 768px) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revelate Operations - Perfect Header</title>
+  <style>
+    /* Reset and base styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --primary-color: #0066cc;
+      --primary-dark: #0052a3;
+      --text-dark: #333333;
+      --text-light: #666666;
+      --white: #ffffff;
+      --header-height-mobile: 60px;
+      --header-height-tablet: 70px;
+      --header-height-desktop: 80px;
+      --transition-speed: 0.3s;
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --box-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.5;
+      color: var(--text-dark);
+      padding-top: var(--header-height-mobile);
+    }
+    
+    .container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0 auto;
+    }
+    
+    /* Header styles - Mobile First */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height-mobile);
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      transition: height var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+    
+    /* Logo styles */
+    .logo {
+      text-decoration: none;
+      flex-shrink: 0;
+      display: block;
+    }
+    
+    .logo-container {
+      padding: 8px 0;
+    }
+    
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-image {
+      margin-right: 10px;
+    }
+    
+    .logo-image img {
+      display: block;
+      height: 36px;
+      width: auto;
+      transition: height var(--transition-speed);
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .company-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      transition: font-size var(--transition-speed);
+    }
+    
     .company-tagline {
       display: none;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 400;
+      transition: opacity var(--transition-speed);
     }
-    .company-name {
-      font-size: 1.25rem;
+    
+    /* Mobile menu toggle */
+    .mobile-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
+      padding: 0;
+      border-radius: 4px;
+      transition: background-color 0.2s;
     }
-  }
-</style>
+    
+    .mobile-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    
+    .mobile-toggle:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.3);
+    }
+    
+    .hamburger-icon {
+      position: relative;
+      width: 24px;
+      height: 2px;
+      background-color: var(--text-dark);
+      transition: background-color 0.2s;
+    }
+    
+    .hamburger-icon::before,
+    .hamburger-icon::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background-color: var(--text-dark);
+      transition: transform var(--transition-speed);
+    }
+    
+    .hamburger-icon::before {
+      transform: translateY(-8px);
+    }
+    
+    .hamburger-icon::after {
+      transform: translateY(8px);
+    }
+    
+    /* Mobile menu open state */
+    .mobile-toggle[aria-expanded="true"] .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .mobile-toggle[aria-expanded="true"] .hamburger-icon::before {
+      transform: translateY(0) rotate(45deg);
+    }
+    
+    .mobile-toggle[aria-expanded="true"] .hamburger-icon::after {
+      transform: translateY(0) rotate(-45deg);
+    }
+    
+    /* Navigation styles for mobile */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: var(--header-height-mobile);
+      left: 0;
+      width: 100%;
+      height: calc(100vh - var(--header-height-mobile));
+      background-color: var(--white);
+      list-style: none;
+      padding: 20px;
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: transform var(--transition-speed), visibility var(--transition-speed);
+      overflow-y: auto;
+      z-index: 999;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .nav-links.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+    
+    .nav-item {
+      margin: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .nav-item:last-child {
+      border-bottom: none;
+      margin-top: 20px;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 15px 0;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.active {
+      color: var(--primary-color);
+    }
+    
+    /* CTA button styling */
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      padding: 12px 24px;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 4px;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+    }
+    
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: var(--primary-dark);
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    .nav-cta {
+      width: 100%;
+    }
+    
+    /* Header scroll state */
+    .header-scrolled {
+      box-shadow: var(--box-shadow-hover);
+    }
+    
+    /* Prevent scrolling when menu is open */
+    body.menu-open {
+      overflow: hidden;
+    }
+    
+    /* Tablet Styles */
+    @media (min-width: 768px) {
+      body {
+        padding-top: var(--header-height-tablet);
+      }
+      
+      #header {
+        height: var(--header-height-tablet);
+      }
+      
+      .nav-links {
+        top: var(--header-height-tablet);
+        height: calc(100vh - var(--header-height-tablet));
+      }
+      
+      .logo-image img {
+        height: 40px;
+      }
+      
+      .company-name {
+        font-size: 1.3rem;
+      }
+      
+      .company-tagline {
+        display: block;
+      }
+      
+      .container {
+        max-width: 720px;
+      }
+    }
+    
+    /* Desktop Styles */
+    @media (min-width: 992px) {
+      body {
+        padding-top: var(--header-height-desktop);
+      }
+      
+      #header {
+        height: var(--header-height-desktop);
+      }
+      
+      .container {
+        max-width: 960px;
+      }
+      
+      .logo-image img {
+        height: 48px;
+      }
+      
+      .company-name {
+        font-size: 1.5rem;
+      }
+      
+      .company-tagline {
+        font-size: 0.875rem;
+      }
+      
+      .mobile-toggle {
+        display: none;
+      }
+      
+      .nav-links {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+        transform: none;
+        visibility: visible;
+        overflow: visible;
+        width: auto;
+      }
+      
+      .nav-item {
+        margin: 0 0 0 30px;
+        border-bottom: none;
+      }
+      
+      .nav-item:last-child {
+        margin-top: 0;
+      }
+      
+      .nav-link {
+        padding: 8px 0;
+        font-size: 1rem;
+        position: relative;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+      }
+      
+      .nav-link:hover::after,
+      .nav-link:focus::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      
+      .nav-cta {
+        width: auto;
+        padding: 10px 20px;
+      }
+    }
+    
+    /* Large Desktop Styles */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1140px;
+      }
+    }
+    
+    /* Extra Large Desktop Styles */
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="Revelate Operations Home">
+          <div class="logo-container">
+            <div class="logo-wrapper">
+              <div class="logo-image">
+                <img src="/assets/images/logo.png" alt="Revelate Logo">
+              </div>
+              <div class="logo-text">
+                <span class="company-name">REVELATE</span>
+                <span class="company-tagline">Data-Driven Operations</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
+            <span class="hamburger-icon"></span>
+          </button>
+          <ul id="main-menu" class="nav-links">
+            <li class="nav-item"><a href="/services/" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="/approach/" class="nav-link">Our Approach</a></li>
+            <li class="nav-item"><a href="/about/" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="https://client.revelateops.com" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const mobileToggle = document.querySelector('.mobile-toggle');
+      const navLinks = document.getElementById('main-menu');
+      const header = document.getElementById('header');
+      
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function() {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !expanded);
+          navLinks.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+      }
+      
+      // Close menu when clicking on a link
+      const navItems = document.querySelectorAll('.nav-link, .nav-cta');
+      
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          if (window.innerWidth < 992) {
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      });
+      
+      // Header scroll effect
+      function handleScroll() {
+        if (window.scrollY > 10) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+      }
+      
+      window.addEventListener('scroll', handleScroll);
+      
+      // Initial check for page load
+      handleScroll();
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth >= 992) {
+          if (mobileToggle.getAttribute('aria-expanded') === 'true') {
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        }
+      });
+      
+      // Set active class based on current URL
+      const currentPath = window.location.pathname;
+      
+      navItems.forEach(item => {
+        if (item.classList.contains('nav-cta')) return;
+        
+        const href = item.getAttribute('href');
+        if (href === currentPath || 
+            (href !== '/' && currentPath.includes(href))) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
