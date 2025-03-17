@@ -5,7 +5,7 @@
 
 // Google API credentials - Replace with your actual client ID from Google Cloud Console
 const CLIENT_ID = '297511422418-3rrhv6akmi5275nvtgobn1f14l298tmd.apps.googleusercontent.com';
-const API_KEY = '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';
+const API_KEY = 'AIzaSyCsRn0qT036yHS0B3SXnhBqTAx9CrR-BJ4';
 
 // Discovery docs and scopes for Google Sheets/Drive APIs
 const DISCOVERY_DOCS = [
