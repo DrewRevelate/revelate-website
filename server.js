@@ -39,12 +39,22 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Redirect domain.com to www.domain.com for better SEO
+// Middleware for common redirects
 app.use((req, res, next) => {
   const host = req.header('host');
+  const url = req.url;
+  
+  // Redirect domain.com to www.domain.com for better SEO
   if (host === 'revelateops.com') {
-    return res.redirect(301, `https://www.revelateops.com${req.url}`);
+    return res.redirect(301, `https://www.revelateops.com${url}`);
   }
+  
+  // Redirect URLs with .html extensions to clean URLs
+  if (url.endsWith('.html')) {
+    console.log(`Redirecting from: ${url} to: ${url.slice(0, -5)}`);
+    return res.redirect(301, url.slice(0, -5));
+  }
+  
   next();
 });
 
@@ -54,7 +64,7 @@ app.get('/favicon.ico', (req, res) => {
   if (fs.existsSync(faviconPath)) {
     res.sendFile(faviconPath);
   } else {
-    res.status(204).end();
+    res.status(204).end(); // No content if favicon doesn't exist
   }
 });
 
@@ -73,6 +83,30 @@ app.use(express.static(siteDir));
 
 // Serve other static files from root as fallback
 app.use(express.static(__dirname));
+
+// Specific route handlers for top-level pages
+const mainPages = ['about', 'services', 'approach', 'assessment', 'contact', 'projects'];
+mainPages.forEach(page => {
+  app.get(`/${page}`, (req, res, next) => {
+    console.log(`Direct route for main page: /${page}`);
+    
+    // Try _site directory first, then root
+    const siteFilePath = path.join(siteDir, `${page}.html`);
+    const rootFilePath = path.join(__dirname, `${page}.html`);
+    
+    if (fs.existsSync(siteFilePath)) {
+      console.log(`Serving file from _site: ${siteFilePath}`);
+      return res.sendFile(siteFilePath);
+    } else if (fs.existsSync(rootFilePath)) {
+      console.log(`Serving file from root: ${rootFilePath}`);
+      return res.sendFile(rootFilePath);
+    } else {
+      console.log(`No file found for page: ${page}`);
+      // Continue to next route handler
+      next();
+    }
+  });
+});
 
 // API Routes
 
@@ -242,7 +276,7 @@ app.get('/api/status', async (req, res) => {
   }
 });
 
-// Special route handlers for Jekyll-style paths
+// Handle Jekyll-style directory paths (with trailing slash)
 app.get('/:page/', (req, res, next) => {
   const page = req.params.page;
   
@@ -275,7 +309,7 @@ app.get('/:page/', (req, res, next) => {
   next();
 });
 
-// Handle nested Jekyll-style paths
+// Handle nested directory paths (with trailing slash)
 app.get('/:section/:page/', (req, res, next) => {
   const { section, page } = req.params;
   
@@ -308,11 +342,17 @@ app.get('/:section/:page/', (req, res, next) => {
   next();
 });
 
-// Handle paths without trailing slash
+// Handle paths without trailing slash (not already caught by specific handlers)
 app.get('/:page', (req, res, next) => {
   // Skip if it's an API route or file with extension
   const page = req.params.page;
   if (page.startsWith('api') || page.includes('.')) {
+    return next();
+  }
+  
+  // Handle main pages - this should have been caught by the specific handlers,
+  // but we'll check again just to be sure
+  if (mainPages.includes(page)) {
     return next();
   }
   
