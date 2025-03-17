@@ -90,12 +90,11 @@ function highlightCurrentPage() {
         const href = link.getAttribute('href');
         
         // Handle root/index page
-        if ((currentPath === '/' || currentPath.endsWith('index.html')) && 
-            (href === '/' || href === '/index.html' || href === 'index.html')) {
+        if (currentPath === '/' && (href === '/' || href === 'index')) {
             link.classList.add('active');
         }
-        // Handle other pages
-        else if (href && currentPath.includes(href) && href !== '/' && href !== 'index.html') {
+        // Handle other pages - check if the current path starts with the href path
+        else if (href && href !== '/' && currentPath.startsWith(href)) {
             link.classList.add('active');
         }
     });
@@ -327,24 +326,24 @@ function initPageSpecific() {
     const path = window.location.pathname;
     
     // Home page specific initializations
-    if (path === '/' || path.endsWith('index.html')) {
+    if (path === '/' || path === '/index') {
         // These will be handled by their own JS files
         console.log('Home page loaded');
     }
     
     // Services page
-    else if (path.includes('services.html')) {
+    else if (path.includes('/services')) {
         // Initialize expandable services
         initExpandableCards();
     }
     
     // Contact page
-    else if (path.includes('contact.html')) {
+    else if (path.includes('/contact')) {
         initContactForm();
     }
     
     // Assessment page
-    else if (path.includes('assessment.html')) {
+    else if (path.includes('/assessment')) {
         console.log('Assessment page loaded');
         // Assessment page JavaScript is loaded separately
     }
@@ -409,8 +408,6 @@ function initExpandableCards() {
         }
     }
 }
-
-/* Case studies section removed */
 
 /**
  * Initialize contact form validation
