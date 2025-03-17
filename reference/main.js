@@ -48,8 +48,6 @@ function initHeader() {
         mobileToggle.addEventListener('click', function() {
             const expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
         });
         
         // Close mobile menu when clicking a nav link
@@ -57,8 +55,6 @@ function initHeader() {
         navItems.forEach(item => {
             item.addEventListener('click', function() {
                 mobileToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                document.body.classList.remove('menu-open');
             });
         });
         
@@ -69,8 +65,6 @@ function initHeader() {
                 !navLinks.contains(event.target) && 
                 !mobileToggle.contains(event.target)) {
                 mobileToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                document.body.classList.remove('menu-open');
             }
         });
     }
@@ -338,15 +332,17 @@ function initPageSpecific() {
         initExpandableCards();
     }
     
+    // Case studies page
+    else if (path.includes('case-studies')) {
+        // Initialize case study filters
+        if (path.endsWith('index.html') || path.endsWith('case-studies/')) {
+            initCaseStudyFilters();
+        }
+    }
+    
     // Contact page
     else if (path.includes('contact.html')) {
         initContactForm();
-    }
-    
-    // Assessment page
-    else if (path.includes('assessment.html')) {
-        console.log('Assessment page loaded');
-        // Assessment page JavaScript is loaded separately
     }
 }
 
@@ -410,7 +406,40 @@ function initExpandableCards() {
     }
 }
 
-/* Case studies section removed */
+/**
+ * Initialize case study filters
+ */
+function initCaseStudyFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const caseStudies = document.querySelectorAll('.case-study-card');
+    
+    if (!filterButtons.length || !caseStudies.length) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active state for buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Filter the case studies
+            caseStudies.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = '';
+                    setTimeout(() => {
+                        card.classList.remove('hidden');
+                    }, 10);
+                } else {
+                    card.classList.add('hidden');
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300); // Match transition duration
+                }
+            });
+        });
+    });
+}
 
 /**
  * Initialize contact form validation
