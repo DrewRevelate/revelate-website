@@ -9,9 +9,12 @@ const dotenv = require('dotenv');
 // Load environment variables
 dotenv.config();
 
+// Get the database URL (Heroku might set it as DATABASE_URL or HEROKU_POSTGRESQL_*_URL)
+const dbUrl = process.env.DATABASE_URL || process.env.HEROKU_POSTGRESQL_ROSE_URL;
+
 // Create a connection pool
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: dbUrl,
   ssl: {
     rejectUnauthorized: false // Required for Heroku PostgreSQL
   }
