@@ -1,34 +1,18 @@
-/**
- * RevOps Maturity Assessment Tool
- * A comprehensive assessment tool for evaluating an organization's RevOps maturity
- * 
- * This script creates and manages a fully functional assessment that:
- * - Guides users through multiple categories of questions
- * - Tracks and validates responses
- * - Calculates maturity scores
- * - Generates personalized recommendations
- * - Provides visual results with charts
- */
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Find the container for the assessment
-  const assessmentContainer = document.getElementById('assessment-container');
-  if (!assessmentContainer) return;
-
-  // Create assessment structure
-  createAssessmentUI(assessmentContainer);
-  
-  // Initialize event listeners and functionality
-  initializeAssessment();
-  
-  // Add the necessary styles
-  addRequiredStyles();
-});
-
-// Helper function to create the UI structure
-function createAssessmentUI(container) {
-  // Create the assessment HTML structure
-  container.innerHTML = `
+---
+layout: default
+title: RevOps Maturity Assessment | Revelate Operations
+permalink: /assessment/
+description: Discover your organization's revenue operations maturity level and get personalized recommendations with our complimentary 10-minute assessment.
+keywords: RevOps assessment, data maturity, revenue operations, SaaS consulting, business intelligence, data integration, self-assessment tool
+custom_css:
+  - assessment
+  - logo-effect
+custom_js:
+  - revops-assessment
+  - portal
+  - animations
+structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"RevOps Maturity Assessment","description":"Discover your organization\'s revenue operations maturity and get personalized recommendations with our complimentary assessment tool.","mainEntity":{"@type":"Service","name":"RevOps Assessment","provider":{"@type":"Organization","name":"Revelate Operations"},"serviceType":"Business Assessment"}}'
+---
     <div class="assessment-wrapper">
       <!-- Progress indicators -->
       <div class="assessment-progress">
