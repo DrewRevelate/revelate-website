@@ -6,6 +6,7 @@
 // Import dependencies
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const db = require('./db/database');
@@ -21,12 +22,63 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, '/')));
+// Serve static files with proper caching
+app.use(express.static(path.join(__dirname, '/'), {
+  maxAge: '1d'
+}));
 
 // Routes
+// Handle root route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Handle HTML page routes (both with and without .html extension)
+app.get('/:page', (req, res, next) => {
+  const page = req.params.page;
+  
+  // Skip API routes and handle them separately
+  if (page.startsWith('api')) {
+    return next();
+  }
+  
+  // Check if this is a directory route (without .html)
+  const htmlFile = path.join(__dirname, `${page}.html`);
+  const directoryIndexFile = path.join(__dirname, `${page}/index.html`);
+  
+  if (page.endsWith('.html')) {
+    // Direct HTML request
+    res.sendFile(path.join(__dirname, page));
+  } else if (fs.existsSync(htmlFile)) {
+    // Page exists as a direct .html file
+    res.sendFile(htmlFile);
+  } else if (fs.existsSync(directoryIndexFile)) {
+    // Page exists as a directory with index.html
+    res.sendFile(directoryIndexFile);
+  } else {
+    // If we couldn't find a matching file, continue to next middleware
+    next();
+  }
+});
+
+// Support for nested pages
+app.get('/:section/:page', (req, res, next) => {
+  const { section, page } = req.params;
+  
+  // Check for both direct file and index.html in directory
+  const directFile = path.join(__dirname, `${section}/${page}`);
+  const htmlFile = path.join(__dirname, `${section}/${page}.html`);
+  const directoryFile = path.join(__dirname, `${section}/${page}/index.html`);
+  
+  if (fs.existsSync(directFile)) {
+    res.sendFile(directFile);
+  } else if (fs.existsSync(htmlFile)) {
+    res.sendFile(htmlFile);
+  } else if (fs.existsSync(directoryFile)) {
+    res.sendFile(directoryFile);
+  } else {
+    next();
+  }
 });
 
 // API endpoint to save contact form submissions
@@ -202,6 +254,15 @@ app.get('/setup-database', async (req, res) => {
       message: 'Failed to set up database',
       error: error.message
     });
+  }
+});
+
+// Handle 404 errors with custom 404 page
+app.use((req, res) => {
+  if (fs.existsSync(path.join(__dirname, '404.html'))) {
+    res.status(404).sendFile(path.join(__dirname, '404.html'));
+  } else {
+    res.status(404).send('Page not found');
   }
 });
 
