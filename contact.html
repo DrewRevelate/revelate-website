@@ -1,350 +1,204 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Revelate Operations</title>
-    
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Meta tags for SEO -->
-    <meta name="description" content="Contact Revelate Operations for data-driven SaaS consulting services. Get in touch with our team of experts today.">
-    <meta name="keywords" content="contact, SaaS consulting, data analytics, business intelligence, CRM management">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav id="navbar" aria-label="Main navigation">
-        <div class="container navbar-container">
-            <a href="index.html" class="logo" aria-label="Revelate Operations Home">
-                <div class="logo-container">
-                    <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="50" height="50">
-                    <h1>REVELATE</h1>
-                </div>
-            </a>
-            <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="nav-links">
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="approach.html" class="nav-link">Our Approach</a>
-                <a href="about.html" class="nav-link">About Us</a>
-                <a href="case-studies/index.html" class="nav-link">Case Studies</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-                <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
-            </div>
-        </div>
-    </nav>
+---
+layout: default
+title: Contact Us | Revelate Operations
+description: Contact Revelate Operations for data-driven SaaS consulting services. Get in touch with our team of experts today.
+keywords: contact, SaaS consulting, data analytics, business intelligence, CRM management
+custom_css:
+  - revelate-styles
+  - contact
+custom_js:
+  - contact
+---
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Get In <span class="text-gradient">Touch</span></h1>
-            <p class="page-subtitle">Ready to unlock your data potential? Let's start a conversation.</p>
-        </div>
-    </section>
+<!-- Page Header -->
+<section class="page-hero">
+    <div class="container">
+        <h1 class="page-title">Get In <span class="gradient-text">Touch</span></h1>
+        <p class="page-subtitle">Ready to unlock your data potential? Let's start a conversation.</p>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact-section light">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Let's Collaborate</h2>
-                    <p>Whether you're looking to optimize your CRM, enhance your data analytics capabilities, or develop a comprehensive revenue operations strategy, our team is here to help.</p>
-                    <p>Fill out the form, and we'll get back to you within 24 hours to discuss how we can support your business goals.</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>123 Business Avenue, Suite 400<br>San Francisco, CA 94107</p>
-                            </div>
+<!-- Contact Section -->
+<section class="contact-section light">
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Let's Collaborate</h2>
+                <p>Whether you're looking to optimize your CRM, enhance your data analytics capabilities, or develop a comprehensive revenue operations strategy, our team is here to help.</p>
+                <p>Fill out the form, and we'll get back to you within 24 hours to discuss how we can support your business goals.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>(555) 123-4567</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>info@revelateops.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Office Hours</h4>
-                                <p>Monday - Friday: 9AM - 6PM PST</p>
-                            </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>123 Business Avenue, Suite 400<br>San Francisco, CA 94107</p>
                         </div>
                     </div>
                     
-                    <div class="social-connect">
-                        <h4>Connect With Us</h4>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@revelateops.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 9AM - 6PM PST</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name <span class="required">*</span></label>
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                            <div class="form-feedback"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                            <div class="form-feedback"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
-                            <div class="form-feedback"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company" class="form-label">Company Name</label>
-                            <input type="text" id="company" class="form-control" placeholder="Your Company">
-                            <div class="form-feedback"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="interest" class="form-label">I'm interested in <span class="required">*</span></label>
-                            <select id="interest" class="form-control" required>
-                                <option value="" selected disabled>Select a service</option>
-                                <option value="crm">CRM Management</option>
-                                <option value="bi">Business Intelligence</option>
-                                <option value="data-integration">Data Integration</option>
-                                <option value="lead-gen">Lead Generation</option>
-                                <option value="gtm">GTM Strategy</option>
-                                <option value="retention">Customer Retention</option>
-                                <option value="other">Other Services</option>
-                            </select>
-                            <div class="form-feedback"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">How Can We Help? <span class="required">*</span></label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your project or needs" rows="5" required></textarea>
-                            <div class="form-feedback"></div>
-                        </div>
-                        
-                        <div class="form-consent">
-                            <label class="consent-checkbox">
-                                <input type="checkbox" required>
-                                <span class="checkmark"></span>
-                                <span class="consent-text">I consent to Revelate Operations processing my personal data in accordance with the <a href="privacy-policy.html">Privacy Policy</a>. <span class="required">*</span></span>
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container">
-            <div class="map-wrapper">
-                <!-- Replace with your actual Google Maps or other map embed code -->
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2771749054545!2d-122.40046068420448!3d37.78636687975835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858086b9d17e61%3A0x40871821b3f0afca!2s123%20Main%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1647354397318!5m2!1sen!2sus" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="contact-faq gray">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>How quickly will you respond to my inquiry?</h3>
-                    <p>We typically respond to all inquiries within 24 business hours. For urgent matters, you can also reach us directly by phone.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Do you offer free consultations?</h3>
-                    <p>Yes, we offer a complimentary 30-minute consultation to discuss your needs and how we might be able to help. This can be scheduled after your initial inquiry.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>What information should I prepare for our first call?</h3>
-                    <p>To make our initial discussion most productive, it's helpful to have a basic understanding of your current systems, key challenges, and primary goals. Don't worry if you don't have all the details - we're here to help you figure it out.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Are you able to work with clients remotely?</h3>
-                    <p>Absolutely! We work with clients across the country and internationally. Our virtual collaboration tools and processes ensure that you receive the same level of service regardless of location.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Let's Work Together</h2>
-                <p class="cta-description">Ready to transform your data into actionable insights? Our team is just a message away.</p>
-                <a href="#contactForm" class="btn btn-light btn-large">Get Started Today</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
-                        <h2>REVELATE</h2>
-                    </div>
-                    <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-links-column">
-                    <h3 class="footer-heading">Services</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="services.html#crm">CRM Management</a></li>
-                        <li class="footer-link"><a href="services.html#bi">Business Intelligence</a></li>
-                        <li class="footer-link"><a href="services.html#integration">Data Integration</a></li>
-                        <li class="footer-link"><a href="services.html#lead-gen">Lead Generation</a></li>
-                        <li class="footer-link"><a href="services.html#gtm">GTM Strategy</a></li>
-                        <li class="footer-link"><a href="services.html#retention">Customer Retention</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links-column">
-                    <h3 class="footer-heading">Company</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="about.html">About Us</a></li>
-                        <li class="footer-link"><a href="approach.html">Our Process</a></li>
-                        <li class="footer-link"><a href="case-studies/index.html">Case Studies</a></li>
-                        <li class="footer-link"><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Contact Us</h3>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt footer-contact-icon"></i>
-                        <span>123 Business Avenue, Suite 400, San Francisco, CA 94107</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone footer-contact-icon"></i>
-                        <span>(555) 123-4567</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope footer-contact-icon"></i>
-                        <span>info@revelateops.com</span>
+                <div class="social-connect">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/company/revelateops" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/revelateops" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             
-            <div class="footer-divider"></div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Login Modal -->
-    <div class="modal" id="login-modal" aria-hidden="true" role="dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Client Portal Login</h2>
-                <button class="close-modal" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="login-form">
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form">
                     <div class="form-group">
-                        <label for="email-login" class="form-label">Email</label>
-                        <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
+                        <label for="name" class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
                         <div class="form-feedback"></div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="password-login" class="form-label">Password</label>
-                        <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                        <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" class="form-control" placeholder="Your Email" required>
                         <div class="form-feedback"></div>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company" class="form-label">Company Name</label>
+                        <input type="text" id="company" class="form-control" placeholder="Your Company">
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest" class="form-label">I'm interested in <span class="required">*</span></label>
+                        <select id="interest" class="form-control" required>
+                            <option value="" selected disabled>Select a service</option>
+                            <option value="crm">CRM Management</option>
+                            <option value="bi">Business Intelligence</option>
+                            <option value="data-integration">Data Integration</option>
+                            <option value="lead-gen">Lead Generation</option>
+                            <option value="gtm">GTM Strategy</option>
+                            <option value="retention">Customer Retention</option>
+                            <option value="other">Other Services</option>
+                        </select>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">How Can We Help? <span class="required">*</span></label>
+                        <textarea id="message" class="form-control" placeholder="Tell us about your project or needs" rows="5" required></textarea>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-consent">
+                        <label class="consent-checkbox">
+                            <input type="checkbox" required>
+                            <span class="checkmark"></span>
+                            <span class="consent-text">I consent to Revelate Operations processing my personal data in accordance with the <a href="privacy-policy.html">Privacy Policy</a>. <span class="required">*</span></span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">Send Message</button>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <a href="#">Forgot Password?</a>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container">
+        <div class="map-wrapper">
+            <!-- Replace with your actual Google Maps or other map embed code -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2771749054545!2d-122.40046068420448!3d37.78636687975835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858086b9d17e61%3A0x40871821b3f0afca!2s123%20Main%20St%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1647354397318!5m2!1sen!2sus" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
 
-    <!-- JavaScript -->
-    <script src="js/navigation.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+<!-- FAQ Section -->
+<section class="contact-faq gray">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>How quickly will you respond to my inquiry?</h3>
+                <p>We typically respond to all inquiries within 24 business hours. For urgent matters, you can also reach us directly by phone.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Do you offer free consultations?</h3>
+                <p>Yes, we offer a complimentary 30-minute consultation to discuss your needs and how we might be able to help. This can be scheduled after your initial inquiry.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What information should I prepare for our first call?</h3>
+                <p>To make our initial discussion most productive, it's helpful to have a basic understanding of your current systems, key challenges, and primary goals. Don't worry if you don't have all the details - we're here to help you figure it out.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Are you able to work with clients remotely?</h3>
+                <p>Absolutely! We work with clients across the country and internationally. Our virtual collaboration tools and processes ensure that you receive the same level of service regardless of location.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Let's Work Together</h2>
+            <p class="cta-description">Ready to transform your data into actionable insights? Our team is just a message away.</p>
+            <a href="#contactForm" class="btn btn-light btn-large">Get Started Today</a>
+        </div>
+    </div>
+</section>
+
+

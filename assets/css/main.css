@@ -94,6 +94,12 @@
     --z-modal: 200;
     --z-toast: 300;
     --z-tooltip: 400;
+    
+    /* Breakpoints */
+    --breakpoint-xs: 576px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 992px;
+    --breakpoint-lg: 1200px;
 }
 
 /* Dark mode variables (for future implementation) */
@@ -389,7 +395,6 @@ section {
 /* ==========================================
    5. Navigation & Header
    ========================================== */
-/* Add to main.css to adjust header spacing */
 #header {
     position: fixed;
     top: 0;
@@ -403,11 +408,6 @@ section {
     box-shadow: var(--shadow-sm);
     z-index: var(--z-header);
     transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
-}
-
-/* Adjust the height variable to accommodate the extra padding */
-:root {
-    --header-height: 104px; /* Increased from 80px */
 }
 
 .header-inner {
@@ -489,6 +489,45 @@ section {
     width: 40px;
     height: 40px;
     position: relative;
+}
+
+/* Logo styles */
+.logo-container {
+    padding: 8px 0;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    margin-right: 12px;
+}
+
+.logo-image img {
+    display: block;
+    max-height: 48px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--dark);
+    text-transform: uppercase;
+}
+
+.company-tagline {
+    font-size: 0.875rem;
+    color: var(--gray);
+    font-weight: 400;
 }
 
 .hamburger-icon,
@@ -1077,7 +1116,7 @@ section {
 /* ==========================================
    9. Responsive Adjustments
    ========================================== */
-@media (max-width: 1199px) {
+@media (max-width: 1200px) {
     .container {
         max-width: 1140px;
     }
@@ -1087,15 +1126,23 @@ section {
     }
     
     h1 {
-        font-size: var(--font-size-4xl);
+        font-size: clamp(2.5rem, 5vw, 3rem);
     }
     
     h2 {
-        font-size: var(--font-size-3xl);
+        font-size: clamp(2rem, 4vw, 2.5rem);
+    }
+    
+    h3 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    
+    h4 {
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .container {
         max-width: 960px;
     }
@@ -1105,7 +1152,7 @@ section {
         row-gap: var(--space-8);
     }
     
-    .grid-4 {
+    .grid-3, .grid-4 {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -1127,6 +1174,7 @@ section {
         opacity: 0;
         visibility: hidden;
         transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
+        z-index: var(--z-header);
     }
     
     .mobile-toggle[aria-expanded="true"] + .nav-links {
@@ -1149,35 +1197,41 @@ section {
         width: 100%;
         text-align: center;
     }
+    
+    /* Form elements for mobile */
+    .form-control {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+    
+    .btn {
+        min-height: 44px; /* Minimum touch target size */
+    }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .container {
         max-width: 720px;
+        padding-left: var(--space-5);
+        padding-right: var(--space-5);
     }
     
     :root {
         --header-height: 60px;
+        --content-padding: 1.5rem;
     }
     
-    h1 {
-        font-size: var(--font-size-3xl);
+    /* Responsive logo */
+    .company-tagline {
+        display: none;
     }
     
-    h2 {
-        font-size: var(--font-size-2xl);
+    .company-name {
+        font-size: 1.25rem;
     }
     
-    h3 {
-        font-size: var(--font-size-xl);
-    }
-    
-    .grid-3 {
+    .grid-2, .grid-3, .grid-4 {
         grid-template-columns: 1fr;
-    }
-    
-    .grid-2 {
-        grid-template-columns: 1fr;
+        gap: var(--space-5);
     }
     
     section {
@@ -1193,29 +1247,48 @@ section {
         gap: var(--space-4);
         text-align: center;
     }
+    
+    /* Touch-friendly adjustments */
+    .nav-link, .btn, .form-control, .footer-link a {
+        padding: 0.8rem;
+    }
+    
+    .footer-link, .nav-item {
+        margin-bottom: 0.5rem;
+    }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 576px) {
     .container {
         max-width: 100%;
         padding-left: var(--space-4);
         padding-right: var(--space-4);
     }
     
-    .grid-4 {
-        grid-template-columns: 1fr;
-    }
-    
-    h1 {
-        font-size: var(--font-size-2xl);
-    }
-    
-    h2 {
-        font-size: var(--font-size-xl);
+    :root {
+        --content-padding: 1rem;
     }
     
     .back-to-top {
         right: var(--space-4);
         bottom: var(--space-4);
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Improve spacing on very small screens */
+    .section {
+        padding: var(--space-8) 0;
+    }
+    
+    /* Adjust form elements */
+    .form-control {
+        padding: 0.8rem 1rem;
+    }
+    
+    /* Stack multi-column layouts */
+    .hero-metrics, .hero-buttons {
+        flex-direction: column;
+        gap: var(--space-4);
     }
 }
