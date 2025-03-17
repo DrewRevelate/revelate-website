@@ -7,11 +7,280 @@ keywords: salesforce consulting, revenue operations, RevOps, SaaS consulting, da
 custom_css:
   - services
   - logo-effect
+  - services-mobile
 custom_js:
   - services
   - portal
 structured_data: '{"@context":"https://schema.org","@type":"Service","serviceType":"SaaS Consulting Services","provider":{"@type":"ProfessionalService","name":"Revelate Operations","url":"https://revelateops.com"},"description":"Data-driven SaaS consulting services including CRM management, business intelligence, data integration, and customer retention strategies.","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}'
 ---
+
+<!-- Add viewport meta tag for mobile responsiveness -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  /* General Typography Adjustments */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.4rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+  
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Button Improvements */
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    height: auto;
+    min-height: 44px; /* Ensure touch target size */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem 0;
+  }
+  
+  /* Hero Section */
+  .services-hero-wrapper {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+  
+  .services-hero-content {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .services-hero-image {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+  
+  .services-hero-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .services-hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  .services-hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  /* Service Category Grid */
+  .service-category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .category-card {
+    padding: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  /* Service Detail Sections */
+  .service-detail {
+    padding: 3rem 0;
+  }
+  
+  .service-detail-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .service-detail-icon {
+    margin-bottom: 1rem;
+  }
+  
+  .service-detail-grid,
+  .service-detail-grid.reverse {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .service-detail-content,
+  .service-detail-image {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .service-detail-image {
+    order: 1;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service-detail-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .service-detail-content {
+    order: 2;
+  }
+  
+  .service-feature {
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+  }
+  
+  .service-feature i {
+    margin-top: 0.3rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+  
+  .service-testimonial {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  
+  .service-detail-shape {
+    display: none; /* Hide the shape that might be causing layout issues */
+  }
+  
+  .testimonial-author {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .testimonial-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  /* Why Choose Us Section */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .benefit-card {
+    padding: 1.5rem;
+    margin-bottom: 0;
+  }
+  
+  /* FAQ Section */
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faq-column {
+    width: 100%;
+  }
+  
+  .faq-item {
+    margin-bottom: 0.75rem;
+  }
+  
+  .faq-question {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .faq-answer {
+    padding: 1rem;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Tablet Specific Adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+  .service-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .service-detail-grid {
+    gap: 2rem;
+  }
+  
+  .service-testimonial {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+}
+</style>
 
 <!-- Hero Section -->
 <section class="services-hero">
@@ -157,7 +426,7 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
                 <div class="service-testimonial">
                     <p>"Revelate Operations transformed our Salesforce instance from a data repository into a strategic sales engine. Our team adoption increased by 85% and sales productivity improved dramatically."</p>
                     <div class="testimonial-author">
-                        <img src="{{ '/assets/images/testimonials/michael-chen.jpg' | relative_url }}" alt="Michael Chen">
+                        <img src="{{ '/images/testimonials/testimonial-3.jpg' | relative_url }}" alt="Michael Chen">
                         <div>
                             <h5>Michael Chen</h5>
                             <span>CMO, Growify</span>
@@ -233,7 +502,7 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
                 <div class="service-testimonial">
                     <p>"The custom dashboards Revelate built have revolutionized how we analyze performance. Our marketing ROI improved by 42% by implementing the insights they uncovered from our data."</p>
                     <div class="testimonial-author">
-                        <img src="{{ '/assets/images/testimonials/sarah-johnson.jpg' | relative_url }}" alt="Sarah Johnson">
+                        <img src="{{ '/images/testimonials/testimonial-2.jpg' | relative_url }}" alt="Sarah Johnson">
                         <div>
                             <h5>Sarah Johnson</h5>
                             <span>VP of Sales, TechForward Solutions</span>
@@ -309,7 +578,7 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
                 <div class="service-testimonial">
                     <p>"Revelate Operations eliminated our data silos by connecting five critical systems. Our team now has a single source of truth that's saved countless hours and dramatically improved our reporting accuracy."</p>
                     <div class="testimonial-author">
-                        <img src="{{ '/assets/images/testimonials/jasmine-rodriguez.jpg' | relative_url }}" alt="Jasmine Rodriguez">
+                        <img src="{{ '/images/testimonials/testimonial-4.jpg' | relative_url }}" alt="Jasmine Rodriguez">
                         <div>
                             <h5>Jasmine Rodriguez</h5>
                             <span>Sales Director, Nexus Technologies</span>
@@ -385,7 +654,7 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
                 <div class="service-testimonial">
                     <p>"With Revelate's customer retention strategies, we reduced our churn rate by 32% in just one quarter. Their health scoring model has been remarkably accurate at predicting which customers need attention."</p>
                     <div class="testimonial-author">
-                        <img src="{{ '/assets/images/testimonials/alex-thompson.jpg' | relative_url }}" alt="Alex Thompson">
+                        <img src="{{ '/images/testimonials/testimonial-1.jpg' | relative_url }}" alt="Alex Thompson">
                         <div>
                             <h5>Alex Thompson</h5>
                             <span>Customer Success Director, CloudEnable</span>
@@ -557,3 +826,58 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
         </div>
     </div>
 </section>
+
+<script>
+// Mobile-optimized JavaScript for FAQ accordion
+document.addEventListener('DOMContentLoaded', function() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other FAQs
+      faqQuestions.forEach(q => {
+        if (q !== this) {
+          q.setAttribute('aria-expanded', 'false');
+          q.nextElementSibling.style.maxHeight = '0';
+          q.nextElementSibling.style.opacity = '0';
+        }
+      });
+      
+      // Toggle current FAQ
+      this.setAttribute('aria-expanded', !isExpanded);
+      const answer = this.nextElementSibling;
+      
+      if (!isExpanded) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.opacity = '1';
+      } else {
+        answer.style.maxHeight = '0';
+        answer.style.opacity = '0';
+      }
+    });
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        const headerOffset = 70;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+</script>

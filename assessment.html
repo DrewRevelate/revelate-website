@@ -1,0 +1,903 @@
+---
+layout: default
+title: RevOps Assessment | Revelate Operations | Data-Driven SaaS Consulting
+permalink: /assessment/
+description: Take our complimentary RevOps Assessment to discover your organization's data maturity level and identify key opportunities for improvement.
+keywords: RevOps assessment, data maturity, operational assessment, Salesforce assessment, SaaS assessment, data integration assessment
+custom_css:
+  - assessment
+  - logo-effect
+custom_js:
+  - logo-animation
+  - assessment
+  - form-validation
+  - animations
+structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"RevOps Assessment | Revelate Operations","url":"https://revelateops.com/assessment/","description":"Take our complimentary RevOps Assessment to discover your organization's data maturity level and identify key opportunities for improvement."}'
+---
+
+<!-- Direct CSS include as a fallback -->
+<style>
+/* Include critical assessment styles here */
+.assessment-hero {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #4361ee, #3a56d4);
+    color: white;
+    position: relative;
+}
+
+.assessment-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.assessment-step {
+    display: none;
+}
+
+.assessment-step.active {
+    display: block;
+}
+
+/* Add more critical styles as needed */
+</style>
+
+<!-- Hero Section -->
+<section class="assessment-hero">
+    <div class="container">
+        <div class="assessment-hero-wrapper">
+            <div class="assessment-hero-content">
+                <span class="eyebrow">Free Assessment</span>
+                <h1>RevOps <span class="gradient-text">Maturity Assessment</span></h1>
+                <p class="hero-subtitle">Discover your organization's Revenue Operations maturity level and identify key opportunities for improvement with our complimentary 10-minute assessment.</p>
+                <div class="assessment-hero-cta">
+                    <a href="#assessment-form" class="btn btn-primary">Start Assessment</a>
+                    <a href="{{ '/approach/' | relative_url }}" class="btn btn-outline">Learn About Our Approach</a>
+                </div>
+            </div>
+            
+            <div class="assessment-hero-image">
+                <img src="{{ '/assets/images/assessment-illustration.svg' | relative_url }}" alt="RevOps Assessment" width="550" height="450">
+                <div class="hero-shape-1"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="assessment-hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Assessment Overview -->
+<section class="assessment-overview">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What You'll Discover</h2>
+            <p class="section-subtitle">Our comprehensive assessment evaluates your Revenue Operations maturity across key dimensions</p>
+        </div>
+        
+        <div class="assessment-categories">
+            <!-- Category 1 -->
+            <div class="category-card" data-aos="fade-up">
+                <div class="category-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Data Infrastructure</h3>
+                <p>Evaluate the maturity of your data ecosystem, including integration capabilities, data governance, and accessibility.</p>
+            </div>
+            
+            <!-- Category 2 -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="category-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Analytics Capabilities</h3>
+                <p>Assess your organization's ability to derive meaningful insights from data and leverage them for strategic decision-making.</p>
+            </div>
+            
+            <!-- Category 3 -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="category-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Process Maturity</h3>
+                <p>Measure the efficiency and effectiveness of your core revenue processes across marketing, sales, and customer success.</p>
+            </div>
+            
+            <!-- Category 4 -->
+            <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="category-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Team Alignment</h3>
+                <p>Evaluate how well your teams collaborate and align around shared revenue objectives and metrics.</p>
+            </div>
+        </div>
+        
+        <div class="assessment-benefits">
+            <h3>Upon Completion, You'll Receive:</h3>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>A personalized RevOps maturity score across multiple dimensions</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Benchmarking against industry standards and competitors</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Identification of your biggest improvement opportunities</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Tailored recommendations for enhancing your RevOps capabilities</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Option to schedule a complimentary consultation to discuss your results</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Assessment Form -->
+<section class="assessment-form-section" id="assessment-form">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Start Your Assessment</h2>
+            <p class="section-subtitle">Answer the following questions to evaluate your RevOps maturity</p>
+        </div>
+        
+        <div class="assessment-container">
+            <!-- Progress Bar -->
+            <div class="assessment-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span class="step-label">About You</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Data Infrastructure</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Analytics</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <span class="step-label">Processes</span>
+                    </div>
+                    <div class="progress-step" data-step="5">
+                        <div class="step-number">5</div>
+                        <span class="step-label">Team Alignment</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Assessment Form -->
+            <form id="revopsAssessment" class="assessment-form">
+                <!-- Step 1: About You -->
+                <div class="assessment-step active" data-step="1">
+                    <h3>About You and Your Organization</h3>
+                    <p class="step-description">Help us understand your organization better so we can provide the most relevant insights.</p>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Your Name*</label>
+                        <input type="text" id="fullName" name="fullName" class="form-control" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address*</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="companyName">Company Name*</label>
+                        <input type="text" id="companyName" name="companyName" class="form-control" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobTitle">Your Role*</label>
+                        <input type="text" id="jobTitle" name="jobTitle" class="form-control" required>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="industry">Industry*</label>
+                            <select id="industry" name="industry" class="form-control" required>
+                                <option value="">Please select</option>
+                                <option value="SaaS">SaaS</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Financial Services">Financial Services</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Professional Services">Professional Services</option>
+                                <option value="Education">Education</option>
+                                <option value="Nonprofit">Nonprofit</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="form-feedback"></div>
+                        </div>
+                        
+                        <div class="form-group half">
+                            <label for="companySize">Company Size*</label>
+                            <select id="companySize" name="companySize" class="form-control" required>
+                                <option value="">Please select</option>
+                                <option value="1-10">1-10 employees</option>
+                                <option value="11-50">11-50 employees</option>
+                                <option value="51-200">51-200 employees</option>
+                                <option value="201-500">201-500 employees</option>
+                                <option value="501-1000">501-1000 employees</option>
+                                <option value="1000+">1000+ employees</option>
+                            </select>
+                            <div class="form-feedback"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-privacy">
+                        <p>We value your privacy. Your information will only be used to provide your assessment results and will not be shared with third parties. See our <a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a> for details.</p>
+                    </div>
+                    
+                    <div class="assessment-navigation">
+                        <button type="button" class="btn btn-primary next-step">Continue to Data Infrastructure</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Data Infrastructure -->
+                <div class="assessment-step" data-step="2">
+                    <h3>Data Infrastructure</h3>
+                    <p class="step-description">Let's evaluate how well your data systems work together and support your revenue goals.</p>
+                    
+                    <!-- Question 1 -->
+                    <div class="question-item">
+                        <p class="question-text">How would you describe your organization's CRM implementation?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="crmImplementation" value="1" required>
+                                <span class="option-text">We don't use a formal CRM system or use it very minimally</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="crmImplementation" value="2">
+                                <span class="option-text">We use a CRM, but data quality is inconsistent and adoption is low</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="crmImplementation" value="3">
+                                <span class="option-text">Our CRM is well-established with good data, but limited customization</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="crmImplementation" value="4">
+                                <span class="option-text">Our CRM is fully customized to our business processes with high adoption</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="crmImplementation" value="5">
+                                <span class="option-text">Our CRM is central to our operations with advanced automation and analytics integration</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="question-item">
+                        <p class="question-text">How integrated are your revenue-related systems (CRM, marketing automation, billing, etc.)?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="systemIntegration" value="1" required>
+                                <span class="option-text">Our systems operate independently with manual data transfers</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="systemIntegration" value="2">
+                                <span class="option-text">Some basic integrations exist, but significant manual work remains</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="systemIntegration" value="3">
+                                <span class="option-text">Core systems are integrated, with occasional data synchronization issues</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="systemIntegration" value="4">
+                                <span class="option-text">Most systems are well-integrated with reliable data flow between them</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="systemIntegration" value="5">
+                                <span class="option-text">Comprehensive integration across all revenue systems with real-time data synchronization</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 3 -->
+                    <div class="question-item">
+                        <p class="question-text">How would you rate your organization's data quality and governance?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="dataQuality" value="1" required>
+                                <span class="option-text">Data quality is poor with no formal governance processes</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataQuality" value="2">
+                                <span class="option-text">Some basic data standards exist, but are inconsistently applied</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataQuality" value="3">
+                                <span class="option-text">Formal data standards exist with moderate compliance</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataQuality" value="4">
+                                <span class="option-text">Strong data governance with regular auditing and cleaning processes</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataQuality" value="5">
+                                <span class="option-text">Comprehensive data governance framework with automated validation and enrichment</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="assessment-navigation">
+                        <button type="button" class="btn btn-outline prev-step">Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Continue to Analytics</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Analytics Capabilities -->
+                <div class="assessment-step" data-step="3">
+                    <h3>Analytics Capabilities</h3>
+                    <p class="step-description">Let's assess how effectively you turn data into actionable insights.</p>
+                    
+                    <!-- Question 4 -->
+                    <div class="question-item">
+                        <p class="question-text">How would you characterize your reporting and analytics capabilities?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="analyticsCapabilities" value="1" required>
+                                <span class="option-text">Basic reporting with mostly manual, ad-hoc reports</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="analyticsCapabilities" value="2">
+                                <span class="option-text">Regular standard reports, but limited customization</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="analyticsCapabilities" value="3">
+                                <span class="option-text">Custom dashboards for key metrics, with some automated reporting</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="analyticsCapabilities" value="4">
+                                <span class="option-text">Advanced analytics with drill-down capabilities and some predictive elements</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="analyticsCapabilities" value="5">
+                                <span class="option-text">Sophisticated business intelligence with predictive modeling and AI-driven insights</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 5 -->
+                    <div class="question-item">
+                        <p class="question-text">How effectively does your organization track and attribute revenue?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="revenueAttribution" value="1" required>
+                                <span class="option-text">Basic revenue tracking with no attribution model</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueAttribution" value="2">
+                                <span class="option-text">Simple attribution (e.g., first or last touch) with incomplete data</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueAttribution" value="3">
+                                <span class="option-text">Multi-touch attribution for marketing channels only</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueAttribution" value="4">
+                                <span class="option-text">Comprehensive multi-touch attribution across marketing and sales</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueAttribution" value="5">
+                                <span class="option-text">Advanced attribution with AI-powered modeling and continuous optimization</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 6 -->
+                    <div class="question-item">
+                        <p class="question-text">How does your organization leverage data for decision making?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="dataDrivenDecisions" value="1" required>
+                                <span class="option-text">Decisions are primarily based on intuition or experience</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataDrivenDecisions" value="2">
+                                <span class="option-text">Data is referenced but not consistently used for decisions</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataDrivenDecisions" value="3">
+                                <span class="option-text">Major decisions incorporate data analysis, but some gaps exist</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataDrivenDecisions" value="4">
+                                <span class="option-text">Strong data-driven culture with most decisions backed by analysis</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="dataDrivenDecisions" value="5">
+                                <span class="option-text">Comprehensive data-driven decision framework at all levels of the organization</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="assessment-navigation">
+                        <button type="button" class="btn btn-outline prev-step">Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Continue to Processes</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Process Maturity -->
+                <div class="assessment-step" data-step="4">
+                    <h3>Process Maturity</h3>
+                    <p class="step-description">Let's evaluate how well-defined and optimized your revenue processes are.</p>
+                    
+                    <!-- Question 7 -->
+                    <div class="question-item">
+                        <p class="question-text">How would you describe your sales process documentation and adherence?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="salesProcess" value="1" required>
+                                <span class="option-text">Informal or undocumented sales processes with inconsistent execution</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="salesProcess" value="2">
+                                <span class="option-text">Basic documented processes, but limited adoption or tracking</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="salesProcess" value="3">
+                                <span class="option-text">Well-documented processes with moderate adherence and tracking</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="salesProcess" value="4">
+                                <span class="option-text">Standardized processes with good adherence and regular optimization</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="salesProcess" value="5">
+                                <span class="option-text">Highly optimized processes with automation, consistent adherence, and continuous improvement</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 8 -->
+                    <div class="question-item">
+                        <p class="question-text">How effectively does your organization handle the lead-to-opportunity process?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="leadProcess" value="1" required>
+                                <span class="option-text">No formal lead qualification process; all leads treated equally</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="leadProcess" value="2">
+                                <span class="option-text">Basic lead scoring exists but is not consistently applied</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="leadProcess" value="3">
+                                <span class="option-text">Structured lead qualification with defined handoff between marketing and sales</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="leadProcess" value="4">
+                                <span class="option-text">Advanced lead scoring with automated routing and nurturing workflows</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="leadProcess" value="5">
+                                <span class="option-text">Sophisticated lead management with predictive scoring, personalized nurturing, and continuous optimization</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 9 -->
+                    <div class="question-item">
+                        <p class="question-text">How would you characterize your customer retention and expansion processes?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="retentionProcess" value="1" required>
+                                <span class="option-text">Reactive approach to retention; no proactive expansion strategy</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="retentionProcess" value="2">
+                                <span class="option-text">Basic renewal processes, but limited visibility into customer health</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="retentionProcess" value="3">
+                                <span class="option-text">Established customer success processes with some health monitoring</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="retentionProcess" value="4">
+                                <span class="option-text">Proactive customer success with health scoring and structured expansion playbooks</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="retentionProcess" value="5">
+                                <span class="option-text">Sophisticated retention strategy with predictive churn modeling and personalized expansion journeys</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="assessment-navigation">
+                        <button type="button" class="btn btn-outline prev-step">Previous</button>
+                        <button type="button" class="btn btn-primary next-step">Continue to Team Alignment</button>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Team Alignment -->
+                <div class="assessment-step" data-step="5">
+                    <h3>Team Alignment</h3>
+                    <p class="step-description">Let's assess how well your revenue teams collaborate and align around shared goals.</p>
+                    
+                    <!-- Question 10 -->
+                    <div class="question-item">
+                        <p class="question-text">How aligned are your marketing, sales, and customer success teams?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="teamAlignment" value="1" required>
+                                <span class="option-text">Teams operate independently with minimal collaboration</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="teamAlignment" value="2">
+                                <span class="option-text">Some collaboration, but frequent misalignment and conflicts</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="teamAlignment" value="3">
+                                <span class="option-text">Decent alignment with regular cross-team meetings and collaboration</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="teamAlignment" value="4">
+                                <span class="option-text">Strong alignment with shared goals and consistent communication</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="teamAlignment" value="5">
+                                <span class="option-text">Complete alignment with unified revenue operations team structure and integrated workflows</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 11 -->
+                    <div class="question-item">
+                        <p class="question-text">How does your organization manage revenue targets and forecasting?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="revenueForecasting" value="1" required>
+                                <span class="option-text">Basic targets with minimal forecasting process</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueForecasting" value="2">
+                                <span class="option-text">Simple forecasting based primarily on sales rep input</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueForecasting" value="3">
+                                <span class="option-text">Structured forecasting process incorporating multiple data points</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueForecasting" value="4">
+                                <span class="option-text">Advanced forecasting methodology with historical analysis and trend modeling</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revenueForecasting" value="5">
+                                <span class="option-text">Sophisticated forecasting with AI/ML predictive models and scenario planning</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <!-- Question 12 -->
+                    <div class="question-item">
+                        <p class="question-text">How would you rate your organization's revenue operations leadership?</p>
+                        <div class="question-options">
+                            <label class="option-label">
+                                <input type="radio" name="revopsLeadership" value="1" required>
+                                <span class="option-text">No dedicated RevOps function or leadership</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revopsLeadership" value="2">
+                                <span class="option-text">RevOps responsibilities distributed across different roles</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revopsLeadership" value="3">
+                                <span class="option-text">Dedicated RevOps resource(s) but limited strategic influence</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revopsLeadership" value="4">
+                                <span class="option-text">Established RevOps team with significant influence on revenue strategy</span>
+                            </label>
+                            <label class="option-label">
+                                <input type="radio" name="revopsLeadership" value="5">
+                                <span class="option-text">Strategic RevOps leadership with C-level representation and company-wide impact</span>
+                            </label>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    
+                    <div class="assessment-navigation">
+                        <button type="button" class="btn btn-outline prev-step">Previous</button>
+                        <button type="button" class="btn btn-primary submit-assessment">Submit Assessment</button>
+                    </div>
+                </div>
+                
+                <!-- Loading State -->
+                <div class="assessment-loading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing your responses...</p>
+                </div>
+            </form>
+            
+            <!-- Results Section (initially hidden) -->
+            <div class="assessment-results" style="display: none;">
+                <div class="results-header">
+                    <h3>Your RevOps Assessment Results</h3>
+                    <p>Based on your responses, here's an analysis of your Revenue Operations maturity:</p>
+                </div>
+                
+                <div class="maturity-score">
+                    <div class="overall-score">
+                        <div class="score-label">Overall Maturity Score</div>
+                        <div class="score-circle">
+                            <span id="overallScore">0</span>/5
+                        </div>
+                        <div class="score-level" id="maturityLevel">Advanced</div>
+                    </div>
+                    
+                    <div class="dimension-scores">
+                        <div class="dimension-score">
+                            <div class="dimension-label">Data Infrastructure</div>
+                            <div class="dimension-bar">
+                                <div class="dimension-fill" id="dataScore" style="width: 0%"></div>
+                            </div>
+                            <div class="dimension-value"><span id="dataScoreValue">0</span>/5</div>
+                        </div>
+                        
+                        <div class="dimension-score">
+                            <div class="dimension-label">Analytics Capabilities</div>
+                            <div class="dimension-bar">
+                                <div class="dimension-fill" id="analyticsScore" style="width: 0%"></div>
+                            </div>
+                            <div class="dimension-value"><span id="analyticsScoreValue">0</span>/5</div>
+                        </div>
+                        
+                        <div class="dimension-score">
+                            <div class="dimension-label">Process Maturity</div>
+                            <div class="dimension-bar">
+                                <div class="dimension-fill" id="processScore" style="width: 0%"></div>
+                            </div>
+                            <div class="dimension-value"><span id="processScoreValue">0</span>/5</div>
+                        </div>
+                        
+                        <div class="dimension-score">
+                            <div class="dimension-label">Team Alignment</div>
+                            <div class="dimension-bar">
+                                <div class="dimension-fill" id="teamScore" style="width: 0%"></div>
+                            </div>
+                            <div class="dimension-value"><span id="teamScoreValue">0</span>/5</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-summary">
+                    <h4>Summary Analysis</h4>
+                    <p id="resultsSummary">Your organization demonstrates a mix of strengths and opportunities across the key dimensions of Revenue Operations. Based on your assessment, we've identified specific areas where improvements could drive significant revenue growth and operational efficiency.</p>
+                </div>
+                
+                <div class="key-recommendations">
+                    <h4>Key Recommendations</h4>
+                    <div class="recommendations-list" id="recommendationsList">
+                        <!-- Recommendations will be dynamically inserted here -->
+                    </div>
+                </div>
+                
+                <div class="benchmark-comparison">
+                    <h4>Industry Benchmark Comparison</h4>
+                    <div class="benchmark-chart">
+                        <div class="benchmark-row">
+                            <div class="benchmark-label">Your Score</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill your-score" id="yourBenchmark" style="width: 0%"></div>
+                            </div>
+                            <div class="benchmark-value"><span id="yourBenchmarkValue">0</span>/5</div>
+                        </div>
+                        
+                        <div class="benchmark-row">
+                            <div class="benchmark-label">Industry Average</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill industry-avg" id="industryBenchmark" style="width: 65%"></div>
+                            </div>
+                            <div class="benchmark-value">3.25/5</div>
+                        </div>
+                        
+                        <div class="benchmark-row">
+                            <div class="benchmark-label">Top Performers</div>
+                            <div class="benchmark-bar">
+                                <div class="benchmark-fill top-performers" id="topBenchmark" style="width: 90%"></div>
+                            </div>
+                            <div class="benchmark-value">4.5/5</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <h4>Next Steps</h4>
+                    <p>Ready to improve your Revenue Operations maturity? Schedule a complimentary consultation with one of our experts to discuss your results and develop an action plan.</p>
+                    
+                    <div class="results-buttons">
+                        <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Schedule a Consultation</a>
+                        <button type="button" class="btn btn-outline" id="emailResults">Email My Results</button>
+                        <button type="button" class="btn btn-outline" id="downloadResults">Download PDF Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Client Stories -->
+<section class="client-stories">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Success Stories</h2>
+            <p class="section-subtitle">See how other organizations improved after taking our assessment</p>
+        </div>
+        
+        <div class="stories-grid">
+            <div class="story-card" data-aos="fade-up">
+                <div class="story-company">
+                    <img src="{{ '/assets/images/clients/techforward.png' | relative_url }}" alt="TechForward Solutions Logo">
+                    <div class="company-info">
+                        <h3>TechForward Solutions</h3>
+                        <span class="company-industry">SaaS</span>
+                    </div>
+                </div>
+                <p class="story-challenge">Struggling with disconnected systems and poor data visibility</p>
+                <div class="story-improvement">
+                    <div class="improvement-metric">
+                        <span class="metric-value">35%</span>
+                        <span class="metric-label">Increase in Sales Conversion</span>
+                    </div>
+                    <div class="improvement-metric">
+                        <span class="metric-value">40%</span>
+                        <span class="metric-label">Less Reporting Time</span>
+                    </div>
+                </div>
+                <a href="{{ '/case-studies/techforward-solutions/' | relative_url }}" class="btn btn-outline btn-sm">Read Case Study</a>
+            </div>
+            
+            <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="story-company">
+                    <img src="{{ '/assets/images/clients/growify.png' | relative_url }}" alt="Growify Logo">
+                    <div class="company-info">
+                        <h3>Growify</h3>
+                        <span class="company-industry">Marketing Technology</span>
+                    </div>
+                </div>
+                <p class="story-challenge">Unable to attribute marketing spend to revenue effectively</p>
+                <div class="story-improvement">
+                    <div class="improvement-metric">
+                        <span class="metric-value">42%</span>
+                        <span class="metric-label">Higher Marketing ROI</span>
+                    </div>
+                    <div class="improvement-metric">
+                        <span class="metric-value">68%</span>
+                        <span class="metric-label">Better Lead Quality</span>
+                    </div>
+                </div>
+                <a href="{{ '/case-studies/growify/' | relative_url }}" class="btn btn-outline btn-sm">Read Case Study</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Common questions about our assessment</p>
+        </div>
+        
+        <div class="faq-grid">
+            <div class="faq-column">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How long does it take to complete the assessment?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The assessment typically takes about 10 minutes to complete. It consists of 12 multiple-choice questions across five dimensions of Revenue Operations maturity.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Is my assessment data confidential?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, all assessment data is kept strictly confidential. We use your responses only to generate your personalized results and recommendations. We will never share your specific responses with third parties.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        What happens after I complete the assessment?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Immediately after completing the assessment, you'll receive your personalized maturity score and recommendations on the results page. You can choose to have these results emailed to you, download a PDF report, or schedule a consultation with one of our experts to discuss your results in more detail.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-column">
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How accurate is the assessment?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The assessment is based on industry best practices and our extensive experience working with hundreds of companies across various industries. While it provides a solid baseline evaluation, a consultation with our experts will provide a more comprehensive analysis tailored to your specific business context.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        How are the benchmark comparisons calculated?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The benchmark comparisons are derived from anonymized assessment data from companies within your selected industry. The industry average represents the mean score of all companies in your industry who have taken the assessment, while the top performers represent the average score of companies in the top 10%.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        Can I retake the assessment later?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can retake the assessment at any time to track your progress. Many of our clients use the assessment as a benchmark, implement improvements, and then retake it in 6-12 months to measure their advancement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Transform Your Revenue Operations?</h2>
+            <p class="cta-description">Take the first step by completing our assessment and discovering your organization's unique opportunities for improvement.</p>
+            <a href="#assessment-form" class="btn btn-light btn-lg">Start Your Assessment</a>
+        </div>
+    </div>
+</section>
