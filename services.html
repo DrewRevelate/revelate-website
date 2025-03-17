@@ -1,49 +1,778 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revelate Operations - Services</title>
-  <meta http-equiv="refresh" content="0;url=https://revelate-operations-33be6715fef8.herokuapp.com/services">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f8f9fa;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Revelate Operations | Data-Driven SaaS Consulting</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Revelate Operations offers comprehensive data-driven services including CRM management, business intelligence, data integration, and customer retention strategies.">
+    <meta name="keywords" content="salesforce consulting, revenue operations, RevOps, SaaS consulting, data integration, CRM optimization, business intelligence">
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://revelateops.com/services">
+    <meta property="og:title" content="Our Services | Revelate Operations">
+    <meta property="og:description" content="Comprehensive data-driven services to transform your business operations and drive revenue growth.">
+    <meta property="og:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Services | Revelate Operations">
+    <meta name="twitter:description" content="Comprehensive data-driven services to transform your business operations and drive revenue growth.">
+    <meta name="twitter:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (with performance optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/services.css">
+    <link rel="stylesheet" href="/assets/css/logo-effect.css">    
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "SaaS Consulting Services",
+        "provider": {
+            "@type": "ProfessionalService",
+            "name": "Revelate Operations",
+            "url": "https://revelateops.com"
+        },
+        "description": "Data-driven SaaS consulting services including CRM management, business intelligence, data integration, and customer retention strategies.",
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+        }
     }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #2b9fe3;
-    }
-    p {
-      color: #555;
-      line-height: 1.6;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #2b9fe3;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+    </script>
 </head>
 <body>
-  <div class="container">
-    <h1>Redirecting to Revelate Operations Services</h1>
-    <p>You are being redirected to our services page. If you are not redirected automatically, please click the button below.</p>
-    <a href="https://revelate-operations-33be6715fef8.herokuapp.com/services" class="btn">Go to Services</a>
-  </div>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="header-inner">
+                
+                <!-- Logo in header -->
+                <a href="/" class="logo" aria-label="Revelate Operations Home">
+                    <div class="logo-container">
+                        <div class="logo-image">
+                            <img src="/assets/images/logo.png" alt="Revelate Logo" width="100" height="100">
+                        </div>
+                    </div>
+                </a>
+                
+                <nav aria-label="Main navigation">
+                    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
+                    
+                    <ul id="main-menu" class="nav-links">
+                        <li class="nav-item"><a href="/services" class="nav-link active">Services</a></li>
+                        <li class="nav-item"><a href="/approach" class="nav-link">Our Approach</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="/case-studies" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="/assessment" class="nav-link">Assessment</a></li>
+                        <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+<!-- Hero Section -->
+<section class="services-hero">
+    <div class="container">
+        <div class="services-hero-wrapper">
+            <div class="services-hero-content">
+                <span class="eyebrow">Our Services</span>
+                <h1>Transform Your Business with <span class="gradient-text">Data-Driven Solutions</span></h1>
+                <p class="hero-subtitle">Comprehensive services designed to optimize your operations, integrate your data, and accelerate your revenue growth.</p>
+                <div class="services-hero-cta">
+                    <a href="#service-categories" class="btn btn-primary">Explore Our Services</a>
+                    <a href="/contact" class="btn btn-outline">Request a Consultation</a>
+                </div>
+            </div>
+            
+            <div class="services-hero-image">
+                <img src="/assets/images/services-illustration.svg" alt="Revelate Operations Services" width="550" height="450">
+                <div class="hero-shape-1"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="services-hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+        </svg>
+    </div>
+</section>
+        
+        <!-- Services Overview -->
+        <section class="services-overview" id="service-categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Service Categories</h2>
+                    <p class="section-subtitle">Tailored solutions to address every aspect of your revenue operations</p>
+                </div>
+                
+                <div class="service-category-grid">
+                    <!-- CRM Management Category -->
+                    <div class="category-card" data-aos="fade-up">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>CRM Management</h3>
+                        <p>Optimize your customer relationship management systems for maximum efficiency and impact.</p>
+                        <a href="#crm" class="btn btn-outline btn-sm">Learn More</a>
+                    </div>
+                    
+                    <!-- Business Intelligence Category -->
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Business Intelligence</h3>
+                        <p>Transform your data into actionable insights with powerful analytics and visualizations.</p>
+                        <a href="#bi" class="btn btn-outline btn-sm">Learn More</a>
+                    </div>
+                    
+                    <!-- Data Integration Category -->
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="category-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Data Integration</h3>
+                        <p>Connect your systems to eliminate silos and create a unified view of your business data.</p>
+                        <a href="#integration" class="btn btn-outline btn-sm">Learn More</a>
+                    </div>
+                    
+                    <!-- Customer Retention Category -->
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="category-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Customer Retention</h3>
+                        <p>Implement strategies to reduce churn and maximize customer lifetime value.</p>
+                        <a href="#retention" class="btn btn-outline btn-sm">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CRM Management Section -->
+        <section class="service-detail" id="crm">
+            <div class="container">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="service-detail-header-text">
+                        <h2>CRM Management</h2>
+                        <p class="lead">Expert Salesforce implementation, optimization, and support that drives adoption and maximizes your ROI.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detail-grid">
+                    <div class="service-detail-content" data-aos="fade-right">
+                        <h3>How We Deliver Excellence</h3>
+                        <p>Your CRM should be the central hub of your customer data and sales processes. We ensure it delivers true value by providing:</p>
+                        
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Salesforce Implementation & Optimization</h4>
+                                    <p>Custom Salesforce setups aligned with your business processes, or optimization of your existing instance to enhance performance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>CRM Health Assessment</h4>
+                                    <p>Comprehensive analysis of your current CRM environment to identify issues, opportunities, and optimization strategies.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Process Automation</h4>
+                                    <p>Streamline workflows, reduce manual tasks, and ensure data accuracy with powerful automation solutions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>User Training & Adoption</h4>
+                                    <p>Customized training programs that ensure your team embraces your CRM and uses it effectively.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="/contact" class="btn btn-primary">Get Started with CRM Excellence</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-image" data-aos="fade-left">
+                        <img src="/assets/images/services/crm-management.svg" alt="CRM Management Services">
+                        <div class="service-detail-shape"></div>
+                        
+                        <div class="service-testimonial">
+                            <p>"Revelate Operations transformed our Salesforce instance from a data repository into a strategic sales engine. Our team adoption increased by 85% and sales productivity improved dramatically."</p>
+                            <div class="testimonial-author">
+                                <img src="/images/testimonials/testimonial-2.jpg" alt="Michael Chen">
+                                <div>
+                                    <h5>Michael Chen</h5>
+                                    <span>CMO, Growify</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Business Intelligence Section -->
+        <section class="service-detail alt-background" id="bi">
+            <div class="container">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-detail-header-text">
+                        <h2>Business Intelligence</h2>
+                        <p class="lead">Transform complex data into actionable insights with custom dashboards and predictive analytics.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detail-grid reverse">
+                    <div class="service-detail-content" data-aos="fade-left">
+                        <h3>Data-Driven Decision Making</h3>
+                        <p>Stop drowning in data and start extracting meaningful insights. Our BI solutions help you:</p>
+                        
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Custom Dashboard Development</h4>
+                                    <p>Intuitive, real-time visualizations that present your most critical metrics in an easily digestible format.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Advanced Analytics & Reporting</h4>
+                                    <p>Go beyond basic reporting with sophisticated analytics that uncover trends, patterns, and opportunities.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Predictive Modeling</h4>
+                                    <p>Leverage historical data to forecast future outcomes and make proactive business decisions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>KPI Definition & Tracking</h4>
+                                    <p>Identify and track the metrics that truly matter to your business goals and growth trajectory.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="/contact" class="btn btn-primary">Transform Your Data Today</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-image" data-aos="fade-right">
+                        <img src="/assets/images/services/business-intelligence.svg" alt="Business Intelligence Services">
+                        <div class="service-detail-shape"></div>
+                        
+                        <div class="service-testimonial">
+                            <p>"The custom dashboards Revelate built have revolutionized how we analyze performance. Our marketing ROI improved by 42% by implementing the insights they uncovered from our data."</p>
+                            <div class="testimonial-author">
+                                <img src="/images/testimonials/testimonial-1.jpg" alt="Sarah Johnson">
+                                <div>
+                                    <h5>Sarah Johnson</h5>
+                                    <span>VP of Sales, TechForward Solutions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Data Integration Section -->
+        <section class="service-detail" id="integration">
+            <div class="container">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="service-detail-header-text">
+                        <h2>Data Integration</h2>
+                        <p class="lead">Seamlessly connect your tech stack to create a unified data ecosystem that eliminates silos.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detail-grid">
+                    <div class="service-detail-content" data-aos="fade-right">
+                        <h3>Connect Your Business Systems</h3>
+                        <p>Modern businesses rely on multiple platforms and tools. We ensure they work together seamlessly:</p>
+                        
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>System Integration</h4>
+                                    <p>Connect your CRM, marketing automation, ERP, and other systems for seamless data flow and unified reporting.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>API Development & Management</h4>
+                                    <p>Custom API solutions that enable robust, secure communications between your various platforms.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Data Normalization & Cleansing</h4>
+                                    <p>Ensure data consistency and quality across all your systems with comprehensive cleansing processes.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Middleware Implementation</h4>
+                                    <p>Implement robust solutions to facilitate communications between disparate systems in your tech stack.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="/contact" class="btn btn-primary">Integrate Your Systems Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-image" data-aos="fade-left">
+                        <img src="/assets/images/services/data-integration.svg" alt="Data Integration Services">
+                        <div class="service-detail-shape"></div>
+                        
+                        <div class="service-testimonial">
+                            <p>"Revelate Operations eliminated our data silos by connecting five critical systems. Our team now has a single source of truth that's saved countless hours and dramatically improved our reporting accuracy."</p>
+                            <div class="testimonial-author">
+                                <img src="/images/testimonials/testimonial-3.jpg" alt="Jasmine Rodriguez">
+                                <div>
+                                    <h5>Jasmine Rodriguez</h5>
+                                    <span>Sales Director, Nexus Technologies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Customer Retention Section -->
+        <section class="service-detail alt-background" id="retention">
+            <div class="container">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="service-detail-header-text">
+                        <h2>Customer Retention</h2>
+                        <p class="lead">Implement data-driven strategies to increase loyalty, reduce churn, and grow customer lifetime value.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detail-grid reverse">
+                    <div class="service-detail-content" data-aos="fade-left">
+                        <h3>Keep Your Most Valuable Customers</h3>
+                        <p>Acquiring new customers costs 5-25x more than retaining existing ones. Our retention strategies help you:</p>
+                        
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Churn Analysis & Prevention</h4>
+                                    <p>Identify at-risk customers before they leave and implement targeted interventions to retain them.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Customer Health Scoring</h4>
+                                    <p>Develop custom health scoring models that accurately predict customer satisfaction and loyalty.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Engagement Programs</h4>
+                                    <p>Create data-driven engagement strategies that nurture relationships and increase product adoption.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Customer Journey Optimization</h4>
+                                    <p>Map and optimize every touchpoint in your customer journey to enhance satisfaction and loyalty.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-cta">
+                            <a href="/contact" class="btn btn-primary">Boost Your Retention Rates</a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detail-image" data-aos="fade-right">
+                        <img src="/assets/images/services/customer-retention.svg" alt="Customer Retention Services">
+                        <div class="service-detail-shape"></div>
+                        
+                        <div class="service-testimonial">
+                            <p>"With Revelate's customer retention strategies, we reduced our churn rate by 32% in just one quarter. Their health scoring model has been remarkably accurate at predicting which customers need attention."</p>
+                            <div class="testimonial-author">
+                                <img src="/images/testimonials/testimonial-4.jpg" alt="Alex Thompson">
+                                <div>
+                                    <h5>Alex Thompson</h5>
+                                    <span>Customer Success Director, CloudEnable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Revelate Operations?</h2>
+                    <p class="section-subtitle">Our approach sets us apart from traditional consulting firms</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card" data-aos="fade-up">
+                        <div class="benefit-icon">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h3>Tailored Solutions</h3>
+                        <p>We don't believe in one-size-fits-all approaches. Every solution is custom-designed for your unique business needs and challenges.</p>
+                    </div>
+                    
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Data-Driven Methodology</h3>
+                        <p>Our recommendations are always backed by data and evidence, not just intuition or industry trends.</p>
+                    </div>
+                    
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Rapid Implementation</h3>
+                        <p>We focus on delivering value quickly with an agile approach that produces results in weeks, not months.</p>
+                    </div>
+                    
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>True Partnership</h3>
+                        <p>We work alongside your team as partners, transferring knowledge to ensure long-term success beyond our engagement.</p>
+                    </div>
+                    
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="benefit-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Ongoing Support</h3>
+                        <p>Our relationship doesn't end with implementation. We provide continuous support to ensure sustainable results.</p>
+                    </div>
+                    
+                    <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="benefit-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3>ROI-Focused</h3>
+                        <p>Every recommendation and implementation is designed with a clear path to measurable return on investment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Common questions about our services and approach</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-column">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                How long does a typical engagement last?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Engagement length varies based on project scope and complexity. A CRM implementation might take 6-12 weeks, while ongoing support relationships can extend for years. We prioritize quick wins within the first 30 days of any engagement.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                Do you work with small businesses or only enterprise clients?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We work with businesses of all sizes, from startups to enterprise organizations. Our services are scalable and can be tailored to fit your specific needs and budget. We have specialized packages for both SMBs and enterprise clients.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                What CRM platforms do you specialize in?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>While we have deep expertise in Salesforce, we also work with HubSpot, Microsoft Dynamics, Zoho, and other major CRM platforms. Our focus is on selecting and implementing the right platform for your specific business needs and goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-column">
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                How do you measure success in your engagements?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We establish clear, measurable KPIs at the beginning of every engagement. These typically include metrics like revenue growth, process efficiency improvements, user adoption rates, and reduction in manual effort. We regularly report on these metrics throughout our engagement.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                Do you offer training for our team?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, training is a critical component of our services. We provide comprehensive training tailored to different user roles, from admins to end users. Our goal is to ensure your team can confidently use and maintain the systems we implement.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 6 -->
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                What industries do you primarily work with?
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>We specialize in working with SaaS, technology, and professional services companies, but our methodologies and solutions are applicable across many industries. Our team has experience in healthcare, financial services, manufacturing, and non-profit sectors as well.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-cta">
+                    <p>Don't see your question here?</p>
+                    <a href="/contact" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Operations?</h2>
+                    <p class="cta-description">Schedule a complimentary consultation to discuss how our services can address your specific challenges and drive revenue growth.</p>
+                    <div class="cta-buttons">
+                        <a href="/contact" class="btn btn-light btn-lg">Schedule Consultation</a>
+                        <a href="#" class="btn btn-outline btn-light btn-lg calendly-trigger">View Calendar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="/" class="footer-logo">
+                        <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                        <span>REVELATE</span>
+                    </a>
+                    <p class="footer-description">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/company/revelateops" aria-label="LinkedIn" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/revelateops" aria-label="Twitter" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/revelateops" aria-label="Instagram" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Services</h3>
+                    <ul class="footer-nav">
+                        <li><a href="/services#crm">CRM Management</a></li>
+                        <li><a href="/services#bi">Business Intelligence</a></li>
+                        <li><a href="/services#integration">Data Integration</a></li>
+                        <li><a href="/services#retention">Customer Retention</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Company</h3>
+                    <ul class="footer-nav">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/approach">Our Process</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <address class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Business Avenue, Suite 400<br>Boston, MA 02108</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+15551234567">(555) 123-4567</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:info@revelateops.com">info@revelateops.com</a></span>
+                        </div>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+                <ul class="legal-links">
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Client Portal Modal -->
+    <div class="modal" id="portal-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Client Portal Login</h2>
+                    <button class="modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <div class="form-options">
+                                <div class="form-remember">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 50
+        });
+    </script>
+    <script src="/assets/js/services.js"></script>
+    <script src="/assets/js/portal.js"></script>
 </body>
 </html>
