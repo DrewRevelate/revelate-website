@@ -1,1 +1,1 @@
-web: bundle exec puma -p $PORT
+web: node server.js

@@ -36,21 +36,11 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/logo-effect.css">    
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/services.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/logo-effect.css' | relative_url }}">    
     
-    <!-- Google API (only loaded on contact and assessment pages) -->
-    {% if page.url contains '/contact/' or page.url contains '/assessment/' %}
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        if (window.RevOpsAPI && typeof window.RevOpsAPI.initGoogleApi === 'function') {
-          window.RevOpsAPI.initGoogleApi();
-        }
-      });
-    </script>
-    {% endif %}
+    <!-- API Scripts loaded through custom_js in each page's front matter -->
     
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">

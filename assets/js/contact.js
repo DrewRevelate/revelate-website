@@ -79,23 +79,24 @@ function initContactForm() {
                 message: message.value.trim()
             };
             
-            // Check if Google API is available
-            if (window.RevOpsAPI && typeof window.RevOpsAPI.saveContactToGoogleSheets === 'function') {
-                // Save to Google Sheets
-                window.RevOpsAPI.saveContactToGoogleSheets(formData)
+            // Check if API client is available
+            if (window.RevOpsAPI && typeof window.RevOpsAPI.saveContact === 'function') {
+                // Save to database
+                window.RevOpsAPI.saveContact(formData)
                     .then(() => {
                         submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
                         showSuccessMessage();
                     })
                     .catch(error => {
                         console.error('Failed to save contact:', error);
-                        // Fall back to mock submission
-                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                        showSuccessMessage();
+                        // Show failure message
+                        alert('Sorry, there was an error submitting your form. Please try again later.');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
                     });
             } else {
-                // If API not available, fall back to mock submission
-                console.log('Google API not available, using mock submission');
+                // If API not available, fall back to mock submission for development
+                console.log('API client not available, using mock submission');
                 setTimeout(() => {
                     submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
                     showSuccessMessage();

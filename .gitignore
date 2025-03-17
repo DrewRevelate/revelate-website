@@ -44,3 +44,14 @@ js/bundle.min.js
 .Trashes
 ehthumbs.db
 Thumbs.db
+# Environment variables
+.env
+.env.*
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*

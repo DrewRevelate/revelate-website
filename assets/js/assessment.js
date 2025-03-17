@@ -225,17 +225,23 @@ function initAssessmentForm() {
                 setTimeout(() => {
                     calculateResults();
                     
-                    // Try to save to Google Drive
-                    if (window.RevOpsAPI && typeof window.RevOpsAPI.saveAssessmentToGoogleSheets === 'function') {
-                        window.RevOpsAPI.saveAssessmentToGoogleSheets(assessmentData)
-                            .then(() => {
-                                console.log('Assessment data saved to Google Drive');
+                    // Save to database through API
+                    if (window.RevOpsAPI && typeof window.RevOpsAPI.saveAssessment === 'function') {
+                        window.RevOpsAPI.saveAssessment(assessmentData)
+                            .then((result) => {
+                                console.log('Assessment data saved successfully', result);
+                                // If the API returned calculated scores, we could use them here
+                                if (result.results) {
+                                    // Optionally update the UI with the returned scores
+                                    console.log('Assessment scores from server:', result.results);
+                                }
                             })
                             .catch(error => {
-                                console.error('Failed to save assessment data to Google Drive:', error);
+                                console.error('Failed to save assessment data:', error);
+                                // Since we're already showing results, we'll just log the error
                             });
                     } else {
-                        console.log('Google Drive API not available for saving assessment data');
+                        console.log('API client not available for saving assessment data');
                     }
                     
                     // Hide loading, show results
