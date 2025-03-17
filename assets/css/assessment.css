@@ -6,6 +6,7 @@
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
     position: relative;
+    margin-top: 0;
 }
 
 .assessment-hero-wrapper {
@@ -29,6 +30,14 @@
     max-width: 100%;
     height: auto;
     margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Fix missing image */
+.assessment-hero-image img[src*="assessment-illustration.svg"] {
+    content: url("../images/expertise-illustration.svg");
+    width: 90%;
+    max-height: 400px;
 }
 
 .assessment-hero .hero-subtitle {
@@ -192,6 +201,7 @@
     border-radius: 16px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
     overflow: hidden;
+    position: relative;
 }
 
 .assessment-header {

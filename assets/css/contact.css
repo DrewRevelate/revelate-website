@@ -8,6 +8,28 @@
   background: linear-gradient(to bottom, var(--light) 0%, rgba(248, 249, 250, 0.8) 100%);
 }
 
+.contact-section.light {
+  background: white;
+  margin-top: 3rem;
+  color: var(--dark);
+}
+
+.contact-info h2,
+.contact-info p,
+.contact-text h4,
+.contact-text p {
+  color: var(--dark);
+}
+
+.contact-text a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.page-hero {
+  margin-top: 80px;
+}
+
 .contact-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
