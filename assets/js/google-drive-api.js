@@ -4,8 +4,8 @@
  */
 
 // Google API credentials - Replace with your actual client ID from Google Cloud Console
-const CLIENT_ID = 'YOUR_CLIENT_ID_HERE';
-const API_KEY = 'YOUR_API_KEY_HERE';
+const CLIENT_ID = '297511422418-3rrhv6akmi5275nvtgobn1f14l298tmd.apps.googleusercontent.com';
+const API_KEY = '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';
 
 // Discovery docs and scopes for Google Sheets/Drive APIs
 const DISCOVERY_DOCS = [
@@ -91,7 +91,7 @@ function saveContactToGoogleSheets(contactData) {
       
       // Use the Sheets API to append data
       gapi.client.sheets.spreadsheets.values.append({
-        spreadsheetId: CONTACTS_SPREADSHEET_ID,
+        spreadsheetId: 1av_zXI-ObPQmOPzFtoWVe2oQQ7ei8IcBJz74-Fj3yzI,
         range: 'Contacts!A:H', // Assuming columns A-H are for the contact data
         valueInputOption: 'USER_ENTERED',
         resource: { values }
