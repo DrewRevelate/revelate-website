@@ -1,0 +1,79 @@
+/* Assessment page styles */
+.assessment-hero {
+  padding: 120px 0 60px;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.assessment-hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.assessment-hero-content {
+  flex: 1;
+}
+
+.assessment-hero-image {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.assessment-intro {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.assessment-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.benefit-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  color: white;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.assessment-tool {
+  padding: 40px 0 100px;
+  background-color: #f8f9fa;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .assessment-hero-wrapper {
+    flex-direction: column;
+  }
+  
+  .assessment-hero-content {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
