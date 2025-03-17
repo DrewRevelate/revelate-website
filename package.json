@@ -7,10 +7,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "serve-static": "npx serve -s .",
-    "build": "npm run optimize-images && npm run minify-css && npm run minify-js",
-    "optimize-images": "npx imagemin images/**/* --out-dir=images",
-    "minify-css": "npx cleancss -o css/main.min.css css/main.css && npx cleancss -o css/styles.min.css css/revelate-styles.css css/styles.css css/home.css css/about.css css/approach.css css/services.css css/case-studies.css",
-    "minify-js": "npx terser js/main.js js/animations.js js/navigation.js js/components.js -o js/bundle.min.js",
+    "build": "echo \"Skipping build process\"",
     "lint": "npx stylelint css/*.css && npx eslint js/*.js",
     "test": "echo \"No tests configured\"",
     "setup-db": "node -e \"require('./server').setupDb()\""
