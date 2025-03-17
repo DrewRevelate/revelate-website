@@ -246,6 +246,14 @@ app.get('/api/status', async (req, res) => {
 app.get('/:page/', (req, res, next) => {
   const page = req.params.page;
   
+  // Skip API requests
+  if (page === 'api' || page.startsWith('api/')) {
+    return next();
+  }
+  
+  // Log the request for debugging
+  console.log(`Processing directory route: /${page}/`);
+  
   // Try different file locations in order
   const possibilities = [
     path.join(siteDir, page, 'index.html'),
@@ -257,17 +265,27 @@ app.get('/:page/', (req, res, next) => {
   // Find the first valid file
   for (const filePath of possibilities) {
     if (fs.existsSync(filePath)) {
+      console.log(`Serving file: ${filePath}`);
       return res.sendFile(filePath);
     }
   }
   
   // If no file found, continue to next middleware
+  console.log(`No file found for: /${page}/`);
   next();
 });
 
 // Handle nested Jekyll-style paths
 app.get('/:section/:page/', (req, res, next) => {
   const { section, page } = req.params;
+  
+  // Skip API requests
+  if (section === 'api' || section.startsWith('api/')) {
+    return next();
+  }
+  
+  // Log the request for debugging
+  console.log(`Processing nested directory route: /${section}/${page}/`);
   
   // Try different file locations in order
   const possibilities = [
@@ -280,11 +298,13 @@ app.get('/:section/:page/', (req, res, next) => {
   // Find the first valid file
   for (const filePath of possibilities) {
     if (fs.existsSync(filePath)) {
+      console.log(`Serving file: ${filePath}`);
       return res.sendFile(filePath);
     }
   }
   
   // If no file found, continue to next middleware
+  console.log(`No file found for: /${section}/${page}/`);
   next();
 });
 
@@ -295,6 +315,9 @@ app.get('/:page', (req, res, next) => {
   if (page.startsWith('api') || page.includes('.')) {
     return next();
   }
+  
+  // Log the request for debugging
+  console.log(`Processing page route: /${page}`);
   
   // Try different file locations in order
   const possibilities = [
@@ -307,11 +330,13 @@ app.get('/:page', (req, res, next) => {
   // Find the first valid file
   for (const filePath of possibilities) {
     if (fs.existsSync(filePath)) {
+      console.log(`Serving file: ${filePath}`);
       return res.sendFile(filePath);
     }
   }
   
   // If no file found, continue to next middleware
+  console.log(`No file found for: /${page}`);
   next();
 });
 
@@ -325,6 +350,14 @@ app.get('/:section/:page', (req, res, next) => {
   
   const { section } = req.params;
   
+  // Skip API requests
+  if (section === 'api' || section.startsWith('api/')) {
+    return next();
+  }
+  
+  // Log the request for debugging
+  console.log(`Processing nested page route: /${section}/${page}`);
+  
   // Try different file locations in order
   const possibilities = [
     path.join(siteDir, section, page, 'index.html'),
@@ -336,23 +369,30 @@ app.get('/:section/:page', (req, res, next) => {
   // Find the first valid file
   for (const filePath of possibilities) {
     if (fs.existsSync(filePath)) {
+      console.log(`Serving file: ${filePath}`);
       return res.sendFile(filePath);
     }
   }
   
   // If no file found, continue to next middleware
+  console.log(`No file found for: /${section}/${page}`);
   next();
 });
 
-// Catch-all route for HTML file extensions
-app.get('*', (req, res, next) => {
-  // Only handle paths that don't have file extensions or end with .html
-  const path404 = path.join(siteDir, '404.html');
+// Catch-all route for 404 errors
+app.use((req, res, next) => {
+  console.log(`404 for: ${req.url}`);
   
-  if (fs.existsSync(path404)) {
-    return res.status(404).sendFile(path404);
+  // Check for 404 page in site directory first, then root
+  const path404Site = path.join(siteDir, '404.html');
+  const path404Root = path.join(__dirname, '404.html');
+  
+  if (fs.existsSync(path404Site)) {
+    return res.status(404).sendFile(path404Site);
+  } else if (fs.existsSync(path404Root)) {
+    return res.status(404).sendFile(path404Root);
   } else {
-    return res.status(404).send('Page not found');
+    return res.status(404).send('<h1>Page Not Found</h1><p>Sorry, the page you are looking for does not exist.</p>');
   }
 });
 
