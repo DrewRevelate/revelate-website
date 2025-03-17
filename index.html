@@ -31,238 +31,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome (with performance optimization) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/logo-effect.css">
-    
-    <style>
-        /* Additional styles for the hero section */
-        .hero-section {
-            background-color: #f8f9fa;
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
-            color: #555;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        /* Navigation styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            color: #333;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-item {
-            margin: 0;
-        }
-        
-        .nav-link {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 10px 0;
-            position: relative;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            color: #2b9fe3;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #2b9fe3;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after, .nav-link.active:after {
-            width: 100%;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #2b9fe3;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        
-        .btn:hover {
-            background-color: #2089c7;
-            transform: translateY(-2px);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid #2b9fe3;
-            color: #2b9fe3;
-        }
-        
-        .btn-outline:hover {
-            background-color: #2b9fe3;
-            color: white;
-        }
-        
-        /* Mobile Navigation */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-        
-        .hamburger-icon, 
-        .hamburger-icon:before, 
-        .hamburger-icon:after {
-            content: '';
-            display: block;
-            background-color: #333;
-            height: 2px;
-            width: 26px;
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger-icon:before {
-            transform: translateY(-8px);
-        }
-        
-        .hamburger-icon:after {
-            transform: translateY(6px);
-        }
-        
-        @media (max-width: 992px) {
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background-color: white;
-                padding: 20px;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-                height: 0;
-                overflow: hidden;
-                visibility: hidden;
-                opacity: 0;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-links.active {
-                height: auto;
-                visibility: visible;
-                opacity: 1;
-                padding-bottom: 20px;
-            }
-            
-            .mobile-toggle[aria-expanded="true"] .hamburger-icon {
-                background-color: transparent;
-            }
-            
-            .mobile-toggle[aria-expanded="true"] .hamburger-icon:before {
-                transform: rotate(45deg) translateY(0);
-            }
-            
-            .mobile-toggle[aria-expanded="true"] .hamburger-icon:after {
-                transform: rotate(-45deg) translateY(0);
-            }
-        }
-    </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Header & Navigation -->
     <header id="header">
         <div class="container">
             <div class="header-inner">
+                
+                <!-- Logo in header -->
                 <a href="/" class="logo" aria-label="Revelate Operations Home">
-                    <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Logo">
-                    <span>Revelate Operations</span>
+                    <div class="logo-container">
+                        <div class="logo-image">
+                            <img src="/assets/images/logo.png" alt="Revelate Logo" width="100" height="100">
+                        </div>
+                    </div>
                 </a>
                 
-                <button class="mobile-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation menu">
-                    <span class="hamburger-icon"></span>
-                </button>
-                
                 <nav aria-label="Main navigation">
+                    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
+                        <span class="hamburger-icon"></span>
+                    </button>
+                    
                     <ul id="main-menu" class="nav-links">
-                        <li class="nav-item"><a href="/services/" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="/approach/" class="nav-link">Our Approach</a></li>
-                        <li class="nav-item"><a href="/about/" class="nav-link">About Us</a></li>
-                        <li class="nav-item"><a href="/case-studies/" class="nav-link">Case Studies</a></li>
-                        <li class="nav-item"><a href="/assessment/" class="nav-link">Assessment</a></li>
-                        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a href="/client-portal/" class="btn nav-cta" id="portal-btn">Client Portal</a></li>
+                        <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/approach" class="nav-link">Our Approach</a></li>
+                        <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="/case-studies" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="/assessment" class="nav-link">Assessment</a></li>
+                        <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
                     </ul>
                 </nav>
             </div>
@@ -274,50 +85,73 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content" data-aos="fade-right">
                     <h1 class="hero-title">Transform Your Data into Strategic Insights</h1>
                     <p class="hero-subtitle">Revelate Operations helps businesses leverage their data for growth, operational excellence, and revenue acceleration.</p>
                     <div class="hero-buttons">
-                        <a href="/services/" class="btn">Explore Our Services</a>
-                        <a href="/contact/" class="btn btn-outline">Contact Us</a>
+                        <a href="/services" class="btn btn-primary">Explore Our Services</a>
+                        <a href="/contact" class="btn btn-outline">Contact Us</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- JavaScript for navigation -->
+    <!-- Client Portal Modal -->
+    <div class="modal" id="portal-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Client Portal Login</h2>
+                    <button class="modal-close" aria-label="Close modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="login-form" class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <div class="form-feedback"></div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <div class="form-options">
+                                <div class="form-remember">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/animations.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (mobileToggle && navLinks) {
-                mobileToggle.addEventListener('click', function() {
-                    const expanded = this.getAttribute('aria-expanded') === 'true';
-                    this.setAttribute('aria-expanded', !expanded);
-                    navLinks.classList.toggle('active');
-                });
-                
-                // Close mobile menu when clicking a link
-                const links = navLinks.querySelectorAll('a');
-                links.forEach(link => {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('active');
-                        mobileToggle.setAttribute('aria-expanded', 'false');
-                    });
-                });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!navLinks.contains(event.target) && !mobileToggle.contains(event.target) && navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileToggle.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            }
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 50
         });
     </script>
+    <script src="/assets/js/portal.js"></script>
 </body>
 </html>
