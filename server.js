@@ -10,6 +10,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const db = require('./db/database');
+const jekyllMiddleware = require('./utils/jekyll-compatibility');
 
 // Load environment variables
 dotenv.config();
@@ -21,6 +22,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Add Jekyll compatibility middleware
+app.use(jekyllMiddleware);
 
 // Serve static files with proper caching
 app.use(express.static(path.join(__dirname, '/'), {
