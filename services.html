@@ -144,6 +144,18 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
   .service-detail-image {
     order: 1;
     margin-bottom: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service-detail-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
   }
   
   .service-detail-content {
@@ -163,21 +175,34 @@ structured_data: '{"@context":"https://schema.org","@type":"Service","serviceTyp
   }
   
   .service-testimonial {
-    padding: 1.2rem;
+    padding: 1.5rem;
     margin-top: 1.5rem;
     width: 100%;
     position: relative;
     right: auto;
     bottom: auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  
+  .service-detail-shape {
+    display: none; /* Hide the shape that might be causing layout issues */
   }
   
   .testimonial-author {
-    margin-top: 0.75rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
   }
   
   .testimonial-author img {
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
   }
   
   /* Why Choose Us Section */
