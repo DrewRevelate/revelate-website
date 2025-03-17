@@ -127,6 +127,38 @@ app.post('/api/contacts', async (req, res) => {
   }
 });
 
+// Endpoint to check database status (for admin purposes only)
+app.get('/api/status', async (req, res) => {
+  try {
+    const result = await db.query('SELECT NOW() as time');
+    
+    res.status(200).json({
+      success: true,
+      database: {
+        connected: true,
+        timestamp: result.rows[0].time
+      },
+      server: {
+        timestamp: new Date(),
+        uptime: process.uptime() + ' seconds'
+      }
+    });
+  } catch (error) {
+    console.error('Error checking database status:', error);
+    res.status(500).json({
+      success: false,
+      database: {
+        connected: false,
+        error: error.message
+      },
+      server: {
+        timestamp: new Date(),
+        uptime: process.uptime() + ' seconds'
+      }
+    });
+  }
+});
+
 // API endpoint to save assessment submissions
 app.post('/api/assessments', async (req, res) => {
   try {
