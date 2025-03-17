@@ -1,0 +1,174 @@
+<%- contentFor('body') %>
+
+<!-- Hero Section -->
+<section class="page-hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="page-title">Contact Us</h1>
+      <p class="page-description">Get in touch with our team to discuss your RevOps needs</p>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-form-container" data-aos="fade-right">
+        <div class="form-header">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form below and a member of our team will get in touch within 24 hours.</p>
+        </div>
+        
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+          </div>
+          
+          <div class="form-group">
+            <label for="interest">What are you interested in?</label>
+            <select id="interest" name="interest">
+              <option value="">Select an option</option>
+              <option value="CRM Management">CRM Management</option>
+              <option value="Business Intelligence">Business Intelligence</option>
+              <option value="Data Integration">Data Integration</option>
+              <option value="Customer Retention">Customer Retention</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+        </form>
+        
+        <div id="form-success" class="form-success" style="display: none;">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>Thank You!</h3>
+          <p>Your message has been sent successfully. A member of our team will be in touch shortly.</p>
+        </div>
+      </div>
+      
+      <div class="contact-info-container" data-aos="fade-left">
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p><a href="mailto:info@revelateops.com">info@revelateops.com</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-content">
+              <h3>Phone</h3>
+              <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h3>Office</h3>
+              <p>123 Business Avenue, Suite 400<br>Boston, MA 02108</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-cta">
+          <h3>Want to Schedule a Call?</h3>
+          <p>Use our online scheduling tool to find a time that works for you.</p>
+          <a href="#" class="btn btn-outline calendly-trigger">Schedule a Consultation</a>
+        </div>
+        
+        <div class="social-links">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/revelateops" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/revelateops" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Collect form data
+      const formData = new FormData(contactForm);
+      const contact = {};
+      
+      for (const [key, value] of formData.entries()) {
+        contact[key] = value;
+      }
+      
+      // Submit contact data to API
+      fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(contact)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Hide form and show success message
+          contactForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        } else {
+          alert('There was an error sending your message. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error sending your message. Please try again.');
+      });
+    });
+  });
+</script>

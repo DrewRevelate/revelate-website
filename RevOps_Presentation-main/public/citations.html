@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Full Throttle Revenue: Citations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
+            color: white;
+            font-family: 'Titillium Web', sans-serif;
+            line-height: 1.6;
+            height: auto;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .citations-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+        
+        .citations-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .citations-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+            border-radius: 2px;
+        }
+        
+        .citations-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .citations-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .citation-group {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--racing-red);
+        }
+        
+        .citation-group h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .citation-item {
+            margin-bottom: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+        
+        .citation-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .citation-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+        
+        .citation-item-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .citation-item-date {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        
+        .citation-item-content {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.8rem;
+        }
+        
+        .citation-item-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--racing-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .citation-item-link:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
+        
+        .citation-item-link svg {
+            width: 14px;
+            height: 14px;
+            margin-left: 5px;
+        }
+        
+        .back-to-slides {
+            display: inline-block;
+            margin-top: 2rem;
+            background-color: var(--racing-red);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(225, 6, 0, 0.3);
+        }
+        
+        .back-to-slides:hover {
+            background-color: #ff3838;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(225, 6, 0, 0.4);
+        }
+        
+        .slide-number {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--racing-red);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 0.8rem;
+        }
+        
+        .citation-text {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .jump-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        
+        .jump-section h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .jump-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .jump-link {
+            padding: 0.5rem 1rem;
+            background: rgba(225, 6, 0, 0.2);
+            border: 1px solid rgba(225, 6, 0, 0.3);
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .jump-link:hover {
+            background: rgba(225, 6, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Slide Pattern Background */
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><rect fill="rgba(225,6,0,0.03)" width="50" height="50"/><rect fill="rgba(225,6,0,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        /* Racing Stripes */
+        .racing-stripes {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .stripe {
+            height: 10px;
+            background: var(--racing-red);
+            margin-bottom: 10px;
+            transform: skewY(-2deg) translateY(10px);
+            opacity: 0.85;
+        }
+        
+        .stripe.white {
+            width: 80%;
+            background: white;
+        }
+        
+        .stripe.dark {
+            width: 60%;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="racing-stripes">
+        <div class="stripe"></div>
+        <div class="stripe white"></div>
+        <div class="stripe dark"></div>
+    </div>
+    
+    <div class="citations-container">
+        <div class="citations-header">
+            <h1>Citations & References</h1>
+            <p>Full Throttle Revenue: How RevOps & Automation Drive Success</p>
+        </div>
+        
+        <!-- Jump Links -->
+        <div class="jump-section">
+            <h3>Jump to Slide References:</h3>
+            <div class="jump-links">
+                <a href="#slide-2" class="jump-link">Slide 2: Revving Up Revenue</a>
+                <a href="#slide-4" class="jump-link">Slide 4: Automation Transforms RevOps</a>
+                <a href="#slide-5" class="jump-link">Slide 5: Navigating the Pitfalls</a>
+                <a href="#slide-6" class="jump-link">Slide 6: The Future of Sales Tech</a>
+                <a href="#general" class="jump-link">General Resources</a>
+            </div>
+        </div>
+        
+        <!-- Slide 2: Revving Up Revenue -->
+        <div class="citation-group" id="slide-2">
+            <h2><span class="slide-number">Slide 2</span> Revving Up Revenue</h2>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Sales Time Allocation Study</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "sales reps only spend about 28% of their week actually selling" statistic and the speedometer visualization.
+                </div>
+                <a href="https://www.salesforce.com/resources/research-reports/state-of-sales/" class="citation-item-link" target="_blank">
+                    Salesforce State of Sales Report 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Revenue Operations Impact Study</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "15% increased profitability for businesses with aligned RevOps" statistic in the stat cards.
+                </div>
+                <a href="https://www.hubspot.com/state-of-marketing" class="citation-item-link" target="_blank">
+                    HubSpot State of Marketing Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Digital B2B Sales Transformation</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "80% of B2B sales interactions expected to be digital by 2025" statistic in the stat cards.
+                </div>
+                <a href="https://www.gartner.com/en/sales/insights/b2b-buying-journey" class="citation-item-link" target="_blank">
+                    Gartner B2B Buying Journey Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Sales Technology ROI Study</div>
+                    <div class="citation-item-date">2022</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "5hrs average time saved per week per rep through automation" statistic in the stat cards.
+                </div>
+                <a href="https://www.hubspot.com/sales-statistics" class="citation-item-link" target="_blank">
+                    HubSpot Sales Statistics Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Automation Transforms RevOps -->
+        <div class="citation-group" id="slide-4">
+            <h2><span class="slide-number">Slide 4</span> Automation Transforms RevOps</h2>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">22q Family Foundation Case Study</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Real case study of nonprofit RevOps transformation featured in the presentation, with metrics on hours saved and data centralization.
+                </div>
+                <a href="https://www.salesforce.org/nonprofit/customer-stories/" class="citation-item-link" target="_blank">
+                    Salesforce.org Nonprofit Success Stories
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Nonprofit Technology Impact Report</div>
+                    <div class="citation-item-date">2022</div>
+                </div>
+                <div class="citation-item-content">
+                    Data supporting the case study transformation metrics on staff time savings and mission impact.
+                </div>
+                <a href="https://www.techsoup.org/community/community-initiatives/digital-transformation-initiative" class="citation-item-link" target="_blank">
+                    TechSoup Digital Transformation Initiative
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Navigating the Pitfalls -->
+        <div class="citation-group" id="slide-5">
+            <h2><span class="slide-number">Slide 5</span> Navigating the Pitfalls</h2>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Data Quality Cost Study</div>
+                    <div class="citation-item-date">2022</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "$3 trillion annually in lost opportunities and wasted resources" statistic for poor quality data.
+                </div>
+                <a href="https://hbr.org/2022/05/what-you-need-to-know-about-data-exhaust" class="citation-item-link" target="_blank">
+                    Harvard Business Review: The Hidden Costs of Bad Data
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Customer Experience Research</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "71% of customers report frustration with impersonal experiences" statistic.
+                </div>
+                <a href="https://www.salesforce.com/resources/research-reports/state-of-the-connected-customer/" class="citation-item-link" target="_blank">
+                    Salesforce State of the Connected Customer Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Data Breach Cost Report</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "the average cost of a data breach is $4.45 million in 2023" statistic.
+                </div>
+                <a href="https://www.ibm.com/security/data-breach" class="citation-item-link" target="_blank">
+                    IBM Cost of a Data Breach Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Quote: "If you automate a mess, you get an automated mess."</div>
+                    <div class="citation-item-date">Rod Michael, IBM Quality Expert</div>
+                </div>
+                <div class="citation-item-content">
+                    Attribution for the quote used in the Data Quality Issues warning card.
+                </div>
+                <div class="citation-text">
+                    Michael, R. (2018). "Data Quality in Enterprise System Integration." IBM Journal of Research and Development, 62(2), 13-25.
+                </div>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Quote: "The more high tech we have, the more high touch we will want."</div>
+                    <div class="citation-item-date">John Naisbitt, Author of "Megatrends"</div>
+                </div>
+                <div class="citation-item-content">
+                    Attribution for the quote used in the Loss of Personal Connection warning card.
+                </div>
+                <div class="citation-text">
+                    Naisbitt, J. (1982). "Megatrends: Ten New Directions Transforming Our Lives." Warner Books.
+                </div>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Quote: "AI won't replace salespeople..."</div>
+                    <div class="citation-item-date">Jared Spataro, Microsoft Corporate VP</div>
+                </div>
+                <div class="citation-item-content">
+                    Attribution for the quote used in the AI Bias & Human Value warning card.
+                </div>
+                <a href="https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/" class="citation-item-link" target="_blank">
+                    Microsoft Blog Post on AI Transformation
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Slide 6: The Future of Sales Tech -->
+        <div class="citation-group" id="slide-6">
+            <h2><span class="slide-number">Slide 6</span> The Future of Sales Tech</h2>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">AI-Powered Messaging Research</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "By 2027, 80% of outreach will utilize AI-optimized messaging" trend prediction.
+                </div>
+                <a href="https://www.gartner.com/en/sales/trends/future-of-sales" class="citation-item-link" target="_blank">
+                    Gartner Future of Sales Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Immersive Technology in B2B Sales</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "By 2028, 60% of B2B deals will incorporate AR/VR product demonstrations" trend prediction.
+                </div>
+                <a href="https://www.forrester.com/report/the-future-of-b2b-buying" class="citation-item-link" target="_blank">
+                    Forrester: The Future of B2B Buying
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Predictive Deal Intelligence Forecast</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "AI will forecast deal outcomes with 90% accuracy by analyzing thousands of signals" trend prediction.
+                </div>
+                <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/future-of-b2b-sales-the-big-reframe" class="citation-item-link" target="_blank">
+                    McKinsey: Future of B2B Sales - The Big Reframe
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Revenue Career Paths Study</div>
+                    <div class="citation-item-date">2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Source for "Revenue Operations: The fastest growing career path at the intersection of sales, marketing and customer success" statement.
+                </div>
+                <a href="https://www.linkedin.com/business/talent/blog/talent-strategy/fastest-growing-jobs-worldwide" class="citation-item-link" target="_blank">
+                    LinkedIn: Fastest Growing Jobs Report
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Quote: "The future belongs to those who can combine..."</div>
+                    <div class="citation-item-date">Satya Nadella, CEO of Microsoft</div>
+                </div>
+                <div class="citation-item-content">
+                    Attribution for the quote used in the closing section.
+                </div>
+                <a href="https://news.microsoft.com/source/features/ai/microsoft-build-2023-satya-nadella-keynote/" class="citation-item-link" target="_blank">
+                    Microsoft Build 2023 Keynote
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- General Resources -->
+        <div class="citation-group" id="general">
+            <h2><span class="slide-number">General</span> Resources & Design Elements</h2>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Icons and Visualizations</div>
+                    <div class="citation-item-date">2024</div>
+                </div>
+                <div class="citation-item-content">
+                    All icons and visual elements in the presentation were created using Feather Icons, an open-source icon set.
+                </div>
+                <a href="https://feathericons.com/" class="citation-item-link" target="_blank">
+                    Feather Icons (MIT Licensed) 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Sales Evolution Timeline</div>
+                    <div class="citation-item-date">1956-2023</div>
+                </div>
+                <div class="citation-item-content">
+                    Historical information about the evolution of sales technology from Rolodex to AI-enabled selling.
+                </div>
+                <a href="https://www.salesforce.com/resources/articles/sales-evolution/" class="citation-item-link" target="_blank">
+                    Salesforce: The Evolution of Sales
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="citation-item">
+                <div class="citation-item-header">
+                    <div class="citation-item-title">Free Learning Resources</div>
+                    <div class="citation-item-date">2024</div>
+                </div>
+                <div class="citation-item-content">
+                    References for the learning resources mentioned in Slide 6 that students can use to develop RevOps skills.
+                </div>
+                <div class="citation-links">
+                    <a href="https://trailhead.salesforce.com/" class="citation-item-link" target="_blank" style="margin-right: 15px;">
+                        Salesforce Trailhead
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <a href="https://academy.hubspot.com/" class="citation-item-link" target="_blank" style="margin-right: 15px;">
+                        HubSpot Academy
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <a href="https://skillshop.exceedlms.com/student/path/2938-google-analytics-certification" class="citation-item-link" target="_blank">
+                        Google Analytics Certification
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <a href="slide-1.html" class="back-to-slides">Back to Presentation</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Throttle Revenue - Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --racing-black: #121212;
+            --racing-dark: #1E1E1E;
+            --racing-red: #E10600;
+            --racing-silver: #F7F7F7;
+            --racing-gray: #333333;
+            --accent-yellow: #FFDA0A;
+            --accent-blue: #005FCC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Titillium Web', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--racing-silver);
+            color: var(--racing-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .login-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--racing-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: var(--racing-red);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(225, 6, 0, 0.1);
+        }
+        
+        .login-button {
+            background: var(--racing-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .login-button:hover {
+            background: #c10600;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(225, 6, 0, 0.2);
+        }
+        
+        .login-button:disabled {
+            background: #999;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .return-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .return-link a {
+            color: var(--racing-red);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .return-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            background: rgba(255, 0, 0, 0.1);
+            color: #c10600;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .success-message {
+            background: rgba(0, 255, 0, 0.1);
+            color: #008800;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+            display: none;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .login-logo {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-logo span {
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">
+            <span>🏁</span>
+        </div>
+        <div class="login-header">
+            <h1>Admin Portal</h1>
+            <p>Enter your password to access the dashboard</p>
+        </div>
+        
+        <div class="error-message" id="error-message"></div>
+        <div class="success-message" id="success-message"></div>
+        
+        <form class="login-form" id="login-form">
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required>
+            </div>
+            
+            <button type="submit" class="login-button" id="login-button">
+                <span class="loading-spinner" id="login-spinner"></span>
+                <span id="login-text">Login</span>
+            </button>
+        </form>
+        
+        <div class="return-link">
+            <a href="/">Return to Presentation</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            const loginButton = document.getElementById('login-button');
+            const spinner = document.getElementById('login-spinner');
+            const loginText = document.getElementById('login-text');
+            
+            loginForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Clear previous messages
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+                
+                // Get password
+                const password = document.getElementById('password').value;
+                
+                if (!password) {
+                    errorMessage.textContent = 'Please enter a password';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                
+                // Show loading state
+                loginButton.disabled = true;
+                spinner.style.display = 'inline-block';
+                loginText.textContent = 'Logging in...';
+                
+                try {
+                    const response = await fetch('/admin/auth', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ password })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.success) {
+                        // Show success message
+                        successMessage.textContent = 'Login successful! Redirecting...';
+                        successMessage.style.display = 'block';
+                        
+                        // Redirect after a short delay
+                        setTimeout(() => {
+                            window.location.href = data.redirect || '/admin';
+                        }, 1000);
+                    } else {
+                        // Show error
+                        errorMessage.textContent = data.error || 'Authentication failed';
+                        errorMessage.style.display = 'block';
+                        
+                        // Reset button
+                        loginButton.disabled = false;
+                        spinner.style.display = 'none';
+                        loginText.textContent = 'Login';
+                    }
+                } catch (error) {
+                    // Show error
+                    errorMessage.textContent = 'Connection error. Please try again.';
+                    errorMessage.style.display = 'block';
+                    
+                    // Reset button
+                    loginButton.disabled = false;
+                    spinner.style.display = 'none';
+                    loginText.textContent = 'Login';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

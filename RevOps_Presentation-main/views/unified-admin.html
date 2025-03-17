@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Throttle Revenue - Unified CRM Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --racing-black: #121212;
+            --racing-dark: #1E1E1E;
+            --racing-red: #E10600;
+            --racing-silver: #F7F7F7;
+            --racing-gray: #333333;
+            --accent-yellow: #FFDA0A;
+            --accent-blue: #005FCC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Titillium Web', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--racing-silver);
+            color: var(--racing-dark);
+            line-height: 1.6;
+        }
+        
+        .crm-header {
+            background: var(--racing-dark);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .crm-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+        }
+        
+        .crm-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .crm-header p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .crm-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .crm-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .crm-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--racing-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .crm-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--racing-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .crm-button:hover {
+            background: #c10600;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 6, 0, 0.2);
+        }
+        
+        .crm-button.secondary {
+            background: var(--racing-gray);
+        }
+        
+        .crm-button.secondary:hover {
+            background: #222;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .crm-button.small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .crm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .crm-table th,
+        .crm-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .crm-table th {
+            background: rgba(0,0,0,0.03);
+            font-weight: 600;
+        }
+        
+        .crm-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+        
+        .crm-table tr:hover {
+            background: rgba(225, 6, 0, 0.05);
+        }
+        
+        .crm-badge {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .crm-badge.new {
+            background: rgba(0, 153, 255, 0.1);
+            color: #0099ff;
+        }
+        
+        .crm-badge.active {
+            background: rgba(0, 204, 102, 0.1);
+            color: #00cc66;
+        }
+        
+        .crm-badge.cold {
+            background: rgba(128, 128, 128, 0.1);
+            color: #808080;
+        }
+        
+        .crm-badge.hot {
+            background: rgba(255, 51, 51, 0.1);
+            color: #ff3333;
+        }
+        
+        .crm-badge.contacted {
+            background: rgba(255, 153, 51, 0.1);
+            color: #ff9933;
+        }
+        
+        .crm-pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+        
+        .crm-page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--racing-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .crm-page-link:hover {
+            background: rgba(0,0,0,0.05);
+            border-color: #bbb;
+        }
+        
+        .crm-page-link.active {
+            background: var(--racing-red);
+            color: white;
+            border-color: var(--racing-red);
+        }
+        
+        .crm-search {
+            position: relative;
+        }
+        
+        .crm-search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .crm-search-input {
+            width: 100%;
+            padding: 0.8rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .crm-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .crm-filter {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .crm-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .crm-input, .crm-select {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .unified-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .poll-options {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+        
+        .poll-option {
+            margin-bottom: 0.8rem;
+        }
+        
+        .poll-option label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        
+        .poll-submit {
+            margin-top: 1rem;
+        }
+        
+        .contact-row {
+            cursor: pointer;
+        }
+        
+        .contact-row.active {
+            background-color: rgba(225, 6, 0, 0.1) !important;
+        }
+        
+        .contact-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        @media (max-width: 1200px) {
+            .unified-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="crm-header">
+        <h1>Full Throttle CRM</h1>
+        <p>Unified Contact & Poll Management</p>
+    </header>
+    
+    <div class="crm-container">
+        <div class="crm-card">
+            <h3>Unified CRM Dashboard</h3>
+            
+            <div class="crm-filters">
+                <div class="crm-filter crm-search">
+                    <span class="crm-search-icon">🔍</span>
+                    <input type="text" class="crm-search-input" id="contact-search" placeholder="Search contacts...">
+                </div>
+                
+                <div class="crm-filter">
+                    <label for="status-filter" class="crm-label">Status</label>
+                    <select id="status-filter" class="crm-select">
+                        <option value="all">All Statuses</option>
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="active">Active</option>
+                        <option value="cold">Cold</option>
+                        <option value="hot">Hot</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                </div>
+                
+                <div class="crm-filter">
+                    <label for="sort-by" class="crm-label">Sort By</label>
+                    <select id="sort-by" class="crm-select">
+                        <option value="created_at">Date (Newest)</option>
+                        <option value="created_at|ASC">Date (Oldest)</option>
+                        <option value="last_name">Last Name (A-Z)</option>
+                        <option value="last_name|DESC">Last Name (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="apply-filters" class="crm-button">Apply Filters</button>
+            <button id="reset-filters" class="crm-button secondary">Reset</button>
+            
+            <!-- Unified Interface Container -->
+            <div class="unified-container">
+                <!-- Left Column: Contacts List -->
+                <div class="contacts-section">
+                    <h3>Contact Management</h3>
+                    <div id="contacts-list-container">
+                        <p>Loading contacts...</p>
+                    </div>
+                    <div class="crm-pagination" id="contacts-pagination"></div>
+                </div>
+                
+                <!-- Right Column: Selected Contact's Poll Data -->
+                <div class="poll-management-section">
+                    <h3>Poll Management</h3>
+                    <div id="contact-poll-container">
+                        <p>Select a contact to view poll details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="crm-card">
+            <h3>Quick Stats</h3>
+            <div class="crm-stats" id="crm-stats">
+                <p>Loading stats...</p>
+            </div>
+        </div>
+        
+        <div class="crm-footer">
+            <div class="crm-navigation">
+                <a href="/admin" class="crm-button">Back to Admin</a>
+                <a href="/admin/logout" class="crm-button secondary">Logout</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Global variables to store current contact and poll data
+        let currentContactId = null;
+        let pollDefinitions = null;
+        
+        // Function to delete a poll response
+        function deletePollResponse(responseId, userId, contactId) {
+            fetch(`/admin/poll-responses/${responseId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Broadcast poll update to clear localStorage
+                    const pollId = data.pollId;
+                    if (pollId) {
+                        try {
+                            localStorage.setItem('pollUpdate', JSON.stringify({
+                                pollId: pollId,
+                                cleared: true,
+                                timestamp: Date.now()
+                            }));
+                            
+                            setTimeout(() => {
+                                localStorage.removeItem('pollUpdate');
+                            }, 2000);
+                        } catch (e) {
+                            console.warn('Failed to broadcast poll update:', e);
+                        }
+                    }
+                    
+                    alert('Poll response deleted successfully');
+                    
+                    // Refresh the current contact poll data
+                    if (contactId) {
+                        loadContactPollData(contactId);
+                    }
+                    
+                    // Refresh contact list to update the poll count
+                    loadContacts();
+                } else {
+                    alert('Error deleting poll response: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting poll response:', error);
+                alert('Error deleting poll response. Please try again.');
+            });
+        }
+        
+        // Function to submit a poll response for a contact
+        function submitPollResponse(contactId, pollId, selectedOption) {
+            fetch(`/admin/poll-responses`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contactId: contactId,
+                    pollId: pollId,
+                    selectedOption: selectedOption
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Poll response submitted successfully');
+                    
+                    // Refresh the contact's poll data
+                    loadContactPollData(contactId);
+                    
+                    // Refresh contacts list to update the poll count
+                    loadContacts();
+                } else {
+                    alert('Error submitting poll response: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting poll response:', error);
+                alert('Error submitting poll response. Please try again.');
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load initial data
+            loadStats();
+            loadContacts();
+            loadPollDefinitions();
+            
+            // Filter buttons
+            const applyFiltersBtn = document.getElementById('apply-filters');
+            if (applyFiltersBtn) {
+                applyFiltersBtn.addEventListener('click', function() {
+                    loadContacts();
+                });
+            }
+            
+            const resetFiltersBtn = document.getElementById('reset-filters');
+            if (resetFiltersBtn) {
+                resetFiltersBtn.addEventListener('click', function() {
+                    document.getElementById('contact-search').value = '';
+                    document.getElementById('status-filter').value = 'all';
+                    document.getElementById('sort-by').value = 'created_at';
+                    loadContacts();
+                });
+            }
+            
+            // Function to load quick stats
+            function loadStats() {
+                const statsContainer = document.getElementById('crm-stats');
+                
+                if (!statsContainer) return;
+                
+                statsContainer.innerHTML = '<p>Loading stats...</p>';
+                
+                Promise.all([
+                    fetch('/admin/polls').then(res => res.json()),
+                    fetch('/admin/contacts').then(res => res.json())
+                ])
+                .then(([pollData, contactData]) => {
+                    // Count poll responses
+                    let totalResponses = 0;
+                    if (pollData.responses) {
+                        totalResponses = pollData.responses.length;
+                    }
+                    
+                    // Count contacts
+                    let totalContacts = 0;
+                    if (contactData.submissions) {
+                        totalContacts = contactData.submissions.length;
+                    }
+                    
+                    // Count active polls
+                    let activePollCount = 0;
+                    if (pollData.pollDefinitions) {
+                        activePollCount = Object.values(pollData.pollDefinitions)
+                            .filter(poll => poll.isActive).length;
+                    }
+                    
+                    // Calculate response rate
+                    const responseRate = totalContacts > 0 ? Math.round((totalResponses / totalContacts) * 100) : 0;
+                    
+                    statsContainer.innerHTML = `
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--racing-red);">${totalContacts}</div>
+                                <div>Total Contacts</div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--racing-red);">${totalResponses}</div>
+                                <div>Poll Responses</div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--racing-red);">${responseRate}%</div>
+                                <div>Response Rate</div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 700; color: var(--racing-red);">${activePollCount}</div>
+                                <div>Active Polls</div>
+                            </div>
+                        </div>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error loading stats:', error);
+                    statsContainer.innerHTML = '<p>Error loading stats. Please try again.</p>';
+                });
+            }
+            
+            // Function to load poll definitions
+            function loadPollDefinitions() {
+                fetch('/admin/polls')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.pollDefinitions) {
+                            pollDefinitions = data.pollDefinitions;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading poll definitions:', error);
+                    });
+            }
+            
+            // Function to load contacts with filters
+            function loadContacts(page = 1) {
+                const contactsContainer = document.getElementById('contacts-list-container');
+                const paginationContainer = document.getElementById('contacts-pagination');
+                
+                if (!contactsContainer) return;
+                
+                contactsContainer.innerHTML = '<p>Loading contacts...</p>';
+                
+                // Get filter values
+                const search = document.getElementById('contact-search').value;
+                const status = document.getElementById('status-filter').value;
+                const sortBy = document.getElementById('sort-by').value;
+                
+                // Parse sort value (might include direction)
+                let sort = 'created_at';
+                let order = 'DESC';
+                
+                if (sortBy.includes('|')) {
+                    const parts = sortBy.split('|');
+                    sort = parts[0];
+                    order = parts[1];
+                } else {
+                    sort = sortBy;
+                }
+                
+                // Fetch contacts from the API with filters
+                fetch(`/admin/unified/contacts?search=${encodeURIComponent(search)}&status=${status === 'all' ? '' : status}&sort=${sort}&order=${order}&page=${page}&limit=10`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.contacts && data.contacts.length > 0) {
+                            let html = `
+                                <table class="crm-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Poll Responses</th>
+                                            <th>Unique ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                            `;
+                            
+                            data.contacts.forEach(contact => {
+                                const status = contact.status || 'new';
+                                const statusClass = status.toLowerCase();
+                                
+                                // Get poll response count
+                                const pollResponseCount = contact.pollResponses ? contact.pollResponses.length : 0;
+                                const totalPolls = pollDefinitions ? Object.keys(pollDefinitions).length : 0;
+                                
+                                html += `
+                                    <tr class="contact-row" data-id="${contact.id}">
+                                        <td>${contact.firstName} ${contact.lastName}</td>
+                                        <td>${contact.email}</td>
+                                        <td><span class="crm-badge ${statusClass}">${status}</span></td>
+                                        <td>${pollResponseCount}/${totalPolls}</td>
+                                        <td>${contact.unique_id || 'N/A'}</td>
+                                    </tr>
+                                `;
+                            });
+                            
+                            html += `
+                                    </tbody>
+                                </table>
+                            `;
+                            
+                            contactsContainer.innerHTML = html;
+                            
+                            // Add event listeners to contact rows
+                            const contactRows = document.querySelectorAll('.contact-row');
+                            contactRows.forEach(row => {
+                                row.addEventListener('click', function() {
+                                    // Remove active class from all rows
+                                    contactRows.forEach(r => r.classList.remove('active'));
+                                    
+                                    // Add active class to clicked row
+                                    this.classList.add('active');
+                                    
+                                    // Load contact poll data
+                                    const contactId = this.dataset.id;
+                                    currentContactId = contactId;
+                                    loadContactPollData(contactId);
+                                });
+                            });
+                            
+                            // Build pagination
+                            buildPagination(paginationContainer, data.page, data.totalPages, loadContacts);
+                            
+                        } else {
+                            contactsContainer.innerHTML = '<p>No contacts found matching your filters.</p>';
+                            paginationContainer.innerHTML = '';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading contacts:', error);
+                        contactsContainer.innerHTML = '<p>Error loading contacts. Please try again.</p>';
+                    });
+            }
+            
+            // Function to load contact poll data
+            function loadContactPollData(contactId) {
+                const pollContainer = document.getElementById('contact-poll-container');
+                
+                if (!pollContainer) return;
+                
+                pollContainer.innerHTML = '<p>Loading poll data...</p>';
+                
+                // Fetch contact details with poll responses
+                fetch(`/admin/crm/contacts/${contactId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success && data.contact) {
+                            const contact = data.contact;
+                            
+                            // Format the poll management section
+                            let html = `
+                                <div class="contact-header">
+                                    <h4>${contact.first_name} ${contact.last_name}</h4>
+                                    <p><strong>Email:</strong> ${contact.email}</p>
+                                    <p><strong>Unique ID:</strong> ${contact.unique_id || 'N/A'}</p>
+                                    <p><strong>Status:</strong> <span class="crm-badge ${contact.status || 'new'}">${contact.status || 'New'}</span></p>
+                                </div>
+                            `;
+                            
+                            // Format poll responses section
+                            html += `<h4 style="margin-top: 1.5rem;">Poll Responses</h4>`;
+                            
+                            // Get poll names 
+                            const pollNames = {
+                                'slide-2-default': 'Revenue Acceleration Poll',
+                                'slide-5-student-skills': 'Skills Poll'
+                            };
+                            
+                            // Organize polls and responses
+                            const pollResponses = contact.pollResponses || [];
+                            const responseByPollId = {};
+                            
+                            // Map responses by poll ID
+                            pollResponses.forEach(response => {
+                                responseByPollId[response.poll_id] = response;
+                            });
+                            
+                            // We'll track which polls we've rendered
+                            const renderedPolls = new Set();
+                            
+                            // First render polls with responses
+                            if (pollResponses.length > 0) {
+                                html += `<div class="poll-responses">`;
+                                
+                                pollResponses.forEach(response => {
+                                    const pollId = response.poll_id;
+                                    renderedPolls.add(pollId);
+                                    
+                                    html += `
+                                        <div class="poll-response">
+                                            <h5>${pollNames[pollId] || pollId}</h5>
+                                            <p><strong>Response:</strong> ${response.selected_options_text || 'N/A'}</p>
+                                            <p><strong>Date:</strong> ${new Date(response.created_at).toLocaleString()}</p>
+                                            <p><strong>Response ID:</strong> ${response.unique_id || response.id}</p>
+                                            <button class="crm-button small delete-response" 
+                                                data-id="${response.id}" 
+                                                data-poll-id="${pollId}"
+                                                data-contact-id="${contactId}"
+                                                style="background: #e74c3c;">
+                                                Delete Response
+                                            </button>
+                                        </div>
+                                        <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
+                                    `;
+                                });
+                                
+                                html += `</div>`;
+                            }
+                            
+                            // Then render polls without responses
+                            if (pollDefinitions) {
+                                html += `<div class="polls-to-answer">`;
+                                
+                                Object.entries(pollDefinitions).forEach(([pollId, definition]) => {
+                                    // Skip polls that already have responses
+                                    if (renderedPolls.has(pollId)) return;
+                                    
+                                    // Only include active polls
+                                    if (!definition.isActive) return;
+                                    
+                                    html += `
+                                        <div class="poll-to-answer" data-poll-id="${pollId}">
+                                            <h5>${pollNames[pollId] || pollId}</h5>
+                                            <div class="poll-options">
+                                    `;
+                                    
+                                    // Show options based on poll type
+                                    if (pollId === 'slide-2-default') {
+                                        // Revenue Acceleration Poll
+                                        const options = [
+                                            { id: 'prospecting', label: 'More prospecting' },
+                                            { id: 'client-meetings', label: 'Additional client meetings' },
+                                            { id: 'learning', label: 'Learning new skills' },
+                                            { id: 'planning', label: 'Strategic planning' },
+                                            { id: 'personal', label: 'Personal time/life balance' }
+                                        ];
+                                        
+                                        options.forEach(option => {
+                                            html += `
+                                                <div class="poll-option">
+                                                    <input type="radio" id="${option.id}-${pollId}" name="${pollId}" value="${option.id}">
+                                                    <label for="${option.id}-${pollId}">${option.label}</label>
+                                                </div>
+                                            `;
+                                        });
+                                    } else if (pollId === 'slide-5-student-skills') {
+                                        // Skills Poll
+                                        const options = [
+                                            { id: 'technical', label: 'Technical skills' },
+                                            { id: 'relationship', label: 'Relationship-building skills' },
+                                            { id: 'strategic', label: 'Strategic skills' },
+                                            { id: 'execution', label: 'Execution skills' }
+                                        ];
+                                        
+                                        options.forEach(option => {
+                                            html += `
+                                                <div class="poll-option">
+                                                    <input type="radio" id="${option.id}-${pollId}" name="${pollId}" value="${option.id}">
+                                                    <label for="${option.id}-${pollId}">${option.label}</label>
+                                                </div>
+                                            `;
+                                        });
+                                    }
+                                    
+                                    html += `
+                                            </div>
+                                            <div class="poll-submit">
+                                                <button class="crm-button submit-poll" data-poll-id="${pollId}">Submit Response</button>
+                                            </div>
+                                        </div>
+                                        <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
+                                    `;
+                                });
+                                
+                                html += `</div>`;
+                            }
+                            
+                            // If no polls to display
+                            if (pollResponses.length === 0 && (!pollDefinitions || Object.keys(pollDefinitions).length === 0)) {
+                                html += `<p>No poll data available for this contact.</p>`;
+                            }
+                            
+                            pollContainer.innerHTML = html;
+                            
+                            // Add event listeners to delete buttons
+                            const deleteButtons = pollContainer.querySelectorAll('.delete-response');
+                            deleteButtons.forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const responseId = this.dataset.id;
+                                    const contactId = this.dataset.contactId;
+                                    if (confirm('Are you sure you want to delete this poll response? The contact will be able to submit a new response after deletion.')) {
+                                        deletePollResponse(responseId, contact.user_id, contactId);
+                                    }
+                                });
+                            });
+                            
+                            // Add event listeners to submit buttons
+                            const submitButtons = pollContainer.querySelectorAll('.submit-poll');
+                            submitButtons.forEach(button => {
+                                button.addEventListener('click', function() {
+                                    const pollId = this.dataset.pollId;
+                                    const radioButtons = document.querySelectorAll(`input[name="${pollId}"]:checked`);
+                                    
+                                    if (radioButtons.length === 0) {
+                                        alert('Please select an option before submitting.');
+                                        return;
+                                    }
+                                    
+                                    const selectedOption = radioButtons[0].value;
+                                    submitPollResponse(contactId, pollId, selectedOption);
+                                });
+                            });
+                        } else {
+                            pollContainer.innerHTML = '<p>Error loading contact details. Please try again.</p>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading contact poll data:', error);
+                        pollContainer.innerHTML = '<p>Error loading contact poll data. Please try again.</p>';
+                    });
+            }
+            
+            // Function to build pagination
+            function buildPagination(container, currentPage, totalPages, callback) {
+                if (!container) return;
+                
+                let html = '';
+                
+                if (totalPages > 1) {
+                    // Previous button
+                    if (currentPage > 1) {
+                        html += `<a href="#" class="crm-page-link" data-page="${currentPage - 1}">←</a>`;
+                    }
+                    
+                    // Page numbers
+                    const startPage = Math.max(1, currentPage - 2);
+                    const endPage = Math.min(totalPages, startPage + 4);
+                    
+                    for (let i = startPage; i <= endPage; i++) {
+                        html += `<a href="#" class="crm-page-link ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</a>`;
+                    }
+                    
+                    // Next button
+                    if (currentPage < totalPages) {
+                        html += `<a href="#" class="crm-page-link" data-page="${currentPage + 1}">→</a>`;
+                    }
+                }
+                
+                container.innerHTML = html;
+                
+                // Add click event to pagination links
+                const pageLinks = container.querySelectorAll('.crm-page-link');
+                pageLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const page = parseInt(this.dataset.page);
+                        callback(page);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

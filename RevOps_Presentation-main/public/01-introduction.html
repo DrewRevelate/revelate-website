@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Full Throttle Revenue: How RevOps & Automation Drive Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    
+    <style>
+        /* Title slide specific styles */
+        .title-slide {
+            background: linear-gradient(135deg, #121212, #1e1e1e, #232323);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .title-slide:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><rect fill="rgba(225,6,0,0.03)" width="50" height="50"/><rect fill="rgba(225,6,0,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .diagonal-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(225, 6, 0, 0.05));
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            z-index: 1;
+        }
+        
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            z-index: 5;
+        }
+        
+        .title-content {
+            max-width: 1000px;
+            position: relative;
+        }
+        
+        .title-prefix {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--racing-silver);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 1.2rem;
+            position: relative;
+            display: inline-block;
+            padding-left: 30px;
+            letter-spacing: 2px;
+        }
+        
+        .title-prefix::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 4px;
+            background-color: var(--racing-red);
+            transform: translateY(-50%);
+            box-shadow: 0 0 8px rgba(225, 6, 0, 0.5);
+        }
+        
+        .main-title {
+            font-size: 7rem;
+            line-height: 1;
+            font-weight: 750;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .main-title .highlight {
+            color: var(--racing-red);
+            font-style: italic;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .main-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, rgba(225, 6, 0, 0.3), transparent);
+            filter: blur(15px);
+            z-index: -1;
+        }
+        
+        .subtitle {
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.4;
+            max-width: 900px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--racing-red), transparent);
+            border-radius: 2px;
+        }
+        
+        .presenter-details {
+            display: flex;
+            align-items: center;
+            margin-top: 3rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--racing-red);
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .presenter-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--racing-red);
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            margin-right: 2rem;
+            position: relative;
+        }
+        
+        /* Removed red dot indicator */
+        
+        .presenter-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .presenter-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .presenter-info p {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .presenter-info .company {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--racing-red);
+        }
+        
+        .speedometer-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 50%, rgba(225, 6, 0, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+        
+        .chevron-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: repeating-linear-gradient(
+                135deg,
+                rgba(225, 6, 0, 0.05),
+                rgba(225, 6, 0, 0.05) 15px,
+                transparent 15px,
+                transparent 30px
+            );
+            z-index: 2;
+        }
+        
+        /* Enhanced animation for title elements */
+        .title-slide .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .title-slide .animate.slide-right {
+            transform: translateX(50px);
+        }
+        
+        .title-slide .animate.slide-left {
+            transform: translateX(-50px);
+        }
+        
+        .title-slide .animate.zoom {
+            transform: scale(0.8);
+        }
+        
+        .title-slide .animate.delay-1 {
+            transition-delay: 0.2s;
+        }
+        
+        .title-slide .animate.delay-2 {
+            transition-delay: 0.4s;
+        }
+        
+        .title-slide .animate.delay-3 {
+            transition-delay: 0.7s;
+        }
+        
+        .title-slide .animate.delay-4 {
+            transition-delay: 1s;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .main-title {
+                font-size: 6rem;
+            }
+            
+            .subtitle {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-title {
+                font-size: 5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .presenter-details {
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .title-container {
+                padding: 1.5rem;
+                padding-bottom: 100px;
+                justify-content: flex-start;
+                height: 100%;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .main-title {
+                font-size: 3.5rem;
+                letter-spacing: -1px;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .title-prefix {
+                font-size: 1.4rem;
+            }
+            
+            .presenter-details {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+                border-left: none;
+                border-top: 5px solid var(--racing-red);
+            }
+            
+            .presenter-image {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        /* Additional styles for very small screens */
+        @media (max-width: 480px) {
+            .title-container {
+                padding-top: 1rem;
+                padding-bottom: 150px;
+            }
+            
+            .main-title {
+                font-size: 2.8rem;
+                letter-spacing: -1px;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .presenter-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .presenter-info h3 {
+                font-size: 1.6rem;
+            }
+            
+            .presenter-info p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slides-wrapper">
+            <section class="slide active title-slide" id="title">
+                <div class="diagonal-accent"></div>
+                <div class="speedometer-bg"></div>
+                <div class="chevron-pattern"></div>
+                <div class="racing-stripes">
+                    <div class="stripe"></div>
+                    <div class="stripe white"></div>
+                    <div class="stripe dark"></div>
+                </div>
+                
+                <div class="title-container">
+                    <div class="title-content">
+                        <div class="title-prefix animate delay-1">REVOLUTIONIZE YOUR SALES PROCESS</div>
+                        <h1 class="main-title animate delay-2">FULL <span class="highlight">THROTTLE</span> REVENUE</h1>
+                        <div class="subtitle animate delay-3">How Revenue Operations & Automation Drive Success in Today's High-Speed Business Environment</div>
+                        
+                        <div class="presenter-details animate delay-4">
+                            <div class="presenter-image">
+                                <img src="../images/profile.jpeg" alt="Drew Lambert">
+                            </div>
+                            <div class="presenter-info">
+                                <h3>Drew Lambert</h3>
+                                <p>Revenue Operations Expert & Salesforce Engineer</p>
+                                <p class="company">REVELATE OPERATIONS, LLC</p>
+                                <p>Founder & Principal Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-indicator" style="width: 12.5%"></div>
+        </div>
+        
+        <!-- Navigation Controls -->
+        <div class="slide-navigation">
+            <a href="#" class="nav-button prev disabled">←</a>
+            <a href="02-presenter-profile.html" class="nav-button next">→</a>
+        </div>
+        
+        <!-- Slide Indicator -->
+        <div class="slide-indicator">Slide 1/8</div>
+        
+        <!-- Keyboard Navigation Hint -->
+        <div class="keyboard-instructions">Use ← → arrows or Space to navigate</div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the correct slide indicator for direct HTML viewing
+            const indicator = document.querySelector('.slide-indicator');
+            if (indicator) {
+                indicator.textContent = 'Slide 1/8';
+            }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowRight' || event.key === ' ') {
+                    window.location.href = '02-presenter-profile.html';
+                }
+                // No left navigation on first slide
+            });
+            
+            // Enhanced animations with staggered timing
+            setTimeout(function() {
+                const elements = document.querySelectorAll('.animate');
+                elements.forEach(function(element, index) {
+                    setTimeout(function() {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+            }, 200);
+            
+            // Handle disabled button
+            const prevBtn = document.querySelector('.nav-button.prev');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    if (this.classList.contains('disabled')) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="mobile-touch.js"></script>
+</body>
+</html>

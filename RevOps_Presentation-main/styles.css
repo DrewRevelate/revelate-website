@@ -1,0 +1,2106 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap');
+
+/* Core Variables */
+:root {
+  --racing-black: #121212;
+  --racing-dark: #1E1E1E;
+  --racing-red: #E10600;
+  --racing-silver: #F7F7F7;
+  --racing-gray: #333333;
+  --accent-yellow: #FFDA0A;
+  --accent-blue: #1a2c99;
+  --text-light: #FFFFFF;
+  --text-dark: #1A1A1A; /* Darker for better contrast */
+  --slide-transition: 0.5s;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Titillium Web', 'Segoe UI', sans-serif;
+}
+
+/* Hide scrollbars globally but maintain scroll functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: var(--racing-dark);
+  color: var(--text-light); /* Changed to light text for better contrast */
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+  font-size: 105%; /* Slightly larger text */
+}
+
+/* Slide Container & Navigation */
+.presentation-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform var(--slide-transition) ease;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--slide-transition) ease, visibility var(--slide-transition) ease;
+  background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
+  overflow: hidden;
+  position: relative;
+}
+
+.slide:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><rect fill="rgba(225,6,0,0.03)" width="50" height="50"/><rect fill="rgba(225,6,0,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.slide.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Enhanced slide content styling */
+.slide .slide-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 60px; /* Space for navigation */
+  -webkit-overflow-scrolling: touch;
+  min-height: auto;
+}
+
+.slide .slide-header h2 {
+  color: white;
+  text-shadow: 0 2px 15px rgba(225, 6, 0, 0.5);
+  font-size: 3rem; /* Larger heading for better visibility */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.slide .slide-subtitle {
+  color: rgba(255, 255, 255, 0.95); /* Increased contrast */
+  font-size: 1.6rem; /* Larger subtitle for better visibility */
+  font-weight: 400;
+  line-height: 1.4;
+  max-width: 80%;
+  margin-bottom: 1.5rem;
+}
+
+.slide p {
+  color: rgba(255, 255, 255, 0.9); /* Increased contrast for better readability */
+  font-size: 1.15rem; /* Increased font size for presentation visibility */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.slide .racing-list li {
+  color: rgba(255, 255, 255, 0.9); /* Increased contrast for better readability */
+  font-size: 1.15rem; /* Increased font size for presentation visibility */
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.slide .secondary-heading {
+  color: white;
+  position: relative;
+  padding-left: 18px;
+  font-size: 2rem; /* Larger size for better visibility */
+  font-weight: 600;
+  margin: 1.8rem 0 1.2rem;
+  line-height: 1.3;
+}
+
+.slide .secondary-heading:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 28px;
+  background: var(--racing-red);
+  transform: translateY(-50%);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(225, 6, 0, 0.4); /* Add glow effect */
+}
+
+/* Enhanced cards styling */
+.slide .card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.5rem; /* Added consistent padding */
+}
+
+.slide .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.slide .card h3 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.slide .card p {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.slide .stat-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  padding: 1.8rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.slide .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.slide .stat-number {
+  color: var(--racing-red);
+  text-shadow: 0 0 15px rgba(225, 6, 0, 0.4);
+  font-size: 3.5rem; /* Much larger for impact */
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1;
+}
+
+.slide .stat-card p {
+  color: rgba(255, 255, 255, 1); /* Full white for readability */
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+/* Enhanced poll styling */
+.slide .poll-container {
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(30, 30, 30, 0.98));
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.slide .poll-header h3 {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.slide .poll-question {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.slide .poll-option {
+  background: rgba(50, 50, 50, 0.8); /* Darker background for better contrast */
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  padding: 1.2rem 1.5rem; /* More padding for better visibility */
+  margin-bottom: 0.8rem; /* More space between options */
+  border-radius: 8px;
+  min-height: 44px; /* Minimum Apple recommended touch target size */
+}
+
+.slide .poll-option:hover {
+  background: rgba(60, 60, 60, 0.95);
+  border-color: var(--racing-red);
+  transform: translateX(8px); /* Adds a nice interactive effect */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.slide .poll-option.selected {
+  background: rgba(225, 6, 0, 0.3); /* More visible selection */
+  border-color: rgba(225, 6, 0, 0.6);
+  border-left: 4px solid var(--racing-red); /* Highlight selected option */
+  box-shadow: 0 0 15px rgba(225, 6, 0, 0.2);
+}
+
+.slide .poll-option-text {
+  color: rgba(255,255,255,1); /* Full white for maximum readability */
+  font-size: 1.15rem; /* Larger text for better visibility */
+  font-weight: 500; /* Slightly bolder for better visibility */
+}
+
+.slide .poll-submit {
+  background: var(--racing-red);
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  min-height: 44px; /* Minimum touch target size */
+}
+
+.slide .poll-submit:hover {
+  background: #c10500; /* Slightly darker on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(225, 6, 0, 0.5);
+}
+
+.slide .poll-skip {
+  color: rgba(255,255,255,0.8); /* Increased visibility */
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 0.9rem 1.5rem;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-height: 44px; /* Minimum touch target size */
+}
+
+.slide .poll-skip:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Progress Indicator */
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.progress-indicator {
+  height: 100%;
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+  width: 0%;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
+}
+
+.poll-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.poll-submit {
+  background-color: var(--racing-red);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  box-shadow: 0 5px 15px rgba(225, 6, 0, 0.2);
+}
+
+.poll-submit:hover {
+  background-color: #c10600;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(225, 6, 0, 0.3);
+}
+
+.poll-skip {
+  background-color: transparent;
+  color: var(--racing-gray);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+}
+
+.poll-submitted-message {
+  color: var(--racing-dark);
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: rgba(225, 6, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  border-left: 4px solid var(--racing-red);
+}
+
+.poll-skip:hover {
+  color: var(--racing-dark);
+  transform: translateY(-2px);
+}
+
+/* Title Slide Specific */
+.title-slide {
+  background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
+  color: var(--text-light);
+}
+
+.title-slide .slide-content {
+  overflow-y: auto;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 80px;
+}
+
+.logo-section {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo-box {
+  background-color: var(--racing-red);
+  padding: 0.7rem 1.2rem;
+  display: inline-block;
+  position: relative;
+  margin-right: 1rem;
+  box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
+}
+
+.logo-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -15px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 42px 15px;
+  border-color: transparent transparent var(--racing-red) transparent;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: white;
+}
+
+.sublogo-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 15px;
+  opacity: 0.95;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.title-section {
+  max-width: 800px;
+  margin-bottom: 3rem;
+}
+
+.title-prefix {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: var(--racing-silver);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.title-prefix::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 18px;
+  height: 3px;
+  background-color: var(--racing-red);
+  transform: translateY(-50%);
+  box-shadow: 0 0 8px rgba(225, 6, 0, 0.5);
+}
+
+.main-title {
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 900;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.main-title span {
+  color: var(--racing-red);
+  font-style: italic;
+  display: block;
+  position: relative;
+}
+
+.main-title span::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(225, 6, 0, 0.3), transparent);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.subtitle {
+  font-size: 2.2rem;
+  font-weight: 400; /* Increased weight for better readability */
+  color: rgba(255, 255, 255, 0.95); /* Increased contrast */
+  line-height: 1.4;
+  max-width: 700px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  margin-bottom: 1.5rem;
+}
+
+.presenter-section {
+  display: flex;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 1.8rem;
+  border: 3px solid var(--racing-red);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-pic::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--racing-red);
+  opacity: 0.1;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.presenter-info {
+  border-left: 4px solid var(--racing-red);
+  padding-left: 1.8rem;
+}
+
+.presenter-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.4rem;
+}
+
+.presenter-title {
+  font-size: 1.05rem;
+  color: var(--racing-silver);
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.presenter-company {
+  font-size: 1rem;
+  color: var(--racing-red);
+  font-weight: 600;
+  margin-top: 0.4rem;
+  letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes speedIn {
+  from { transform: translateX(-100%) skewX(-30deg); opacity: 0; }
+  to { transform: translateX(0) skewX(0); opacity: 1; }
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.active .animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.active .animate.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.active .animate.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.active .animate.delay-3 {
+  transition-delay: 0.6s;
+}
+
+.active .animate.delay-4 {
+  transition-delay: 0.8s;
+}
+
+.active .animate.slide-right {
+  transform: translateX(50px);
+}
+
+.active .animate.slide-right {
+  transform: translateX(0);
+}
+
+.active .animate.slide-left {
+  transform: translateX(-50px);
+}
+
+.active .animate.slide-left {
+  transform: translateX(0);
+}
+
+.active .animate.zoom {
+  transform: scale(0.9);
+}
+
+.active .animate.zoom {
+  transform: scale(1);
+}
+
+.active .animate.speed {
+  animation: speedIn 1s forwards;
+}
+
+/* Navigation Controls */
+.slide-navigation {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.nav-button {
+  background-color: var(--racing-black);
+  color: var(--text-light);
+  border: none;
+  height: 60px; /* Larger buttons */
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem; /* Larger arrows */
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.1); /* Subtle border */
+}
+
+.nav-button:hover:not(.disabled) {
+  background-color: var(--racing-red);
+  transform: translateY(-3px) scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 20px rgba(225, 6, 0, 0.4);
+  border-color: var(--racing-red);
+  color: white;
+}
+
+.nav-button.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
+.slide-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--racing-red);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 3px 15px rgba(225, 6, 0, 0.3);
+  z-index: 1000;
+  letter-spacing: 0.5px;
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.slide-indicator:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(225, 6, 0, 0.4);
+}
+
+/* Keyboard Navigation Instructions */
+.keyboard-instructions {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--racing-black);
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.keyboard-instructions:hover {
+  opacity: 1;
+}
+
+/* Common Slide Elements */
+.slide-content {
+  position: relative;
+  z-index: 4;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 4rem;
+  height: 100%;
+  overflow-y: auto; /* Allow vertical scrolling while keeping scrollbar hidden */
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(30,30,30,0.85) 100%);
+  z-index: 2;
+}
+
+.racing-stripes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.stripe {
+  height: 10px;
+  background: var(--racing-red);
+  margin-bottom: 10px;
+  transform: skewY(-2deg) translateY(10px);
+  opacity: 0.85;
+}
+
+.stripe.white {
+  width: 80%;
+  background: white;
+}
+
+.stripe.dark {
+  width: 60%;
+  background: #333;
+}
+
+.diagonal-divider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25%;
+  height: 100%;
+  background-color: rgba(225, 6, 0, 0.05);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  z-index: 3;
+}
+
+/* Speedometer Background */
+.speedometer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 60%, rgba(225, 6, 0, 0.05) 0%, transparent 60%);
+  z-index: 2;
+}
+
+/* Section Headers */
+.slide-header {
+  position: relative;
+  padding: 0 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.slide-header h2 {
+  color: var(--racing-dark);
+  font-weight: 900;
+  font-size: 2.7rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.slide-header h2 span {
+  color: var(--racing-red);
+  font-style: italic;
+}
+
+.slide-header h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background-color: var(--racing-red);
+  box-shadow: 0 2px 5px rgba(225, 6, 0, 0.2);
+}
+
+.slide-subtitle {
+  font-size: 1.4rem;
+  color: var(--racing-gray);
+  max-width: 800px;
+  font-weight: 500;
+}
+
+.secondary-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1rem;
+  color: var(--racing-dark);
+}
+
+/* Lists with Racing Style */
+.racing-list {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+
+.racing-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.racing-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 18px;
+  height: 3px;
+  background-color: var(--racing-red);
+  box-shadow: 1px 1px 3px rgba(225, 6, 0, 0.3);
+}
+
+/* Enhanced Automation Icons */
+.automation-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.automation-icon {
+  text-align: center;
+  padding: 2.5rem 1.2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.automation-icon:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.automation-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+}
+
+.automation-icon::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background-color: var(--racing-red);
+  opacity: 0.05;
+  border-radius: 100% 0 0 0;
+}
+
+.icon-circle {
+  width: 90px;
+  height: 90px;
+  background-color: rgba(225, 6, 0, 0.08);
+  border-radius: 50%;
+  margin: 0 auto 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.icon-circle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--racing-red);
+  opacity: 0.5;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.icon-image {
+  width: 40px;
+  height: 40px;
+  color: var(--racing-red);
+}
+
+.automation-icon h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--racing-dark);
+  font-weight: 700;
+}
+
+.automation-icon p {
+  font-size: 0.95rem;
+  color: var(--racing-gray);
+  max-width: 220px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Enhanced Poll Component */
+.poll-container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.poll-container.collapsed {
+  padding: 1.8rem 2.5rem;
+  max-height: 90px;
+  overflow: hidden;
+}
+
+.poll-container.collapsed .poll-options,
+.poll-container.collapsed .poll-actions,
+.poll-container.collapsed .poll-results {
+  display: none;
+}
+
+.poll-container.collapsed .poll-question::after {
+  content: '↓ Click to expand';
+  display: inline-block;
+  margin-left: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--racing-red);
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.poll-container.expanded .poll-question::after {
+  content: '↑ Click to collapse';
+  display: inline-block;
+  margin-left: 0.7rem;
+  font-size: 0.8rem;
+  color: var(--racing-red);
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.poll-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+}
+
+.poll-header {
+  margin-bottom: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poll-header h3 {
+  font-size: 1.6rem;
+  color: var(--racing-dark);
+  font-weight: 700;
+}
+
+.poll-user-id {
+  background-color: var(--racing-dark);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.poll-question {
+  font-size: 1.3rem;
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  color: var(--racing-dark);
+  line-height: 1.4;
+}
+
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.poll-option {
+  background-color: var(--racing-silver);
+  padding: 1.2rem 1.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.poll-option:hover {
+  background-color: #e8e8e8;
+  transform: translateX(8px);
+  border-color: rgba(0,0,0,0.05);
+}
+
+.poll-option.selected {
+  background-color: rgba(225, 6, 0, 0.08);
+  border-left: 4px solid var(--racing-red);
+}
+
+.poll-option-text {
+  flex: 1;
+  font-size: 1.05rem;
+}
+
+.poll-option-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.poll-option.selected .poll-option-check {
+  background-color: var(--racing-red);
+  border-color: var(--racing-red);
+  box-shadow: 0 0 8px rgba(225, 6, 0, 0.3);
+}
+
+.poll-option.selected .poll-option-check::before {
+  content: '✓';
+  color: white;
+  font-size: 0.9rem;
+}
+
+.poll-results {
+  margin-top: 2.5rem;
+  display: none;
+}
+
+.poll-results.show {
+  display: block;
+  animation: fadeIn 0.8s forwards;
+  position: relative; /* For positioning the live indicator */
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.poll-results h4 {
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.poll-result-item {
+  margin-bottom: 1.5rem;
+}
+
+.poll-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.poll-result-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.95);
+}
+
+.poll-result-percentage {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-yellow);
+}
+
+.poll-bar {
+  height: 16px; /* Taller for better visibility */
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.poll-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Inactive poll message styling */
+.poll-inactive-message {
+  padding: 25px;
+  text-align: center;
+  background-color: rgba(40, 40, 40, 0.9); /* Darker background for better contrast */
+  border-radius: 8px;
+  margin: 15px;
+  border: 1px solid rgba(225, 6, 0, 0.3); /* Red border for visibility */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.poll-inactive-message p {
+  color: rgba(255,255,255,0.9); /* Brighter text for readability */
+  font-style: italic;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+/* Live indicator */
+/* Poll status indicator */
+.poll-status {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+
+.poll-card.active {
+  border-left: 4px solid var(--racing-red);
+}
+
+.poll-card.inactive .poll-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.poll-status.live {
+  background-color: var(--racing-red);
+  animation: pulse 2s infinite;
+}
+
+.poll-status.closed {
+  background-color: var(--racing-gray);
+}
+
+/* Live indicator on results */
+.poll-results.show::after {
+  content: 'UPDATING';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: white;
+  background-color: var(--racing-red);
+  padding: 2px 6px;
+  border-radius: 3px;
+  animation: pulse 2s infinite;
+}
+
+/* Update animation */
+@keyframes pollUpdate {
+  0% { background-color: transparent; }
+  30% { background-color: rgba(225, 6, 0, 0.1); }
+  100% { background-color: transparent; }
+}
+
+.poll-results.updating {
+  animation: pollUpdate 0.5s ease-out;
+}
+
+/* Bar animation for poll results when they change */
+@keyframes barFlash {
+  0% { box-shadow: 0 0 5px rgba(225, 6, 0, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(225, 6, 0, 0.7); }
+  100% { box-shadow: 0 0 5px rgba(225, 6, 0, 0.3); }
+}
+
+[data-updated] .poll-fill {
+  animation: barFlash 1s ease-out;
+}
+
+/* Active and inactive poll states */
+.poll-container.active {
+  box-shadow: 0 5px 20px rgba(225, 6, 0, 0.15);
+  border: 1px solid rgba(225, 6, 0, 0.1);
+}
+
+.poll-container.inactive {
+  opacity: 0.7;
+  filter: grayscale(30%);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  pointer-events: none;
+}
+
+.poll-container.inactive .poll-header h3 {
+  color: var(--racing-gray);
+}
+
+.poll-container.inactive .poll-option {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.poll-container.voted {
+  border: 1px solid rgba(225, 6, 0, 0.2);
+}
+
+.poll-results h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--racing-dark);
+}
+
+.poll-result-item {
+  margin-bottom: 1.8rem;
+}
+
+.poll-result-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.7rem;
+}
+
+.poll-result-label {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.poll-result-percentage {
+  font-weight: 700;
+  color: var(--racing-red);
+  font-size: 1.05rem;
+}
+
+.poll-bar {
+  height: 14px;
+  background-color: var(--racing-silver);
+  border-radius: 7px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.poll-fill {
+  height: 100%;
+  transition: width 0.5s ease-out; /* Smooth transition for bar updates */
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+  width: 0%;
+  transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
+}
+
+/* Grid Layouts */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.content-col {
+  flex: 1;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.8rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: var(--racing-dark);
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Numbered Cards */
+.numbered-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.2rem 1.2rem 1.2rem 4.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  position: relative;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.numbered-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.number-circle {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background-color: var(--racing-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 8px rgba(225, 6, 0, 0.3);
+}
+
+.card-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  color: var(--racing-dark);
+  font-weight: 700;
+}
+
+/* Quote Card */
+.quote-card {
+  text-align: center;
+  margin-top: 2.5rem;
+  background: linear-gradient(135deg, #fff, #f8f8f8);
+  padding: 2rem;
+}
+
+.quote-text {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--racing-red);
+  line-height: 1.4;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.quote-text::before,
+.quote-text::after {
+  content: '"';
+  font-size: 3rem;
+  color: rgba(225, 6, 0, 0.2);
+  position: absolute;
+}
+
+.quote-text::before {
+  left: 0;
+  top: -1rem;
+}
+
+.quote-text::after {
+  right: 0;
+  bottom: -1.5rem;
+}
+
+/* Stats Cards */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--racing-red);
+  opacity: 0.1;
+  border-radius: 0 0 0 100%;
+}
+
+.stat-number {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--racing-red);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+.stat-number::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--racing-red);
+  opacity: 0.5;
+}
+
+/* Enhanced Timeline */
+.timeline-container {
+  margin: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.timeline-track {
+  position: relative;
+  height: 400px;
+  overflow: visible;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+  transform: translateY(-50%);
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.2);
+}
+
+.timeline-point {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-point-marker {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: var(--racing-red);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  box-shadow: 0 0 0 5px rgba(225, 6, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timeline-point.active .timeline-point-marker,
+.timeline-point:hover .timeline-point-marker {
+  transform: translate(-50%, -50%) scale(1.2);
+  box-shadow: 0 0 0 8px rgba(225, 6, 0, 0.2);
+}
+
+.timeline-content {
+  position: absolute;
+  width: 270px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  top: 0;
+  left: 0;
+  transform: translateY(-130%);
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.timeline-point.active .timeline-content,
+.timeline-point:hover .timeline-content {
+  opacity: 1;
+  transform: translateY(-140%);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.timeline-point:nth-child(even) .timeline-content {
+  top: auto;
+  bottom: 0;
+  transform: translateY(30%);
+}
+
+.timeline-point.active:nth-child(even) .timeline-content,
+.timeline-point:nth-child(even):hover .timeline-content {
+  transform: translateY(40%);
+}
+
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: white transparent transparent transparent;
+}
+
+.timeline-point:nth-child(even) .timeline-content::after {
+  bottom: auto;
+  top: -10px;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent white transparent;
+}
+
+.timeline-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--racing-dark);
+  font-weight: 700;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: var(--racing-gray);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Touch Handling for Mobile */
+.mobile-device {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-device .slide-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
+  padding-bottom: 100px; /* Space for navigation controls */
+}
+
+.mobile-device .nav-button {
+  width: 65px;
+  height: 65px;
+  font-size: 2rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-device .keyboard-instructions {
+  display: none; /* Hide on touch devices */
+}
+
+.mobile-device .slide-navigation {
+  bottom: 25px;
+  right: 25px;
+}
+
+.mobile-device .slide-indicator {
+  bottom: 25px;
+  left: 25px;
+}
+
+.mobile-device .poll-option,
+.mobile-device button {
+  min-height: 44px; /* Apple recommended minimum touch target size */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .slide-content {
+    padding: 2rem 3rem;
+  }
+  
+  .main-title {
+    font-size: 5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .slide-header h2 {
+    font-size: 2.3rem;
+  }
+  
+  .automation-icons {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .slide-content {
+    padding: 2rem;
+  }
+  
+  .main-title {
+    font-size: 4rem;
+  }
+  
+  .subtitle {
+    font-size: 1.6rem;
+  }
+  
+  .slide-header h2 {
+    font-size: 2rem;
+  }
+  
+  .content-grid, .stats-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .timeline-point .timeline-content {
+    width: 220px;
+  }
+  
+  .day-in-life {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .comparison::after {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  
+  /* Navigation button adjustments for better touch targets */
+  .nav-button {
+    height: 60px;
+    width: 60px;
+    font-size: 1.7rem;
+  }
+  
+  /* Ensure poll options are easily tappable */
+  .slide .poll-option {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Adjust presenter section for medium screens */
+  .presenter-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-pic {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .presenter-info {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  /* Improve timeline scrolling */
+  .timeline-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+  
+  .timeline-track {
+    min-width: 800px; /* Ensure enough space for timeline */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 100%; /* Adjust base font size for mobile */
+  }
+  
+  .slide-content {
+    padding: 1.5rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 120px; /* More space for navigation */
+    min-height: 100vh; /* Ensure content can be scrolled fully */
+  }
+  
+  /* Allow content to scroll on mobile */
+  .slide .slide-content {
+    padding-bottom: 80px; /* Space for navigation */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Specific fixes for slides with lots of content */
+  #slide-2 .slide-content,
+  #slide-3 .slide-content,
+  #slide-4 .slide-content,
+  #slide-5 .slide-content,
+  #slide-7 .slide-content {
+    padding-bottom: 120px; /* Less padding to ensure all content is visible */
+  }
+  
+  .main-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: 1.4rem;
+    max-width: 100%;
+  }
+  
+  .title-prefix {
+    font-size: 1.2rem;
+  }
+  
+  .slide-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .slide-subtitle {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+  
+  .thank-you-slide h2 {
+    font-size: 3.5rem;
+  }
+  
+  .questions-text {
+    font-size: 1.8rem;
+  }
+  
+  .timeline-container {
+    padding: 0 1rem;
+  }
+  
+  .automation-icons {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-container {
+    gap: 1rem;
+  }
+  
+  .poll-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .speedometer {
+    width: 250px;
+    height: 250px;
+  }
+  
+  /* Improved mobile navigation */
+  .slide-navigation {
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+  }
+  
+  .nav-button {
+    height: 65px;
+    width: 65px;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  }
+  
+  .slide-indicator {
+    bottom: 20px;
+    left: 20px;
+    z-index: 2000;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Better poll elements for mobile */
+  .slide .poll-option {
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+  }
+  
+  .slide .poll-option:hover {
+    transform: translateX(5px);
+  }
+  
+  .slide .poll-option-text {
+    font-size: 1.2rem;
+  }
+  
+  .slide .poll-submit, 
+  .slide .poll-skip {
+    padding: 1.2rem 1.8rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .poll-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Adjust cards for mobile */
+  .slide .card,
+  .slide .stat-card {
+    padding: 1.8rem 1.5rem;
+  }
+  
+  /* Ensure keyboard instructions are hidden on mobile */
+  .keyboard-instructions {
+    display: none; /* Hide on mobile as it's not relevant */
+  }
+  
+  /* Special adjustments for slide 1 (profile slide) */
+  .profile-container {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .profile-left-column {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .profile-header {
+    text-align: center !important;
+  }
+  
+  .profile-name::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  .specialties-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Additional mobile optimization for smaller phones */
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .slide-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .slide p, 
+  .slide .racing-list li {
+    font-size: 1rem;
+  }
+  
+  .slide .secondary-heading {
+    font-size: 1.4rem;
+  }
+  
+  /* Improve navigation for very small screens */
+  .nav-button {
+    height: 55px;
+    width: 55px;
+    font-size: 1.5rem;
+  }
+  
+  .slide-indicator {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  /* Adjust profile section for mobile */
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Make poll options easier to tap on small screens */
+  .slide .poll-option {
+    padding: 1.2rem 1rem;
+  }
+  
+  /* Improve readability of stats on small screens */
+  .stat-number {
+    font-size: 2.8rem;
+  }
+  
+  /* Adjust the title slide presenter details for small screens */
+  .presenter-details {
+    padding: 1rem;
+  }
+  
+  .presenter-image {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  .presenter-info h3 {
+    font-size: 1.4rem !important;
+  }
+  
+  .presenter-info p {
+    font-size: 1rem !important;
+  }
+  
+  /* Add more space on small screens */
+  .slide .slide-content {
+    padding-bottom: 180px; /* Even more padding on smaller screens */
+  }
+}
+
+/* Special touch-specific optimizations */
+@media (pointer: coarse) {
+  /* Larger touch targets for finger input */
+  .poll-option, 
+  .nav-button,
+  button,
+  .specialty-item {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+  }
+  
+  /* Add more space between tappable elements */
+  .poll-options {
+    gap: 1.2rem;
+  }
+  
+  /* Make sure buttons have enough space */
+  .poll-actions {
+    margin-top: 2rem;
+  }
+  
+  /* Improve timeline for touch */
+  .timeline-point-marker {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Fix for timeline on mobile horizontal scroll */
+@media (max-width: 768px) {
+  .timeline-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .timeline-track {
+    min-width: 800px;
+    padding: 0 100px; /* Add padding so first/last items are visible */
+  }
+}

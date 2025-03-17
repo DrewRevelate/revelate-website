@@ -1,0 +1,385 @@
+<%- contentFor('body') %>
+
+<!-- Hero Section -->
+<section class="page-hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="page-title">RevOps Assessment</h1>
+      <p class="page-description">Evaluate your organization's Revenue Operations maturity</p>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Assessment Introduction -->
+<section class="assessment-intro">
+  <div class="container">
+    <div class="assessment-grid">
+      <div class="assessment-content" data-aos="fade-right">
+        <h2>How Mature Is Your Revenue Operations?</h2>
+        <p class="lead">Take our free assessment to benchmark your current state and identify opportunities for growth.</p>
+        <p>This comprehensive assessment evaluates four key dimensions of your RevOps maturity:</p>
+        <div class="assessment-dimensions">
+          <div class="dimension">
+            <div class="dimension-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="dimension-content">
+              <h3>Data Infrastructure</h3>
+              <p>Evaluates your CRM implementation, systems integration, and data quality</p>
+            </div>
+          </div>
+          <div class="dimension">
+            <div class="dimension-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="dimension-content">
+              <h3>Analytics Capabilities</h3>
+              <p>Measures your reporting, revenue attribution, and decision-making capabilities</p>
+            </div>
+          </div>
+          <div class="dimension">
+            <div class="dimension-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="dimension-content">
+              <h3>Process Optimization</h3>
+              <p>Examines your sales, lead management, and customer retention processes</p>
+            </div>
+          </div>
+          <div class="dimension">
+            <div class="dimension-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="dimension-content">
+              <h3>Team Alignment</h3>
+              <p>Assesses team collaboration, forecasting capabilities, and RevOps leadership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="assessment-image" data-aos="fade-left">
+        <img src="/assets/images/assessment-illustration.svg" alt="RevOps Assessment" width="500" height="400">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Assessment Form -->
+<section class="assessment-form-section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Start Your Assessment</h2>
+      <p class="section-subtitle">Complete the form below to receive your personalized RevOps maturity score</p>
+    </div>
+    
+    <form id="revops-assessment" class="assessment-form" data-aos="fade-up">
+      <div class="form-section">
+        <h3 class="form-section-title">Contact Information</h3>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" name="companyName">
+          </div>
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" name="jobTitle">
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option value="">Select Industry</option>
+              <option value="technology">Technology/SaaS</option>
+              <option value="financial">Financial Services</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="retail">Retail/E-commerce</option>
+              <option value="professional">Professional Services</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="companySize">Company Size</label>
+            <select id="companySize" name="companySize">
+              <option value="">Select Company Size</option>
+              <option value="1-10">1-10 employees</option>
+              <option value="11-50">11-50 employees</option>
+              <option value="51-200">51-200 employees</option>
+              <option value="201-500">201-500 employees</option>
+              <option value="501-1000">501-1000 employees</option>
+              <option value="1000+">1000+ employees</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <h3 class="form-section-title">Data Infrastructure</h3>
+        <p class="form-section-desc">Evaluate your current systems and data management capabilities</p>
+        
+        <div class="form-group">
+          <label>CRM Implementation and Adoption</label>
+          <div class="rating-group">
+            <div class="rating-option">
+              <input type="radio" id="crm1" name="crmImplementation" value="1">
+              <label for="crm1">1 - No CRM or minimal usage</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="crm2" name="crmImplementation" value="2">
+              <label for="crm2">2 - Basic CRM with limited adoption</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="crm3" name="crmImplementation" value="3">
+              <label for="crm3">3 - Functional CRM with moderate adoption</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="crm4" name="crmImplementation" value="4">
+              <label for="crm4">4 - Comprehensive CRM with good adoption</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="crm5" name="crmImplementation" value="5">
+              <label for="crm5">5 - Advanced CRM with excellent adoption</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>System Integration</label>
+          <div class="rating-group">
+            <div class="rating-option">
+              <input type="radio" id="si1" name="systemIntegration" value="1">
+              <label for="si1">1 - Disconnected systems</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="si2" name="systemIntegration" value="2">
+              <label for="si2">2 - Some manual integration</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="si3" name="systemIntegration" value="3">
+              <label for="si3">3 - Partial integration of key systems</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="si4" name="systemIntegration" value="4">
+              <label for="si4">4 - Most systems integrated</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="si5" name="systemIntegration" value="5">
+              <label for="si5">5 - Fully integrated ecosystem</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Data Quality and Management</label>
+          <div class="rating-group">
+            <div class="rating-option">
+              <input type="radio" id="dq1" name="dataQuality" value="1">
+              <label for="dq1">1 - Poor data quality, no processes</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="dq2" name="dataQuality" value="2">
+              <label for="dq2">2 - Inconsistent data quality</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="dq3" name="dataQuality" value="3">
+              <label for="dq3">3 - Basic data management processes</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="dq4" name="dataQuality" value="4">
+              <label for="dq4">4 - Good data quality with formal processes</label>
+            </div>
+            <div class="rating-option">
+              <input type="radio" id="dq5" name="dataQuality" value="5">
+              <label for="dq5">5 - Excellent data governance</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Submit button -->
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary btn-lg">Submit Assessment</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Results Preview -->
+<section class="results-preview">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What You'll Receive</h2>
+      <p class="section-subtitle">After completing the assessment, you'll get valuable insights to guide your RevOps journey</p>
+    </div>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card" data-aos="fade-up">
+        <div class="benefit-icon">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+        <h3>Maturity Score</h3>
+        <p>A comprehensive score that benchmarks your RevOps maturity against industry standards.</p>
+      </div>
+      
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="benefit-icon">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <h3>Dimension Analysis</h3>
+        <p>Detailed breakdown of your scores across the four key dimensions of RevOps maturity.</p>
+      </div>
+      
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="benefit-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>Improvement Opportunities</h3>
+        <p>Actionable recommendations to address gaps and advance your RevOps capabilities.</p>
+      </div>
+      
+      <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="benefit-icon">
+          <i class="fas fa-map-signs"></i>
+        </div>
+        <h3>Roadmap Guidance</h3>
+        <p>Strategic guidance on prioritizing initiatives for maximum impact on your revenue growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Hear from companies that have completed our assessment</p>
+    </div>
+    
+    <div class="testimonials-slider" id="assessment-testimonials">
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <p>"The RevOps assessment provided us with clear insights into our data infrastructure gaps and helped us create a roadmap for improvement. Within six months, we saw a 30% increase in our sales team's productivity."</p>
+        </div>
+        <div class="testimonial-author">
+          <img src="/images/testimonials/testimonial-1.jpg" alt="John Smith" width="60" height="60">
+          <div class="author-info">
+            <h4>John Smith</h4>
+            <p>VP of Sales, TechCorp</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <p>"What impressed me most was how the assessment didn't just identify problems—it provided actionable solutions that we could implement immediately. The results have transformed our approach to sales operations."</p>
+        </div>
+        <div class="testimonial-author">
+          <img src="/images/testimonials/testimonial-2.jpg" alt="Sarah Johnson" width="60" height="60">
+          <div class="author-info">
+            <h4>Sarah Johnson</h4>
+            <p>Director of Operations, GrowthSmart</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <p>"As a scaling startup, we needed to establish solid RevOps foundations. The assessment gave us a clear picture of our strengths and weaknesses, helping us prioritize our technology investments."</p>
+        </div>
+        <div class="testimonial-author">
+          <img src="/images/testimonials/testimonial-3.jpg" alt="Michael Wong" width="60" height="60">
+          <div class="author-info">
+            <h4>Michael Wong</h4>
+            <p>CEO, InnovateSaaS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Assessment JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('revops-assessment');
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Collect form data
+      const formData = new FormData(form);
+      const assessment = {};
+      
+      for (const [key, value] of formData.entries()) {
+        assessment[key] = value;
+      }
+      
+      // Submit assessment data to API
+      fetch('/api/assessments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(assessment)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Redirect to results page
+          window.location.href = `/assessment-results?id=${data.assessmentId}`;
+        } else {
+          alert('There was an error processing your assessment. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting the assessment. Please try again.');
+      });
+    });
+    
+    // Initialize testimonials slider
+    const testimonials = document.getElementById('assessment-testimonials');
+    let currentSlide = 0;
+    const slides = testimonials.querySelectorAll('.testimonial');
+    const totalSlides = slides.length;
+    
+    function showSlide(index) {
+      // Hide all slides
+      slides.forEach(slide => {
+        slide.style.display = 'none';
+      });
+      
+      // Show current slide
+      slides[index].style.display = 'block';
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+    
+    // Initial slide display
+    showSlide(currentSlide);
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
+  });
+</script>

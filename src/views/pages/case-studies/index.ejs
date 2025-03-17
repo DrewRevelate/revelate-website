@@ -1,0 +1,143 @@
+<%- contentFor('body') %>
+
+<!-- Hero Section -->
+<section class="page-hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="page-title">Case Studies</h1>
+      <p class="page-description">Real-world examples of how we help companies transform their operations</p>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Case Studies Grid -->
+<section class="case-studies-section">
+  <div class="container">
+    <div class="case-studies-grid">
+      <!-- Case Study 1 -->
+      <div class="case-study-card" data-aos="fade-up">
+        <div class="case-study-image">
+          <img src="/images/case-studies/22q-hero.jpg" alt="22q Family Foundation" width="500" height="300">
+          <div class="case-study-category">Non-Profit</div>
+        </div>
+        <div class="case-study-content">
+          <h2>22q Family Foundation</h2>
+          <p class="case-study-excerpt">How we helped a non-profit streamline their operations and increase donations through CRM integration.</p>
+          <div class="case-study-results">
+            <div class="result">
+              <div class="result-number">65%</div>
+              <div class="result-label">Increase in Online Donations</div>
+            </div>
+            <div class="result">
+              <div class="result-number">40%</div>
+              <div class="result-label">Reduction in Administrative Time</div>
+            </div>
+          </div>
+          <a href="/case-studies/22q-family-foundation" class="btn btn-outline">Read Case Study</a>
+        </div>
+      </div>
+      
+      <!-- Case Study 2 -->
+      <div class="case-study-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="case-study-image">
+          <img src="/images/case-studies/coming-soon.png" alt="Case Study 1" width="500" height="300">
+          <div class="case-study-category">SaaS</div>
+        </div>
+        <div class="case-study-content">
+          <h2>Case Study 1</h2>
+          <p class="case-study-excerpt">Sample case study description that provides a brief overview of the client's challenges and our solutions.</p>
+          <div class="case-study-results">
+            <div class="result">
+              <div class="result-number">45%</div>
+              <div class="result-label">Increase in Conversion Rate</div>
+            </div>
+            <div class="result">
+              <div class="result-number">30%</div>
+              <div class="result-label">Reduction in Customer Churn</div>
+            </div>
+          </div>
+          <a href="/case-studies/case-study-1" class="btn btn-outline">Read Case Study</a>
+        </div>
+      </div>
+      
+      <!-- Case Study 3 (Coming Soon) -->
+      <div class="case-study-card coming-soon" data-aos="fade-up" data-aos-delay="200">
+        <div class="case-study-image">
+          <img src="/images/case-studies/coming-soon.png" alt="Coming Soon" width="500" height="300">
+          <div class="case-study-category">Coming Soon</div>
+        </div>
+        <div class="case-study-content">
+          <h2>New Case Study Coming Soon</h2>
+          <p class="case-study-excerpt">We're currently working on a new case study that will showcase our work in data integration and business intelligence.</p>
+          <div class="notify-form">
+            <p>Want to be notified when it's published?</p>
+            <form id="notify-form" class="mini-form">
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-sm">Notify Me</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Industries Section -->
+<section class="industries-section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Industries We Serve</h2>
+      <p class="section-subtitle">We work with companies across various sectors to optimize their data operations</p>
+    </div>
+    
+    <div class="industries-grid">
+      <div class="industry-card" data-aos="fade-up">
+        <div class="industry-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>SaaS & Technology</h3>
+        <p>Helping fast-growing tech companies scale their revenue operations and optimize their customer journey.</p>
+      </div>
+      
+      <div class="industry-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="industry-icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <h3>Healthcare</h3>
+        <p>Streamlining data management for healthcare providers to improve patient outcomes and operational efficiency.</p>
+      </div>
+      
+      <div class="industry-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="industry-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Financial Services</h3>
+        <p>Enabling financial institutions to leverage their data for better decision-making and client service.</p>
+      </div>
+      
+      <div class="industry-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="industry-icon">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>Non-Profit</h3>
+        <p>Helping non-profit organizations maximize their impact through efficient data management and donor engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Transform Your Data Operations?</h2>
+      <p class="cta-description">Let's discuss how we can help you achieve similar results for your business.</p>
+      <a href="#" class="btn btn-light btn-lg calendly-trigger">Schedule a Consultation</a>
+    </div>
+  </div>
+</section>

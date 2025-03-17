@@ -1,64 +1,69 @@
 # Revelate Operations Website
 
-A modern, responsive website for Revelate Operations, a SaaS consulting business specializing in Salesforce and Sales Engineering. This site has been rebuilt using Node.js, Express, and EJS templating.
+A modern, responsive website for Revelate Operations, a data-driven SaaS consulting firm specializing in CRM management, business intelligence, and revenue operations. This site is built using Node.js, Express, and EJS templating with PostgreSQL database integration.
 
 ## Project Overview
 
 This website is designed to showcase Revelate Operations' services, expertise, and case studies in the SaaS consulting space. It features a clean, professional design with modern animations and interactive elements to engage visitors.
 
-## Architecture
+## Technology Stack
 
-The application has been rebuilt using a modern Node.js/Express architecture with the following components:
-
-- **Express.js**: Backend web framework for routing and API endpoints
-- **EJS**: Template engine with layout support for rendering pages
-- **PostgreSQL**: Database for storing contact form submissions and assessment data
-- **Custom Assets**: CSS, JavaScript, and images organized for optimal performance
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Backend**: Node.js, Express.js
+- **Templating**: EJS with layouts and partials
+- **Database**: PostgreSQL (for contact form and assessment data)
+- **Deployment**: Heroku
+- **Additional**: PWA capabilities, RevOps presentation project
 
 ## File Structure
 
 ```
 revelate-website/
-├── assets/             # Static assets
-│   ├── css/            # CSS files
-│   ├── images/         # Image assets
-│   └── js/             # JavaScript files
-├── db/                 # Database migrations and schema
-│   └── migrations/     # SQL migration files
-├── images/             # Content images (case studies, testimonials, etc.)
-├── src/                # Application source code
-│   ├── config/         # Configuration files
-│   │   └── database.js # Database configuration
-│   ├── controllers/    # Route controllers (if needed)
-│   ├── models/         # Database models
-│   ├── routes/         # Express routes
-│   │   ├── api.js      # API routes
-│   │   └── pages.js    # Page rendering routes
-│   ├── scripts/        # Utility scripts
-│   │   └── setup-db.js # Database setup script
-│   ├── utils/          # Utility functions
+├── assets/                   # Static assets
+│   ├── css/                  # CSS files
+│   ├── images/               # Image assets
+│   └── js/                   # JavaScript files
+├── db/                       # Database migrations and schema
+│   └── migrations/           # SQL migration files
+├── images/                   # Content images (case studies, testimonials, etc.)
+├── RevOps_Presentation-main/ # Industries Day interactive presentation
+├── src/                      # Application source code
+│   ├── config/               # Configuration files
+│   │   └── database.js       # Database configuration
+│   ├── controllers/          # Route controllers (if needed)
+│   ├── models/               # Database models
+│   ├── routes/               # Express routes
+│   │   ├── api.js            # API routes
+│   │   └── pages.js          # Page rendering routes
+│   ├── scripts/              # Utility scripts
+│   │   └── setup-db.js       # Database setup script
+│   ├── utils/                # Utility functions
 │   │   ├── expressEjsLayouts.js # EJS layout middleware
 │   │   └── validation.js        # Form validation
-│   ├── views/          # EJS templates
-│   │   ├── layouts/    # Layout templates
-│   │   ├── pages/      # Page templates
-│   │   └── partials/   # Reusable components
-│   └── app.js          # Main application entry point
-├── .env                # Environment variables (not in repo)
-├── .env.example        # Environment variables template
-└── package.json        # Project dependencies and scripts
+│   ├── views/                # EJS templates
+│   │   ├── layouts/          # Layout templates
+│   │   ├── pages/            # Page templates
+│   │   │   ├── case-studies/ # Case study templates
+│   │   │   └── projects/     # Project templates
+│   │   └── partials/         # Reusable components
+│   └── app.js                # Main application entry point
+├── .env                      # Environment variables (not in repo)
+├── server.js                 # Server entry point for Heroku
+├── service-worker.js         # Service worker for PWA capabilities
+└── package.json              # Project dependencies and scripts
 ```
 
 ## Features
 
-- **Node.js Backend**: Server-side rendering for improved SEO and performance
-- **Database Integration**: PostgreSQL for storing form submissions and assessment data
-- **API Endpoints**: RESTful API for form submissions and data processing
-- **Responsive Design**: The website is fully responsive and works on all device sizes
-- **Modern Animations**: Subtle animations enhance the user experience
-- **Interactive Elements**: Service cards, testimonial carousels, and more
-- **Performance Optimized**: Server-side rendering, compression, and caching
-- **Accessibility Focused**: Meets WCAG guidelines for accessibility
+- **Express.js Backend**: Server-side rendering for improved SEO and performance
+- **PostgreSQL Integration**: Database for storing form submissions and assessment data
+- **RESTful API**: Endpoints for contact form, assessment tool, and status checks
+- **Interactive RevOps Assessment**: Tool to evaluate users' Revenue Operations maturity
+- **Case Studies Section**: Showcase of client success stories with detailed metrics
+- **Industries Day Project**: Interactive presentation on RevOps and automation
+- **Responsive Design**: Fully responsive layout for all device sizes
+- **Modern UI Elements**: Animations, testimonial sliders, and interactive components
+- **Performance Optimized**: Compression, caching, and efficient asset loading
 - **SEO Ready**: Proper meta tags, structured data, and semantic HTML
 
 ## Development Setup
@@ -81,9 +86,10 @@ revelate-website/
    npm install
    ```
 
-3. Copy the environment file template and edit as needed
+3. Set up your environment variables in a `.env` file:
    ```
-   cp .env.example .env
+   DATABASE_URL=postgres://username:password@localhost:5432/revelate
+   PORT=3000
    ```
 
 4. Set up the database
@@ -106,21 +112,7 @@ The application provides the following API endpoints:
 - `POST /api/assessments`: Submit RevOps assessment data
 - `GET /api/status`: Check API and database connection status
 
-## Production Deployment
-
-For production deployment:
-
-1. Set the appropriate environment variables:
-   - `NODE_ENV=production`
-   - `DATABASE_URL` (production database URL)
-   - Other security-related variables
-
-2. Run the application:
-   ```
-   npm start
-   ```
-
-### Heroku Deployment
+## Heroku Deployment
 
 The website is configured for Heroku deployment:
 
@@ -130,12 +122,19 @@ The website is configured for Heroku deployment:
    heroku addons:create heroku-postgresql:hobby-dev
    ```
 
-2. Push to Heroku:
+2. Deploy using the included script:
+   ```
+   ./deploy.sh
+   ```
+
+Or manually:
+
+1. Push to Heroku:
    ```
    git push heroku main
    ```
 
-3. Run the database setup:
+2. Run the database setup:
    ```
    heroku run npm run setup-db
    ```

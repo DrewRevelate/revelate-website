@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Full Throttle Revenue: How RevOps & Automation Drive Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    
+    <style>
+        /* Base Slide Styling */
+        #slide-5 {
+            background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+        
+        #slide-5:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><rect fill="rgba(225,6,0,0.03)" width="50" height="50"/><rect fill="rgba(225,6,0,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        #slide-5 .slide-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding-bottom: 60px;
+        }
+        
+        /* Warning signs background */
+        .warning-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 30%, rgba(225, 6, 0, 0.1) 0%, transparent 60%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Enhanced warning cards */
+        .warning-card {
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            padding-bottom: 1.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transform: translateY(0);
+            cursor: pointer;
+        }
+        
+        .warning-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(225, 6, 0, 0.3);
+        }
+        
+        .warning-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--racing-red), var(--accent-yellow));
+        }
+        
+        .warning-card h3 {
+            color: white;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-top: 0;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .warning-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.2), transparent);
+        }
+        
+        .warning-card p {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            margin-top: 0.7rem;
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .warning-card em {
+            display: block;
+            margin: 1rem 1.2rem 0.5rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            font-size: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 3px solid var(--racing-red);
+            line-height: 1.5;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .warning-card em br + span,
+        .warning-card em br + small {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        .stat-highlight {
+            display: inline-block;
+            color: white;
+            background: var(--racing-red);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            margin: 0 2px;
+            box-shadow: 0 2px 5px rgba(225, 6, 0, 0.2);
+        }
+        
+        /* Alert icon */
+        .alert-icon {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            color: var(--racing-red);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .warning-card:hover .alert-icon {
+            opacity: 1;
+        }
+        
+        /* Balance section improvements */
+        .balance-section {
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 1.8rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .balance-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--racing-red), var(--accent-yellow));
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .balance-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(225, 6, 0, 0.05), transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .balance-heading {
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 1.8rem;
+            color: white;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .balance-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, var(--racing-red), var(--accent-yellow));
+        }
+        
+        .balance-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .balance-column h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.01em;
+        }
+        
+        .automate-icon, .human-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .automate-icon {
+            background: var(--racing-red);
+            color: white;
+        }
+        
+        .human-icon {
+            background: #555;
+            color: white;
+        }
+        
+        /* Racing list enhancements */
+        .racing-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+        
+        .racing-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            transform: translateX(0);
+        }
+        
+        .racing-list li:hover {
+            transform: translateX(5px);
+            color: var(--racing-red);
+        }
+        
+        .racing-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: var(--racing-red);
+            border-radius: 2px;
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+        
+        /* Icon animations */
+        .automate-icon svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .automate-icon:hover svg {
+            transform: rotate(30deg);
+        }
+        
+        .human-icon svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .human-icon:hover svg {
+            transform: scale(1.1);
+        }
+        
+        /* Enhanced poll container */
+        .poll-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2.5rem;
+            position: relative;
+        }
+        
+        .poll-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, transparent, rgba(225, 6, 0, 0.1));
+            border-radius: 50% 0 0 0;
+            z-index: 1;
+        }
+        
+        .poll-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poll-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 50%, rgba(225, 6, 0, 0.1) 0%, transparent 70%);
+        }
+        
+        .poll-header h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: white;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .poll-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1.5rem 1.5rem 1rem;
+            color: white;
+        }
+        
+        .poll-option {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .poll-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .poll-option.selected {
+            background: rgba(225, 6, 0, 0.15);
+            border-left: 3px solid var(--racing-red);
+            transform: translateX(5px);
+        }
+        
+        .poll-option-text {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .poll-option-text b {
+            color: white;
+        }
+        
+        .poll-option-text span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .poll-results {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .poll-result-label, .poll-result-percentage {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .poll-result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        
+        .poll-bar {
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            height: 18px;
+            border-radius: 9px;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .poll-fill {
+            height: 100%;
+            border-radius: 9px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+        }
+        
+        .poll-actions {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .poll-submit {
+            background: linear-gradient(to right, var(--racing-red), var(--accent-yellow));
+            font-weight: 700;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 8px 20px rgba(225, 6, 0, 0.3);
+            transition: all 0.3s ease;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .poll-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(225, 6, 0, 0.4);
+        }
+        
+        .poll-skip {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .poll-skip:hover {
+            color: var(--racing-red);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Slide subtitle enhancement */
+        .slide-subtitle {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        /* Animation enhancements */
+        .animate {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .active .animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+            transition-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+            transition-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+            transition-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+            transition-delay: 0.8s;
+        }
+        
+        /* Highlight border for poll */
+        .highlight-border {
+            position: relative;
+        }
+        
+        .highlight-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--racing-red);
+            border-radius: 15px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Slide header improvements */
+        .slide-header {
+            margin-bottom: 2rem;
+        }
+        
+        .slide-header h2 {
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 15px rgba(225, 6, 0, 0.5);
+        }
+        
+        .slide-header h2 span {
+            color: var(--racing-red);
+            font-style: italic;
+        }
+        
+        .slide-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--racing-red);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slides-wrapper">
+            <section class="slide active" id="slide-5">
+                <div class="diagonal-divider"></div>
+                <div class="warning-bg"></div>
+                
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2 class="animate">NAVIGATING THE <span>PITFALLS</span></h2>
+                        <p class="slide-subtitle animate delay-1">Smart automation requires awareness of key challenges</p>
+                    </div>
+                    
+                    <div class="content-grid animate delay-2">
+                        <div class="warning-card">
+                            <h3>1. Data Quality Issues <span class="alert-icon">⚠️</span></h3>
+                            <p>Automation amplifies your data problems. Poor quality data costs businesses an estimated <span class="stat-highlight">$3 trillion</span> annually in lost opportunities and wasted resources.</p>
+                            <p>Bad data leads to misdirected outreach, inaccurate forecasting, and ineffective targeting.</p>
+                            <p><em>"If you automate a mess, you get an automated mess."<br><span>— Rod Michael, IBM Quality Expert</span></em></p>
+                        </div>
+                        <div class="warning-card">
+                            <h3>2. Loss of Personal Connection <span class="alert-icon">⚠️</span></h3>
+                            <p><span class="stat-highlight">71%</span> of customers report frustration with impersonal experiences. In sales, you can't simply "set it and forget it."</p>
+                            <p>Over-automation risks making customers feel like transactions rather than valuable partners.</p>
+                            <p><em>"The more high tech we have, the more high touch we will want."<br><span>— John Naisbitt, Author of "Megatrends"</span></em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid animate delay-3">
+                        <div class="warning-card">
+                            <h3>3. Compliance & Privacy Risks <span class="alert-icon">⚠️</span></h3>
+                            <p>Automated outreach must comply with regulations like <span class="stat-highlight">GDPR</span> and <span class="stat-highlight">CAN-SPAM</span>. Violations can result in significant financial penalties and reputation damage.</p>
+                            <p>Customer data requires robust security measures and transparent handling policies.</p>
+                            <p><em>"The average cost of a data breach is <span>$4.45 million</span> in 2023."<br><span>— IBM Cost of a Data Breach Report</span></em></p>
+                        </div>
+                        <div class="warning-card">
+                            <h3>4. AI Bias & Human Value <span class="alert-icon">⚠️</span></h3>
+                            <p>AI systems can unintentionally perpetuate biases present in training data, potentially leading to unfair treatment of customer segments.</p>
+                            <p>The future belongs to professionals who work effectively alongside automation, not those replaced by it.</p>
+                            <p><em>"AI won't replace salespeople. But salespeople who use AI will replace those who don't."<br><span>— Jared Spataro, Microsoft Corporate VP</span></em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="balance-section animate delay-4">
+                        <h3 class="balance-heading">The Winning Formula: Human + Machine</h3>
+                        <div class="balance-columns">
+                            <div class="balance-column">
+                                <h4>
+                                    <span class="automate-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M14.31 8l5.74 9.94"></path>
+                                            <path d="M9.69 8h10.61"></path>
+                                            <path d="M7.38 12l5.74-9.94"></path>
+                                            <path d="M7.35 16.15l10.68-2.63"></path>
+                                            <path d="M3.95 12l10.68 2.63"></path>
+                                        </svg>
+                                    </span>
+                                    Automate:
+                                </h4>
+                                <ul class="racing-list">
+                                    <li>High-volume, repetitive tasks</li>
+                                    <li>Data collection and enrichment</li>
+                                    <li>Initial outreach sequences</li>
+                                    <li>Follow-up reminders and scheduling</li>
+                                </ul>
+                            </div>
+                            <div class="balance-column">
+                                <h4>
+                                    <span class="human-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </span>
+                                    Keep Human:
+                                </h4>
+                                <ul class="racing-list">
+                                    <li>Relationship building and trust</li>
+                                    <li>Complex negotiations</li>
+                                    <li>Strategic account planning</li>
+                                    <li>Critical decision points</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="poll-container animate delay-4 highlight-border" data-poll-id="student-skills">
+                        <div class="poll-header">
+                            <h3><span style="color: var(--racing-red);">📊</span> INTERACTIVE POLL</h3>
+                            <div class="poll-user-id" id="userId"><span></span></div>
+                        </div>
+                        <div class="poll-question">For your first sales role, which skills would you prioritize developing?</div>
+                        <div class="poll-options">
+                            <div class="poll-option" data-value="technical">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text"><b>Technical skills</b><br><span style="font-size: 0.85rem; opacity: 0.9;">(CRM, automation tools, data analysis)</span></div>
+                            </div>
+                            <div class="poll-option" data-value="relationship">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text"><b>Relationship-building skills</b><br><span style="font-size: 0.85rem; opacity: 0.9;">(communication, empathy, trust)</span></div>
+                            </div>
+                            <div class="poll-option" data-value="strategic">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text"><b>Strategic skills</b><br><span style="font-size: 0.85rem; opacity: 0.9;">(industry knowledge, competitive analysis)</span></div>
+                            </div>
+                            <div class="poll-option" data-value="execution">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text"><b>Execution skills</b><br><span style="font-size: 0.85rem; opacity: 0.9;">(organization, time management, follow-through)</span></div>
+                            </div>
+                        </div>
+                        <div class="poll-results">
+                            <h4 style="color: rgba(255, 255, 255, 0.9);"><span style="color: var(--racing-red); margin-right: 0.5rem;">⚡</span>Live Class Results:</h4>
+                            <div class="poll-result-item" data-option="technical">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Technical skills</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="relationship">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Relationship-building skills</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="strategic">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Strategic skills</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="execution">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Execution skills</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poll-actions">
+                            <button class="poll-submit">
+                                <span style="position: relative; z-index: 1;">SUBMIT YOUR ANSWER</span>
+                            </button>
+                            <button class="poll-skip">
+                                Just Show Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-indicator" style="width: 75%"></div>
+        </div>
+        
+        <!-- Navigation Controls -->
+        <div class="slide-navigation">
+            <a href="05-automation-solutions.html" class="nav-button prev">←</a>
+            <a href="07-future-of-sales-tech.html" class="nav-button next">→</a>
+        </div>
+        
+        <!-- Slide Indicator -->
+        <div class="slide-indicator">Slide 6/8</div>
+        
+        <!-- Keyboard Navigation Hint -->
+        <div class="keyboard-instructions">Use ← → arrows or Space to navigate</div>
+    </div>
+    
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the correct slide indicator for direct HTML viewing
+            const indicator = document.querySelector('.slide-indicator');
+            if (indicator) {
+                indicator.textContent = 'Slide 6/8';
+            }
+            
+            // Add hover effects to warning cards - simple hover only, no animations
+            const warningCards = document.querySelectorAll('.warning-card');
+            warningCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
+                    this.style.borderColor = 'rgba(225, 6, 0, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
+                    this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                });
+            });
+            
+            // Add hover effects to list items
+            const listItems = document.querySelectorAll('.racing-list li');
+            listItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.color = 'var(--racing-red)';
+                    this.style.transform = 'translateX(5px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.color = 'rgba(255, 255, 255, 0.9)';
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowRight' || event.key === ' ') {
+                    window.location.href = '07-future-of-sales-tech.html';
+                } else if (event.key === 'ArrowLeft') {
+                    window.location.href = '05-automation-solutions.html';
+                }
+            });
+            
+            // Enhanced animations with staggered timing
+            setTimeout(function() {
+                const elements = document.querySelectorAll('.animate');
+                elements.forEach(function(element, index) {
+                    setTimeout(function() {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+            }, 200);
+            
+            // Setup poll functionality
+            const pollContainer = document.querySelector('.poll-container');
+            const pollId = pollContainer.dataset.pollId || 'student-skills';
+            const fullPollId = `slide-5-${pollId}`;
+            const pollOptions = document.querySelectorAll('.poll-option');
+            const submitBtn = document.querySelector('.poll-submit');
+            const skipBtn = document.querySelector('.poll-skip');
+            const resultsDiv = document.querySelector('.poll-results');
+            
+            // Generate a user ID if not already present
+            let userId;
+            try {
+                userId = localStorage.getItem('fullThrottleUserId') || Math.random().toString(36).substring(2, 10);
+                localStorage.setItem('fullThrottleUserId', userId);
+                
+                const userIdSpan = document.querySelector('#userId span');
+                if (userIdSpan) {
+                    userIdSpan.textContent = userId;
+                }
+            } catch (error) {
+                console.log("LocalStorage not available");
+                userId = Math.random().toString(36).substring(2, 10);
+            }
+            
+            // Function to fetch current poll data
+            function fetchPollData() {
+                return fetch(`/api/polls/${fullPollId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        updatePollResults(data);
+                        return data;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching poll data:', error);
+                        // Fallback to local demo data if server is unavailable
+                        return {
+                            "technical": 25,
+                            "relationship": 40,
+                            "strategic": 20,
+                            "execution": 15
+                        };
+                    });
+            }
+            
+            // Function to update the UI with poll results
+            function updatePollResults(data) {
+                // Calculate total votes
+                const total = Object.values(data).reduce((sum, val) => sum + Number(val), 0);
+                
+                // If no votes yet, don't update the display
+                if (total === 0) return;
+                
+                // Update each result item
+                Object.keys(data).forEach(option => {
+                    const percentage = total > 0 ? Math.round((data[option] / total) * 100) : 0;
+                    const resultItem = document.querySelector(`.poll-result-item[data-option="${option}"]`);
+                    
+                    if (resultItem) {
+                        const percentageEl = resultItem.querySelector('.poll-result-percentage');
+                        const fillEl = resultItem.querySelector('.poll-fill');
+                        
+                        if (percentageEl) percentageEl.textContent = `${percentage}%`;
+                        if (fillEl) {
+                            fillEl.style.width = `${percentage}%`;
+                        }
+                    }
+                });
+                
+                // Show the results section
+                resultsDiv.classList.add('show');
+            }
+            
+            // Option selection with minimal effects
+            pollOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selection from all options first (single selection)
+                    pollOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                        opt.style.transform = '';
+                    });
+                    
+                    // Then select the clicked option
+                    this.classList.add('selected');
+                    this.style.transform = 'translateX(5px)';
+                });
+                
+                // Add hover effects
+                option.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.style.transform = 'translateX(3px)';
+                    }
+                });
+                
+                option.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.style.transform = '';
+                    }
+                });
+            });
+            
+            // Submit button handler with simple effects
+            if (submitBtn) {
+                submitBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                submitBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+                
+                submitBtn.addEventListener('click', function() {
+                    const selectedOptions = document.querySelectorAll('.poll-option.selected');
+                    if (selectedOptions.length === 0) return;
+                    
+                    // Get selected option values
+                    const votes = Array.from(selectedOptions).map(option => option.dataset.value);
+                    
+                    // Submit votes to server
+                    fetch(`/api/polls/${fullPollId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            userId: userId,
+                            votes: votes
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        updatePollResults(data);
+                        
+                        // Disable further voting
+                        pollOptions.forEach(option => {
+                            option.style.pointerEvents = 'none';
+                        });
+                        
+                        submitBtn.disabled = true;
+                        submitBtn.style.opacity = '0.5';
+                    })
+                    .catch(error => {
+                        console.error('Error submitting poll:', error);
+                        
+                        // Fallback to random results if server is unavailable
+                        const options = ['technical', 'relationship', 'strategic', 'execution'];
+                        const results = {};
+                        
+                        options.forEach(option => {
+                            results[option] = Math.floor(Math.random() * 100);
+                        });
+                        
+                        // Normalize to make them sum to 100%
+                        const total = Object.values(results).reduce((sum, val) => sum + val, 0);
+                        options.forEach(option => {
+                            results[option] = Math.round((results[option] / total) * 100);
+                        });
+                        
+                        updatePollResults(results);
+                        
+                        // Disable further voting
+                        pollOptions.forEach(option => {
+                            option.style.pointerEvents = 'none';
+                        });
+                        
+                        submitBtn.disabled = true;
+                        submitBtn.style.opacity = '0.5';
+                    });
+                });
+            }
+            
+            // Skip button handler with simple effects
+            if (skipBtn) {
+                skipBtn.addEventListener('mouseenter', function() {
+                    this.style.color = 'var(--racing-red)';
+                });
+                
+                skipBtn.addEventListener('mouseleave', function() {
+                    this.style.color = 'rgba(255, 255, 255, 0.6)';
+                });
+                
+                skipBtn.addEventListener('click', function() {
+                    // Just fetch and show current results
+                    fetchPollData();
+                });
+            }
+            
+            // Fetch initial poll data when page loads
+            fetchPollData();
+            
+            // Set up a polling interval to keep results updated
+            setInterval(fetchPollData, 10000); // Update every 10 seconds
+        });
+    </script>
+</body>
+</html>

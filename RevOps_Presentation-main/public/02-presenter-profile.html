@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Full Throttle Revenue: How RevOps & Automation Drive Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    
+    <style>
+        /* Override the slide background to match our dark theme */
+        #slide-1 {
+            background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        #slide-1:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><rect fill="rgba(225,6,0,0.03)" width="50" height="50"/><rect fill="rgba(225,6,0,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        #slide-1 .slide-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem 3rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        /* Redesigned layout for better space utilization */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+        }
+        
+        /* Left column: Profile image and specialties */
+        .profile-left-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid var(--racing-red);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent 50%);
+        }
+        
+        /* Right column: Profile information and descriptions */
+        .profile-right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .profile-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-name {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+            color: white;
+            text-shadow: 0 2px 15px rgba(225, 6, 0, 0.4);
+            line-height: 1.1;
+        }
+        
+        .profile-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+            border-radius: 2px;
+            box-shadow: 0 2px 10px rgba(225, 6, 0, 0.3);
+        }
+        
+        .profile-title {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-top: 1rem;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+        
+        .profile-companies {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .company-block {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            border-left: 4px solid var(--racing-red);
+        }
+        
+        .profile-company {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--racing-red);
+            text-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
+            display: block;
+        }
+        
+        .profile-role {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: white;
+        }
+        
+        .profile-description {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .profile-specialties {
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+        
+        .profile-specialties::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 0 15px rgba(225, 6, 0, 0.3);
+        }
+        
+        .profile-specialties h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.8rem;
+            width: 100%;
+        }
+        
+        .specialty-item {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1rem;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .specialty-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: rgba(225, 6, 0, 0.3);
+        }
+        
+        .specialty-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(225, 6, 0, 0.2);
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(225, 6, 0, 0.2);
+        }
+        
+        .specialty-icon svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--racing-red);
+            stroke-width: 2;
+        }
+        
+        /* Media queries for responsiveness */
+        @media (max-width: 1200px) {
+            .profile-container {
+                grid-template-columns: 1fr 1.5fr;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .profile-left-column {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+                gap: 2rem;
+            }
+            
+            .profile-image-container {
+                margin-bottom: 0;
+            }
+            
+            .profile-specialties {
+                height: 100%;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-left-column {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .profile-header {
+                text-align: center;
+            }
+            
+            .company-block {
+                margin-bottom: 3rem;
+                padding: 2rem;
+            }
+            
+            .profile-companies {
+                margin-bottom: 5rem;
+            }
+            
+            .profile-name {
+                font-size: 2.8rem;
+            }
+            
+            .profile-name::after {
+                width: 100%;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            
+            .profile-title {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-image {
+                width: 160px;
+                height: 160px;
+            }
+            
+            #slide-1 .slide-content {
+                padding: 2rem 1.5rem;
+                padding-bottom: 500px; /* Extreme padding to ensure everything is visible */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #slide-1 .slide-content {
+                padding-bottom: 600px; /* Extreme padding for smallest screens */
+            }
+        }
+        
+        /* Animation classes */
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .active .animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 {
+            transition-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            transition-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            transition-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slides-wrapper">
+            <section class="slide active profile-slide" id="slide-1">
+                
+                <div class="slide-content">
+                    <div class="profile-container">
+                        <!-- Left Column: Image and Specialties -->
+                        <div class="profile-left-column">
+                            <div class="profile-image-container animate">
+                                <div class="profile-image">
+                                    <img src="../images/profile.jpeg" alt="Drew Lambert" width="220" height="220">
+                                </div>
+                            </div>
+                            
+                            <div class="profile-specialties animate delay-2">
+                                <h3>Specialties</h3>
+                                <div class="specialties-grid">
+                                    <div class="specialty-item">
+                                        <span class="specialty-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                <circle cx="9" cy="7" r="4"></circle>
+                                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                            </svg>
+                                        </span>
+                                        RevOps Strategy
+                                    </div>
+                                    <div class="specialty-item">
+                                        <span class="specialty-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                            </svg>
+                                        </span>
+                                        Apex & LWC
+                                    </div>
+                                    <div class="specialty-item">
+                                        <span class="specialty-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <path d="M12 8v4l3 3"></path>
+                                            </svg>
+                                        </span>
+                                        Workflow Automation
+                                    </div>
+                                    <div class="specialty-item">
+                                        <span class="specialty-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                            </svg>
+                                        </span>
+                                        API Integrations
+                                    </div>
+                                    <div class="specialty-item">
+                                        <span class="specialty-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="3"></circle>
+                                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                            </svg>
+                                        </span>
+                                        Data Architecture
+                                    </div>
+                                    <div class="specialty-item">
+                                        <span class="specialty-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                                            </svg>
+                                        </span>
+                                        Revenue Analytics
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column: Profile Info and Companies -->
+                        <div class="profile-right-column">
+                            <div class="profile-header animate">
+                                <h1 class="profile-name">Drew Lambert</h1>
+                                <p class="profile-title">Revenue Operations Expert & Salesforce Engineer</p>
+                            </div>
+                            
+                            <div class="profile-companies animate delay-1">
+                                <div class="company-block">
+                                    <h3 class="profile-company">REVELATE OPERATIONS, LLC</h3>
+                                    <p class="profile-role">Founder & Principal Consultant</p>
+                                    <p class="profile-description">
+                                        Drew Lambert is a Revenue Operations expert with over 7 years of experience in Salesforce and automation technologies. He specializes in designing and implementing revenue systems that enhance operational efficiency and drive measurable business growth.
+                                    </p>
+                                </div>
+                                
+                                <div class="company-block">
+                                    <h3 class="profile-company">BEVI</h3>
+                                    <p class="profile-role">Senior Salesforce Engineer</p>
+                                    <p class="profile-description">
+                                        At Bevi, Drew leads enterprise Salesforce engineering initiatives, focusing on scaling revenue operations through intelligent automation, cross-platform data integration, and streamlined business processes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-indicator" style="width: 25%"></div>
+                </div>
+        
+        <!-- Navigation Controls -->
+        <div class="slide-navigation">
+            <a href="01-introduction.html" class="nav-button prev">←</a>
+            <a href="03-revenue-acceleration.html" class="nav-button next">→</a>
+        </div>
+        
+        <!-- Slide Indicator -->
+                    <div class="slide-indicator">Slide 1/8</div>
+        
+        <!-- Keyboard Navigation Hint -->
+        <div class="keyboard-instructions">Use ← → arrows or Space to navigate</div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the correct slide indicator for direct HTML viewing
+            const indicator = document.querySelector('.slide-indicator');
+            if (indicator) {
+                indicator.textContent = 'Slide 2/8';
+            }
+            // Keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowRight' || event.key === ' ') {
+                    window.location.href = '03-revenue-acceleration.html';
+                } else if (event.key === 'ArrowLeft') {
+                    window.location.href = '01-introduction.html';
+                }
+            });
+            
+            // Enhanced animations with staggered timing
+            setTimeout(function() {
+                const elements = document.querySelectorAll('.animate');
+                elements.forEach(function(element, index) {
+                    setTimeout(function() {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+            }, 200);
+            
+            // Handle disabled button
+            const prevBtn = document.querySelector('.nav-button.prev');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function(e) {
+                    if (this.classList.contains('disabled')) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="mobile-touch.js"></script>
+</body>
+</html>

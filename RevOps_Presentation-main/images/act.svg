@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Solid black circle background -->
+  <circle cx="100" cy="100" r="100" fill="#000000"/>
+  
+  <!-- White ACT! text -->
+  <text x="100" y="110" 
+        font-family="Arial, sans-serif" 
+        font-weight="bold" 
+        font-size="70" 
+        text-anchor="middle" 
+        fill="white">
+    act!
+  </text>
+  
+  <!-- Trademark symbol - white and precisely positioned -->
+  <text x="145" y="60" 
+        font-family="Arial, sans-serif" 
+        font-weight="bold" 
+        font-size="20" 
+        fill="white">
+    ™
+  </text>
+</svg>

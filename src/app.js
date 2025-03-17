@@ -78,6 +78,14 @@ app.use('/images', express.static(path.join(__dirname, '../images')));
 app.use('/css', express.static(path.join(__dirname, '../assets/css')));
 app.use('/js', express.static(path.join(__dirname, '../assets/js')));
 
+// RevOps Presentation - Serve as static files under /projects/industries-day
+app.use('/projects/industries-day', express.static(path.join(__dirname, '../RevOps_Presentation-main')));
+
+// Service Worker for PWA support
+app.get('/service-worker.js', (req, res) => {
+  res.sendFile(path.join(__dirname, '../service-worker.js'));
+});
+
 // Use routes
 app.use('/api', apiRoutes);
 app.use('/', pageRoutes);
@@ -100,6 +108,16 @@ app.use((err, req, res, next) => {
     message: 'Something went wrong on the server.',
     statusCode: 500
   });
+});
+
+// Database setup
+const db = require('./config/database');
+db.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('Database connection error', err.stack);
+  } else {
+    console.log('Database connected successfully at:', res.rows[0].now);
+  }
 });
 
 // Start server

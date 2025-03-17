@@ -1,0 +1,38 @@
+{
+  "name": "full-throttle-revenue-presentation",
+  "version": "1.0.0",
+  "description": "Interactive presentation on RevOps and Automation for college business undergrads",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node db/migrations/schema.js",
+    "migrate:crm": "node db/migrations/run-crm-upgrade.js",
+    "migrate:unified": "node db/migrations/run-unified-system.js",
+    "backup": "node tools/backup-data.js",
+    "export": "node tools/export-data.js",
+    "heroku-postbuild": "npm install && npm run migrate:crm && npm run migrate:unified"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "json2csv": "^5.0.7",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.1",
+    "pg": "^8.14.0"
+  },
+  "devDependencies": {
+    "better-sqlite3": "^8.7.0",
+    "sqlite3": "^5.1.6"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "author": "Drew Lambert",
+  "license": "MIT",
+  "private": true
+}

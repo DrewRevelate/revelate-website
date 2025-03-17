@@ -1,24 +1,18 @@
 #!/bin/bash
 
-# Make scripts executable
-chmod +x cleanup.sh
-
-# Run cleanup script
-./cleanup.sh
-
 # Add all changes to git
 echo "Adding files to git..."
 git add .
 
 # Commit changes
 echo "Committing changes..."
-git commit -m "Convert from Jekyll to Express.js architecture
+git commit -m "Update Express.js website architecture
 
-- Complete rebuild of website with Node.js and Express
-- Add database integration for contact form and assessment
-- Implement API endpoints for data submission
-- Create EJS templating system with layouts
-- Optimize deployment configuration for Heroku"
+- Improve Express.js implementation with EJS templates
+- Optimize PostgreSQL database integration
+- Update API endpoints for data submission
+- Enhance routing system and static file serving
+- Refine deployment configuration for Heroku"
 
 # Push to GitHub
 echo "Pushing to GitHub..."

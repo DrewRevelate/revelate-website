@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Full Throttle Revenue: How RevOps & Automation Drive Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    
+    <style>
+        /* Enhanced Slide Design */
+        #slide-2 {
+            background: linear-gradient(135deg, #121212, #1e1e1e, #2a2a2a);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #slide-2:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><rect fill="rgba(225,6,0,0.03)" width="50" height="50"/><rect fill="rgba(225,6,0,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        #slide-2 .slide-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        #slide-2 .slide-header h2 {
+            color: white;
+            text-shadow: 0 2px 15px rgba(225, 6, 0, 0.5);
+        }
+        
+        #slide-2 .slide-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        #slide-2 p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #slide-2 .racing-list li {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        #slide-2 .secondary-heading {
+            color: white;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        #slide-2 .secondary-heading:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 8px;
+            height: 25px;
+            background: var(--racing-red);
+            transform: translateY(-50%);
+        }
+        
+        /* Modern Dashboard Style Speedometer */
+        #slide-2 .speedometer {
+            width: 320px;
+            height: 320px;
+            position: relative;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #222, #333);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5),
+                        inset 0 2px 10px rgba(255,255,255,0.07),
+                        inset 0 -5px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        
+        #slide-2 .speedometer:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.08) 0%, 
+                rgba(255,255,255,0) 50%, 
+                rgba(0,0,0,0.15) 100%);
+            border-radius: 50%;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        #slide-2 .speedometer-outer {
+            position: absolute;
+            width: 96%;
+            height: 96%;
+            top: 2%;
+            left: 2%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #222;
+        }
+        
+        #slide-2 .speedometer-inner {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1a1a1a, #252525);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        #slide-2 .inner-content {
+            font-family: 'Titillium Web', sans-serif;
+            color: white;
+            text-align: center;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+        
+        #slide-2 .efficiency-number {
+            font-size: 38px;
+            font-weight: 700;
+            color: #FFDA0A;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+            text-shadow: 0 0 10px rgba(255, 218, 10, 0.3);
+        }
+        
+        #slide-2 .efficiency-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        #slide-2 .efficiency-subtitle {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            max-width: 150px;
+            margin-top: 10px;
+        }
+        
+        #slide-2 .speedometer-gauge {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                #E10600 0%, 
+                #FF5300 15%, 
+                #FFDA0A 28%,
+                rgba(255, 255, 255, 0.05) 28%
+            );
+            border-radius: 50%;
+            z-index: 1;
+            transform: rotate(-145deg);
+        }
+        
+        #slide-2 .speedometer-center {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #E10600;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            box-shadow: 0 0 15px rgba(225, 6, 0, 0.8);
+        }
+        
+        #slide-2 .speedometer-needle {
+            position: absolute;
+            width: 130px;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(225, 6, 0, 0.8), #E10600);
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) rotate(-145deg);
+            transform-origin: left center;
+            z-index: 3;
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(225, 6, 0, 0.7);
+        }
+        
+        #slide-2 .speedometer-needle::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(145deg, #E10600, #c10000);
+            border-radius: 50%;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 15px rgba(225, 6, 0, 0.7),
+                        inset 0 1px 3px rgba(255,255,255,0.2);
+        }
+        
+        @keyframes revEngine {
+            0% { transform: translateY(-50%) rotate(-145deg); }
+            20% { transform: translateY(-50%) rotate(-75deg); }
+            30% { transform: translateY(-50%) rotate(-65deg); }
+            40% { transform: translateY(-50%) rotate(-50deg); }
+            45% { transform: translateY(-50%) rotate(-45deg); }
+            50% { transform: translateY(-50%) rotate(-30deg); }
+            100% { transform: translateY(-50%) rotate(30deg); }
+        }
+        
+        #slide-2 .rev-animation {
+            animation: revEngine 60s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+        }
+        
+        /* Enhanced Markings */
+        #slide-2 .speedometer-markings {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        #slide-2 .speedometer-marking {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform-origin: 50% 142px;
+            width: 2px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        #slide-2 .speedometer-marking.major {
+            height: 12px;
+            width: 3px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Add time percentage indicators */
+        #slide-2 .time-indicator {
+            position: absolute;
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            z-index: 2;
+        }
+        
+        #slide-2 .time-indicator.t0 {
+            bottom: 40%;
+            left: 10%;
+        }
+        
+        #slide-2 .time-indicator.t25 {
+            bottom: 65%;
+            left: 20%;
+        }
+        
+        #slide-2 .time-indicator.t50 {
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        #slide-2 .time-indicator.t75 {
+            bottom: 65%;
+            right: 20%;
+        }
+        
+        #slide-2 .time-indicator.t100 {
+            bottom: 40%;
+            right: 10%;
+        }
+        
+        /* Enhanced stats cards */
+        #slide-2 .stat-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        #slide-2 .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        #slide-2 .stat-number {
+            color: var(--racing-red);
+            text-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
+        }
+        
+        /* Enhanced poll container */
+        #slide-2 .poll-container {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        #slide-2 .poll-header h3,
+        #slide-2 .poll-question {
+            color: white;
+        }
+        
+        #slide-2 .poll-option {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        #slide-2 .poll-option:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        #slide-2 .poll-option.selected {
+            background: rgba(225, 6, 0, 0.15);
+            border-color: rgba(225, 6, 0, 0.3);
+        }
+        
+        #slide-2 .poll-option-text {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        #slide-2 .poll-submit {
+            background: var(--racing-red);
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.4);
+        }
+        
+        #slide-2 .poll-skip {
+            color: rgba(255,255,255,0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slides-wrapper">
+            <section class="slide active" id="slide-2">
+                <div class="speedometer-bg"></div>
+                <div class="diagonal-divider"></div>
+                
+                <div class="slide-content">
+                    <div class="slide-header">
+                        <h2 class="animate speed">REVVING UP <span>REVENUE</span></h2>
+                        <p class="slide-subtitle animate delay-1">Did you know sales reps only spend about 28% of their week actually selling?</p>
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="content-col">
+                            <p class="animate delay-1">Most of their time is spent on administrative tasks, rather than the high-value activities that drive revenue. In today's fast-paced sales landscape, every minute saved is money earned.</p>
+                            
+                            <h3 class="animate delay-2 secondary-heading">How Automation Turbocharges Revenue:</h3>
+                            <ul class="racing-list animate delay-3">
+                                <li>Building a modern sales tech stack</li>
+                                <li>Boosting efficiency at each stage of the sales process</li>
+                                <li>Balancing tech with the human touch for maximum impact</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-col animate zoom delay-2">
+                            <div class="speedometer">
+                                <div class="time-indicator t0">0%</div>
+                                <div class="time-indicator t25">25%</div>
+                                <div class="time-indicator t50">50%</div>
+                                <div class="time-indicator t75">75%</div>
+                                <div class="time-indicator t100">100%</div>
+                                
+                                <div class="speedometer-outer"></div>
+                                <div class="speedometer-gauge"></div>
+                                <div class="speedometer-inner">
+                                    <div class="inner-content">
+                                        <div class="efficiency-number">28%</div>
+                                        <div class="efficiency-label">SELLING TIME</div>
+                                        <div class="efficiency-subtitle">of a sales rep's week is spent actively selling</div>
+                                    </div>
+                                </div>
+                                <div class="speedometer-markings">
+                                    <!-- Generate markings dynamically with JS -->
+                                </div>
+                                <div class="speedometer-needle" id="speedometer-needle"></div>
+                                <div class="speedometer-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-container animate delay-3">
+                        <div class="card stat-card">
+                            <div class="stat-number">15%</div>
+                            <p>Increased profitability for businesses with aligned RevOps</p>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-number">80%</div>
+                            <p>of B2B sales interactions expected to be digital by 2025</p>
+                        </div>
+                        <div class="card stat-card">
+                            <div class="stat-number">5hrs</div>
+                            <p>Average time saved per week per rep through automation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="poll-container animate delay-4" data-poll-id="default">
+                        <div class="poll-header">
+                            <h3>Interactive Poll</h3>
+                            <div class="poll-user-id" id="userId">Your ID: <span></span></div>
+                        </div>
+                        <div class="poll-question">What would you do with 5 extra hours per week?</div>
+                        <div class="poll-options">
+                            <div class="poll-option" data-value="prospecting">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text">More prospecting</div>
+                            </div>
+                            <div class="poll-option" data-value="client-meetings">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text">Additional client meetings</div>
+                            </div>
+                            <div class="poll-option" data-value="learning">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text">Learning new skills</div>
+                            </div>
+                            <div class="poll-option" data-value="planning">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text">Strategic planning</div>
+                            </div>
+                            <div class="poll-option" data-value="personal">
+                                <div class="poll-option-check"></div>
+                                <div class="poll-option-text">Personal time/life balance</div>
+                            </div>
+                        </div>
+                        <div class="poll-results">
+                            <h4>Live Class Results:</h4>
+                            <div class="poll-result-item" data-option="prospecting">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">More prospecting</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="client-meetings">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Additional client meetings</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="learning">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Learning new skills</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="planning">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Strategic planning</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="poll-result-item" data-option="personal">
+                                <div class="poll-result-header">
+                                    <div class="poll-result-label">Personal time/life balance</div>
+                                    <div class="poll-result-percentage">0%</div>
+                                </div>
+                                <div class="poll-bar">
+                                    <div class="poll-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="poll-actions">
+                            <button class="poll-submit">Submit Answer</button>
+                            <button class="poll-skip">Just Show Results</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-indicator" style="width: 37.5%"></div>
+        </div>
+        
+        <!-- Navigation Controls -->
+        <div class="slide-navigation">
+            <a href="02-presenter-profile.html" class="nav-button prev">←</a>
+            <a href="04-sales-tech-evolution.html" class="nav-button next">→</a>
+        </div>
+        
+        <!-- Slide Indicator -->
+        <div class="slide-indicator">Slide 3/8</div>
+        
+        <!-- Keyboard Navigation Hint -->
+        <div class="keyboard-instructions">Use ← → arrows or Space to navigate</div>
+    </div>
+    
+    <!-- Import the main script for full functionality -->
+    <script src="../script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'ArrowRight' || event.key === ' ') {
+                    window.location.href = '04-sales-tech-evolution.html';
+                } else if (event.key === 'ArrowLeft') {
+                    window.location.href = '02-presenter-profile.html';
+                }
+            });
+            
+            // Set the correct slide indicator for direct HTML viewing
+            const indicator = document.querySelector('.slide-indicator');
+            if (indicator) {
+                indicator.textContent = 'Slide 3/8';
+            }
+            
+            // Generate speedometer markings
+            const markingsContainer = document.querySelector('.speedometer-markings');
+            if (markingsContainer) {
+                for (let i = 0; i < 36; i++) {
+                    const isMajor = i % 3 === 0;
+                    const marking = document.createElement('div');
+                    marking.className = isMajor ? 'speedometer-marking major' : 'speedometer-marking';
+                    marking.style.transform = `rotate(${i * 10}deg) translateX(-50%)`;
+                    markingsContainer.appendChild(marking);
+                }
+            }
+            
+            // Speedometer animation - gradually build to 28% over 28 seconds
+            const speedometerNeedle = document.getElementById('speedometer-needle');
+            if (speedometerNeedle) {
+                setTimeout(function() {
+                    speedometerNeedle.classList.add('rev-animation');
+                    
+                    // Update efficiency display during animation
+                    // Start at 28% efficiency and go to 100% over 45 seconds
+                    let displayValue = 0;
+                    const totalTime = 60000; // 28 seconds in milliseconds
+                    const updateInterval = 1000; // Update every 1 second
+                    const totalSteps = totalTime / updateInterval;
+                    const incrementPerStep = 100 / totalSteps; // Increment per step
+                    
+                    const displayInterval = setInterval(function() {
+                        const display = document.querySelector('.efficiency-number');
+                        if (display) {
+                            displayValue = Math.min(100, displayValue + incrementPerStep);
+                            const roundedValue = Math.round(displayValue);
+                            display.textContent = `${roundedValue}%`;
+                            
+                            // Update subtitle text based on progress
+                            const subtitle = document.querySelector('.efficiency-subtitle');
+                            if (subtitle) {
+                                if (roundedValue < 28) {
+                                    subtitle.textContent = 'of a sales rep\'s week is spent actively selling';
+                                } else if (roundedValue < 50) {
+                                    subtitle.textContent = 'more time for selling with automation';
+                                } else if (roundedValue < 90) {
+                                    subtitle.textContent = 'efficiency achievable with RevOps';
+                                } else {
+                                    subtitle.textContent = 'productivity boost possible!';
+                                }
+                            }
+                            
+                            if (displayValue >= 100) {
+                                clearInterval(displayInterval);
+                                // Keep at 100% once reached
+                                display.textContent = '100%';
+                            }
+                        }
+                    }, updateInterval);
+                }, 1000);
+            }
+            
+            // Initialize poll functionality
+            // Since we're loading the page directly, we need to make sure the poll is initialized
+            const pollContainer = document.querySelector('.poll-container');
+            if (pollContainer) {
+                // Make sure the poll ID is correctly set and matches the database
+                pollContainer.dataset.pollId = 'default';
+                
+                // Make the poll visible and expanded by default
+                pollContainer.classList.remove('collapsed');
+                pollContainer.classList.add('expanded');
+                
+                // Ensure the poll is active
+                pollContainer.classList.remove('inactive');
+                pollContainer.classList.add('active');
+                
+                // Check if user has already voted
+                try {
+                    const savedVotes = localStorage.getItem('fullThrottleUserVotes');
+                    if (savedVotes) {
+                        const userVotes = JSON.parse(savedVotes);
+                        if (userVotes['slide-2-default']) {
+                            // User already voted, show results
+                            pollContainer.classList.add('voted');
+                            pollContainer.classList.add('finalized');
+                            
+                            // Show results and hide options
+                            const resultsDiv = pollContainer.querySelector('.poll-results');
+                            if (resultsDiv) {
+                                resultsDiv.classList.add('show');
+                            }
+                            
+                            // Replace action buttons with thank you message
+                            const actionsContainer = pollContainer.querySelector('.poll-actions');
+                            if (actionsContainer) {
+                                actionsContainer.innerHTML = '<div class="poll-submitted-message">Your response has been recorded. Thank you!</div>';
+                            }
+                        }
+                    }
+                } catch (e) {
+                    console.warn('Error checking local vote storage:', e);
+                }
+            }
+            
+            // If the main script's setupPolls function is available, use it
+            if (typeof setupPolls === 'function') {
+                setupPolls();
+            } else {
+                // Otherwise, implement basic poll functionality
+                const options = pollContainer.querySelectorAll('.poll-option');
+                const submitBtn = pollContainer.querySelector('.poll-submit');
+                const skipBtn = pollContainer.querySelector('.poll-skip');
+                
+                // Toggle option selection
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        // Single selection mode
+                        options.forEach(opt => {
+                            opt.classList.remove('selected');
+                        });
+                        this.classList.toggle('selected');
+                    });
+                });
+                
+                // Submit button
+                if (submitBtn) {
+                    submitBtn.addEventListener('click', async function() {
+                        const selectedOptions = pollContainer.querySelectorAll('.poll-option.selected');
+                        if (selectedOptions.length === 0) return;
+                        
+                        // Collect selected values
+                        const votes = [];
+                        selectedOptions.forEach(option => {
+                            if (option.dataset.value) {
+                                votes.push(option.dataset.value);
+                            }
+                        });
+                        
+                        // Show loading state
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Submitting...';
+                        
+                        try {
+                            // Submit to server
+                            const userId = localStorage.getItem('fullThrottleUserId') || 
+                                         'anonymous-' + Math.random().toString(36).substring(2, 10);
+                            
+                            const response = await fetch('/api/polls/slide-2-default', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ 
+                                    votes: votes,
+                                    userId: userId,
+                                    slideId: 'slide-2',
+                                    userAgent: navigator.userAgent,
+                                    screen: `${window.screen.width}x${window.screen.height}`
+                                })
+                            });
+                            
+                            const data = await response.json();
+                            
+                            // Record vote in localStorage
+                            try {
+                                let userVotes = {};
+                                const savedVotes = localStorage.getItem('fullThrottleUserVotes');
+                                if (savedVotes) {
+                                    userVotes = JSON.parse(savedVotes);
+                                }
+                                userVotes['slide-2-default'] = votes;
+                                localStorage.setItem('fullThrottleUserVotes', JSON.stringify(userVotes));
+                            } catch (error) {
+                                console.warn("LocalStorage not available for votes tracking");
+                            }
+                            
+                            // Update results
+                            const results = data.results || {};
+                            updateResults(results);
+                            
+                            // Show results
+                            const resultsDiv = pollContainer.querySelector('.poll-results');
+                            if (resultsDiv) {
+                                resultsDiv.classList.add('show');
+                            }
+                            
+                            // Remove the options container and replace with results
+                            const optionsContainer = pollContainer.querySelector('.poll-options');
+                            if (optionsContainer) {
+                                optionsContainer.style.display = 'none';
+                            }
+                            
+                            // Replace action buttons with thank you message
+                            const actionsContainer = pollContainer.querySelector('.poll-actions');
+                            if (actionsContainer) {
+                                actionsContainer.innerHTML = '<div class="poll-submitted-message">Your response has been recorded. Thank you!</div>';
+                            }
+                            
+                            // Mark poll as voted
+                            pollContainer.classList.add('voted');
+                            pollContainer.classList.add('finalized');
+                        } catch (error) {
+                            console.error('Error submitting vote:', error);
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Submit Answer';
+                            alert('Failed to submit your vote. Please try again.');
+                        }
+                    });
+                }
+                
+                // Skip button
+                if (skipBtn) {
+                    skipBtn.addEventListener('click', async function() {
+                        try {
+                            // Fetch current results
+                            const response = await fetch('/api/polls/slide-2-default');
+                            const data = await response.json();
+                            
+                            if (data.success && data.results) {
+                                updateResults(data.results);
+                            }
+                            
+                            // Show results
+                            const resultsDiv = pollContainer.querySelector('.poll-results');
+                            if (resultsDiv) {
+                                resultsDiv.classList.add('show');
+                            }
+                            
+                            // Remove the options container and replace with results
+                            const optionsContainer = pollContainer.querySelector('.poll-options');
+                            if (optionsContainer) {
+                                optionsContainer.style.display = 'none';
+                            }
+                            
+                            // Replace action buttons with message
+                            const actionsContainer = pollContainer.querySelector('.poll-actions');
+                            if (actionsContainer) {
+                                actionsContainer.innerHTML = '<div class="poll-submitted-message">You are viewing results without voting.</div>';
+                            }
+                            
+                            // Mark poll as skipped
+                            pollContainer.classList.add('skipped');
+                            pollContainer.classList.add('finalized');
+                        } catch (error) {
+                            console.error('Error fetching results:', error);
+                            alert('Failed to fetch poll results. Please try again.');
+                        }
+                    });
+                }
+                
+                // Function to update poll results
+                function updateResults(pollData) {
+                    const resultItems = pollContainer.querySelectorAll('.poll-result-item');
+                    if (resultItems.length === 0) return;
+                    
+                    // Calculate total votes
+                    let totalVotes = 0;
+                    for (const key in pollData) {
+                        totalVotes += pollData[key];
+                    }
+                    
+                    // Update each result item
+                    resultItems.forEach(item => {
+                        const option = item.dataset.option;
+                        if (!option) return;
+                        
+                        const votes = pollData[option] || 0;
+                        
+                        let percentage;
+                        if (totalVotes === 0) {
+                            percentage = 0;
+                        } else if (totalVotes === 1 && votes === 1) {
+                            percentage = 100; // Single vote is 100%
+                        } else {
+                            percentage = Math.round((votes / totalVotes) * 100);
+                        }
+                        
+                        const percentElement = item.querySelector('.poll-result-percentage');
+                        const fillElement = item.querySelector('.poll-fill');
+                        
+                        if (percentElement) {
+                            percentElement.textContent = (isNaN(percentage) ? 0 : percentage) + '%';
+                        }
+                        
+                        if (fillElement) {
+                            fillElement.style.width = (isNaN(percentage) ? 0 : percentage) + '%';
+                        }
+                    });
+                }
+                
+                // Immediately fetch current results
+                fetch('/api/polls/slide-2-default')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success && data.results) {
+                            updateResults(data.results);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching initial poll results:', error));
+            }
+            
+            // Generate a custom slide change event for poll functionality
+            const slideChangedEvent = new CustomEvent('slideChanged', {
+                detail: { slideId: 'slide-2' }
+            });
+            document.dispatchEvent(slideChangedEvent);
+            
+            // Generate user ID if the main script hasn't done it yet
+            if (!document.querySelector('#userId span').textContent) {
+                const generateUserId = function() {
+                    return Math.random().toString(36).substring(2, 10);
+                };
+                
+                let userId;
+                try {
+                    userId = localStorage.getItem('fullThrottleUserId');
+                    if (!userId) {
+                        userId = generateUserId();
+                        localStorage.setItem('fullThrottleUserId', userId);
+                    }
+                } catch (error) {
+                    console.log("LocalStorage not available, using temporary ID");
+                    userId = generateUserId();
+                }
+                
+                const userIdSpans = document.querySelectorAll('#userId span');
+                if (userIdSpans.length > 0) {
+                    userIdSpans.forEach(span => {
+                        span.textContent = userId;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

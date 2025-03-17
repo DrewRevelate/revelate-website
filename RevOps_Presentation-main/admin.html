@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Throttle Revenue - Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --racing-black: #121212;
+            --racing-dark: #1E1E1E;
+            --racing-red: #E10600;
+            --racing-silver: #F7F7F7;
+            --racing-gray: #333333;
+            --accent-yellow: #FFDA0A;
+            --accent-blue: #005FCC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Titillium Web', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--racing-silver);
+            color: var(--racing-dark);
+            line-height: 1.6;
+        }
+        
+        .admin-header {
+            background: var(--racing-dark);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .admin-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+        }
+        
+        .admin-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .admin-header p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .admin-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .admin-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--racing-gray);
+            transition: all 0.3s ease;
+            position: relative;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .admin-tab.active {
+            color: var(--racing-red);
+            background: rgba(225, 6, 0, 0.05);
+        }
+        
+        .admin-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--racing-red);
+        }
+        
+        .admin-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .admin-panel.active {
+            display: block;
+        }
+        
+        .admin-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .admin-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--racing-dark);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .admin-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .admin-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--racing-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .admin-button:hover {
+            background: #c10600;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 6, 0, 0.2);
+        }
+        
+        .admin-button.secondary {
+            background: var(--racing-gray);
+        }
+        
+        .admin-button.secondary:hover {
+            background: #222;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .data-table th {
+            background: rgba(0,0,0,0.03);
+            font-weight: 600;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background: rgba(0,0,0,0.02);
+        }
+        
+        .data-table tr:hover {
+            background: rgba(225, 6, 0, 0.05);
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .status-message {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .status-message.error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #c10600;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+        
+        .status-message.success {
+            background: rgba(0, 255, 0, 0.1);
+            color: #008800;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+        
+        .status-message.info {
+            background: rgba(0, 0, 255, 0.1);
+            color: #0000bb;
+            border: 1px solid rgba(0, 0, 255, 0.2);
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(225, 6, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--racing-red);
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .admin-header .logo {
+            margin-right: 1rem;
+            height: 40px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <h1><span class="logo">🏁</span> Full Throttle Revenue - Admin Dashboard</h1>
+        <p>View and export presentation data</p>
+    </header>
+    
+    <div class="admin-container">
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="poll-data">Poll Data</button>
+            <button class="admin-tab" data-tab="contact-data">Contact Form Data</button>
+            <button class="admin-tab" data-tab="export">Export Data</button>
+            <a href="/admin/crm" class="admin-tab" style="text-decoration: none;">CRM System</a>
+            <a href="/admin/logout" class="admin-tab" style="text-decoration: none;">Logout</a>
+        </div>
+        
+        <!-- Poll Data Panel -->
+        <div class="admin-panel active" id="poll-data-panel">
+            <div class="admin-card">
+                <h3>Poll Management</h3>
+                <p>Manage your polls by toggling their active status or clearing results. Active polls can be voted on, while inactive polls display results only.</p>
+                
+                <div class="admin-buttons">
+                    <button id="refresh-btn" class="admin-button">
+                        <span class="button-icon">↻</span> Refresh Poll Data
+                    </button>
+                </div>
+                
+                <div class="poll-reference-info" style="margin: 20px 0; padding: 15px; background: rgba(225,6,0,0.05); border-radius: 8px; border-left: 5px solid var(--racing-red);">
+                    <h4 style="margin-top: 0; color: var(--racing-red);">Poll Presentation Mapping</h4>
+                    <p>This presentation contains <strong>ONLY</strong> the following two polls:</p>
+                    <ul style="margin-bottom: 10px;">
+                        <li><strong>slide-2-default</strong>: "What would you do with 5 extra hours per week?" (Slide 3)</li>
+                        <li><strong>slide-5-student-skills</strong>: "Which sales skills should students focus on?" (Slide 6)</li>
+                    </ul>
+                    <p style="font-style: italic; font-size: 0.9em;">The admin portal allows you to toggle these polls on/off and view/clear responses. Each poll corresponds to its respective slide in the presentation.</p>
+                </div>
+                
+                <div id="polls-list">
+                    <div class="status-message info">
+                        <span class="loading-spinner"></span> Loading polls...
+                    </div>
+                </div>
+                <div id="poll-toggle-status"></div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>Poll Results Summary</h3>
+                <div id="poll-data-status" class="status-message info">
+                    <span class="loading-spinner"></span> Loading poll data...
+                </div>
+                <div id="poll-summary"></div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>Poll Response Visualization</h3>
+                <div class="chart-container" id="poll-chart">
+                    <!-- Chart will be rendered here -->
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>Recent Poll Responses</h3>
+                <div id="poll-responses"></div>
+            </div>
+        </div>
+        
+        <!-- Contact Form Data Panel -->
+        <div class="admin-panel" id="contact-data-panel">
+            <div class="admin-card">
+                <h3>Contact Form Submissions</h3>
+                <div id="contact-data-status" class="status-message info">
+                    <span class="loading-spinner"></span> Loading contact data...
+                </div>
+                <div id="contact-summary"></div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>Recent Submissions</h3>
+                <div id="contact-submissions"></div>
+            </div>
+        </div>
+        
+        <!-- Export Panel -->
+        <div class="admin-panel" id="export-panel">
+            <div class="admin-card">
+                <h3>Export Data</h3>
+                <p>Download your presentation data in CSV format for use in spreadsheets or data analysis tools.</p>
+                
+                <div class="admin-buttons">
+                    <a href="/admin/export/polls" class="admin-button" download>
+                        Export Poll Results
+                    </a>
+                    <a href="/admin/export/responses" class="admin-button" download>
+                        Export Individual Poll Responses
+                    </a>
+                    <a href="/admin/export/contacts" class="admin-button" download>
+                        Export Contact Form Submissions
+                    </a>
+                </div>
+            </div>
+            
+            <div class="admin-card">
+                <h3>Data Backup</h3>
+                <p>Create a backup of all your presentation data in JSON format.</p>
+                
+                <div class="admin-buttons">
+                    <button id="backup-button" class="admin-button secondary">
+                        Create Full Data Backup
+                    </button>
+                </div>
+                <div id="backup-status"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Admin polls panel styles -->
+    <style>
+        /* Poll management UI */
+        #polls-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .poll-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .poll-card.active {
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.15);
+            border-color: rgba(225, 6, 0, 0.1);
+        }
+        
+        .poll-card.inactive {
+            opacity: 0.8;
+            filter: grayscale(20%);
+        }
+        
+        .poll-header {
+            position: relative;
+            padding: 1.2rem;
+            background: rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .poll-header h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+            border: none;
+        }
+        
+        .poll-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        
+        .poll-status.active {
+            background-color: var(--racing-red);
+            animation: pulse 2s infinite;
+        }
+        
+        .poll-status.inactive {
+            background-color: var(--racing-gray);
+        }
+        
+        .poll-info {
+            padding: 1.2rem;
+        }
+        
+        .poll-info p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .poll-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            padding: 0 1.2rem 1.2rem;
+        }
+        
+        .poll-actions button {
+            padding: 0.7rem 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .toggle-status-btn.active {
+            background: var(--racing-red);
+            color: white;
+        }
+        
+        .toggle-status-btn.inactive {
+            background: var(--racing-gray);
+            color: white;
+        }
+        
+        .clear-results-btn {
+            background: #ff5700;
+            color: white;
+        }
+        
+        .view-results-btn {
+            background: var(--accent-blue);
+            color: white;
+        }
+        
+        .poll-actions button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Modal for viewing results */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: modalAppear 0.3s ease;
+        }
+        
+        @keyframes modalAppear {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            background: var(--racing-dark);
+            color: white;
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+            max-height: calc(90vh - 5rem);
+            overflow-y: auto;
+        }
+        
+        .result-summary {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .result-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-label {
+            font-weight: 600;
+        }
+        
+        .result-count {
+            font-weight: 700;
+            color: var(--racing-red);
+        }
+        
+        .result-bar {
+            height: 20px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .result-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--racing-red), var(--accent-yellow));
+            transition: width 0.5s ease;
+        }
+        
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            background: white;
+            color: var(--racing-dark);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            font-weight: 600;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification.success {
+            border-left: 5px solid #00c851;
+        }
+        
+        .notification.error {
+            border-left: 5px solid var(--racing-red);
+        }
+        
+        .notification.info {
+            border-left: 5px solid #33b5e5;
+        }
+    </style>
+    
+    <script src="admin-ui.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab navigation
+            const tabs = document.querySelectorAll('.admin-tab');
+            const panels = document.querySelectorAll('.admin-panel');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.dataset.tab;
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding panel
+                    panels.forEach(panel => {
+                        panel.classList.remove('active');
+                        if (panel.id === `${target}-panel`) {
+                            panel.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Load Poll Data
+            loadPollData();
+            
+            // Load Contact Data
+            loadContactData();
+            
+            // Backup functionality
+            document.getElementById('backup-button').addEventListener('click', function() {
+                createDataBackup();
+            });
+        });
+        
+        // Function to load poll data
+        async function loadPollData() {
+            const statusElement = document.getElementById('poll-data-status');
+            const summaryElement = document.getElementById('poll-summary');
+            const responsesElement = document.getElementById('poll-responses');
+            
+            try {
+                console.log('Fetching poll data from /admin/polls');
+                const response = await fetch('/admin/polls');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch poll data');
+                }
+                
+                const data = await response.json();
+                console.log('Poll data received:', data);
+                
+                // Hide loading status
+                statusElement.style.display = 'none';
+                
+                // Display poll summary
+                let summaryHTML = '<h4>Poll Results</h4>';
+                
+                if (Object.keys(data.polls).length === 0) {
+                    summaryHTML += '<p>No poll data available yet.</p>';
+                } else {
+                    summaryHTML += '<table class="data-table">';
+                    summaryHTML += '<thead><tr><th>Poll ID</th><th>Option</th><th>Votes</th></tr></thead>';
+                    summaryHTML += '<tbody>';
+                    
+                    Object.entries(data.polls).forEach(([pollId, results]) => {
+                        let isFirstRow = true;
+                        
+                        Object.entries(results).forEach(([option, votes]) => {
+                            summaryHTML += '<tr>';
+                            if (isFirstRow) {
+                                summaryHTML += `<td rowspan="${Object.keys(results).length}">${pollId}</td>`;
+                                isFirstRow = false;
+                            }
+                            summaryHTML += `<td>${option}</td>`;
+                            summaryHTML += `<td>${votes}</td>`;
+                            summaryHTML += '</tr>';
+                        });
+                    });
+                    
+                    summaryHTML += '</tbody></table>';
+                }
+                
+                summaryElement.innerHTML = summaryHTML;
+                
+                // Display recent responses
+                if (!data.responses || data.responses.length === 0) {
+                    responsesElement.innerHTML = '<p>No individual responses recorded yet.</p>';
+                } else {
+                    let responsesHTML = '<h4>Recent Responses</h4>';
+                    responsesHTML += '<table class="data-table">';
+                    responsesHTML += '<thead><tr><th>Timestamp</th><th>Poll ID</th><th>User ID</th><th>Votes</th></tr></thead>';
+                    responsesHTML += '<tbody>';
+                    
+                    // Show only the last 10 responses, sorted by most recent
+                    const sortedResponses = [...data.responses].sort((a, b) => 
+                        new Date(b.timestamp) - new Date(a.timestamp));
+                        
+                    const recentResponses = sortedResponses.slice(0, 10);
+                    
+                    recentResponses.forEach(response => {
+                        responsesHTML += '<tr>';
+                        responsesHTML += `<td>${new Date(response.timestamp).toLocaleString()}</td>`;
+                        responsesHTML += `<td>${response.pollId}</td>`;
+                        responsesHTML += `<td>${response.userId.substring(0, 8)}...</td>`;
+                        responsesHTML += `<td>${response.votes.join(', ')}</td>`;
+                        responsesHTML += '</tr>';
+                    });
+                    
+                    responsesHTML += '</tbody></table>';
+                    responsesHTML += `<p>Total responses: ${data.responses.length}</p>`;
+                    
+                    responsesElement.innerHTML = responsesHTML;
+                }
+                
+                // Render chart (simplified - in a real implementation, use a charting library)
+                renderPollChart(data);
+                
+            } catch (error) {
+                console.error('Error loading poll data:', error);
+                statusElement.className = 'status-message error';
+                statusElement.innerHTML = 'Error loading poll data. Please try refreshing the page.';
+            }
+        }
+        
+        // Function to load contact data
+        async function loadContactData() {
+            const statusElement = document.getElementById('contact-data-status');
+            const summaryElement = document.getElementById('contact-summary');
+            const submissionsElement = document.getElementById('contact-submissions');
+            
+            try {
+                console.log('Fetching contact data from /admin/contacts');
+                const response = await fetch('/admin/contacts');
+                if (!response.ok) {
+                    console.error('Contact data fetch failed with status:', response.status);
+                    throw new Error(`Failed to fetch contact data: ${response.status}`);
+                }
+                
+                // Check content type
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    console.error('Unexpected content type:', contentType);
+                    const text = await response.text();
+                    console.error('Response was:', text.substring(0, 200));
+                    throw new Error('Response is not JSON');
+                }
+                
+                const data = await response.json();
+                console.log('Contact data received:', data);
+                
+                // Hide loading status
+                statusElement.style.display = 'none';
+                
+                // Display contact summary
+                let summaryHTML = '<h4>Contact Form Submissions</h4>';
+                
+                if (!data.submissions || data.submissions.length === 0) {
+                    summaryHTML += '<p>No contact form submissions yet.</p>';
+                    summaryElement.innerHTML = summaryHTML;
+                    submissionsElement.innerHTML = '<p>No submissions to display.</p>';
+                    return;
+                }
+                
+                console.log(`Found ${data.submissions.length} submissions`);
+                summaryHTML += `<p>Total submissions: ${data.submissions.length}</p>`;
+                summaryElement.innerHTML = summaryHTML;
+                
+                // Display recent submissions
+                let submissionsHTML = '<h4>Recent Submissions</h4>';
+                submissionsHTML += '<table class="data-table">';
+                
+                // Get headers from the first submission or use defaults
+                const headers = ['timestamp', 'firstName', 'lastName', 'email', 'major', 'gradYear'];
+                
+                submissionsHTML += '<thead><tr>';
+                headers.forEach(header => {
+                    submissionsHTML += `<th>${header}</th>`;
+                });
+                submissionsHTML += '</tr></thead>';
+                
+                submissionsHTML += '<tbody>';
+                
+                // Show only the last 10 submissions, sorted by most recent
+                const sortedSubmissions = [...data.submissions].sort((a, b) => {
+                    // Handle missing timestamps
+                    if (!a.timestamp) return 1;
+                    if (!b.timestamp) return -1;
+                    return new Date(b.timestamp) - new Date(a.timestamp);
+                });
+                    
+                const recentSubmissions = sortedSubmissions.slice(0, 10);
+                
+                recentSubmissions.forEach(submission => {
+                    submissionsHTML += '<tr>';
+                    headers.forEach(header => {
+                        let value = submission[header] || '';
+                        if (header === 'timestamp' && value) {
+                            try {
+                                value = new Date(value).toLocaleString();
+                            } catch (e) {
+                                console.warn('Error formatting date:', e);
+                                // Keep original value if date parsing fails
+                            }
+                        }
+                        submissionsHTML += `<td>${value}</td>`;
+                    });
+                    submissionsHTML += '</tr>';
+                });
+                
+                submissionsHTML += '</tbody></table>';
+                
+                submissionsElement.innerHTML = submissionsHTML;
+                
+            } catch (error) {
+                console.error('Error loading contact data:', error);
+                statusElement.className = 'status-message error';
+                statusElement.innerHTML = 'Error loading contact data: ' + error.message;
+            }
+        }
+        
+        // Function to render poll chart (simplified version)
+        function renderPollChart(data) {
+            const chartContainer = document.getElementById('poll-chart');
+            
+            // In a real implementation, use a library like Chart.js
+            // This is a very simplified visualization
+            let chartHTML = '<h4>Poll Results Visualization</h4>';
+            
+            if (Object.keys(data.polls).length === 0) {
+                chartHTML += '<p>No poll data available to visualize.</p>';
+                chartContainer.innerHTML = chartHTML;
+                return;
+            }
+            
+            chartHTML += '<div style="display: flex; height: 250px; align-items: flex-end; gap: 10px;">';
+            
+            // Collect all options and their total votes across all polls
+            const optionTotals = {};
+            
+            Object.values(data.polls).forEach(pollResults => {
+                Object.entries(pollResults).forEach(([option, votes]) => {
+                    if (!optionTotals[option]) {
+                        optionTotals[option] = 0;
+                    }
+                    optionTotals[option] += votes;
+                });
+            });
+            
+            // Find maximum votes for scaling
+            const maxVotes = Math.max(...Object.values(optionTotals));
+            
+            // Generate bar chart
+            Object.entries(optionTotals).forEach(([option, votes]) => {
+                const percentage = maxVotes > 0 ? (votes / maxVotes) * 100 : 0;
+                
+                chartHTML += `
+                    <div style="display: flex; flex-direction: column; align-items: center; flex: 1;">
+                        <div style="background: linear-gradient(to top, var(--racing-red), #ff6b6b); 
+                                    width: 50px; height: ${percentage}%; 
+                                    display: flex; align-items: flex-end; justify-content: center;
+                                    color: white; font-weight: bold; padding-bottom: 5px; border-radius: 5px 5px 0 0;">
+                            ${votes}
+                        </div>
+                        <div style="margin-top: 10px; text-align: center; font-size: 0.9rem; font-weight: bold;">
+                            ${option}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            chartHTML += '</div>';
+            chartContainer.innerHTML = chartHTML;
+        }
+        
+        // Function to create data backup
+        async function createDataBackup() {
+            const backupButton = document.getElementById('backup-button');
+            const statusElement = document.getElementById('backup-status');
+            
+            // Change button state
+            backupButton.disabled = true;
+            backupButton.innerHTML = '<span class="loading-spinner"></span> Creating Backup...';
+            
+            try {
+                // Fetch poll data
+                const pollResponse = await fetch('/admin/polls');
+                if (!pollResponse.ok) {
+                    throw new Error('Failed to fetch poll data for backup');
+                }
+                const pollData = await pollResponse.json();
+                
+                // Fetch contact data
+                const contactResponse = await fetch('/admin/contacts');
+                if (!contactResponse.ok) {
+                    throw new Error('Failed to fetch contact data for backup');
+                }
+                const contactData = await contactResponse.json();
+                
+                // Combine data
+                const backupData = {
+                    polls: pollData,
+                    contacts: contactData,
+                    metadata: {
+                        timestamp: new Date().toISOString(),
+                        version: '1.0.0'
+                    }
+                };
+                
+                // Convert to JSON string
+                const jsonString = JSON.stringify(backupData, null, 2);
+                
+                // Create download link
+                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonString);
+                const downloadAnchor = document.createElement('a');
+                downloadAnchor.setAttribute("href", dataStr);
+                downloadAnchor.setAttribute("download", `full-throttle-data-backup-${new Date().toISOString().slice(0,10)}.json`);
+                document.body.appendChild(downloadAnchor);
+                downloadAnchor.click();
+                downloadAnchor.remove();
+                
+                // Update status
+                statusElement.innerHTML = `<div class="status-message success">Backup created successfully at ${new Date().toLocaleString()}</div>`;
+                
+            } catch (error) {
+                console.error('Error creating backup:', error);
+                statusElement.innerHTML = `<div class="status-message error">Error creating backup: ${error.message}</div>`;
+            } finally {
+                // Reset button state
+                backupButton.disabled = false;
+                backupButton.innerHTML = 'Create Full Data Backup';
+            }
+        }
+    </script>
+</body>
+</html>
