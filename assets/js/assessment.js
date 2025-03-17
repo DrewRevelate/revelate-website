@@ -1,17 +1,18 @@
 /**
  * Revelate Operations - Assessment Page JavaScript
- * This file handles the RevOps assessment functionality
+ * Handles the RevOps assessment functionality
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize assessment page functionality
+    // Initialize assessment functionality
     initAssessmentForm();
-    initFaqAccordion();
+    
+    // Initialize counter animations
     initStatCounters();
 });
 
 /**
- * Initialize assessment form functionality
+ * Initialize assessment form and navigation
  */
 function initAssessmentForm() {
     // Cache DOM elements
@@ -301,4 +302,157 @@ function initAssessmentForm() {
         // Determine the most critical improvement areas
         results.improvementAreas = getImprovementAreas(results);
         
-        // Get
+        // Get industry benchmarks
+        const industryKey = results.industry in industryBenchmarks ? results.industry : 'Other';
+        results.benchmarks = {
+            industry: industryBenchmarks[industryKey].average,
+            top: industryBenchmarks[industryKey].top
+        };
+        
+        // Update results in the UI
+        displayResults(results);
+    }
+    
+    /**
+     * Get improvement areas based on scores
+     * @param {Object} results - The assessment results
+     * @returns {Array} - List of improvement recommendations
+     */
+    function getImprovementAreas(results) {
+        // Get the lowest scoring dimensions
+        const scores = [
+            { name: 'dataInfrastructure', score: results.dataInfrastructure.score },
+            { name: 'analyticsCapabilities', score: results.analyticsCapabilities.score },
+            { name: 'processMaurity', score: results.processMaurity.score },
+            { name: 'teamAlignment', score: results.teamAlignment.score }
+        ];
+        
+        // Sort by score (ascending)
+        scores.sort((a, b) => a.score - b.score);
+        
+        // Take the lowest 2 scoring dimensions
+        const lowestDimensions = scores.slice(0, 2);
+        
+        // Generate recommendations for these dimensions
+        const recommendations = [];
+        
+        lowestDimensions.forEach(dimension => {
+            const maturityLevel = getMaturityLevel(dimension.score);
+            const dimensionRecommendations = getRecommendationsForDimension(dimension.name, maturityLevel);
+            recommendations.push(dimensionRecommendations[0]); // Take first recommendation
+        });
+        
+        return recommendations;
+    }
+    
+    /**
+     * Get maturity level from score
+     * @param {number} score - The dimension score
+     * @returns {string} - Maturity level
+     */
+    function getMaturityLevel(score) {
+        if (score < 1.5) return 'beginner';
+        if (score < 2.5) return 'developing';
+        if (score < 3.5) return 'established';
+        if (score < 4.5) return 'advanced';
+        return 'expert';
+    }
+    
+    /**
+     * Get recommendations for dimension and maturity level
+     * @param {string} dimension - The dimension name
+     * @param {string} level - The maturity level
+     * @returns {Array} - List of recommendations
+     */
+    function getRecommendationsForDimension(dimension, level) {
+        const recommendations = {
+            dataInfrastructure: {
+                beginner: [
+                    "Implement a formal CRM system as the foundation of your revenue data",
+                    "Establish basic data standards and entry protocols",
+                    "Begin documenting your existing systems and data flows"
+                ],
+                developing: [
+                    "Improve CRM data quality through cleanup and validation",
+                    "Connect your primary revenue systems with basic integrations",
+                    "Establish a data governance committee with clear ownership"
+                ],
+                established: [
+                    "Implement more robust integrations between systems",
+                    "Develop a comprehensive data dictionary and quality standards",
+                    "Establish regular data auditing and cleansing processes"
+                ],
+                advanced: [
+                    "Implement real-time data synchronization across all systems",
+                    "Deploy automated data validation and enrichment tools",
+                    "Develop a unified customer data platform strategy"
+                ],
+                expert: [
+                    "Consider AI-powered data enrichment and cleansing",
+                    "Implement advanced master data management practices",
+                    "Explore predictive data quality management"
+                ]
+            },
+            analyticsCapabilities: {
+                beginner: [
+                    "Define your core business metrics and KPIs",
+                    "Implement basic dashboards for key revenue metrics",
+                    "Train team members on basic reporting capabilities"
+                ],
+                developing: [
+                    "Develop standardized reporting templates for consistency",
+                    "Implement a basic attribution model for marketing activities",
+                    "Create regular reporting cadences for key metrics"
+                ],
+                established: [
+                    "Develop more advanced dashboards with drill-down capabilities",
+                    "Implement multi-touch attribution across marketing channels",
+                    "Begin incorporating predictive elements into reporting"
+                ],
+                advanced: [
+                    "Implement advanced analytics with AI-driven insights",
+                    "Develop comprehensive multi-touch attribution across marketing and sales",
+                    "Create automated anomaly detection for key metrics"
+                ],
+                expert: [
+                    "Implement AI/ML-driven prediction models for revenue forecasting",
+                    "Develop prescriptive analytics capabilities",
+                    "Create advanced scenario modeling tools for strategic planning"
+                ]
+            },
+            processMaurity: {
+                beginner: [
+                    "Document your current sales process stages and definitions",
+                    "Implement basic lead qualification criteria",
+                    "Establish a systematic approach to customer renewals"
+                ],
+                developing: [
+                    "Formalize your sales process in your CRM system",
+                    "Implement lead scoring based on demographic and engagement data",
+                    "Develop a basic customer health scoring framework"
+                ],
+                established: [
+                    "Optimize your sales process based on conversion data",
+                    "Implement lead routing and nurturing workflows",
+                    "Develop proactive customer success playbooks"
+                ],
+                advanced: [
+                    "Implement advanced sales process automation",
+                    "Deploy automated lead scoring with behavioral data",
+                    "Create comprehensive expansion and retention playbooks"
+                ],
+                expert: [
+                    "Implement AI-driven process optimization",
+                    "Develop predictive lead and opportunity scoring",
+                    "Implement predictive churn modeling with automated interventions"
+                ]
+            },
+            teamAlignment: {
+                beginner: [
+                    "Establish regular cross-team meetings between marketing and sales",
+                    "Agree on basic shared metrics and definitions",
+                    "Assign clear ownership for revenue operations functions"
+                ],
+                developing: [
+                    "Implement SLAs between marketing, sales, and customer success",
+                    "
