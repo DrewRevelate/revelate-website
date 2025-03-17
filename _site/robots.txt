@@ -1,6 +1,0 @@
-# robots.txt for revelateops.com
-User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: https://revelateops.com/sitemap.xml

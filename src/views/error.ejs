@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <style>
+    .error-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+      background-color: #f8f9fa;
+    }
+    
+    .error-code {
+      font-size: 8rem;
+      font-weight: 700;
+      color: #2b9fe3;
+      margin: 0;
+      line-height: 1;
+    }
+    
+    .error-title {
+      font-size: 2rem;
+      margin: 1rem 0 2rem;
+    }
+    
+    .error-message {
+      font-size: 1.2rem;
+      color: #6c757d;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .error-actions {
+      margin-top: 2rem;
+    }
+    
+    .error-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Operations Logo" class="error-image" width="150" height="150">
+    
+    <h1 class="error-code"><%= statusCode %></h1>
+    <h2 class="error-title"><%= title %></h2>
+    <p class="error-message"><%= message %></p>
+    
+    <div class="error-actions">
+      <a href="/" class="btn btn-primary btn-lg">Return to Homepage</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/">
+          <img src="/images/revelate-spiral-logo.png" alt="Revelate Operations" width="50" height="50" class="logo-img">
+          <span class="logo-text">Revelate Operations</span>
+        </a>
+      </div>
+      
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu">
+          <span class="hamburger"></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        
+        <ul id="primary-menu" class="menu">
+          <li class="menu-item <%= (page.title.includes('Home') || page.title === site.title) ? 'active' : '' %>">
+            <a href="/">Home</a>
+          </li>
+          <li class="menu-item <%= page.title.includes('About') ? 'active' : '' %>">
+            <a href="/about">About</a>
+          </li>
+          <li class="menu-item <%= page.title.includes('Services') ? 'active' : '' %>">
+            <a href="/services">Services</a>
+          </li>
+          <li class="menu-item <%= page.title.includes('Approach') ? 'active' : '' %>">
+            <a href="/approach">Approach</a>
+          </li>
+          <li class="menu-item <%= (page.title.includes('Case Studies') || page.title.includes('Projects')) ? 'active' : '' %>">
+            <a href="/case-studies">Case Studies</a>
+          </li>
+          <li class="menu-item <%= page.title.includes('Assessment') ? 'active' : '' %>">
+            <a href="/assessment">Assessment</a>
+          </li>
+          <li class="menu-item <%= page.title.includes('Contact') ? 'active' : '' %>">
+            <a href="/contact">Contact</a>
+          </li>
+          <li class="menu-item menu-item-cta">
+            <a href="#" class="btn btn-primary btn-sm calendly-trigger">Book a Call</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        mainNav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+    }
+  });
+</script>

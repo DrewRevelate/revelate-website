@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= page.title %></title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="<%= page.description %>">
+  <meta name="keywords" content="<%= page.keywords %>">
+  
+  <!-- Open Graph / Social Media Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= page.url %>">
+  <meta property="og:title" content="<%= page.title %>">
+  <meta property="og:description" content="<%= page.description %>">
+  <meta property="og:image" content="<%= page.ogImage || '/images/revelate-spiral-logo.png' %>">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= page.title %>">
+  <meta name="twitter:description" content="<%= page.description %>">
+  <meta name="twitter:image" content="<%= page.ogImage || '/images/revelate-spiral-logo.png' %>">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Animate On Scroll Library -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <!-- Page-specific CSS -->
+  <% if (locals.customCss) { %>
+    <% customCss.forEach(function(css) { %>
+      <link rel="stylesheet" href="/css/<%= css %>.css">
+    <% }); %>
+  <% } %>
+  
+  <!-- Structured Data -->
+  <% if (locals.structuredData) { %>
+  <script type="application/ld+json">
+    <%- structuredData %>
+  </script>
+  <% } %>
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Header & Navigation -->
+  <%- include('../partials/header') %>
+  
+  <!-- Main Content -->
+  <main id="main-content">
+    <%- body %>
+  </main>
+  
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+  
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Base JavaScript -->
+  <script src="/js/main.js"></script>
+  
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease',
+      once: true,
+      offset: 50
+    });
+  </script>
+  
+  <!-- Page-specific JavaScript -->
+  <% if (locals.customJs) { %>
+    <% customJs.forEach(function(js) { %>
+      <script src="/js/<%= js %>.js"></script>
+    <% }); %>
+  <% } %>
+</body>
+</html>
