@@ -6,14 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "jekyll": "bundle exec jekyll build",
-    "jekyll:serve": "bundle exec jekyll serve",
-    "setup-db": "node -e \"require('./server').setupDb()\"",
-    "heroku-postbuild": "npm run jekyll"
+    "setup-db": "node -e \"require('./server').setupDb()\""
   },
   "engines": {
-    "node": "18.x",
-    "ruby": "3.2.x"
+    "node": "18.x"
   },
   "keywords": [
     "revelate",
