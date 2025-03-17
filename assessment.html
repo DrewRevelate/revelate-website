@@ -7,110 +7,135 @@ keywords: RevOps assessment, data maturity, operational assessment, Salesforce a
 custom_css:
   - assessment
   - logo-effect
-  - revelate-styles
 custom_js:
   - logo-animation
   - assessment
   - animations
-  - portal
-  - about
 structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"RevOps Assessment | Revelate Operations","url":"https://revelateops.com/assessment/","description":"Take our complimentary RevOps Assessment to discover your organization's data maturity level and identify key opportunities for improvement."}'
 ---
 
 <!-- Hero Section -->
-<section class="about-hero assessment-hero">
+<section class="hero-section assessment-hero">
     <div class="container">
-        <div class="about-hero-wrapper">
-            <div class="about-hero-content">
-                <span class="eyebrow">Free Assessment</span>
-                <h1>RevOps <span class="gradient-text">Maturity Assessment</span></h1>
-                <p class="hero-subtitle">Discover your organization's Revenue Operations maturity level and identify key opportunities for improvement with our complimentary 10-minute assessment.</p>
-                <div class="about-hero-cta">
-                    <a href="#assessment-form" class="btn btn-primary">Start Assessment</a>
-                    <a href="{{ '/approach/' | relative_url }}" class="btn btn-outline">Learn About Our Approach</a>
-                </div>
+        <div class="hero-content">
+            <span class="eyebrow">Free Assessment</span>
+            <h1 class="hero-title">RevOps <span class="gradient-text">Maturity Assessment</span></h1>
+            <p class="hero-subtitle">Discover your organization's Revenue Operations maturity level and identify key opportunities for improvement with our complimentary 10-minute assessment.</p>
+            <div class="hero-cta">
+                <a href="#assessment-form" class="btn btn-primary btn-lg">Start Assessment</a>
+                <a href="{{ '/approach/' | relative_url }}" class="btn btn-outline btn-lg">Learn About Our Approach</a>
             </div>
-            
-            <div class="about-hero-image">
-                <img src="{{ '/assets/images/assessment-illustration.svg' | relative_url }}" alt="RevOps Assessment" width="550" height="450">
-                <div class="hero-shape-1"></div>
-            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="{{ '/assets/images/assessment-illustration.svg' | relative_url }}" alt="RevOps Assessment" width="550" height="450">
+            <div class="hero-shape-1"></div>
+            <div class="hero-shape-2"></div>
         </div>
     </div>
     
-    <div class="about-hero-wave">
+    <div class="hero-wave">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
-            <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+            <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#ffffff"></path>
         </svg>
     </div>
 </section>
 
 <!-- Assessment Overview Section -->
-<section class="mission-section assessment-overview" id="overview">
+<section class="services-section assessment-overview" id="overview">
     <div class="container">
-        <div class="mission-wrapper">
-            <div class="mission-content" data-aos="fade-right">
-                <span class="eyebrow">What You'll Discover</span>
-                <h2>Comprehensive Analysis of Your RevOps Maturity</h2>
-                <p class="lead">Our assessment evaluates your Revenue Operations capability across multiple dimensions to identify strengths and improvement opportunities.</p>
-                
-                <p>At Revelate Operations, we understand that the most successful companies aren't just equipped with the best tools; they operate with the best processes. This assessment will help you understand where your organization stands in its RevOps journey.</p>
-                
-                <div class="mission-values">
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="value-content">
-                            <h3>Data Infrastructure</h3>
-                            <p>Evaluate the maturity of your data ecosystem, including integration capabilities, data governance, and accessibility.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="value-content">
-                            <h3>Analytics Capabilities</h3>
-                            <p>Assess your organization's ability to derive meaningful insights from data and leverage them for strategic decision-making.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <div class="value-content">
-                            <h3>Process Maturity</h3>
-                            <p>Measure the efficiency and effectiveness of your core revenue processes across marketing, sales, and customer success.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="value-content">
-                            <h3>Team Alignment</h3>
-                            <p>Evaluate how well your teams collaborate and align around shared revenue objectives and metrics.</p>
-                        </div>
-                    </div>
+        <div class="section-header">
+            <h2 class="section-title">What You'll Discover</h2>
+            <p class="section-subtitle">Our assessment evaluates your Revenue Operations capability across multiple dimensions</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
                 </div>
+                <h3 class="service-title">Data Infrastructure</h3>
+                <p class="service-description">Evaluate the maturity of your data ecosystem, including integration capabilities, data governance, and accessibility.</p>
             </div>
             
-            <div class="mission-image" data-aos="fade-left">
-                <img src="{{ '/assets/images/expertise-illustration.svg' | relative_url }}" alt="Assessment Benefits">
-                
-                <div class="benefits-box">
-                    <h3>Upon Completion, You'll Receive:</h3>
-                    <ul class="benefits-list">
-                        <li><i class="fas fa-check-circle"></i> Personalized maturity score across multiple dimensions</li>
-                        <li><i class="fas fa-check-circle"></i> Benchmarking against industry standards</li>
-                        <li><i class="fas fa-check-circle"></i> Identification of your biggest improvement opportunities</li>
-                        <li><i class="fas fa-check-circle"></i> Tailored recommendations for enhancing your RevOps capabilities</li>
-                        <li><i class="fas fa-check-circle"></i> Option to schedule a complimentary consultation</li>
-                    </ul>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="service-title">Analytics Capabilities</h3>
+                <p class="service-description">Assess your organization's ability to derive meaningful insights from data and leverage them for strategic decision-making.</p>
+            </div>
+            
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="service-title">Process Maturity</h3>
+                <p class="service-description">Measure the efficiency and effectiveness of your core revenue processes across marketing, sales, and customer success.</p>
+            </div>
+            
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="service-title">Team Alignment</h3>
+                <p class="service-description">Evaluate how well your teams collaborate and align around shared revenue objectives and metrics.</p>
+            </div>
+        </div>
+        
+        <div class="expertise-section assessment-benefits">
+            <div class="container">
+                <div class="expertise-grid">
+                    <div class="expertise-content" data-aos="fade-right">
+                        <h2>Upon Completion, You'll Receive:</h2>
+                        
+                        <div class="expertise-points">
+                            <div class="expertise-point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h3>Personalized Maturity Score</h3>
+                                    <p>Detailed scoring across multiple dimensions of Revenue Operations</p>
+                                </div>
+                            </div>
+                            
+                            <div class="expertise-point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h3>Industry Benchmarking</h3>
+                                    <p>See how your organization compares to industry standards</p>
+                                </div>
+                            </div>
+                            
+                            <div class="expertise-point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h3>Improvement Opportunities</h3>
+                                    <p>Identification of your biggest RevOps improvement areas</p>
+                                </div>
+                            </div>
+                            
+                            <div class="expertise-point">
+                                <div class="point-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="point-content">
+                                    <h3>Tailored Recommendations</h3>
+                                    <p>Custom action plan for enhancing your RevOps capabilities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-image" data-aos="fade-left">
+                        <img src="{{ '/assets/images/expertise-illustration.svg' | relative_url }}" alt="Assessment Benefits">
+                        <div class="expertise-shape"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -723,161 +748,46 @@ structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"Rev
     </div>
 </section>
 
-<!-- Success Stories Section -->
-<section class="team-section success-stories" id="stories">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Success Stories</h2>
-            <p class="section-subtitle">See how other organizations improved after taking our assessment</p>
-        </div>
-        
-        <div class="team-members story-cards">
-            <!-- Success Story 1 -->
-            <div class="team-member story-card" data-aos="fade-up">
-                <div class="member-image story-logo">
-                    <img src="{{ '/assets/images/clients/techforward.png' | relative_url }}" alt="TechForward Solutions Logo">
-                </div>
-                <div class="member-content">
-                    <h3>TechForward Solutions</h3>
-                    <p class="member-title">SaaS</p>
-                    
-                    <div class="member-bio">
-                        <p class="story-challenge">Struggling with disconnected systems and poor data visibility</p>
-                        
-                        <div class="story-metrics">
-                            <div class="metric-item">
-                                <div class="metric-value">35%</div>
-                                <div class="metric-label">Increase in Sales Conversion</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-value">40%</div>
-                                <div class="metric-label">Less Reporting Time</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="member-cta">
-                        <a href="{{ '/case-studies/techforward-solutions/' | relative_url }}" class="btn btn-outline">Read Case Study</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Success Story 2 -->
-            <div class="team-member story-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="member-image story-logo">
-                    <img src="{{ '/assets/images/clients/growify.png' | relative_url }}" alt="Growify Logo">
-                </div>
-                <div class="member-content">
-                    <h3>Growify</h3>
-                    <p class="member-title">Marketing Technology</p>
-                    
-                    <div class="member-bio">
-                        <p class="story-challenge">Unable to attribute marketing spend to revenue effectively</p>
-                        
-                        <div class="story-metrics">
-                            <div class="metric-item">
-                                <div class="metric-value">42%</div>
-                                <div class="metric-label">Higher Marketing ROI</div>
-                            </div>
-                            <div class="metric-item">
-                                <div class="metric-value">68%</div>
-                                <div class="metric-label">Better Lead Quality</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="member-cta">
-                        <a href="{{ '/case-studies/growify/' | relative_url }}" class="btn btn-outline">Read Case Study</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- FAQ Section -->
-<section class="about-faq" id="faq">
+<section class="process-section" id="faq">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <p class="section-subtitle">Answers to common questions about our assessment</p>
         </div>
         
-        <div class="faq-grid">
-            <div class="faq-column">
-                <!-- FAQ Item 1 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        How long does it take to complete the assessment?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The assessment typically takes about 10 minutes to complete. It consists of 12 multiple-choice questions across five dimensions of Revenue Operations maturity.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Is my assessment data confidential?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, all assessment data is kept strictly confidential. We use your responses only to generate your personalized results and recommendations. We will never share your specific responses with third parties.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        What happens after I complete the assessment?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Immediately after completing the assessment, you'll receive your personalized maturity score and recommendations on the results page. You can choose to have these results emailed to you, download a PDF report, or schedule a consultation with one of our experts to discuss your results in more detail.</p>
-                    </div>
+        <div class="process-steps faq-steps">
+            <div class="process-step faq-item" data-aos="fade-right">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>How long does it take to complete the assessment?</h3>
+                    <p>The assessment typically takes about 10 minutes to complete. It consists of 12 multiple-choice questions across five dimensions of Revenue Operations maturity.</p>
                 </div>
             </div>
             
-            <div class="faq-column">
-                <!-- FAQ Item 4 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        How accurate is the assessment?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The assessment is based on industry best practices and our extensive experience working with hundreds of companies across various industries. While it provides a solid baseline evaluation, a consultation with our experts will provide a more comprehensive analysis tailored to your specific business context.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        How are the benchmark comparisons calculated?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The benchmark comparisons are derived from anonymized assessment data from companies within your selected industry. The industry average represents the mean score of all companies in your industry who have taken the assessment, while the top performers represent the average score of companies in the top 10%.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 6 -->
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        Can I retake the assessment later?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, you can retake the assessment at any time to track your progress. Many of our clients use the assessment as a benchmark, implement improvements, and then retake it in 6-12 months to measure their advancement.</p>
-                    </div>
+            <div class="process-step faq-item" data-aos="fade-left" data-aos-delay="100">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Is my assessment data confidential?</h3>
+                    <p>Yes, all assessment data is kept strictly confidential. We use your responses only to generate your personalized results and recommendations. We will never share your specific responses with third parties.</p>
                 </div>
             </div>
-        </div>
-        
-        <div class="faq-cta">
-            <p>Still have questions?</p>
-            <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Contact Us</a>
+            
+            <div class="process-step faq-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>What happens after I complete the assessment?</h3>
+                    <p>Immediately after completing the assessment, you'll receive your personalized maturity score and recommendations on the results page. You can choose to have these results emailed to you, download a PDF report, or schedule a consultation with one of our experts to discuss your results in more detail.</p>
+                </div>
+            </div>
+            
+            <div class="process-step faq-item" data-aos="fade-left" data-aos-delay="300">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>How accurate is the assessment?</h3>
+                    <p>The assessment is based on industry best practices and our extensive experience working with hundreds of companies across various industries. While it provides a solid baseline evaluation, a consultation with our experts will provide a more comprehensive analysis tailored to your specific business context.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -887,22 +797,22 @@ structured_data: '{"@context":"https://schema.org","@type":"WebPage","name":"Rev
     <div class="container">
         <div class="stats-wrapper">
             <div class="stat-item" data-aos="fade-up">
-                <div class="stat-value"><span class="stat-counter" data-count="150">0</span>+</div>
+                <div class="stat-value"><span class="counter" data-count="150">0</span>+</div>
                 <div class="stat-label">Companies Assessed</div>
             </div>
             
             <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="stat-value"><span class="stat-counter" data-count="35">0</span>%</div>
+                <div class="stat-value"><span class="counter" data-count="35">0</span>%</div>
                 <div class="stat-label">Average Improvement</div>
             </div>
             
             <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="stat-value"><span class="stat-counter" data-count="12">0</span>min</div>
+                <div class="stat-value"><span class="counter" data-count="12">0</span>min</div>
                 <div class="stat-label">Average Completion Time</div>
             </div>
             
             <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-value"><span class="stat-counter" data-count="85">0</span>%</div>
+                <div class="stat-value"><span class="counter" data-count="85">0</span>%</div>
                 <div class="stat-label">Would Recommend to Others</div>
             </div>
         </div>
