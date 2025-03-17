@@ -1,10 +1,23 @@
 /**
- * Enhanced RevOps Assessment - Main JavaScript
- * Fixes functionality issues and improves user experience
+ * Revelate Operations - Assessment Page JavaScript
+ * This file handles the RevOps assessment functionality
  */
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize assessment page functionality
+    initAssessmentForm();
+    initFaqAccordion();
+    initStatCounters();
+});
+
+/**
+ * Initialize assessment form functionality
+ */
+function initAssessmentForm() {
     // Cache DOM elements
     const assessmentForm = document.getElementById('revopsAssessment');
+    if (!assessmentForm) return;
+
     const assessmentSteps = document.querySelectorAll('.assessment-step');
     const progressSteps = document.querySelectorAll('.progress-step');
     const progressFill = document.querySelector('.progress-fill');
@@ -33,18 +46,21 @@ document.addEventListener('DOMContentLoaded', function() {
         'Nonprofit': { average: 2.3, top: 3.5 },
         'Other': { average: 2.9, top: 4.0 }
     };
-    
-    // Update progress bar and step indicators
+
+    /**
+     * Update progress bar and step indicators
+     */
     function updateProgress() {
         const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
         progressFill.style.width = `${progressPercentage}%`;
         
         // Update step indicators
         progressSteps.forEach((step, index) => {
-            if (index + 1 < currentStep) {
+            const stepNumber = index + 1;
+            if (stepNumber < currentStep) {
                 step.classList.add('completed');
                 step.classList.remove('active');
-            } else if (index + 1 === currentStep) {
+            } else if (stepNumber === currentStep) {
                 step.classList.add('active');
                 step.classList.remove('completed');
             } else {
@@ -53,7 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Validate current step
+    /**
+     * Validate current step
+     * @param {number} stepNumber - Step to validate
+     * @returns {boolean} - Whether step is valid
+     */
     function validateStep(stepNumber) {
         const currentStepElement = document.querySelector(`.assessment-step[data-step="${stepNumber}"]`);
         const requiredFields = currentStepElement.querySelectorAll('[required]');
@@ -66,7 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 feedbackElement.textContent = '';
                 feedbackElement.style.display = 'none';
             }
-            field.classList.remove('is-invalid');
+            
+            if (field.classList.contains('is-invalid')) {
+                field.classList.remove('is-invalid');
+            }
+            
+            const questionItem = field.closest('.question-item');
+            if (questionItem && questionItem.classList.contains('error')) {
+                questionItem.classList.remove('error');
+            }
             
             // Check if field is radio button group
             if (field.type === 'radio') {
@@ -109,13 +137,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return isValid;
     }
     
-    // Validate email format
+    /**
+     * Validate email format
+     * @param {string} email - Email to validate
+     * @returns {boolean} - Whether email is valid
+     */
     function validateEmail(email) {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
     
-    // Navigate to specific step
+    /**
+     * Navigate to specific step
+     * @param {number} stepNumber - Step to navigate to
+     */
     function goToStep(stepNumber) {
         // Hide all steps
         assessmentSteps.forEach(step => {
@@ -133,11 +168,14 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollToElement(assessmentForm);
     }
     
-    // Scroll to element with smooth scrolling
+    /**
+     * Scroll to element with smooth scrolling
+     * @param {HTMLElement} element - Element to scroll to
+     */
     function scrollToElement(element) {
         if (!element) return;
         
-        const headerOffset = 100; // Adjust according to your fixed header height
+        const headerOffset = 100; // Adjust for fixed header
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -188,7 +226,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Calculate assessment results
+    /**
+     * Calculate assessment results
+     */
     function calculateResults() {
         // Get form data
         const formData = new FormData(assessmentForm);
@@ -261,353 +301,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Determine the most critical improvement areas
         results.improvementAreas = getImprovementAreas(results);
         
-        // Get industry benchmarks
-        const industryKey = results.industry in industryBenchmarks ? results.industry : 'Other';
-        results.benchmarks = {
-            industry: industryBenchmarks[industryKey].average,
-            top: industryBenchmarks[industryKey].top
-        };
-        
-        // Update results in the UI
-        displayResults(results);
-    }
-    
-    // Generate key improvement areas based on scores
-    function getImprovementAreas(results) {
-        // Get the lowest scoring dimensions
-        const scores = [
-            { name: 'dataInfrastructure', score: results.dataInfrastructure.score },
-            { name: 'analyticsCapabilities', score: results.analyticsCapabilities.score },
-            { name: 'processMaurity', score: results.processMaurity.score },
-            { name: 'teamAlignment', score: results.teamAlignment.score }
-        ];
-        
-        // Sort by score (ascending)
-        scores.sort((a, b) => a.score - b.score);
-        
-        // Take the lowest 2 scoring dimensions
-        const lowestDimensions = scores.slice(0, 2);
-        
-        // Generate recommendations for these dimensions
-        const recommendations = [];
-        
-        lowestDimensions.forEach(dimension => {
-            const maturityLevel = getMaturityLevel(dimension.score);
-            const dimensionRecommendations = getRecommendationsForDimension(dimension.name, maturityLevel);
-            recommendations.push(dimensionRecommendations[0]); // Take first recommendation
-        });
-        
-        return recommendations;
-    }
-    
-    // Get maturity level from score
-    function getMaturityLevel(score) {
-        if (score < 1.5) return 'beginner';
-        if (score < 2.5) return 'developing';
-        if (score < 3.5) return 'established';
-        if (score < 4.5) return 'advanced';
-        return 'expert';
-    }
-    
-    // Get recommendations for dimension and maturity level
-    function getRecommendationsForDimension(dimension, level) {
-        const recommendations = {
-            dataInfrastructure: {
-                beginner: [
-                    "Implement a formal CRM system as the foundation of your revenue data",
-                    "Establish basic data standards and entry protocols",
-                    "Begin documenting your existing systems and data flows"
-                ],
-                developing: [
-                    "Improve CRM data quality through cleanup and validation",
-                    "Connect your primary revenue systems with basic integrations",
-                    "Establish a data governance committee with clear ownership"
-                ],
-                established: [
-                    "Implement more robust integrations between systems",
-                    "Develop a comprehensive data dictionary and quality standards",
-                    "Establish regular data auditing and cleansing processes"
-                ],
-                advanced: [
-                    "Implement real-time data synchronization across all systems",
-                    "Deploy automated data validation and enrichment tools",
-                    "Develop a unified customer data platform strategy"
-                ],
-                expert: [
-                    "Consider AI-powered data enrichment and cleansing",
-                    "Implement advanced master data management practices",
-                    "Explore predictive data quality management"
-                ]
-            },
-            analyticsCapabilities: {
-                beginner: [
-                    "Define your core business metrics and KPIs",
-                    "Implement basic dashboards for key revenue metrics",
-                    "Train team members on basic reporting capabilities"
-                ],
-                developing: [
-                    "Develop standardized reporting templates for consistency",
-                    "Implement a basic attribution model for marketing activities",
-                    "Create regular reporting cadences for key metrics"
-                ],
-                established: [
-                    "Develop more advanced dashboards with drill-down capabilities",
-                    "Implement multi-touch attribution across marketing channels",
-                    "Begin incorporating predictive elements into reporting"
-                ],
-                advanced: [
-                    "Implement advanced analytics with AI-driven insights",
-                    "Develop comprehensive multi-touch attribution across marketing and sales",
-                    "Create automated anomaly detection for key metrics"
-                ],
-                expert: [
-                    "Implement AI/ML-driven prediction models for revenue forecasting",
-                    "Develop prescriptive analytics capabilities",
-                    "Create advanced scenario modeling tools for strategic planning"
-                ]
-            },
-            processMaurity: {
-                beginner: [
-                    "Document your current sales process stages and definitions",
-                    "Implement basic lead qualification criteria",
-                    "Establish a systematic approach to customer renewals"
-                ],
-                developing: [
-                    "Formalize your sales process in your CRM system",
-                    "Implement lead scoring based on demographic and engagement data",
-                    "Develop a basic customer health scoring framework"
-                ],
-                established: [
-                    "Optimize your sales process based on conversion data",
-                    "Implement lead routing and nurturing workflows",
-                    "Develop proactive customer success playbooks"
-                ],
-                advanced: [
-                    "Implement advanced sales process automation",
-                    "Deploy automated lead scoring with behavioral data",
-                    "Create comprehensive expansion and retention playbooks"
-                ],
-                expert: [
-                    "Implement AI-driven process optimization",
-                    "Develop predictive lead and opportunity scoring",
-                    "Implement predictive churn modeling with automated interventions"
-                ]
-            },
-            teamAlignment: {
-                beginner: [
-                    "Establish regular cross-team meetings between marketing and sales",
-                    "Agree on basic shared metrics and definitions",
-                    "Assign clear ownership for revenue operations functions"
-                ],
-                developing: [
-                    "Implement SLAs between marketing, sales, and customer success",
-                    "Develop a structured forecasting process with regular reviews",
-                    "Create a dedicated RevOps function, even if part-time"
-                ],
-                established: [
-                    "Align compensation and incentives across revenue teams",
-                    "Implement a more advanced forecasting methodology",
-                    "Develop a dedicated RevOps team with clear charter"
-                ],
-                advanced: [
-                    "Consider reorganizing into a unified revenue operations structure",
-                    "Implement advanced forecasting with multiple data inputs",
-                    "Elevate RevOps leadership to strategic level with cross-functional authority"
-                ],
-                expert: [
-                    "Implement full organizational alignment around customer journey",
-                    "Deploy AI/ML forecasting with scenario planning",
-                    "Position RevOps leadership at executive level with strategic influence"
-                ]
-            }
-        };
-        
-        return recommendations[dimension][level] || [];
-    }
-    
-    // Display results in the UI
-    function displayResults(results) {
-        // Update overall score and level
-        document.getElementById('overallScore').textContent = results.overallScore.toFixed(1);
-        document.getElementById('maturityLevel').textContent = results.maturityLevel;
-        
-        // Update dimension scores with animation
-        animateScore('dataScoreValue', results.dataInfrastructure.score);
-        animateScoreBar('dataScore', results.dataInfrastructure.score);
-        
-        animateScore('analyticsScoreValue', results.analyticsCapabilities.score);
-        animateScoreBar('analyticsScore', results.analyticsCapabilities.score);
-        
-        animateScore('processScoreValue', results.processMaurity.score);
-        animateScoreBar('processScore', results.processMaurity.score);
-        
-        animateScore('teamScoreValue', results.teamAlignment.score);
-        animateScoreBar('teamScore', results.teamAlignment.score);
-        
-        // Update summary
-        document.getElementById('resultsSummary').textContent = results.maturityDescription;
-        
-        // Update recommendations
-        const recommendationsList = document.getElementById('recommendationsList');
-        recommendationsList.innerHTML = '';
-        
-        results.improvementAreas.forEach(recommendation => {
-            const recItem = document.createElement('div');
-            recItem.className = 'recommendation-item';
-            recItem.innerHTML = `
-                <i class="fas fa-lightbulb"></i>
-                <p>${recommendation}</p>
-            `;
-            recommendationsList.appendChild(recItem);
-        });
-        
-        // Update benchmark comparison with animation
-        animateScore('yourBenchmarkValue', results.overallScore);
-        animateScoreBar('yourBenchmark', results.overallScore);
-        
-        // Store results in sessionStorage for email/download
-        sessionStorage.setItem('assessmentResults', JSON.stringify(results));
-    }
-    
-    // Animate score counter
-    function animateScore(elementId, finalScore) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-        
-        const duration = 1000; // ms
-        const startTime = performance.now();
-        const startValue = 0;
-        
-        function updateScore(currentTime) {
-            const elapsedTime = currentTime - startTime;
-            
-            if (elapsedTime < duration) {
-                const progress = elapsedTime / duration;
-                const currentValue = startValue + progress * finalScore;
-                element.textContent = currentValue.toFixed(1);
-                requestAnimationFrame(updateScore);
-            } else {
-                element.textContent = finalScore.toFixed(1);
-            }
-        }
-        
-        requestAnimationFrame(updateScore);
-    }
-    
-    // Animate score bar
-    function animateScoreBar(elementId, score) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-        
-        const finalWidth = score * 20; // 5 score = 100%
-        const duration = 1000; // ms
-        const startTime = performance.now();
-        const startWidth = 0;
-        
-        function updateWidth(currentTime) {
-            const elapsedTime = currentTime - startTime;
-            
-            if (elapsedTime < duration) {
-                const progress = elapsedTime / duration;
-                const currentWidth = startWidth + progress * finalWidth;
-                element.style.width = `${currentWidth}%`;
-                requestAnimationFrame(updateWidth);
-            } else {
-                element.style.width = `${finalWidth}%`;
-            }
-        }
-        
-        requestAnimationFrame(updateWidth);
-    }
-    
-    // Handle email results button
-    if (emailResultsButton) {
-        emailResultsButton.addEventListener('click', function() {
-            const results = JSON.parse(sessionStorage.getItem('assessmentResults'));
-            if (!results) return;
-            
-            // Show loading indication
-            emailResultsButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            emailResultsButton.disabled = true;
-            
-            // Simulate sending email
-            setTimeout(() => {
-                emailResultsButton.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    emailResultsButton.innerHTML = 'Email My Results';
-                    emailResultsButton.disabled = false;
-                }, 3000);
-                
-                // Show confirmation message
-                alert(`Thank you, ${results.fullName}! Your results have been emailed to ${results.email}.`);
-            }, 1500);
-        });
-    }
-    
-    // Handle download results button
-    if (downloadResultsButton) {
-        downloadResultsButton.addEventListener('click', function() {
-            const results = JSON.parse(sessionStorage.getItem('assessmentResults'));
-            if (!results) return;
-            
-            // Show loading indication
-            downloadResultsButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
-            downloadResultsButton.disabled = true;
-            
-            // Simulate PDF generation
-            setTimeout(() => {
-                downloadResultsButton.innerHTML = '<i class="fas fa-check"></i> Ready!';
-                
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    downloadResultsButton.innerHTML = 'Download PDF Report';
-                    downloadResultsButton.disabled = false;
-                }, 3000);
-                
-                // Show confirmation message
-                alert(`Generating PDF report for ${results.companyName}. Your download will begin shortly.`);
-            }, 1500);
-        });
-    }
-    
-    // Initialize FAQ accordion functionality
-    initFaqAccordion();
-    
-    function initFaqAccordion() {
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                // Toggle current question
-                this.setAttribute('aria-expanded', !isExpanded);
-                
-                // Toggle answer visibility with smooth animation
-                if (!isExpanded) {
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    answer.style.opacity = '1';
-                } else {
-                    answer.style.maxHeight = '0';
-                    answer.style.opacity = '0';
-                }
-            });
-        });
-    }
-    
-    // Initialize progress bar
-    updateProgress();
-    
-    // Make progress steps clickable for navigation (if already completed)
-    progressSteps.forEach((step, index) => {
-        step.addEventListener('click', () => {
-            const stepNumber = index + 1;
-            if (stepNumber < currentStep) {
-                goToStep(stepNumber);
-            }
-        });
-    });
-});
+        // Get
