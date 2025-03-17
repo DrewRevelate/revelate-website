@@ -7,6 +7,7 @@ keywords: contact Revelate, SaaS consulting contact, Salesforce implementation, 
 custom_css:
   - contact
   - logo-effect
+  - contact-mobile
 custom_js:
   - logo-animation
   - portal
@@ -15,6 +16,301 @@ custom_js:
   - animations
 structured_data: '{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Revelate Operations","url":"https://revelateops.com/contact/","description":"Contact Revelate Operations for expert SaaS consulting, CRM management, and data integration services.","contactPoint":{"@type":"ContactPoint","telephone":"+1-555-123-4567","contactType":"customer service","email":"contact@revelateops.com","availableLanguage":"English"}}'
 ---
+
+<!-- Add viewport meta tag for mobile responsiveness -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* Mobile Responsive Styles for Contact Page */
+@media (max-width: 767px) {
+  /* General Typography Adjustments */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.4rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+  
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .section-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Button Improvements */
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    height: auto;
+    min-height: 48px; /* Increased touch target size for form UI */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem 0;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .btn-block {
+    max-width: 100%;
+  }
+  
+  /* Hero Section */
+  .contact-hero-wrapper {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+  
+  .contact-hero-content {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-hero-image {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 320px;
+  }
+  
+  .contact-hero-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .contact-hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  /* Contact Section */
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .contact-form-column,
+  .contact-info-column {
+    width: 100%;
+  }
+  
+  /* Form Optimizations */
+  .contact-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    min-height: 48px; /* Increase touch target size */
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+  }
+  
+  select.form-control {
+    background-position: right 1rem center;
+  }
+  
+  .form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .privacy-note {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  /* Contact Info Card Optimization */
+  .contact-method {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+  }
+  
+  .contact-method i {
+    margin-top: 0.2rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    width: 20px;
+    text-align: center;
+    color: var(--primary-color);
+  }
+  
+  .contact-method .text {
+    flex: 1;
+  }
+  
+  .contact-method .label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--secondary-color);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Map Section */
+  .map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 300px; /* Reduced height on mobile */
+  }
+  
+  .map-container iframe {
+    height: 100%;
+  }
+  
+  /* FAQ Section */
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .faq-column {
+    width: 100%;
+  }
+  
+  .faq-item {
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .faq-question {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--light-color);
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .faq-question i {
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-question[aria-expanded="true"] i {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    background-color: #ffffff;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+  
+  .faq-answer p {
+    padding: 1rem;
+    margin: 0;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+}
+
+/* Tablet Specific Adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+  .contact-grid {
+    gap: 2rem;
+  }
+  
+  .map-container {
+    height: 400px;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-method i {
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    font-size: 0.95rem;
+  }
+}
+</style>
 
 <!-- Hero Section -->
 <section class="contact-hero">
@@ -309,3 +605,197 @@ structured_data: '{"@context":"https://schema.org","@type":"ContactPage","name":
         </div>
     </div>
 </section>
+
+<script>
+// Mobile-optimized JavaScript for smooth scrolling and FAQ accordion
+document.addEventListener('DOMContentLoaded', function() {
+  // FAQ Accordion functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      // Close all other FAQs
+      faqQuestions.forEach(q => {
+        if (q !== this) {
+          q.setAttribute('aria-expanded', 'false');
+          const otherAnswer = q.nextElementSibling;
+          otherAnswer.style.maxHeight = '0';
+          otherAnswer.style.opacity = '0';
+          otherAnswer.style.padding = '0';
+        }
+      });
+      
+      // Toggle current FAQ
+      this.setAttribute('aria-expanded', !isExpanded);
+      const answer = this.nextElementSibling;
+      
+      if (!isExpanded) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.opacity = '1';
+        answer.querySelector('p').style.display = 'block';
+      } else {
+        answer.style.maxHeight = '0';
+        answer.style.opacity = '0';
+      }
+    });
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        // Get header height to offset scroll position (adjust value as needed)
+        const headerOffset = 70;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Form validation enhancements
+  const contactForm = document.getElementById('contactForm');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic form validation
+      let isValid = true;
+      const requiredFields = contactForm.querySelectorAll('[required]');
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('error');
+          
+          // Add error indicator
+          if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-message')) {
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'error-message';
+            errorMsg.textContent = 'This field is required';
+            field.parentNode.insertBefore(errorMsg, field.nextElementSibling);
+          }
+        } else {
+          field.classList.remove('error');
+          if (field.nextElementSibling && field.nextElementSibling.classList.contains('error-message')) {
+            field.parentNode.removeChild(field.nextElementSibling);
+          }
+        }
+      });
+      
+      // Email validation
+      const emailField = document.getElementById('email');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (emailField.value && !emailPattern.test(emailField.value)) {
+        isValid = false;
+        emailField.classList.add('error');
+        
+        if (!emailField.nextElementSibling || !emailField.nextElementSibling.classList.contains('error-message')) {
+          const errorMsg = document.createElement('div');
+          errorMsg.className = 'error-message';
+          errorMsg.textContent = 'Please enter a valid email address';
+          emailField.parentNode.insertBefore(errorMsg, emailField.nextElementSibling);
+        }
+      }
+      
+      if (isValid) {
+        // For demo purposes - would be replaced with actual form submission
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        // Simulate form submission
+        setTimeout(() => {
+          contactForm.innerHTML = `
+            <div class="success-message">
+              <i class="fas fa-check-circle success-icon"></i>
+              <h3>Thank You!</h3>
+              <p>Your message has been sent successfully. We'll get back to you within 24 business hours.</p>
+            </div>
+          `;
+        }, 1500);
+      }
+    });
+    
+    // Clear errors on input
+    contactForm.querySelectorAll('input, textarea, select').forEach(field => {
+      field.addEventListener('input', function() {
+        this.classList.remove('error');
+        if (this.nextElementSibling && this.nextElementSibling.classList.contains('error-message')) {
+          this.parentNode.removeChild(this.nextElementSibling);
+        }
+      });
+    });
+  }
+});
+</script>
+
+<style>
+/* Additional styles for enhanced form UX */
+.error {
+  border-color: #e74c3c !important;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: #2ecc71;
+  margin-bottom: 1rem;
+}
+
+/* Additional mobile improvements */
+@media (max-width: 767px) {
+  .form-control {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  .contact-card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  a[href^="tel"] {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  a[href^="mailto"] {
+    word-break: break-word;
+  }
+  
+  .contact-method .value {
+    font-size: 0.95rem;
+  }
+  
+  /* Sticky CTA for mobile */
+  .contact-hero-cta .btn,
+  .form-footer .btn {
+    position: relative;
+    z-index: 5;
+  }
+}
+</style>
