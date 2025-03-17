@@ -1,4 +1,4 @@
-<!-- Footer Component -->
+<!-- Mobile-Optimized Footer Component -->
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -47,11 +47,11 @@
                 </div>
                 <div class="footer-contact-item">
                     <i class="fas fa-phone footer-contact-icon"></i>
-                    <span>(555) 123-4567</span>
+                    <a href="tel:+15551234567"><span>(555) 123-4567</span></a>
                 </div>
                 <div class="footer-contact-item">
                     <i class="fas fa-envelope footer-contact-icon"></i>
-                    <span>info@revelateops.com</span>
+                    <a href="mailto:info@revelateops.com"><span>info@revelateops.com</span></a>
                 </div>
             </div>
         </div>
@@ -84,11 +84,16 @@
                 
                 <div class="form-group">
                     <label for="password-login" class="form-label">Password</label>
-                    <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
                     <div class="form-feedback"></div>
                 </div>
                 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </form>
         </div>
         <div class="modal-footer">
@@ -96,3 +101,161 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Footer accordion functionality for mobile
+  const footerHeadings = document.querySelectorAll('.footer-links-column .footer-heading');
+  
+  footerHeadings.forEach(heading => {
+    heading.addEventListener('click', function() {
+      // Only apply accordion on mobile
+      if (window.innerWidth < 768) {
+        this.classList.toggle('active');
+        const linksList = this.nextElementSibling;
+        linksList.classList.toggle('active');
+      }
+    });
+  });
+  
+  // Modal functionality
+  const loginButtons = document.querySelectorAll('[data-modal="login"]');
+  const closeButtons = document.querySelectorAll('.close-modal');
+  const modals = document.querySelectorAll('.modal');
+  
+  loginButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modalId = this.getAttribute('data-target');
+      const modal = document.querySelector(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+    });
+  });
+  
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const modal = this.closest('.modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    });
+  });
+  
+  // Close modal when clicking outside
+  modals.forEach(modal => {
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+  
+  // Password visibility toggle
+  const passwordToggles = document.querySelectorAll('.password-toggle');
+  
+  passwordToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const passwordInput = this.previousElementSibling;
+      const icon = this.querySelector('i');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+  });
+  
+  // Form validation
+  const loginForm = document.getElementById('login-form');
+  
+  if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let isValid = true;
+      const emailInput = document.getElementById('email-login');
+      const passwordInput = document.getElementById('password-login');
+      
+      // Simple email validation
+      if (!emailInput.value.includes('@')) {
+        isValid = false;
+        emailInput.nextElementSibling.textContent = 'Please enter a valid email address';
+      } else {
+        emailInput.nextElementSibling.textContent = '';
+      }
+      
+      // Simple password validation
+      if (passwordInput.value.length < 6) {
+        isValid = false;
+        passwordInput.closest('.password-input-wrapper').nextElementSibling.textContent = 'Password must be at least 6 characters';
+      } else {
+        passwordInput.closest('.password-input-wrapper').nextElementSibling.textContent = '';
+      }
+      
+      if (isValid) {
+        // Form submission would happen here
+        console.log('Form submitted successfully');
+      }
+    });
+  }
+  
+  // Make footer contact info tappable on mobile
+  const phoneLink = document.querySelector('.footer-contact-item .fa-phone').parentElement.nextElementSibling;
+  if (phoneLink && !phoneLink.hasAttribute('href')) {
+    const phoneNumber = phoneLink.textContent.trim();
+    const phoneElement = document.createElement('a');
+    phoneElement.href = `tel:${phoneNumber.replace(/[^0-9+]/g, '')}`;
+    phoneElement.innerHTML = phoneLink.innerHTML;
+    phoneLink.parentElement.replaceChild(phoneElement, phoneLink);
+  }
+  
+  const emailLink = document.querySelector('.footer-contact-item .fa-envelope').parentElement.nextElementSibling;
+  if (emailLink && !emailLink.hasAttribute('href')) {
+    const email = emailLink.textContent.trim();
+    const emailElement = document.createElement('a');
+    emailElement.href = `mailto:${email}`;
+    emailElement.innerHTML = emailLink.innerHTML;
+    emailLink.parentElement.replaceChild(emailElement, emailLink);
+  }
+});
+</script>
+
+<style>
+/* Additional mobile-specific styles */
+@media (max-width: 767px) {
+  .footer-contact-item a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+  
+  .footer-contact-item a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+  }
+  
+  .password-input-wrapper {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+  }
+}
+</style>
