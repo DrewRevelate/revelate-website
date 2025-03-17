@@ -15,25 +15,25 @@
         </button>
         
         <ul id="primary-menu" class="menu">
-          <li class="menu-item <%= (page.title.includes('Home') || page.title === site.title) ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && (page.title.includes('Home') || (locals.site && page.title === site.title))) ? 'active' : '' %>">
             <a href="/">Home</a>
           </li>
-          <li class="menu-item <%= page.title.includes('About') ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && page.title.includes('About')) ? 'active' : '' %>">
             <a href="/about">About</a>
           </li>
-          <li class="menu-item <%= page.title.includes('Services') ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && page.title.includes('Services')) ? 'active' : '' %>">
             <a href="/services">Services</a>
           </li>
-          <li class="menu-item <%= page.title.includes('Approach') ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && page.title.includes('Approach')) ? 'active' : '' %>">
             <a href="/approach">Approach</a>
           </li>
-          <li class="menu-item <%= (page.title.includes('Case Studies') || page.title.includes('Projects')) ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && (page.title.includes('Case Studies') || page.title.includes('Projects'))) ? 'active' : '' %>">
             <a href="/case-studies">Case Studies</a>
           </li>
-          <li class="menu-item <%= page.title.includes('Assessment') ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && page.title.includes('Assessment')) ? 'active' : '' %>">
             <a href="/assessment">Assessment</a>
           </li>
-          <li class="menu-item <%= page.title.includes('Contact') ? 'active' : '' %>">
+          <li class="menu-item <%= (locals.page && page.title && page.title.includes('Contact')) ? 'active' : '' %>">
             <a href="/contact">Contact</a>
           </li>
           <li class="menu-item menu-item-cta">

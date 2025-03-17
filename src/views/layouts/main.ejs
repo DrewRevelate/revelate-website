@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= page.title %></title>
+  <title><%= locals.page && page.title ? page.title : 'Revelate Operations' %></title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="<%= page.description %>">
-  <meta name="keywords" content="<%= page.keywords %>">
+  <meta name="description" content="<%= locals.page && page.description ? page.description : 'Revelate Operations - Data-driven SaaS consulting' %>">
+  <meta name="keywords" content="<%= locals.page && page.keywords ? page.keywords : 'revelate, operations, saas, consulting, data' %>">
   
   <!-- Open Graph / Social Media Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="<%= page.url %>">
-  <meta property="og:title" content="<%= page.title %>">
-  <meta property="og:description" content="<%= page.description %>">
-  <meta property="og:image" content="<%= page.ogImage || '/images/revelate-spiral-logo.png' %>">
+  <meta property="og:url" content="<%= locals.page && page.url ? page.url : 'https://revelateops.com' %>">
+  <meta property="og:title" content="<%= locals.page && page.title ? page.title : 'Revelate Operations' %>">
+  <meta property="og:description" content="<%= locals.page && page.description ? page.description : 'Revelate Operations - Data-driven SaaS consulting' %>">
+  <meta property="og:image" content="<%= locals.page && page.ogImage ? page.ogImage : '/images/revelate-spiral-logo.png' %>">
   
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="<%= page.title %>">
-  <meta name="twitter:description" content="<%= page.description %>">
-  <meta name="twitter:image" content="<%= page.ogImage || '/images/revelate-spiral-logo.png' %>">
+  <meta name="twitter:title" content="<%= locals.page && page.title ? page.title : 'Revelate Operations' %>">
+  <meta name="twitter:description" content="<%= locals.page && page.description ? page.description : 'Revelate Operations - Data-driven SaaS consulting' %>">
+  <meta name="twitter:image" content="<%= locals.page && page.ogImage ? page.ogImage : '/images/revelate-spiral-logo.png' %>">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/images/favicon.png">
@@ -59,7 +59,11 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   
   <!-- Header & Navigation -->
-  <%- include('../partials/header') %>
+  <% try { %>
+    <%- include('../partials/header') %>
+  <% } catch (e) { %>
+    <!-- Header not available -->
+  <% } %>
   
   <!-- Main Content -->
   <main id="main-content">
@@ -67,7 +71,11 @@
   </main>
   
   <!-- Footer -->
-  <%- include('../partials/footer') %>
+  <% try { %>
+    <%- include('../partials/footer') %>
+  <% } catch (e) { %>
+    <!-- Footer not available -->
+  <% } %>
   
   <!-- Back to Top Button -->
   <button id="back-to-top" class="back-to-top" aria-label="Back to top">
