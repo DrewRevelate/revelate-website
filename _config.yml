@@ -26,6 +26,3 @@ collections:
   services:
     output: true
     permalink: /services/:path/
-  case-studies:
-    output: true
-    permalink: /case-studies/:path/

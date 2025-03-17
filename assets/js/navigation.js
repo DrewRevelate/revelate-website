@@ -29,17 +29,15 @@ function initMobileMenu() {
             const expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !expanded);
             navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
             
-            // Change icon based on state
-            const icon = this.querySelector('i');
-            if (icon) {
-                if (expanded) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                }
+            // Change hamburger icon based on state
+            if (expanded) {
+                // Mobile menu is closing
+                document.body.style.overflow = '';
+            } else {
+                // Mobile menu is opening
+                document.body.style.overflow = 'hidden';
             }
         });
         
@@ -48,13 +46,10 @@ function initMobileMenu() {
         navLinksArray.forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
                 if (mobileToggle) {
                     mobileToggle.setAttribute('aria-expanded', 'false');
-                    const icon = mobileToggle.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
                 }
             });
         });
@@ -65,12 +60,19 @@ function initMobileMenu() {
                 !navLinks.contains(event.target) && 
                 !mobileToggle.contains(event.target)) {
                 navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
                 mobileToggle.setAttribute('aria-expanded', 'false');
-                const icon = mobileToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+            }
+        });
+
+        // Close mobile menu with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+                mobileToggle.setAttribute('aria-expanded', 'false');
             }
         });
     }
@@ -106,37 +108,37 @@ function highlightActiveLinks() {
 }
 
 /**
- * Handle scroll events for sticky navigation and scroll-to-top button
+ * Handle scroll events for sticky navigation and back-to-top button
  */
 function handleScrollEvents() {
-    const navbar = document.getElementById('navbar');
-    const scrollTopBtn = document.getElementById('scroll-top');
+    const header = document.getElementById('header');
+    const backToTopBtn = document.getElementById('back-to-top');
     
-    function handleNavbarScroll() {
-        if (window.scrollY > 50 && navbar) {
-            navbar.classList.add('scrolled');
-        } else if (navbar) {
-            navbar.classList.remove('scrolled');
+    function handleHeaderScroll() {
+        if (window.scrollY > 50 && header) {
+            header.classList.add('scrolled');
+        } else if (header) {
+            header.classList.remove('scrolled');
         }
         
-        if (scrollTopBtn) {
+        if (backToTopBtn) {
             if (window.scrollY > 600) {
-                scrollTopBtn.classList.add('visible');
+                backToTopBtn.classList.add('visible');
             } else {
-                scrollTopBtn.classList.remove('visible');
+                backToTopBtn.classList.remove('visible');
             }
         }
     }
     
     // Call once on page load
-    handleNavbarScroll();
+    handleHeaderScroll();
     
     // Add scroll event listener
-    window.addEventListener('scroll', handleNavbarScroll);
+    window.addEventListener('scroll', handleHeaderScroll);
     
-    // Add click event to scroll-to-top button
-    if (scrollTopBtn) {
-        scrollTopBtn.addEventListener('click', function() {
+    // Add click event to back-to-top button
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'

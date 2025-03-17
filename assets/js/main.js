@@ -332,17 +332,15 @@ function initPageSpecific() {
         initExpandableCards();
     }
     
-    // Case studies page
-    else if (path.includes('case-studies')) {
-        // Initialize case study filters
-        if (path.endsWith('index.html') || path.endsWith('case-studies/')) {
-            initCaseStudyFilters();
-        }
-    }
-    
     // Contact page
     else if (path.includes('contact.html')) {
         initContactForm();
+    }
+    
+    // Assessment page
+    else if (path.includes('assessment.html')) {
+        console.log('Assessment page loaded');
+        // Assessment page JavaScript is loaded separately
     }
 }
 
@@ -406,40 +404,7 @@ function initExpandableCards() {
     }
 }
 
-/**
- * Initialize case study filters
- */
-function initCaseStudyFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const caseStudies = document.querySelectorAll('.case-study-card');
-    
-    if (!filterButtons.length || !caseStudies.length) return;
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Update active state for buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            
-            // Filter the case studies
-            caseStudies.forEach(card => {
-                if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                    card.style.display = '';
-                    setTimeout(() => {
-                        card.classList.remove('hidden');
-                    }, 10);
-                } else {
-                    card.classList.add('hidden');
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300); // Match transition duration
-                }
-            });
-        });
-    });
-}
+/* Case studies section removed */
 
 /**
  * Initialize contact form validation

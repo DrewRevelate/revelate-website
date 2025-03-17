@@ -25,6 +25,12 @@
     justify-content: center;
 }
 
+.assessment-hero-image img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
 .assessment-hero .hero-subtitle {
     font-size: 1.25rem;
     margin: 1.5rem 0;
@@ -568,6 +574,10 @@
 }
 
 @media (max-width: 768px) {
+    .assessment-hero {
+        padding: 100px 0 60px;
+    }
+    
     .assessment-hero-wrapper {
         flex-direction: column;
         text-align: center;
@@ -582,25 +592,59 @@
         margin-bottom: 30px;
     }
     
+    .assessment-hero-image img {
+        max-width: 80%;
+    }
+    
     .assessment-hero .hero-subtitle {
         margin-left: auto;
         margin-right: auto;
+        font-size: 1.1rem;
     }
     
     .assessment-hero-cta {
         justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .assessment-hero-cta .btn {
+        width: 100%;
     }
     
     .assessment-categories {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .category-card {
+        padding: 20px;
+    }
+    
+    .assessment-benefits {
+        padding: 40px 0;
+    }
+    
+    .benefits-list {
+        flex-direction: column;
     }
     
     .radio-group {
         grid-template-columns: repeat(5, 1fr);
+        padding: 10px;
     }
     
     .radio-text {
         font-size: 0.75rem;
+    }
+    
+    .assessment-form-section {
+        padding: 60px 0 40px;
+    }
+    
+    .assessment-container {
+        margin-top: 20px;
+        border-radius: 10px;
     }
     
     .assessment-body {
@@ -621,12 +665,105 @@
         flex-direction: column;
         gap: 10px;
     }
+    
+    .question-item {
+        margin-bottom: 30px;
+    }
+    
+    .assessment-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .assessment-navigation .btn {
+        width: 100%;
+    }
+    
+    .client-stories {
+        padding: 40px 0;
+    }
+    
+    .stories-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .story-card {
+        margin-bottom: 0;
+    }
 }
 
 @media (max-width: 576px) {
+    .assessment-hero {
+        padding: 90px 0 50px;
+    }
+    
+    .assessment-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .assessment-hero .eyebrow {
+        font-size: 0.8rem;
+    }
+    
+    .assessment-hero .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .assessment-hero-image img {
+        max-width: 90%;
+    }
+    
+    .category-card {
+        padding: 15px;
+    }
+    
+    .category-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .assessment-container {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+    
+    .assessment-step {
+        padding: 0 10px;
+    }
+    
+    .assessment-step h3 {
+        font-size: 1.25rem;
+    }
+    
+    .step-description {
+        font-size: 0.9rem;
+    }
+    
+    .progress-steps {
+        display: none;
+    }
+    
+    .question-text {
+        font-size: 0.95rem;
+    }
+    
+    .question-options {
+        padding: 5px;
+    }
+    
+    .option-label {
+        padding: 10px 5px;
+    }
+    
+    .option-text {
+        font-size: 0.8rem;
+    }
+    
     .radio-group {
         grid-template-columns: repeat(5, 1fr);
-        padding: 10px 5px;
+        padding: 8px 5px;
     }
     
     .radio-label {
@@ -639,11 +776,36 @@
     
     .assessment-navigation {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+        padding-top: 15px;
     }
     
     .nav-button {
         width: 100%;
         justify-content: center;
+        padding: 12px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group.half {
+        width: 100%;
+    }
+    
+    .faq-item {
+        margin-bottom: 10px;
+    }
+    
+    .faq-question {
+        padding: 15px 10px;
+        font-size: 0.95rem;
+    }
+    
+    .faq-answer p {
+        padding: 10px;
+        font-size: 0.9rem;
     }
 }

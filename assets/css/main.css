@@ -717,13 +717,15 @@ section {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: var(--z-modal);
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .modal[aria-hidden="false"] {
@@ -743,6 +745,18 @@ section {
 .modal[aria-hidden="false"] .modal-dialog {
     opacity: 1;
     transform: translateY(0);
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .modal-content {
@@ -750,6 +764,8 @@ section {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 
 .modal-header {
@@ -758,11 +774,14 @@ section {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--light-alt);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
 }
 
 .modal-title {
     margin-bottom: 0;
     font-size: var(--font-size-2xl);
+    color: white;
 }
 
 .modal-close {
@@ -770,13 +789,21 @@ section {
     border: none;
     font-size: var(--font-size-2xl);
     line-height: 1;
-    color: var(--gray);
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     transition: color var(--transition-fast);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .modal-close:hover {
-    color: var(--dark);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .modal-body {
@@ -802,6 +829,34 @@ section {
 
 .forgot-password {
     font-size: var(--font-size-sm);
+}
+
+/* Password input wrapper */
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.password-toggle:hover {
+    color: var(--primary);
 }
 
 /* ==========================================
@@ -1158,6 +1213,13 @@ section {
     
     .mobile-toggle {
         display: block;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: var(--z-header);
     }
     
     .nav-links {
@@ -1165,20 +1227,26 @@ section {
         top: var(--header-height);
         left: 0;
         right: 0;
+        bottom: 0;
         background-color: white;
         box-shadow: var(--shadow-md);
         padding: var(--space-6);
+        display: flex;
         flex-direction: column;
         gap: var(--space-5);
-        transform: translateY(-100%);
+        transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
         transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
         z-index: var(--z-header);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: calc(100vh - var(--header-height));
     }
     
-    .mobile-toggle[aria-expanded="true"] + .nav-links {
-        transform: translateY(0);
+    .mobile-toggle[aria-expanded="true"] + .nav-links,
+    .nav-links.active {
+        transform: translateX(0);
         opacity: 1;
         visibility: visible;
     }
@@ -1190,12 +1258,15 @@ section {
     .nav-link {
         display: block;
         padding: var(--space-3) 0;
+        font-size: 1.125rem;
     }
     
     .nav-cta {
         margin-left: 0;
         width: 100%;
         text-align: center;
+        margin-top: var(--space-4);
+        padding: var(--space-4) var(--space-5);
     }
     
     /* Form elements for mobile */
@@ -1205,6 +1276,11 @@ section {
     
     .btn {
         min-height: 44px; /* Minimum touch target size */
+    }
+    
+    /* Body class when menu is open */
+    body.menu-open {
+        overflow: hidden;
     }
 }
 

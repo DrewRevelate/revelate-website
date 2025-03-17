@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Initialize portal modal functionality (legacy)
+ * Initialize portal modal functionality
  */
 function initPortalModal() {
     const portalModal = document.getElementById('portal-modal');
@@ -29,6 +29,18 @@ function initPortalModal() {
     
     // Exit if essential elements aren't found
     if (!portalModal || !loginForm) return;
+
+    // Add open event to all portal links
+    const portalLinks = document.querySelectorAll('.nav-cta, [data-modal="login"]');
+    portalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only prevent default if it's a link to the client portal
+            if (link.href && link.href.includes('client.revelateops.com')) {
+                e.preventDefault();
+            }
+            openPortalModal();
+        });
+    });
     
     /**
      * Handle closing the modal when the close button is clicked
@@ -81,6 +93,27 @@ function initPortalModal() {
             }, 1000);
         }
     });
+}
+
+/**
+ * Open the portal login modal
+ */
+function openPortalModal() {
+    const portalModal = document.getElementById('portal-modal');
+    if (!portalModal) return;
+    
+    // Show the modal
+    portalModal.setAttribute('aria-hidden', 'false');
+    portalModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    
+    // Focus the first input for accessibility
+    setTimeout(() => {
+        const firstInput = portalModal.querySelector('input');
+        if (firstInput) {
+            firstInput.focus();
+        }
+    }, 100);
 }
 
 /**
