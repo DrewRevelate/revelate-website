@@ -225,31 +225,40 @@ function initAssessmentForm() {
                 setTimeout(() => {
                     calculateResults();
                     
-                    // Save to database through API
-                    if (window.RevOpsAPI && typeof window.RevOpsAPI.saveAssessment === 'function') {
-                        window.RevOpsAPI.saveAssessment(assessmentData)
-                            .then((result) => {
-                                console.log('Assessment data saved successfully', result);
-                                // If the API returned calculated scores, we could use them here
-                                if (result.results) {
-                                    // Optionally update the UI with the returned scores
-                                    console.log('Assessment scores from server:', result.results);
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Failed to save assessment data:', error);
-                                // Since we're already showing results, we'll just log the error
-                            });
-                    } else {
-                        console.log('API client not available for saving assessment data');
-                    }
+                    // Send data to server
+                    fetch('/api/assessments', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(assessmentData)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Server error');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Assessment saved successfully:', data);
+                        // Optionally update results with server values
+                        if (data.results) {
+                            console.log('Using server-calculated scores');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error saving assessment:', error);
+                        // Continue showing results even if server save fails
+                    })
+                    .finally(() => {
+                        // Hide loading, show results
+                        loadingScreen.style.display = 'none';
+                        resultsSection.style.display = 'block';
+                        
+                        // Scroll to results
+                        scrollToElement(resultsSection);
+                    });
                     
-                    // Hide loading, show results
-                    loadingScreen.style.display = 'none';
-                    resultsSection.style.display = 'block';
-                    
-                    // Scroll to results
-                    scrollToElement(resultsSection);
                 }, 2000);
             }
         });
@@ -483,4 +492,143 @@ function initAssessmentForm() {
                 ],
                 developing: [
                     "Implement SLAs between marketing, sales, and customer success",
-                    "
+                    "Develop a unified revenue team calendar for key activities",
+                    "Create a cross-functional data review process"
+                ],
+                established: [
+                    "Define clear RevOps roles and responsibilities",
+                    "Implement joint forecasting and planning processes",
+                    "Create shared technology roadmaps across revenue teams"
+                ],
+                advanced: [
+                    "Build a dedicated RevOps team with clear executive support",
+                    "Implement advanced outcome-based team alignment",
+                    "Create cross-functional customer journey optimization"
+                ],
+                expert: [
+                    "Develop a unified revenue strategy with executive alignment",
+                    "Create advanced customer experience orchestration across teams",
+                    "Implement real-time performance transparency and accountability"
+                ]
+            }
+        };
+        
+        // Return appropriate recommendations or empty array if not found
+        return recommendations[dimension]?.[level] || [];
+    }
+    
+    /**
+     * Display results in the UI
+     * @param {Object} results - The assessment results
+     */
+    function displayResults(results) {
+        // Update overall score
+        document.getElementById('overallScore').textContent = results.overallScore.toFixed(1);
+        document.getElementById('maturityLevel').textContent = results.maturityLevel;
+        
+        // Update dimension scores
+        document.getElementById('dataScoreValue').textContent = results.dataInfrastructure.score.toFixed(1);
+        document.getElementById('dataScore').style.width = `${(results.dataInfrastructure.score / 5) * 100}%`;
+        
+        document.getElementById('analyticsScoreValue').textContent = results.analyticsCapabilities.score.toFixed(1);
+        document.getElementById('analyticsScore').style.width = `${(results.analyticsCapabilities.score / 5) * 100}%`;
+        
+        document.getElementById('processScoreValue').textContent = results.processMaurity.score.toFixed(1);
+        document.getElementById('processScore').style.width = `${(results.processMaurity.score / 5) * 100}%`;
+        
+        document.getElementById('teamScoreValue').textContent = results.teamAlignment.score.toFixed(1);
+        document.getElementById('teamScore').style.width = `${(results.teamAlignment.score / 5) * 100}%`;
+        
+        // Update benchmark comparison
+        document.getElementById('yourBenchmarkValue').textContent = results.overallScore.toFixed(1);
+        document.getElementById('yourBenchmark').style.width = `${(results.overallScore / 5) * 100}%`;
+        
+        // Update results summary
+        document.getElementById('resultsSummary').textContent = results.maturityDescription;
+        
+        // Update recommendations
+        const recommendationsList = document.getElementById('recommendationsList');
+        recommendationsList.innerHTML = '';
+        
+        results.improvementAreas.forEach(recommendation => {
+            const recItem = document.createElement('div');
+            recItem.className = 'recommendation-item';
+            recItem.innerHTML = `
+                <div class="recommendation-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="recommendation-text">
+                    <p>${recommendation}</p>
+                </div>
+            `;
+            recommendationsList.appendChild(recItem);
+        });
+        
+        // Add event listeners for results actions
+        if (emailResultsButton) {
+            emailResultsButton.addEventListener('click', () => {
+                // Email results functionality would go here
+                alert('Results have been emailed to ' + results.email);
+            });
+        }
+        
+        if (downloadResultsButton) {
+            downloadResultsButton.addEventListener('click', () => {
+                // Download PDF functionality would go here
+                alert('PDF download feature coming soon');
+            });
+        }
+    }
+}
+
+/**
+ * Initialize stat counters in stats section
+ */
+function initStatCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    if (!counters.length) return;
+    
+    // Options for Intersection Observer
+    const options = {
+        threshold: 0.5,
+        rootMargin: '0px'
+    };
+    
+    // Create observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-count'));
+                let count = 0;
+                
+                // Determine animation speed based on target value
+                const speed = Math.max(10, 100 - (target / 2));
+                
+                const updateCount = () => {
+                    // Calculate increment value to smoothen animation
+                    const increment = Math.ceil(target / (1000 / speed));
+                    
+                    if (count < target) {
+                        count = Math.min(count + increment, target);
+                        counter.textContent = count;
+                        setTimeout(updateCount, speed);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCount();
+                
+                // Unobserve after starting animation
+                observer.unobserve(counter);
+            }
+        });
+    }, options);
+    
+    // Start observing counters
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}

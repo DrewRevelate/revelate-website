@@ -1,21 +1,37 @@
 /**
  * Revelate Operations - Server
- * Main server file for handling API requests and database operations
+ * Properly serves static Jekyll site and handles API requests with PostgreSQL
  */
 
-// Import dependencies
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
-const db = require('./db/database');
-const jekyllMiddleware = require('./utils/jekyll-compatibility');
+const { Pool } = require('pg');
 
 // Load environment variables
 dotenv.config();
 
-// Create Express app
+// Initialize PostgreSQL pool
+const dbUrl = process.env.DATABASE_URL || process.env.HEROKU_POSTGRESQL_ROSE_URL;
+const pool = new Pool({
+  connectionString: dbUrl,
+  ssl: {
+    rejectUnauthorized: false // Required for Heroku PostgreSQL
+  }
+});
+
+// Test database connection
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('Database connection error:', err.stack);
+  } else {
+    console.log('Database connected successfully at:', res.rows[0].now);
+  }
+});
+
+// Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -23,77 +39,42 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Add Jekyll compatibility middleware
-app.use(jekyllMiddleware);
+// Redirect domain.com to www.domain.com for better SEO
+app.use((req, res, next) => {
+  const host = req.header('host');
+  if (host === 'revelateops.com') {
+    return res.redirect(301, `https://www.revelateops.com${req.url}`);
+  }
+  next();
+});
 
-// Handle favicon.ico to avoid 404 errors
+// Handle favicon.ico
 app.get('/favicon.ico', (req, res) => {
   const faviconPath = path.join(__dirname, 'assets/images/favicon.png');
   if (fs.existsSync(faviconPath)) {
     res.sendFile(faviconPath);
   } else {
-    res.status(204).end(); // No content if favicon doesn't exist
+    res.status(204).end();
   }
 });
 
-// Serve static files with proper caching
-app.use(express.static(path.join(__dirname, '/'), {
-  maxAge: '1d'
-}));
-
-// Routes
-// Handle root route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+// Set cache headers for static assets
+app.use((req, res, next) => {
+  // Cache static assets for 1 day
+  if (req.url.match(/\.(css|js|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot)$/)) {
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+  }
+  next();
 });
 
-// Handle HTML page routes (both with and without .html extension)
-app.get('/:page', (req, res, next) => {
-  const page = req.params.page;
-  
-  // Skip API routes and handle them separately
-  if (page.startsWith('api')) {
-    return next();
-  }
-  
-  // Check if this is a directory route (without .html)
-  const htmlFile = path.join(__dirname, `${page}.html`);
-  const directoryIndexFile = path.join(__dirname, `${page}/index.html`);
-  
-  if (page.endsWith('.html')) {
-    // Direct HTML request
-    res.sendFile(path.join(__dirname, page));
-  } else if (fs.existsSync(htmlFile)) {
-    // Page exists as a direct .html file
-    res.sendFile(htmlFile);
-  } else if (fs.existsSync(directoryIndexFile)) {
-    // Page exists as a directory with index.html
-    res.sendFile(directoryIndexFile);
-  } else {
-    // If we couldn't find a matching file, continue to next middleware
-    next();
-  }
-});
+// Serve static files from _site directory which contains the Jekyll build
+const siteDir = path.join(__dirname, '_site');
+app.use(express.static(siteDir));
 
-// Support for nested pages
-app.get('/:section/:page', (req, res, next) => {
-  const { section, page } = req.params;
-  
-  // Check for both direct file and index.html in directory
-  const directFile = path.join(__dirname, `${section}/${page}`);
-  const htmlFile = path.join(__dirname, `${section}/${page}.html`);
-  const directoryFile = path.join(__dirname, `${section}/${page}/index.html`);
-  
-  if (fs.existsSync(directFile)) {
-    res.sendFile(directFile);
-  } else if (fs.existsSync(htmlFile)) {
-    res.sendFile(htmlFile);
-  } else if (fs.existsSync(directoryFile)) {
-    res.sendFile(directoryFile);
-  } else {
-    next();
-  }
-});
+// Serve other static files from root as fallback
+app.use(express.static(__dirname));
+
+// API Routes
 
 // API endpoint to save contact form submissions
 app.post('/api/contacts', async (req, res) => {
@@ -110,7 +91,7 @@ app.post('/api/contacts', async (req, res) => {
     `;
     
     const values = [name, email, phone || '', company || '', interest, message];
-    const result = await db.query(query, values);
+    const result = await pool.query(query, values);
     
     res.status(201).json({
       success: true,
@@ -123,38 +104,6 @@ app.post('/api/contacts', async (req, res) => {
       success: false,
       message: 'Failed to save contact information',
       error: error.message
-    });
-  }
-});
-
-// Endpoint to check database status (for admin purposes only)
-app.get('/api/status', async (req, res) => {
-  try {
-    const result = await db.query('SELECT NOW() as time');
-    
-    res.status(200).json({
-      success: true,
-      database: {
-        connected: true,
-        timestamp: result.rows[0].time
-      },
-      server: {
-        timestamp: new Date(),
-        uptime: process.uptime() + ' seconds'
-      }
-    });
-  } catch (error) {
-    console.error('Error checking database status:', error);
-    res.status(500).json({
-      success: false,
-      database: {
-        connected: false,
-        error: error.message
-      },
-      server: {
-        timestamp: new Date(),
-        uptime: process.uptime() + ' seconds'
-      }
     });
   }
 });
@@ -236,7 +185,7 @@ app.post('/api/assessments', async (req, res) => {
       overallScore, maturityLevel
     ];
     
-    const result = await db.query(query, values);
+    const result = await pool.query(query, values);
     
     res.status(201).json({
       success: true,
@@ -261,6 +210,152 @@ app.post('/api/assessments', async (req, res) => {
   }
 });
 
+// API endpoint for checking database status
+app.get('/api/status', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT NOW() as time');
+    
+    res.status(200).json({
+      success: true,
+      database: {
+        connected: true,
+        timestamp: result.rows[0].time
+      },
+      server: {
+        timestamp: new Date(),
+        uptime: process.uptime() + ' seconds'
+      }
+    });
+  } catch (error) {
+    console.error('Error checking database status:', error);
+    res.status(500).json({
+      success: false,
+      database: {
+        connected: false,
+        error: error.message
+      },
+      server: {
+        timestamp: new Date(),
+        uptime: process.uptime() + ' seconds'
+      }
+    });
+  }
+});
+
+// Special route handlers for Jekyll-style paths
+app.get('/:page/', (req, res, next) => {
+  const page = req.params.page;
+  
+  // Try different file locations in order
+  const possibilities = [
+    path.join(siteDir, page, 'index.html'),
+    path.join(siteDir, `${page}.html`),
+    path.join(__dirname, page, 'index.html'),
+    path.join(__dirname, `${page}.html`)
+  ];
+  
+  // Find the first valid file
+  for (const filePath of possibilities) {
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+  }
+  
+  // If no file found, continue to next middleware
+  next();
+});
+
+// Handle nested Jekyll-style paths
+app.get('/:section/:page/', (req, res, next) => {
+  const { section, page } = req.params;
+  
+  // Try different file locations in order
+  const possibilities = [
+    path.join(siteDir, section, page, 'index.html'),
+    path.join(siteDir, section, `${page}.html`),
+    path.join(__dirname, section, page, 'index.html'),
+    path.join(__dirname, section, `${page}.html`)
+  ];
+  
+  // Find the first valid file
+  for (const filePath of possibilities) {
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+  }
+  
+  // If no file found, continue to next middleware
+  next();
+});
+
+// Handle paths without trailing slash
+app.get('/:page', (req, res, next) => {
+  // Skip if it's an API route or file with extension
+  const page = req.params.page;
+  if (page.startsWith('api') || page.includes('.')) {
+    return next();
+  }
+  
+  // Try different file locations in order
+  const possibilities = [
+    path.join(siteDir, page, 'index.html'),
+    path.join(siteDir, `${page}.html`),
+    path.join(__dirname, page, 'index.html'),
+    path.join(__dirname, `${page}.html`)
+  ];
+  
+  // Find the first valid file
+  for (const filePath of possibilities) {
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+  }
+  
+  // If no file found, continue to next middleware
+  next();
+});
+
+// Handle nested paths without trailing slash
+app.get('/:section/:page', (req, res, next) => {
+  // Skip if it's a file with extension
+  const page = req.params.page;
+  if (page.includes('.')) {
+    return next();
+  }
+  
+  const { section } = req.params;
+  
+  // Try different file locations in order
+  const possibilities = [
+    path.join(siteDir, section, page, 'index.html'),
+    path.join(siteDir, section, `${page}.html`),
+    path.join(__dirname, section, page, 'index.html'),
+    path.join(__dirname, section, `${page}.html`)
+  ];
+  
+  // Find the first valid file
+  for (const filePath of possibilities) {
+    if (fs.existsSync(filePath)) {
+      return res.sendFile(filePath);
+    }
+  }
+  
+  // If no file found, continue to next middleware
+  next();
+});
+
+// Catch-all route for HTML file extensions
+app.get('*', (req, res, next) => {
+  // Only handle paths that don't have file extensions or end with .html
+  const path404 = path.join(siteDir, '404.html');
+  
+  if (fs.existsSync(path404)) {
+    return res.status(404).sendFile(path404);
+  } else {
+    return res.status(404).send('Page not found');
+  }
+});
+
 // Helper function to calculate scores
 function calculateScore(scores) {
   // Filter out invalid scores
@@ -280,55 +375,69 @@ function getMaturityLevel(score) {
   return 'Expert';
 }
 
-// Database initialization route (for setup)
-app.get('/setup-database', async (req, res) => {
-  try {
-    const result = await db.initDb();
-    
-    if (result.success) {
-      res.status(200).json({
-        success: true,
-        message: 'Database tables created successfully'
-      });
-    } else {
-      throw result.error;
-    }
-  } catch (error) {
-    console.error('Error setting up database:', error);
-    res.status(500).json({
-      success: false,
-      message: 'Failed to set up database',
-      error: error.message
-    });
-  }
-});
-
-// Handle 404 errors with custom 404 page
-app.use((req, res) => {
-  if (fs.existsSync(path.join(__dirname, '404.html'))) {
-    res.status(404).sendFile(path.join(__dirname, '404.html'));
-  } else {
-    res.status(404).send('Page not found');
-  }
-});
-
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// Export setupDb function for CLI usage
+// Database setup function exported for CLI
 module.exports = {
   setupDb: async () => {
     try {
-      const result = await db.initDb();
-      if (result.success) {
-        console.log('Database initialized successfully');
-        process.exit(0);
-      } else {
-        console.error('Error initializing database:', result.error);
-        process.exit(1);
-      }
+      // Create contacts table
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS contacts (
+          id SERIAL PRIMARY KEY,
+          name VARCHAR(255) NOT NULL,
+          email VARCHAR(255) NOT NULL,
+          phone VARCHAR(50),
+          company VARCHAR(255),
+          interest VARCHAR(50),
+          message TEXT,
+          created_at TIMESTAMP NOT NULL
+        )
+      `);
+      
+      // Create assessments table
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS assessments (
+          id SERIAL PRIMARY KEY,
+          full_name VARCHAR(255) NOT NULL,
+          email VARCHAR(255) NOT NULL,
+          company_name VARCHAR(255),
+          job_title VARCHAR(255),
+          industry VARCHAR(100),
+          company_size VARCHAR(50),
+          
+          crm_implementation INTEGER,
+          system_integration INTEGER,
+          data_quality INTEGER,
+          
+          analytics_capabilities INTEGER,
+          revenue_attribution INTEGER,
+          data_driven_decisions INTEGER,
+          
+          sales_process INTEGER,
+          lead_process INTEGER,
+          retention_process INTEGER,
+          
+          team_alignment INTEGER,
+          revenue_forecasting INTEGER,
+          revops_leadership INTEGER,
+          
+          data_infrastructure_score DECIMAL(5,2),
+          analytics_score DECIMAL(5,2),
+          process_score DECIMAL(5,2),
+          team_score DECIMAL(5,2),
+          overall_score DECIMAL(5,2),
+          maturity_level VARCHAR(50),
+          
+          created_at TIMESTAMP NOT NULL
+        )
+      `);
+      
+      console.log('Database tables created successfully');
+      process.exit(0);
     } catch (error) {
       console.error('Error initializing database:', error);
       process.exit(1);

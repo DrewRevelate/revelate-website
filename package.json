@@ -6,37 +6,31 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "serve-static": "npx serve -s .",
-    "build": "echo \"Skipping build process\"",
-    "lint": "npx stylelint css/*.css && npx eslint js/*.js",
-    "test": "echo \"No tests configured\"",
-    "setup-db": "node -e \"require('./server').setupDb()\""
+    "jekyll": "bundle exec jekyll build",
+    "jekyll:serve": "bundle exec jekyll serve",
+    "setup-db": "node -e \"require('./server').setupDb()\"",
+    "heroku-postbuild": "npm run jekyll"
+  },
+  "engines": {
+    "node": "18.x",
+    "ruby": "3.2.x"
   },
   "keywords": [
     "revelate",
     "operations",
     "consulting",
-    "website"
+    "website",
+    "jekyll"
   ],
-  "engines": {
-    "node": "18.x"
-  },
   "author": "Revelate Operations",
   "license": "MIT",
   "devDependencies": {
-    "clean-css-cli": "^5.6.2",
-    "eslint": "^8.44.0",
-    "imagemin-cli": "^7.0.0",
-    "live-server": "^1.2.2",
-    "nodemon": "^3.0.3",
-    "stylelint": "^15.10.1",
-    "terser": "^5.18.2"
+    "nodemon": "^3.0.3"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
-    "pg": "^8.11.3",
-    "serve": "^14.2.0"
+    "pg": "^8.11.3"
   }
 }
