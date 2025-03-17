@@ -1,102 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Revelate Operations | Data-Driven SaaS Consulting</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Revelate Operations offers comprehensive data-driven services including CRM management, business intelligence, data integration, and customer retention strategies.">
-    <meta name="keywords" content="salesforce consulting, revenue operations, RevOps, SaaS consulting, data integration, CRM optimization, business intelligence">
-    
-    <!-- Open Graph / Social Media Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://revelateops.com/services">
-    <meta property="og:title" content="Our Services | Revelate Operations">
-    <meta property="og:description" content="Comprehensive data-driven services to transform your business operations and drive revenue growth.">
-    <meta property="og:image" content="https://revelateops.com/images/og-image.jpg">
-    
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Our Services | Revelate Operations">
-    <meta name="twitter:description" content="Comprehensive data-driven services to transform your business operations and drive revenue growth.">
-    <meta name="twitter:image" content="https://revelateops.com/images/og-image.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="apple-touch-icon" href="assets/images/favicon.png">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Animate On Scroll Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/services.css">
-    <link rel="stylesheet" href="assets/css/logo-effect.css">    
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "SaaS Consulting Services",
-        "provider": {
-            "@type": "ProfessionalService",
-            "name": "Revelate Operations",
-            "url": "https://revelateops.com"
-        },
-        "description": "Data-driven SaaS consulting services including CRM management, business intelligence, data integration, and customer retention strategies.",
-        "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock"
-        }
-    }
-    </script>
-</head>
-<body>
-    <!-- Accessibility Skip Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container">
-            <div class="header-inner">
-                
-                <!-- Logo in header -->
-                <a href="/" class="logo" aria-label="Revelate Operations Home">
-                    <div class="logo-container">
-                        <div class="logo-image">
-                            <img src="assets/images/logo.png" alt="Revelate Logo" width="100" height="100">
-                        </div>
-                    </div>
-                </a>
-                
-                <nav aria-label="Main navigation">
-                    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu">
-                        <span class="hamburger-icon"></span>
-                    </button>
-                    
-                    <ul id="main-menu" class="nav-links">
-                        <li class="nav-item"><a href="/services" class="nav-link active">Services</a></li>
-                        <li class="nav-item"><a href="/approach" class="nav-link">Our Approach</a></li>
-                        <li class="nav-item"><a href="/about" class="nav-link">About Us</a></li>
-                        <li class="nav-item"><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                        <li class="nav-item"><a href="/assessment" class="nav-link">Assessment</a></li>
-                        <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a href="/client-portal" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+<%- contentFor('body') %>
 
 <!-- Calendly Modal -->
 <div id="calendly-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
@@ -113,287 +15,230 @@
   </div>
 </div>
 
-<!-- Main Content Area -->
-<main id="main-content">
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <span class="eyebrow">Data-Driven SaaS Consulting</span>
-        <h1 class="hero-title">Transform Raw Data Into <span class="gradient-text">Strategic Wealth</span></h1>
-        <p class="hero-subtitle">Stop drowning in data without insights. We convert your fragmented data landscape into a unified system driving revenue growth and operational excellence.</p>
-        
-        <div class="hero-metrics">
-          <div class="metric" data-value="40">
-            <span class="metric-value"><span class="counter">40</span>%</span>
-            <span class="metric-label">Average Revenue Growth</span>
-          </div>
-          <div class="metric" data-value="85">
-            <span class="metric-value"><span class="counter">85</span>%</span>
-            <span class="metric-label">Increase in Data Utilization</span>
-          </div>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">Data-Driven SaaS Consulting</span>
+      <h1 class="hero-title">Transform Raw Data Into <span class="gradient-text">Strategic Wealth</span></h1>
+      <p class="hero-subtitle">Stop drowning in data without insights. We convert your fragmented data landscape into a unified system driving revenue growth and operational excellence.</p>
+      
+      <div class="hero-metrics">
+        <div class="metric" data-value="40">
+          <span class="metric-value"><span class="counter">40</span>%</span>
+          <span class="metric-label">Average Revenue Growth</span>
         </div>
-        
-        <div class="hero-cta">
-          <a href="#" class="btn btn-primary btn-lg calendly-trigger">Get Started</a>
-          <a href="#services" class="btn btn-outline btn-lg">Explore Services</a>
+        <div class="metric" data-value="85">
+          <span class="metric-value"><span class="counter">85</span>%</span>
+          <span class="metric-label">Increase in Data Utilization</span>
         </div>
       </div>
       
-      <div class="hero-image">
-        <img src="assets/images/dashboard-illustration.svg" alt="Data Dashboard Visualization" width="600" height="500">
-        <div class="hero-shape-1"></div>
-        <div class="hero-shape-2"></div>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg calendly-trigger">Get Started</a>
+        <a href="#services" class="btn btn-outline btn-lg">Explore Services</a>
       </div>
     </div>
     
-    <div class="hero-wave">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
-      </svg>
+    <div class="hero-image">
+      <img src="/assets/images/dashboard-illustration.svg" alt="Data Dashboard Visualization" width="600" height="500">
+      <div class="hero-shape-1"></div>
+      <div class="hero-shape-2"></div>
     </div>
-  </section>
+  </div>
+  
+  <div class="hero-wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,42.7C840,43,960,53,1080,53.3C1200,53,1320,43,1380,37.3L1440,32L1440,100L1380,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z" fill="#f8f9fa"></path>
+    </svg>
+  </div>
+</section>
 
-  <!-- Services Section -->
-  <section class="services-section" id="services">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">Comprehensive solutions designed to transform your revenue operations</p>
-      </div>
-      
-      <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="0" id="crm">
-          <div class="service-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3 class="service-title">CRM Management</h3>
-          <p class="service-description">Expert Salesforce implementation, optimization, and support that drives adoption and maximizes your ROI.</p>
-          <a href="#crm" class="service-link">
-            <span>Learn More</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <!-- Service 2 -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="100" id="bi">
-          <div class="service-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="service-title">Business Intelligence</h3>
-          <p class="service-description">Transform complex data into actionable insights with custom dashboards and predictive analytics.</p>
-          <a href="#bi" class="service-link">
-            <span>Learn More</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <!-- Service 3 -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="200" id="integration">
-          <div class="service-icon">
-            <i class="fas fa-sync-alt"></i>
-          </div>
-          <h3 class="service-title">Data Integration</h3>
-          <p class="service-description">Seamlessly connect your tech stack to create a unified data ecosystem that eliminates silos.</p>
-          <a href="#integration" class="service-link">
-            <span>Learn More</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-        
-        <!-- Service 4 -->
-        <div class="service-card" data-aos="fade-up" data-aos-delay="300" id="retention">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3 class="service-title">Customer Retention</h3>
-          <p class="service-description">Implement data-driven strategies to increase loyalty, reduce churn, and grow customer lifetime value.</p>
-          <a href="#retention" class="service-link">
-            <span>Learn More</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-      
-      <div class="section-cta">
-        <a href="#services" class="btn btn-primary">View All Services</a>
-      </div>
+<!-- Services Section -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive solutions designed to transform your revenue operations</p>
     </div>
-  </section>
-
-  <!-- Process Section -->
-  <section class="process-section" id="process">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Process</h2>
-        <p class="section-subtitle">A systematic methodology to transform your data into strategic wealth</p>
+    
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="0" id="crm">
+        <div class="service-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3 class="service-title">CRM Management</h3>
+        <p class="service-description">Expert Salesforce implementation, optimization, and support that drives adoption and maximizes your ROI.</p>
+        <a href="#crm" class="service-link">
+          <span>Learn More</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
       
-      <div class="process-steps">
-        <div class="process-step" data-aos="fade-right" data-aos-delay="0">
-          <div class="step-number">1</div>
-          <div class="step-content">
-            <h3>Discovery</h3>
-            <p>We analyze your current systems, processes, and pain points to understand your unique challenges and objectives.</p>
-          </div>
+      <!-- Service 2 -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100" id="bi">
+        <div class="service-icon">
+          <i class="fas fa-chart-line"></i>
         </div>
-        
-        <div class="process-step" data-aos="fade-left" data-aos-delay="100">
-          <div class="step-number">2</div>
-          <div class="step-content">
-            <h3>Strategy</h3>
-            <p>We develop a tailored roadmap with clear milestones, addressing both quick wins and long-term transformation.</p>
-          </div>
-        </div>
-        
-        <div class="process-step" data-aos="fade-right" data-aos-delay="200">
-          <div class="step-number">3</div>
-          <div class="step-content">
-            <h3>Implementation</h3>
-            <p>Our team executes the plan using best practices and agile methodologies to ensure quality and minimize disruption.</p>
-          </div>
-        </div>
-        
-        <div class="process-step" data-aos="fade-left" data-aos-delay="300">
-          <div class="step-number">4</div>
-          <div class="step-content">
-            <h3>Optimization</h3>
-            <p>We continuously refine and enhance your solution based on user feedback and evolving business needs.</p>
-          </div>
-        </div>
+        <h3 class="service-title">Business Intelligence</h3>
+        <p class="service-description">Transform complex data into actionable insights with custom dashboards and predictive analytics.</p>
+        <a href="#bi" class="service-link">
+          <span>Learn More</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
       
-      <div class="section-cta">
-        <a href="/approach" class="btn btn-primary">Learn More About Our Approach</a>
+      <!-- Service 3 -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200" id="integration">
+        <div class="service-icon">
+          <i class="fas fa-sync-alt"></i>
+        </div>
+        <h3 class="service-title">Data Integration</h3>
+        <p class="service-description">Seamlessly connect your tech stack to create a unified data ecosystem that eliminates silos.</p>
+        <a href="#integration" class="service-link">
+          <span>Learn More</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <!-- Service 4 -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300" id="retention">
+        <div class="service-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="service-title">Customer Retention</h3>
+        <p class="service-description">Implement data-driven strategies to increase loyalty, reduce churn, and grow customer lifetime value.</p>
+        <a href="#retention" class="service-link">
+          <span>Learn More</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
-  </section>
+    
+    <div class="section-cta">
+      <a href="#services" class="btn btn-primary">View All Services</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Expertise Section -->
-  <section class="expertise-section" id="expertise">
-    <div class="container">
-      <div class="expertise-grid">
-        <div class="expertise-content" data-aos="fade-right">
-          <h2>Why Choose Revelate Operations?</h2>
-          <p class="lead">We bring a unique combination of technical expertise and business acumen to every engagement.</p>
+<!-- Process Section -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Process</h2>
+      <p class="section-subtitle">A systematic methodology to transform your data into strategic wealth</p>
+    </div>
+    
+    <div class="process-steps">
+      <div class="process-step" data-aos="fade-right" data-aos-delay="0">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Discovery</h3>
+          <p>We analyze your current systems, processes, and pain points to understand your unique challenges and objectives.</p>
+        </div>
+      </div>
+      
+      <div class="process-step" data-aos="fade-left" data-aos-delay="100">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Strategy</h3>
+          <p>We develop a tailored roadmap with clear milestones, addressing both quick wins and long-term transformation.</p>
+        </div>
+      </div>
+      
+      <div class="process-step" data-aos="fade-right" data-aos-delay="200">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Implementation</h3>
+          <p>Our team executes the plan using best practices and agile methodologies to ensure quality and minimize disruption.</p>
+        </div>
+      </div>
+      
+      <div class="process-step" data-aos="fade-left" data-aos-delay="300">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Optimization</h3>
+          <p>We continuously refine and enhance your solution based on user feedback and evolving business needs.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section-cta">
+      <a href="/approach/" class="btn btn-primary">Learn More About Our Approach</a>
+    </div>
+  </div>
+</section>
+
+<!-- Expertise Section -->
+<section class="expertise-section" id="expertise">
+  <div class="container">
+    <div class="expertise-grid">
+      <div class="expertise-content" data-aos="fade-right">
+        <h2>Why Choose Revelate Operations?</h2>
+        <p class="lead">We bring a unique combination of technical expertise and business acumen to every engagement.</p>
+        
+        <div class="expertise-points">
+          <div class="expertise-point">
+            <div class="point-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="point-content">
+              <h3>End-to-End Expertise</h3>
+              <p>From data collection to visualization and strategic decision-making</p>
+            </div>
+          </div>
           
-          <div class="expertise-points">
-            <div class="expertise-point">
-              <div class="point-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="point-content">
-                <h3>End-to-End Expertise</h3>
-                <p>From data collection to visualization and strategic decision-making</p>
-              </div>
+          <div class="expertise-point">
+            <div class="point-icon">
+              <i class="fas fa-check-circle"></i>
             </div>
-            
-            <div class="expertise-point">
-              <div class="point-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="point-content">
-                <h3>Tailored Solutions</h3>
-                <p>Custom approaches based on your unique business needs</p>
-              </div>
+            <div class="point-content">
+              <h3>Tailored Solutions</h3>
+              <p>Custom approaches based on your unique business needs</p>
             </div>
-            
-            <div class="expertise-point">
-              <div class="point-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="point-content">
-                <h3>Results-Focused</h3>
-                <p>Measurable outcomes and ROI-driven implementations</p>
-              </div>
+          </div>
+          
+          <div class="expertise-point">
+            <div class="point-icon">
+              <i class="fas fa-check-circle"></i>
             </div>
-            
-            <div class="expertise-point">
-              <div class="point-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="point-content">
-                <h3>Knowledge Transfer</h3>
-                <p>We empower your team to maintain and extend solutions</p>
-              </div>
+            <div class="point-content">
+              <h3>Results-Focused</h3>
+              <p>Measurable outcomes and ROI-driven implementations</p>
+            </div>
+          </div>
+          
+          <div class="expertise-point">
+            <div class="point-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="point-content">
+              <h3>Knowledge Transfer</h3>
+              <p>We empower your team to maintain and extend solutions</p>
             </div>
           </div>
         </div>
-        
-        <div class="expertise-image" data-aos="fade-left">
-          <img src="assets/images/expertise-illustration.svg" alt="Data-Driven Decision Making">
-          <div class="expertise-shape"></div>
-        </div>
+      </div>
+      
+      <div class="expertise-image" data-aos="fade-left">
+        <img src="/assets/images/expertise-illustration.svg" alt="Data-Driven Decision Making">
+        <div class="expertise-shape"></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2 class="cta-title">Ready to Transform Your Data?</h2>
-        <p class="cta-description">Let's start a conversation about how we can help you unlock the full potential of your data and drive business growth.</p>
-        <a href="#" class="btn btn-light btn-lg calendly-trigger">Schedule a Consultation</a>
-      </div>
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Transform Your Data?</h2>
+      <p class="cta-description">Let's start a conversation about how we can help you unlock the full potential of your data and drive business growth.</p>
+      <a href="#" class="btn btn-light btn-lg calendly-trigger">Schedule a Consultation</a>
     </div>
-  </section>
-</main>
-
-<!-- Footer would go here -->
-
-<!-- Scripts -->
-<!-- AOS (Animate on Scroll) Initialization -->
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true
-    });
-    
-    // Mobile menu toggle
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const mainMenu = document.getElementById('main-menu');
-    
-    if(mobileToggle && mainMenu) {
-      mobileToggle.addEventListener('click', function() {
-        const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-        this.setAttribute('aria-expanded', !expanded);
-        mainMenu.classList.toggle('active');
-      });
-    }
-    
-    // Counter animation
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach(counter => {
-      const target = parseInt(counter.closest('.metric').dataset.value);
-      const duration = 2000; // 2 seconds
-      const frameRate = 50; // 50 fps
-      const frames = duration / (1000 / frameRate);
-      const increment = target / frames;
-      
-      let currentCount = 0;
-      
-      const animateCounter = () => {
-        if(currentCount < target) {
-          currentCount += increment;
-          if(currentCount > target) currentCount = target;
-          counter.textContent = Math.floor(currentCount);
-          requestAnimationFrame(animateCounter);
-        } else {
-          counter.textContent = target;
-        }
-      };
-      
-      animateCounter();
-    });
-  });
-</script>
+  </div>
+</section>
 
 <!-- Calendly Modal JavaScript -->
 <script>
@@ -452,5 +297,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-</body>
-</html>
+
+<!-- Counter Animation -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Counter animation
+  const counters = document.querySelectorAll('.counter');
+  
+  counters.forEach(counter => {
+    const target = parseInt(counter.closest('.metric').dataset.value);
+    const duration = 2000; // 2 seconds
+    const frameRate = 50; // 50 fps
+    const frames = duration / (1000 / frameRate);
+    const increment = target / frames;
+    
+    let currentCount = 0;
+    
+    const animateCounter = () => {
+      if(currentCount < target) {
+        currentCount += increment;
+        if(currentCount > target) currentCount = target;
+        counter.textContent = Math.floor(currentCount);
+        requestAnimationFrame(animateCounter);
+      } else {
+        counter.textContent = target;
+      }
+    };
+    
+    animateCounter();
+  });
+});
+</script>
