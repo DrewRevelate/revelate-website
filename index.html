@@ -1,214 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revelate Operations</title>
-  <meta http-equiv="refresh" content="0;url=https://revelate-operations-33be6715fef8.herokuapp.com/">
-  <script>
-    // Handle redirects for legacy URLs with .html extension
-    if (window.location.pathname.endsWith('.html')) {
-      const cleanPath = window.location.pathname.slice(0, -5);
-      window.location.href = 'https://revelate-operations-33be6715fef8.herokuapp.com' + cleanPath;
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <style>
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
-    }
-    .redirect-container {
-      max-width: 600px;
-      margin: 100px auto 0;
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .logo img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-    }
-    h1 {
-      color: #2b9fe3;
-      margin-bottom: 20px;
-    }
-    p {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #2b9fe3;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #1e7fb8;
-      transform: translateY(-2px);
-    }
-    /* Header Styles */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 15px 0;
-      z-index: 1000;
-    }
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-    }
-    .nav-link {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .nav-link:hover {
-      color: #2b9fe3;
-    }
-    .mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .hamburger-icon,
-    .hamburger-icon::before,
-    .hamburger-icon::after {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #333;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .hamburger-icon::before,
-    .hamburger-icon::after {
-      content: '';
-      position: absolute;
-    }
-    .hamburger-icon::before {
-      top: -8px;
-    }
-    .hamburger-icon::after {
-      bottom: -8px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revelate Operations | Data-Driven SaaS Consulting</title>
     
-    @media (max-width: 992px) {
-      .mobile-toggle {
-        display: block;
-      }
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        transform: translateY(-150%);
-        opacity: 0;
-        transition: all 0.3s ease;
-      }
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      .mobile-toggle[aria-expanded="true"] .hamburger-icon {
-        background: transparent;
-      }
-      .mobile-toggle[aria-expanded="true"] .hamburger-icon::before {
-        transform: rotate(45deg);
-        top: 0;
-      }
-      .mobile-toggle[aria-expanded="true"] .hamburger-icon::after {
-        transform: rotate(-45deg);
-        bottom: 0;
-      }
-    }
-  </style>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Revelate Operations transforms your raw data into actionable insights, driving revenue growth through innovative, data-driven solutions for SaaS companies.">
+    <meta name="keywords" content="salesforce consulting, revenue operations, RevOps, SaaS consulting, data integration, CRM optimization, business intelligence">
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://revelateops.com/">
+    <meta property="og:title" content="Revelate Operations | Data-Driven SaaS Consulting">
+    <meta property="og:description" content="Transform your raw data into strategic wealth with Revelate Operations' data-driven SaaS consulting services.">
+    <meta property="og:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Revelate Operations | Data-Driven SaaS Consulting">
+    <meta name="twitter:description" content="Transform your raw data into strategic wealth with Revelate Operations' data-driven SaaS consulting services.">
+    <meta name="twitter:image" content="https://revelateops.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/logo-effect.css">
+    
+    <style>
+        /* Additional styles for the hero section */
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        /* Navigation styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item {
+            margin: 0;
+        }
+        
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            position: relative;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #2b9fe3;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2b9fe3;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2b9fe3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2089c7;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #2b9fe3;
+            color: #2b9fe3;
+        }
+        
+        .btn-outline:hover {
+            background-color: #2b9fe3;
+            color: white;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger-icon, 
+        .hamburger-icon:before, 
+        .hamburger-icon:after {
+            content: '';
+            display: block;
+            background-color: #333;
+            height: 2px;
+            width: 26px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-icon:before {
+            transform: translateY(-8px);
+        }
+        
+        .hamburger-icon:after {
+            transform: translateY(6px);
+        }
+        
+        @media (max-width: 992px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                height: 0;
+                overflow: hidden;
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                height: auto;
+                visibility: visible;
+                opacity: 1;
+                padding-bottom: 20px;
+            }
+            
+            .mobile-toggle[aria-expanded="true"] .hamburger-icon {
+                background-color: transparent;
+            }
+            
+            .mobile-toggle[aria-expanded="true"] .hamburger-icon:before {
+                transform: rotate(45deg) translateY(0);
+            }
+            
+            .mobile-toggle[aria-expanded="true"] .hamburger-icon:after {
+                transform: rotate(-45deg) translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/" class="logo">
-        <img src="/assets/images/logo.png" alt="Revelate Logo">
-        <span>Revelate Operations</span>
-      </a>
-      <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <span class="hamburger-icon"></span>
-      </button>
-      <ul id="nav-menu" class="nav-links">
-        <li><a href="/services" class="nav-link">Services</a></li>
-        <li><a href="/approach" class="nav-link">Our Approach</a></li>
-        <li><a href="/about" class="nav-link">About Us</a></li>
-        <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-        <li><a href="/assessment" class="nav-link">Assessment</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo" aria-label="Revelate Operations Home">
+                    <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Logo">
+                    <span>Revelate Operations</span>
+                </a>
+                
+                <button class="mobile-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger-icon"></span>
+                </button>
+                
+                <nav aria-label="Main navigation">
+                    <ul id="main-menu" class="nav-links">
+                        <li class="nav-item"><a href="/services/" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/approach/" class="nav-link">Our Approach</a></li>
+                        <li class="nav-item"><a href="/about/" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="/case-studies/" class="nav-link">Case Studies</a></li>
+                        <li class="nav-item"><a href="/assessment/" class="nav-link">Assessment</a></li>
+                        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="/client-portal/" class="btn nav-cta" id="portal-btn">Client Portal</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <div class="redirect-container">
-    <div class="logo">
-      <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Logo">
-      <span>REVELATE</span>
-    </div>
-    <h1>Redirecting to Revelate Operations</h1>
-    <p>You are being redirected to our new website. If you are not redirected automatically, please click the button below.</p>
-    <a href="https://revelate-operations-33be6715fef8.herokuapp.com/" class="btn">Go to Revelate Operations</a>
-  </div>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Transform Your Data into Strategic Insights</h1>
+                    <p class="hero-subtitle">Revelate Operations helps businesses leverage their data for growth, operational excellence, and revenue acceleration.</p>
+                    <div class="hero-buttons">
+                        <a href="/services/" class="btn">Explore Our Services</a>
+                        <a href="/contact/" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileToggle = document.querySelector('.mobile-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      
-      if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', function() {
-          const expanded = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', !expanded);
-          navLinks.classList.toggle('active');
+    <!-- JavaScript for navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !expanded);
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking a link
+                const links = navLinks.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navLinks.contains(event.target) && !mobileToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
         });
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
