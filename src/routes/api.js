@@ -193,7 +193,8 @@ router.get('/status', async (req, res) => {
       },
       server: {
         timestamp: new Date(),
-        uptime: process.uptime() + ' seconds'
+        uptime: process.uptime() + ' seconds',
+        version: 'Express.js'
       }
     });
   } catch (error) {
@@ -206,10 +207,20 @@ router.get('/status', async (req, res) => {
       },
       server: {
         timestamp: new Date(),
-        uptime: process.uptime() + ' seconds'
+        uptime: process.uptime() + ' seconds',
+        version: 'Express.js'
       }
     });
   }
+});
+
+// Simple test endpoint to confirm Express is working
+router.get('/test', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Express.js API is working!',
+    timestamp: new Date()
+  });
 });
 
 module.exports = router;
