@@ -1,151 +1,89 @@
 # Revelate Operations Website
 
-A modern, responsive website for Revelate Operations, a data-driven SaaS consulting firm specializing in CRM management, business intelligence, and revenue operations. This site is built using Node.js, Express, and EJS templating with PostgreSQL database integration.
-
-## Project Overview
-
-This website is designed to showcase Revelate Operations' services, expertise, and case studies in the SaaS consulting space. It features a clean, professional design with modern animations and interactive elements to engage visitors.
-
-## Technology Stack
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Backend**: Node.js, Express.js
-- **Templating**: EJS with layouts and partials
-- **Database**: PostgreSQL (for contact form and assessment data)
-- **Deployment**: Heroku
-- **Additional**: PWA capabilities, RevOps presentation project
-
-## File Structure
-
-```
-revelate-website/
-├── assets/                   # Static assets
-│   ├── css/                  # CSS files
-│   ├── images/               # Image assets
-│   └── js/                   # JavaScript files
-├── db/                       # Database migrations and schema
-│   └── migrations/           # SQL migration files
-├── images/                   # Content images (case studies, testimonials, etc.)
-├── RevOps_Presentation-main/ # Industries Day interactive presentation
-├── src/                      # Application source code
-│   ├── config/               # Configuration files
-│   │   └── database.js       # Database configuration
-│   ├── controllers/          # Route controllers (if needed)
-│   ├── models/               # Database models
-│   ├── routes/               # Express routes
-│   │   ├── api.js            # API routes
-│   │   └── pages.js          # Page rendering routes
-│   ├── scripts/              # Utility scripts
-│   │   └── setup-db.js       # Database setup script
-│   ├── utils/                # Utility functions
-│   │   ├── expressEjsLayouts.js # EJS layout middleware
-│   │   └── validation.js        # Form validation
-│   ├── views/                # EJS templates
-│   │   ├── layouts/          # Layout templates
-│   │   ├── pages/            # Page templates
-│   │   │   ├── case-studies/ # Case study templates
-│   │   │   └── projects/     # Project templates
-│   │   └── partials/         # Reusable components
-│   └── app.js                # Main application entry point
-├── .env                      # Environment variables (not in repo)
-├── server.js                 # Server entry point for Heroku
-├── service-worker.js         # Service worker for PWA capabilities
-└── package.json              # Project dependencies and scripts
-```
+Modern website for Revelate Operations, built with Node.js, Express, and EJS.
 
 ## Features
 
-- **Express.js Backend**: Server-side rendering for improved SEO and performance
-- **PostgreSQL Integration**: Database for storing form submissions and assessment data
-- **RESTful API**: Endpoints for contact form, assessment tool, and status checks
-- **Interactive RevOps Assessment**: Tool to evaluate users' Revenue Operations maturity
-- **Case Studies Section**: Showcase of client success stories with detailed metrics
-- **Industries Day Project**: Interactive presentation on RevOps and automation
-- **Responsive Design**: Fully responsive layout for all device sizes
-- **Modern UI Elements**: Animations, testimonial sliders, and interactive components
-- **Performance Optimized**: Compression, caching, and efficient asset loading
-- **SEO Ready**: Proper meta tags, structured data, and semantic HTML
+- Responsive design optimized for all devices
+- Progressive Web App capabilities
+- Server-side rendering for SEO optimization
+- Optimized asset delivery with proper caching
+- Database integration for dynamic content
+- Contact form with validation
+- Analytics integration
 
-## Development Setup
+## Development
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- PostgreSQL (v13 or higher)
+- Node.js 18.x
+- PostgreSQL (for production and optional for development)
 
-### Installation
+### Setup
 
-1. Clone the repository
-   ```
-   git clone https://github.com/your-username/revelate-website.git
-   cd revelate-website
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/DrewRevelate/revelate-website.git
+cd revelate-website
 
-2. Install dependencies
-   ```
-   npm install
-   ```
+# Install dependencies
+npm install
 
-3. Set up your environment variables in a `.env` file:
-   ```
-   DATABASE_URL=postgres://username:password@localhost:5432/revelate
-   PORT=3000
-   ```
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
 
-4. Set up the database
-   ```
-   npm run setup-db
-   ```
+# Run in development mode
+npm run dev
+```
 
-5. Start the development server
-   ```
-   npm run dev
-   ```
+### Database Setup
 
-The site will be available at http://localhost:3000
+For production or if using database features in development:
 
-## API Endpoints
+```bash
+# Create the database tables
+npm run setup-db
+```
 
-The application provides the following API endpoints:
+## Deployment
 
-- `POST /api/contacts`: Submit contact form information
-- `POST /api/assessments`: Submit RevOps assessment data
-- `GET /api/status`: Check API and database connection status
+The site is deployed on Heroku with the following configuration:
 
-## Heroku Deployment
+```bash
+# Deploy to Heroku
+git push heroku main
 
-The website is configured for Heroku deployment:
+# Set environment variables
+heroku config:set NODE_ENV=production
+heroku config:set SESSION_SECRET=your-secret-key
+```
 
-1. Create a Heroku app and add the PostgreSQL addon:
-   ```
-   heroku create revelate-operations
-   heroku addons:create heroku-postgresql:hobby-dev
-   ```
+## Project Structure
 
-2. Deploy using the included script:
-   ```
-   ./deploy.sh
-   ```
-
-Or manually:
-
-1. Push to Heroku:
-   ```
-   git push heroku main
-   ```
-
-2. Run the database setup:
-   ```
-   heroku run npm run setup-db
-   ```
-
-## Available Scripts
-
-- `npm start`: Start the production server
-- `npm run dev`: Start the development server with hot-reloading
-- `npm run setup-db`: Set up the database tables
-- `npm run lint`: Run ESLint to check code quality
+```
+├── public/             # Static assets
+│   ├── assets/         # CSS, JS, images
+│   ├── manifest.json   # PWA manifest
+│   └── service-worker.js # Service worker for offline support
+├── src/
+│   ├── config/         # Configuration files
+│   ├── controllers/    # Route controllers
+│   ├── middleware/     # Express middleware
+│   ├── models/         # Database models
+│   ├── routes/         # Express routes
+│   ├── scripts/        # Utility scripts
+│   ├── utils/          # Helper utilities
+│   ├── views/          # EJS templates
+│   └── app.js          # Express app setup
+├── .env                # Environment variables
+├── .gitignore          # Git ignore file
+├── package.json        # Dependencies
+├── Procfile            # Heroku deployment
+├── README.md           # Documentation
+└── server.js           # Entry point
+```
 
 ## License
 
-All rights reserved. This code is proprietary to Revelate Operations.
+MIT

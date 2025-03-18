@@ -1,14 +1,16 @@
 {
   "name": "revelate-website",
-  "version": "1.0.0",
-  "description": "Revelate Operations Website",
+  "version": "2.0.0",
+  "description": "Revelate Operations Website - Optimized Version",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
     "setup-db": "node src/scripts/setup-db.js",
     "lint": "eslint src/**/*.js",
-    "test": "echo \"No tests configured\""
+    "test": "jest",
+    "build-assets": "node src/scripts/build-assets.js",
+    "optimize-images": "node src/scripts/optimize-images.js"
   },
   "engines": {
     "node": "18.x"
@@ -25,20 +27,30 @@
   "author": "Revelate Operations",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "compression": "^1.8.0",
+    "connect-pg-simple": "^9.0.1",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1",
+    "express-rate-limit": "^7.3.0",
+    "express-session": "^1.18.0",
     "helmet": "^7.2.0",
+    "joi": "^17.12.2",
     "morgan": "^1.10.0",
     "pg": "^8.14.1",
     "pg-promise": "^11.12.1",
-    "serve-favicon": "^2.5.0"
+    "sanitize-html": "^2.13.0",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
-    "nodemon": "^3.1.9"
+    "imagemin": "^8.0.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9",
+    "supertest": "^6.3.4"
   }
 }
