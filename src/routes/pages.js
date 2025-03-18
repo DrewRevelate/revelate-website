@@ -30,10 +30,11 @@ const getCommonData = (pageTitle, pageDescription = null, pageKeywords = null) =
   };
 };
 
-// Home page
+// Index
 router.get('/', (req, res) => {
-  const data = getCommonData('Data-Driven SaaS Consulting');
-  res.render('pages/home', data);
+  res.render('pages/index', { 
+    title: 'Revelate Operations | Data-Driven SaaS Consulting'
+  });
 });
 
 // About page
