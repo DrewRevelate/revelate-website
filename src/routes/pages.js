@@ -32,11 +32,9 @@ const getCommonData = (pageTitle, pageDescription = null, pageKeywords = null) =
 
 // Index
 router.get('/', (req, res) => {
-  res.render('pages/index', { 
-    title: 'Revelate Operations | Data-Driven SaaS Consulting'
-  });
-});
-
+  const data = getCommonData('Revelate Operations | Data-Driven SaaS Consulting');
+  res.render('pages/', data);
+  
 // About page
 router.get('/about', (req, res) => {
   const data = getCommonData('About Us', 'Learn about our company, our mission, and our team of experts.');
