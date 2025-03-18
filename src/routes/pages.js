@@ -3,11 +3,9 @@ const router = express.Router();
 
 // Home page - same routing for root path
 router.get('/', (req, res) => {
-  res.render('pages/index', { 
-    title: 'Revelate Operations | Data-Driven SaaS Consulting'
-  });
-});
-
+  const data = getCommonData('Revelate Operations | Data-Driven SaaS Consulting');
+  res.render('pages/', data);
+  
 // About page
 router.get('/about', (req, res) => {
   res.render('pages/about', { 
