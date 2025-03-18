@@ -1,0 +1,42 @@
+/**
+ * Error page styles
+ */
+
+.error-page {
+    padding: 120px 0;
+    text-align: center;
+    background-color: #f8f9fa;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.error-title {
+    font-size: 120px;
+    line-height: 1;
+    margin: 0;
+    background: linear-gradient(135deg, #4a6bdf 0%, #6e3fc3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.error-subtitle {
+    font-size: 36px;
+    margin: 20px 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.error-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
