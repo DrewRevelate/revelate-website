@@ -1,7 +1,7 @@
 // Service Worker for Revelate Operations Website
 const CACHE_NAME = 'revelate-website-v2';
 
-// Assets to cache on install - UPDATED for new URL structure
+// Assets to cache on install - UPDATED for directory-based URLs
 const CORE_ASSETS = [
   '/',
   '/services',
@@ -13,9 +13,6 @@ const CORE_ASSETS = [
   '/assets/js/main.js',
   '/assets/images/logo.png',
   '/assets/images/revelate-spiral-logo.png',
-  '/images/testimonials/testimonial-1.jpg',
-  '/images/testimonials/testimonial-2.jpg',
-  '/images/testimonials/testimonial-3.jpg',
   '/offline'
 ];
 
