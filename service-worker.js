@@ -1,22 +1,22 @@
 // Service Worker for Revelate Operations Website
-const CACHE_NAME = 'revelate-website-v1';
+const CACHE_NAME = 'revelate-website-v2';
 
-// Assets to cache on install
+// Assets to cache on install - UPDATED for new URL structure
 const CORE_ASSETS = [
   '/',
-  '/index.html',
-  '/services.html',
-  '/approach.html',
-  '/about.html',
-  '/contact.html',
-  '/case-studies/index.html',
-  '/css/main.min.css',
-  '/css/styles.min.css',
-  '/js/bundle.min.js',
-  '/images/logo.png',
-  '/images/revelate-spiral-logo.png',
-  '/images/hero-bg.jpg',
-  '/images/favicon.ico'
+  '/services',
+  '/approach',
+  '/about',
+  '/contact',
+  '/case-studies',
+  '/assets/css/main.css',
+  '/assets/js/main.js',
+  '/assets/images/logo.png',
+  '/assets/images/revelate-spiral-logo.png',
+  '/images/testimonials/testimonial-1.jpg',
+  '/images/testimonials/testimonial-2.jpg',
+  '/images/testimonials/testimonial-3.jpg',
+  '/offline'
 ];
 
 // Install event - cache core assets
@@ -85,7 +85,7 @@ self.addEventListener('fetch', event => {
           .catch(error => {
             // If both cache and network fail, return a basic offline page
             if (event.request.headers.get('Accept').includes('text/html')) {
-              return caches.match('/offline.html');
+              return caches.match('/offline');
             }
             
             return new Response('Network error occurred', {
