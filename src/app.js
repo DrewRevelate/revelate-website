@@ -11,6 +11,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+// Redirect .html URLs to clean directory paths
+app.use((req, res, next) => {
+  if (req.path.endsWith('.html')) {
+    const cleanPath = req.path.slice(0, -5); // Remove .html
+    return res.redirect(301, cleanPath);
+  }
+  next();
+});
 app.use(compression()); // Compress responses
 app.use(helmet({ contentSecurityPolicy: false })); // Security headers
 app.use(express.json());
