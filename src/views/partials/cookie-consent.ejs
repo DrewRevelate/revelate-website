@@ -1,0 +1,66 @@
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" class="cookie-banner" role="alert" aria-live="polite">
+    <div class="cookie-content">
+        <h3>Cookie Notice</h3>
+        <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our <a href="/privacy-policy">Privacy Policy</a>.</p>
+        <div class="cookie-actions">
+            <button id="cookie-accept" class="btn btn-primary btn-sm">Accept All</button>
+            <button id="cookie-essential" class="btn btn-outline btn-sm">Essential Only</button>
+            <button id="cookie-settings" class="btn btn-text">Cookie Settings</button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookie-settings-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="cookie-settings-title">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="cookie-settings-title">Cookie Preferences</h2>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Manage your cookie preferences below. Essential cookies are necessary for our website to function properly and cannot be disabled.</p>
+                
+                <form id="cookie-preferences-form">
+                    <div class="cookie-option">
+                        <div class="cookie-switch">
+                            <input type="checkbox" id="essential-cookies" checked disabled>
+                            <label for="essential-cookies"></label>
+                        </div>
+                        <div class="cookie-info">
+                            <h4>Essential Cookies</h4>
+                            <p>These cookies are necessary for the website to function properly and cannot be disabled.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cookie-option">
+                        <div class="cookie-switch">
+                            <input type="checkbox" id="analytics-cookies">
+                            <label for="analytics-cookies"></label>
+                        </div>
+                        <div class="cookie-info">
+                            <h4>Analytics Cookies</h4>
+                            <p>These cookies help us understand how visitors interact with our website, helping us improve our services.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cookie-option">
+                        <div class="cookie-switch">
+                            <input type="checkbox" id="marketing-cookies">
+                            <label for="marketing-cookies"></label>
+                        </div>
+                        <div class="cookie-info">
+                            <h4>Marketing Cookies</h4>
+                            <p>These cookies help us provide relevant content and offers based on your browsing habits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Preferences</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
