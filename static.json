@@ -18,6 +18,13 @@
       "Cache-Control": "public, max-age=31536000"
     }
   },
+  "routes": {
+    "/*.html": {
+      "status": 301,
+      "force": true,
+      "url": "/$1"
+    }
+  },
   "proxies": {
     "/api/": {
       "origin": "${API_URL}"
