@@ -1,59 +1,71 @@
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="/images/revelate-spiral-logo.png" alt="Revelate Operations Logo" width="80" height="80">
-        <h3>Revelate Operations</h3>
-        <p class="tagline">Transform Raw Data Into Strategic Wealth</p>
-      </div>
-      
-      <div class="footer-links">
-        <div class="footer-nav">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/approach">Approach</a></li>
-            <li><a href="/case-studies">Case Studies</a></li>
-            <li><a href="/assessment">Assessment</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <a href="/" class="footer-logo">
+                    <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                    <span>REVELATE</span>
+                </a>
+                <p class="footer-description">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/company/revelateops" aria-label="LinkedIn" class="social-icon" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/revelateops" aria-label="Twitter" class="social-icon" target="_blank" rel="noopener">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/revelateops" aria-label="Instagram" class="social-icon" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-heading">Services</h3>
+                <ul class="footer-nav">
+                    <li><a href="/services#crm">CRM Management</a></li>
+                    <li><a href="/services#bi">Business Intelligence</a></li>
+                    <li><a href="/services#integration">Data Integration</a></li>
+                    <li><a href="/services#retention">Customer Retention</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-heading">Company</h3>
+                <ul class="footer-nav">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/approach">Our Process</a></li>
+                    <li><a href="/case-studies">Case Studies</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3 class="footer-heading">Contact Us</h3>
+                <address class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Business Avenue, Suite 400<br>Boston, MA 02108</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span><a href="tel:+15551234567">(555) 123-4567</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span><a href="mailto:info@revelateops.com">info@revelateops.com</a></span>
+                    </div>
+                </address>
+            </div>
         </div>
         
-        <div class="footer-services">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="/services#crm">CRM Management</a></li>
-            <li><a href="/services#bi">Business Intelligence</a></li>
-            <li><a href="/services#integration">Data Integration</a></li>
-            <li><a href="/services#retention">Customer Retention</a></li>
-          </ul>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; <%= new Date().getFullYear() %> Revelate Operations, LLC. All rights reserved.</p>
+            <ul class="legal-links">
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-of-service">Terms of Service</a></li>
+                <li><a href="/sitemap.xml">Sitemap</a></li>
+            </ul>
         </div>
-        
-        <div class="footer-contact">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="mailto:info@revelateops.com" aria-label="Email"><i class="fas fa-envelope"></i> info@revelateops.com</a></li>
-            <li><a href="tel:+5551234567" aria-label="Phone"><i class="fas fa-phone"></i> (555) 123-4567</a></li>
-            <li><a href="https://www.linkedin.com/company/revelateops" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-            <li><a href="https://twitter.com/revelateops" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-    
-    <div class="footer-bottom">
-      <div class="copyright">
-        <p>&copy; <%= new Date().getFullYear() %> Revelate Operations. All rights reserved.</p>
-      </div>
-      
-      <div class="footer-legal">
-        <ul>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
 </footer>
