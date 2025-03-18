@@ -1,0 +1,18 @@
+# robots.txt for revelateops.com
+
+User-agent: *
+Allow: /
+
+# Prevent indexing of admin pages
+Disallow: /admin/
+Disallow: /login
+Disallow: /logout
+
+# Don't index these files
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.xml$
+
+# Sitemaps
+Sitemap: https://revelateops.com/sitemap.xml
