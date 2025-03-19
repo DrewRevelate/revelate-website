@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="campign_Members_LWC">
+    <apiVersion>63.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Lead</object>
+            </objects>
+            
+            <!-- Basic Configuration Options -->
+            <property name="componentTitle" type="String" label="Component Title" default="Campaign History" description="Customize the title displayed at the top of the component"/>
+            <property name="componentIcon" type="String" label="Component Icon" default="standard:campaign" description="Icon name to display next to the title (e.g., standard:campaign)"/>
+            
+            <!-- Card Layout and Styling -->
+            <property name="tableHeight" type="Integer" label="Table Maximum Height (px)" default="350" min="100" max="1000" description="Maximum height for the campaigns table (scrollable when exceeded)"/>
+            <property name="cardBorderRadius" type="Integer" label="Card Border Radius (px)" default="4" min="0" max="16" description="Border radius for card"/>
+            <property name="cardSpacing" type="Integer" label="Card Padding (px)" default="16" min="0" max="32" description="Inner padding for card"/>
+            
+            <!-- Colors -->
+            <property name="cardBackgroundColor" type="String" label="Card Background Color" default="#FFFFFF" description="Background color for card"/>
+            <property name="tableHeaderColor" type="String" label="Table Header Background Color" default="#F3F3F3" description="Background color for table header"/>
+            <property name="buttonColor" type="String" label="Button Color" default="#0070D2" description="Color for the add button"/>
+            <property name="hoverRowColor" type="String" label="Row Hover Color" default="#F3F3F3" description="Background color when hovering over table rows"/>
+            <property name="linkColor" type="String" label="Link Color" default="#0070D2" description="Text color for links in the table"/>
+            
+            <!-- Typography -->
+            <property name="headerFontSize" type="String" label="Table Header Font Size" default="0.75rem" description="Font size for table headers"/>
+            <property name="headerFontWeight" type="String" label="Table Header Font Weight" default="bold" datasource="normal,bold,lighter,bolder" description="Font weight for table headers"/>
+            <property name="contentFontSize" type="String" label="Table Data Font Size" default="0.875rem" description="Font size for table data"/>
+            <property name="emptyStateTextColor" type="String" label="Empty State Text Color" default="#706E6B" description="Text color for empty state message"/>
+            <property name="emptyStateFontSize" type="String" label="Empty State Font Size" default="0.875rem" description="Font size for empty state text"/>
+            
+            <!-- Feature Toggles -->
+            <property name="showRefreshButton" type="Boolean" label="Show Refresh Button" default="true" description="Show a refresh button to reload campaign data"/>
+            <property name="enableRowHighlight" type="Boolean" label="Enable Row Highlighting" default="true" description="Highlight rows on hover"/>
+            <property name="openLinksInNewTab" type="Boolean" label="Open Links in New Tab" default="true" description="Open campaign links in a new browser tab"/>
+            <property name="showCampaignStatusColor" type="Boolean" label="Show Status Color Indicator" default="true" description="Show color indicator for campaign status"/>
+            <property name="showDateAdded" type="Boolean" label="Show Date Added" default="true" description="Show date when lead was added to campaign"/>
+            <property name="dateFormat" type="String" label="Date Format" default="MMM d, yyyy" description="Format for displayed dates (e.g., MMM d, yyyy = Jan 1, 2023)"/>
+            <property name="maxCampaignsShown" type="Integer" label="Maximum Campaigns Shown" default="10" min="1" max="100" description="Maximum number of campaigns to display (0 = unlimited)"/>
+            <property name="emptyCardIcon" type="String" label="Empty State Icon" default="utility:campaign" description="Icon shown when no campaigns exist"/>
+            <property name="emptyStateMessage" type="String" label="Empty State Message" default="No campaigns found. Click + to add this Lead to a Campaign." description="Message to display when no campaigns are found"/>
+            
+            <supportedFormFactors>
+                <supportedFormFactor type="Large" />
+                <supportedFormFactor type="Small" />
+            </supportedFormFactors>
+        </targetConfig>
+        <targetConfig targets="lightning__AppPage,lightning__HomePage">
+            <property name="recordId" type="String" label="Lead Record Id" description="ID of the Lead record to display campaigns for. Leave blank to use the current record when placed on a record page." required="false"/>
+            
+            <!-- Basic Configuration Options -->
+            <property name="componentTitle" type="String" label="Component Title" default="Campaign History" description="Customize the title displayed at the top of the component"/>
+            <property name="componentIcon" type="String" label="Component Icon" default="standard:campaign" description="Icon name to display next to the title (e.g., standard:campaign)"/>
+            
+            <!-- Card Layout and Styling -->
+            <property name="tableHeight" type="Integer" label="Table Maximum Height (px)" default="350" min="100" max="1000" description="Maximum height for the campaigns table (scrollable when exceeded)"/>
+            <property name="cardBorderRadius" type="Integer" label="Card Border Radius (px)" default="4" min="0" max="16" description="Border radius for card"/>
+            <property name="cardSpacing" type="Integer" label="Card Padding (px)" default="16" min="0" max="32" description="Inner padding for card"/>
+            
+            <!-- Colors -->
+            <property name="cardBackgroundColor" type="String" label="Card Background Color" default="#FFFFFF" description="Background color for card"/>
+            <property name="tableHeaderColor" type="String" label="Table Header Background Color" default="#F3F3F3" description="Background color for table header"/>
+            <property name="buttonColor" type="String" label="Button Color" default="#0070D2" description="Color for the add button"/>
+            <property name="hoverRowColor" type="String" label="Row Hover Color" default="#F3F3F3" description="Background color when hovering over table rows"/>
+            <property name="linkColor" type="String" label="Link Color" default="#0070D2" description="Text color for links in the table"/>
+            
+            <!-- Typography -->
+            <property name="headerFontSize" type="String" label="Table Header Font Size" default="0.75rem" description="Font size for table headers"/>
+            <property name="headerFontWeight" type="String" label="Table Header Font Weight" default="bold" datasource="normal,bold,lighter,bolder" description="Font weight for table headers"/>
+            <property name="contentFontSize" type="String" label="Table Data Font Size" default="0.875rem" description="Font size for table data"/>
+            <property name="emptyStateTextColor" type="String" label="Empty State Text Color" default="#706E6B" description="Text color for empty state message"/>
+            <property name="emptyStateFontSize" type="String" label="Empty State Font Size" default="0.875rem" description="Font size for empty state text"/>
+            
+            <!-- Feature Toggles -->
+            <property name="showRefreshButton" type="Boolean" label="Show Refresh Button" default="true" description="Show a refresh button to reload campaign data"/>
+            <property name="enableRowHighlight" type="Boolean" label="Enable Row Highlighting" default="true" description="Highlight rows on hover"/>
+            <property name="openLinksInNewTab" type="Boolean" label="Open Links in New Tab" default="true" description="Open campaign links in a new browser tab"/>
+            <property name="showCampaignStatusColor" type="Boolean" label="Show Status Color Indicator" default="true" description="Show color indicator for campaign status"/>
+            <property name="showDateAdded" type="Boolean" label="Show Date Added" default="true" description="Show date when lead was added to campaign"/>
+            <property name="dateFormat" type="String" label="Date Format" default="MMM d, yyyy" description="Format for displayed dates (e.g., MMM d, yyyy = Jan 1, 2023)"/>
+            <property name="maxCampaignsShown" type="Integer" label="Maximum Campaigns Shown" default="10" min="1" max="100" description="Maximum number of campaigns to display (0 = unlimited)"/>
+            <property name="emptyCardIcon" type="String" label="Empty State Icon" default="utility:campaign" description="Icon shown when no campaigns exist"/>
+            <property name="emptyStateMessage" type="String" label="Empty State Message" default="No campaigns found. Click + to add this Lead to a Campaign." description="Message to display when no campaigns are found"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

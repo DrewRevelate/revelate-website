@@ -1,0 +1,170 @@
+<template>
+    <lightning-card title={componentTitle} icon-name={componentIcon}>
+        <div slot="actions">
+            <template if:true={hasRecordId}>
+                <lightning-button-icon 
+                    icon-name="utility:add" 
+                    variant="border-filled" 
+                    alternative-text="Add to Campaign" 
+                    class="slds-button_icon-brand custom-icon-button" 
+                    title="Add to Campaign"
+                    onclick={handleAddClick}>
+                </lightning-button-icon>
+            </template>
+        </div>
+
+        <!-- Last Refresh Time in Subheader -->
+        <div slot="footer" class="slds-grid slds-grid_align-spread">
+            <div class="slds-text-body_small slds-text-color_weak">
+                Last refreshed: {lastRefreshTime}
+            </div>
+            <template if:true={showRefreshButtonInFooter}>
+                <lightning-button 
+                    label="Refresh" 
+                    icon-name="utility:refresh"
+                    variant="brand"
+                    class="custom-button"
+                    onclick={handleRefresh}>
+                </lightning-button>
+            </template>
+        </div>
+
+        <!-- Card Body -->
+        <div class="campaign-card">
+            <!-- No Record ID Message -->
+            <template if:false={hasRecordId}>
+                <div class="slds-illustration slds-illustration_small">
+                    <div class="slds-p-around_medium slds-text-align_center slds-m-vertical_medium">
+                        <div class="slds-illustration__svg">
+                            <lightning-icon icon-name="standard:lead" size="large"></lightning-icon>
+                        </div>
+                        <h3 class="slds-text-heading_medium slds-p-top_small">No Lead Selected</h3>
+                        <p class="empty-state-text">Please provide a Lead Record ID in the component properties</p>
+                    </div>
+                </div>
+            </template>
+            
+            <!-- Campaign Members Table -->
+            <template if:true={hasRecordId}>
+                <template if:true={hasData}>
+                    <div class="campaign-table-container">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered campaign-table">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Campaign Name">Campaign Name</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Status">Status</div>
+                                    </th>
+                                    <template if:true={showDateColumn}>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Date Added">Date Added</div>
+                                        </th>
+                                    </template>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={campaignMembers} for:item="member">
+                                    <tr key={member.Id} class="slds-hint-parent">
+                                        <td data-label="Campaign Name">
+                                            <div class="slds-truncate" title={member.Campaign.Name}>
+                                                <a href={member.campaignUrl} target={linkTarget}>{member.Campaign.Name}</a>
+                                            </div>
+                                        </td>
+                                        <td data-label="Status">
+                                            <div class="slds-truncate" title={member.Status}>
+                                                <template if:true={showStatusIndicator}>
+                                                    <span class={member.statusClass}></span>
+                                                </template>
+                                                {member.Status}
+                                            </div>
+                                        </td>
+                                        <template if:true={showDateColumn}>
+                                            <td data-label="Date Added">
+                                                <div class="slds-truncate" title={member.createdDate}>{member.createdDate}</div>
+                                            </td>
+                                        </template>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </template>
+                
+                <template if:false={hasData}>
+                    <div class="slds-illustration slds-illustration_small">
+                        <div class="slds-p-around_medium slds-text-align_center slds-m-vertical_medium">
+                            <div class="slds-illustration__svg">
+                                <lightning-icon icon-name={emptyCardIcon} size="large"></lightning-icon>
+                            </div>
+                            <h3 class="slds-text-heading_medium slds-p-top_small">No Campaign History</h3>
+                            <p class="empty-state-text">{emptyStateMessage}</p>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </div>
+        
+        <!-- Modal for Campaign Selection -->
+        <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" 
+                            title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 class="slds-text-heading_medium slds-hyphenate">Add to Campaign</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="campaignSelect">Select Campaign</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-combobox_container">
+                                    <lightning-combobox
+                                        name="campaignSelect"
+                                        label="Campaign"
+                                        variant="label-hidden"
+                                        placeholder="Search Campaigns..."
+                                        options={campaignOptions}
+                                        onchange={handleCampaignChange}
+                                        value={selectedCampaignId}>
+                                    </lightning-combobox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeModal}>Cancel</button>
+                        <button class="slds-button slds-button_brand custom-button" 
+                            onclick={handleSave} 
+                            disabled={isSaveDisabled}>Add to Campaign</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        
+        <!-- Toast Message -->
+        <template if:true={showToast}>
+            <div class="slds-notify_container slds-is-relative">
+                <div class={toastClass} role="status">
+                    <span class="slds-assistive-text">{toastVariant}</span>
+                    <span class="slds-icon_container slds-icon-utility-success slds-m-right_small">
+                        <lightning-icon icon-name={toastIcon} size="small" variant="inverse"></lightning-icon>
+                    </span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small">{toastMessage}</h2>
+                    </div>
+                    <div class="slds-notify__close">
+                        <button class="slds-button slds-button_icon slds-button_icon-inverse" onclick={closeToast}>
+                            <lightning-icon icon-name="utility:close" size="small" variant="inverse"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>
