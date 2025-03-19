@@ -1,0 +1,29 @@
+# robots.txt for Revelate Operations
+
+User-agent: *
+Allow: /
+
+# Disallow access to specific paths
+Disallow: /api/
+Disallow: /server.js
+Disallow: /src/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /assets/temp/
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.xml$
+
+# Allow access to sitemap
+Allow: /sitemap.xml
+
+# Sitemap
+Sitemap: https://revelateops.com/sitemap.xml
+
+# Crawl delay for specific bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

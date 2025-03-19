@@ -1,0 +1,332 @@
+/*
+ * Revelate Operations - Header & Footer Enhancements
+ * Custom styles for the improved header and footer components
+ */
+
+/* Header Styles */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    z-index: var(--z-header);
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-image {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    transform: rotate(15deg);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    line-height: 1.1;
+}
+
+.tagline {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--gray-dark);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    position: relative;
+    color: var(--gray-dark);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-cta {
+    margin-left: 0.5rem;
+}
+
+/* Transparent header for homepage */
+.home-page #navbar {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.home-page #navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.home-page .nav-link {
+    color: white;
+}
+
+.home-page .company-name {
+    color: white;
+}
+
+.home-page .tagline {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.home-page #navbar.scrolled .nav-link {
+    color: var(--gray-dark);
+}
+
+.home-page #navbar.scrolled .company-name {
+    color: var(--primary);
+}
+
+.home-page #navbar.scrolled .tagline {
+    color: var(--gray-dark);
+}
+
+/* Mobile Navigation */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10;
+}
+
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background-color: var(--gray-dark);
+    transition: all 0.3s ease;
+}
+
+.home-page .hamburger-line {
+    background-color: white;
+}
+
+.home-page #navbar.scrolled .hamburger-line {
+    background-color: var(--gray-dark);
+}
+
+/* Footer Enhancements */
+.footer {
+    position: relative;
+    background-color: var(--dark);
+    color: white;
+    padding: var(--space-10) 0 var(--space-5);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.footer-logo h2 {
+    color: white;
+    margin: 0;
+    font-size: var(--font-size-xl);
+}
+
+.footer-logo img {
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover img {
+    transform: rotate(15deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .mobile-toggle {
+        display: block;
+    }
+    
+    .mobile-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    
+    .mobile-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - var(--header-height));
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 100;
+        overflow-y: auto;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding: 0.75rem 0;
+    }
+    
+    .nav-cta {
+        margin-top: 1rem;
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Change text color in mobile menu regardless of homepage */
+    .home-page .nav-links .nav-link {
+        color: var(--gray-dark);
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8) var(--space-4);
+    }
+}
+
+@media (max-width: 767px) {
+    .logo-container {
+        gap: 0.5rem;
+    }
+    
+    .company-name {
+        font-size: 1.25rem;
+    }
+    
+    .tagline {
+        font-size: 0.75rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-3);
+        text-align: center;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-mode-bg: #121212;
+        --dark-mode-card: #242424;
+        --dark-mode-text: #e0e0e0;
+    }
+    
+    body.dark-mode #navbar {
+        background-color: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(10px);
+    }
+    
+    body.dark-mode .nav-link {
+        color: var(--dark-mode-text);
+    }
+    
+    body.dark-mode .company-name {
+        color: var(--primary-light);
+    }
+    
+    body.dark-mode .tagline {
+        color: rgba(224, 224, 224, 0.8);
+    }
+    
+    body.dark-mode .hamburger-line {
+        background-color: var(--dark-mode-text);
+    }
+    
+    body.dark-mode .nav-links {
+        background-color: var(--dark-mode-bg);
+    }
+    
+    body.dark-mode .nav-link {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+}

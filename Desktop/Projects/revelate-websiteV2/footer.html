@@ -1,0 +1,397 @@
+<!-- Footer Component -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="${basePath}images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
+                    <h2>REVELATE</h2>
+                </div>
+                <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-column">
+                <h3 class="footer-heading">Services</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="${basePath}services.html#crm">CRM Management</a></li>
+                    <li class="footer-link"><a href="${basePath}services.html#business-intelligence">Business Intelligence</a></li>
+                    <li class="footer-link"><a href="${basePath}services.html#lead-generation">Lead Generation</a></li>
+                    <li class="footer-link"><a href="${basePath}services.html#data-integration">Data Integration</a></li>
+                    <li class="footer-link"><a href="${basePath}services.html#gtm-strategy">GTM Strategy</a></li>
+                    <li class="footer-link"><a href="${basePath}services.html#customer-retention">Customer Retention</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links-column">
+                <h3 class="footer-heading">Company</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="${basePath}about.html">About Us</a></li>
+                    <li class="footer-link"><a href="${basePath}approach.html">Our Process</a></li>
+                    <li class="footer-link"><a href="${basePath}case-studies.html">Case Studies</a></li>
+                    <li class="footer-link"><a href="#">Careers</a></li>
+                    <li class="footer-link"><a href="#">Blog</a></li>
+                    <li class="footer-link"><a href="${basePath}contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3 class="footer-heading">Contact Us</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone footer-contact-icon"></i>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope footer-contact-icon"></i>
+                    <span>info@revelateops.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <p class="availability">Available Monday - Friday<br>9:00 AM - 5:00 PM EST</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-divider"></div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Revelate Operations, LLC. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="${basePath}privacy-policy.html">Privacy Policy</a> | <a href="${basePath}terms-of-service.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal" id="login-modal" aria-hidden="true" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Client Portal Login</h2>
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email-login" class="form-label">Email</label>
+                    <input type="email" id="email-login" class="form-control" placeholder="Your Email" required>
+                    <div class="form-feedback"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password-login" class="form-label">Password</label>
+                    <input type="password" id="password-login" class="form-control" placeholder="Your Password" required>
+                    <div class="form-feedback"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .footer {
+        background-color: var(--dark);
+        color: white;
+        padding: var(--space-10) 0 var(--space-5);
+    }
+    
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: var(--space-6);
+        margin-bottom: var(--space-8);
+    }
+    
+    .footer-brand {
+        max-width: 400px;
+    }
+    
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+    }
+    
+    .footer-logo h2 {
+        color: white;
+        margin: 0;
+        font-size: var(--font-size-xl);
+    }
+    
+    .footer-about {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: var(--space-5);
+        line-height: 1.6;
+    }
+    
+    .footer-social {
+        display: flex;
+        gap: var(--space-3);
+    }
+    
+    .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: all var(--transition-normal);
+    }
+    
+    .social-link:hover {
+        background-color: var(--primary);
+        transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+        color: white;
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-4);
+        position: relative;
+        padding-bottom: var(--space-2);
+    }
+    
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary);
+    }
+    
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-link {
+        margin-bottom: var(--space-2);
+    }
+    
+    .footer-link a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all var(--transition-normal);
+        text-decoration: none;
+    }
+    
+    .footer-link a:hover {
+        color: white;
+        padding-left: var(--space-2);
+    }
+    
+    .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        margin-bottom: var(--space-3);
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-contact-icon {
+        color: var(--primary-light);
+        font-size: 1.1rem;
+        margin-top: 3px;
+    }
+    
+    .availability {
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .footer-divider {
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-bottom: var(--space-5);
+    }
+    
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer-bottom p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: var(--font-size-sm);
+    }
+    
+    .footer-legal a {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: var(--font-size-sm);
+        transition: color var(--transition-fast);
+        text-decoration: none;
+    }
+    
+    .footer-legal a:hover {
+        color: white;
+    }
+    
+    /* Modal Styles */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: var(--z-modal);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--transition-normal), visibility var(--transition-normal);
+    }
+    
+    .modal[aria-hidden="false"] {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .modal-content {
+        background-color: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-xl);
+        width: 100%;
+        max-width: 450px;
+        margin: var(--space-4);
+        overflow: hidden;
+        transform: translateY(-20px);
+        transition: transform var(--transition-normal);
+    }
+    
+    .modal[aria-hidden="false"] .modal-content {
+        transform: translateY(0);
+    }
+    
+    .modal-header {
+        padding: var(--space-4);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--light-alt);
+    }
+    
+    .modal-title {
+        margin: 0;
+        color: var(--dark);
+        font-size: var(--font-size-2xl);
+    }
+    
+    .close-modal {
+        background: none;
+        border: none;
+        font-size: var(--font-size-2xl);
+        line-height: 1;
+        color: var(--gray);
+        cursor: pointer;
+        transition: color var(--transition-fast);
+    }
+    
+    .close-modal:hover {
+        color: var(--dark);
+    }
+    
+    .modal-body {
+        padding: var(--space-5);
+    }
+    
+    .modal-footer {
+        padding: var(--space-3) var(--space-5);
+        border-top: 1px solid var(--light-alt);
+        text-align: center;
+    }
+    
+    .modal-footer a {
+        color: var(--primary);
+        font-size: var(--font-size-sm);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8) var(--space-4);
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+        }
+        
+        .footer-bottom {
+            flex-direction: column;
+            gap: var(--space-3);
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Client Portal Login Modal
+        const portalBtn = document.getElementById('portal-btn');
+        const loginModal = document.getElementById('login-modal');
+        const closeModal = document.querySelector('.close-modal');
+        
+        if (portalBtn && loginModal) {
+            portalBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    loginModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                });
+            }
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === loginModal) {
+                    loginModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close modal on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && loginModal.getAttribute('aria-hidden') === 'false') {
+                    loginModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Login Form Submission
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically handle the authentication
+                // For now, we'll just log a message
+                console.log('Login form submitted');
+            });
+        }
+    });
+</script>

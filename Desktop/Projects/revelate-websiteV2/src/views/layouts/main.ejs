@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main stylesheets -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/header-footer.css">
+    
+    <% if (typeof pageStylesheet !== 'undefined') { %>
+    <link rel="stylesheet" href="/assets/css/<%= pageStylesheet %>.css">
+    <% } %>
+    
+    <% if (typeof metaDescription !== 'undefined') { %>
+    <meta name="description" content="<%= metaDescription %>">
+    <% } else { %>
+    <meta name="description" content="Revelate Operations provides data-driven SaaS consulting services, helping businesses optimize their CRM, enhance data analytics, and develop revenue operations strategies.">
+    <% } %>
+    
+    <% if (typeof metaKeywords !== 'undefined') { %>
+    <meta name="keywords" content="<%= metaKeywords %>">
+    <% } else { %>
+    <meta name="keywords" content="SaaS consulting, data analytics, business intelligence, CRM management, revenue operations">
+    <% } %>
+</head>
+<body<% if (typeof bodyClass !== 'undefined') { %> class="<%= bodyClass %>"<% } %>>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <%- include('../partials/navigation') %>
+
+    <!-- Page Content -->
+    <main id="main-content">
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <%- include('../partials/footer') %>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Login Modal -->
+    <%- include('../partials/login-modal') %>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/navigation.js"></script>
+    <script src="/assets/js/main.js"></script>
+    
+    <% if (typeof pageScript !== 'undefined') { %>
+    <script src="/assets/js/<%= pageScript %>.js"></script>
+    <% } %>
+    
+    <script>
+        // Initialize navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle mobile menu
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle && navLinks) {
+                mobileToggle.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    this.setAttribute('aria-expanded', !expanded);
+                    navLinks.classList.toggle('active');
+                    
+                    // Prevent scrolling when menu is open
+                    document.body.style.overflow = expanded ? '' : 'hidden';
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navLinks.contains(event.target) && !mobileToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        navLinks.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close menu on window resize if it gets into desktop mode
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 991 && navLinks.classList.contains('active')) {
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        navLinks.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+            
+            // Handle transparent header for homepage
+            if (document.body.classList.contains('home-page')) {
+                const navbar = document.getElementById('navbar');
+                
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                });
+                
+                // Initial check
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                }
+            }
+            
+            // Initialize scroll to top button
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        scrollTopBtn.classList.add('visible');
+                    } else {
+                        scrollTopBtn.classList.remove('visible');
+                    }
+                });
+                
+                scrollTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Initialize login modal
+            const portalBtn = document.getElementById('portal-btn');
+            const loginModal = document.getElementById('login-modal');
+            
+            if (portalBtn && loginModal) {
+                portalBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginModal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                const closeModal = document.querySelector('.close-modal');
+                if (closeModal) {
+                    closeModal.addEventListener('click', function() {
+                        loginModal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    });
+                }
+                
+                // Close modal when clicking outside
+                window.addEventListener('click', function(e) {
+                    if (e.target === loginModal) {
+                        loginModal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Close modal with Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && loginModal.getAttribute('aria-hidden') === 'false') {
+                        loginModal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

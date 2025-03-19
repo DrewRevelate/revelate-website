@@ -1,0 +1,233 @@
+<!-- Navigation Component -->
+<nav id="navbar" aria-label="Main navigation">
+    <div class="container navbar-container">
+        <a href="${basePath}index.html" class="logo" aria-label="Revelate Operations Home">
+            <div class="logo-container">
+                <img src="${basePath}images/revelate-spiral-logo.png" alt="Revelate Logo" class="logo-image" width="48" height="48">
+                <div class="logo-text">
+                    <span class="company-name">REVELATE</span>
+                    <span class="tagline">OPERATIONS</span>
+                </div>
+            </div>
+        </a>
+        <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="${basePath}services.html" class="nav-link">Services</a>
+            <a href="${basePath}approach.html" class="nav-link">Our Approach</a>
+            <a href="${basePath}about.html" class="nav-link">About Us</a>
+            <a href="${basePath}case-studies.html" class="nav-link">Case Studies</a>
+            <a href="${basePath}contact.html" class="nav-link">Contact</a>
+            <a href="#" class="btn btn-primary nav-cta" id="portal-btn">Client Portal</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Add this CSS to the head of your document or in an external CSS file -->
+<style>
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .logo-image {
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover .logo-image {
+        transform: rotate(15deg);
+    }
+    
+    .logo-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .company-name {
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        line-height: 1.1;
+    }
+    
+    .tagline {
+        font-size: 0.875rem;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+        color: var(--gray-dark);
+    }
+    
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .nav-link {
+        position: relative;
+        color: var(--gray-dark);
+        font-weight: 500;
+        padding: 0.5rem 0;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: var(--primary);
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+    }
+    
+    .nav-link.active {
+        color: var(--primary);
+    }
+    
+    .nav-link.active::after {
+        width: 100%;
+    }
+    
+    .nav-cta {
+        margin-left: 0.5rem;
+    }
+    
+    .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+    
+    .hamburger-line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        margin: 5px 0;
+        background-color: var(--gray-dark);
+        transition: all 0.3s ease;
+    }
+    
+    @media (max-width: 991px) {
+        .mobile-toggle {
+            display: block;
+            z-index: 10;
+        }
+        
+        .mobile-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        
+        .mobile-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        
+        .nav-links {
+            position: fixed;
+            top: var(--header-height);
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: calc(100vh - var(--header-height));
+            background-color: white;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem;
+            gap: 1.5rem;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 100;
+        }
+        
+        .nav-links.active {
+            right: 0;
+        }
+        
+        .nav-link {
+            width: 100%;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 0.75rem 0;
+        }
+        
+        .nav-cta {
+            margin-top: 1rem;
+            margin-left: 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+                this.setAttribute('aria-expanded', !expanded);
+                navLinks.classList.toggle('active');
+                
+                // Prevent scrolling when menu is open
+                document.body.style.overflow = expanded ? '' : 'hidden';
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!navLinks.contains(event.target) && !mobileToggle.contains(event.target) && navLinks.classList.contains('active')) {
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close menu on window resize if it gets into desktop mode
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 991 && navLinks.classList.contains('active')) {
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Add active class to current page nav link
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && currentPath.includes(href.replace('${basePath}', '/'))) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+</script>
