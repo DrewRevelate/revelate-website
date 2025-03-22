@@ -1,0 +1,156 @@
+<%
+/**
+ * Sanity Image Partial
+ * Renders an image from Sanity with responsive options and fallbacks
+ *
+ * Parameters:
+ * - identifier: The Sanity identifier for the image
+ * - alt: Alternative text for the image
+ * - className: CSS classes to apply to the image
+ * - width: Width to resize the image to
+ * - height: Height to resize the image to
+ * - fallbackSrc: Fallback image source if Sanity image is not available
+ * - darkMode: Whether to use the dark mode variant if available
+ * - lazy: Whether to lazy load the image
+ * - responsive: Whether to use responsive image sizing
+ */
+
+// Process options with defaults
+const imageId = typeof identifier === 'string' ? identifier : '';
+const altText = typeof alt === 'string' ? alt : '';
+const cssClass = typeof className === 'string' ? className : '';
+const imgWidth = typeof width === 'number' ? width : null;
+const imgHeight = typeof height === 'number' ? height : null;
+const fallback = typeof fallbackSrc === 'string' ? fallbackSrc : '';
+const useDarkMode = typeof darkMode === 'boolean' ? darkMode : false;
+const useLazy = typeof lazy === 'boolean' ? lazy : true;
+const useResponsive = typeof responsive === 'boolean' ? responsive : true;
+
+// If needed, this can be awaited in the view that includes this partial
+const loadImage = async () => {
+  try {
+    // Attempt to get the image URL from Sanity
+    if (imageId) {
+      const options = {
+        darkMode: useDarkMode,
+        width: imgWidth,
+        height: imgHeight
+      };
+      
+      const imageUrl = await sanity.getImageUrl(imageId, options);
+      
+      if (imageUrl) {
+        // If responsive, create srcset
+        const srcSet = useResponsive ? sanity.createSrcSet(imageUrl) : '';
+        
+        return {
+          success: true,
+          src: imageUrl,
+          srcSet: srcSet,
+          alt: altText
+        };
+      }
+    }
+    
+    // Fallback to local image if Sanity image not available
+    return {
+      success: false,
+      src: fallback || sanity.getPlaceholder(imgWidth || 400, imgHeight || 300),
+      srcSet: '',
+      alt: altText
+    };
+  } catch (error) {
+    console.error('Error loading Sanity image:', error);
+    return {
+      success: false,
+      src: fallback || sanity.getPlaceholder(imgWidth || 400, imgHeight || 300),
+      srcSet: '',
+      alt: altText
+    };
+  }
+};
+%>
+
+<% if (typeof asyncImage !== 'undefined' && asyncImage) { %>
+  <!-- Render placeholder while image loads -->
+  <div class="sanity-image-container <%= cssClass %>">
+    <img 
+      src="<%= fallback || sanity.getPlaceholder(imgWidth || 400, imgHeight || 300) %>" 
+      alt="<%= altText %>"
+      class="sanity-image sanity-image-loading"
+      <% if (imgWidth) { %>width="<%= imgWidth %>"<% } %>
+      <% if (imgHeight) { %>height="<%= imgHeight %>"<% } %>
+      data-sanity-id="<%= imageId %>"
+      data-dark-mode="<%= useDarkMode ? 'true' : 'false' %>"
+    />
+    <noscript>
+      <img 
+        src="<%= fallback || sanity.getPlaceholder(imgWidth || 400, imgHeight || 300) %>" 
+        alt="<%= altText %>"
+        class="sanity-image"
+        <% if (imgWidth) { %>width="<%= imgWidth %>"<% } %>
+        <% if (imgHeight) { %>height="<%= imgHeight %>"<% } %>
+      />
+    </noscript>
+  </div>
+  
+  <script>
+    // Client-side loading of Sanity image
+    (function() {
+      const img = document.querySelector('img[data-sanity-id="<%= imageId %>"]');
+      if (!img) return;
+      
+      // Function to load the image from Sanity
+      const loadSanityImage = async () => {
+        try {
+          const response = await fetch(`/api/images/<%= imageId %>?darkMode=<%= useDarkMode ? 'true' : 'false' %>`);
+          if (!response.ok) throw new Error('Failed to load image');
+          
+          const data = await response.json();
+          if (!data.success) throw new Error(data.message || 'Image not found');
+          
+          // Update the image
+          img.src = data.url;
+          if (data.srcSet) img.srcset = data.srcSet;
+          img.alt = data.alt || '<%= altText %>';
+          img.classList.remove('sanity-image-loading');
+        } catch (error) {
+          console.error('Error loading Sanity image:', error);
+          // Keep the placeholder or fallback
+        }
+      };
+      
+      // Load immediately or when the image comes into view
+      if ('<%= useLazy %>' === 'true') {
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                loadSanityImage();
+                observer.unobserve(entry.target);
+              }
+            });
+          });
+          observer.observe(img);
+        } else {
+          // Fallback for browsers without IntersectionObserver
+          loadSanityImage();
+        }
+      } else {
+        loadSanityImage();
+      }
+    })();
+  </script>
+<% } else { %>
+  <% const imageResult = await loadImage(); %>
+  
+  <img 
+    src="<%= imageResult.src %>" 
+    <% if (imageResult.srcSet) { %>srcset="<%= imageResult.srcSet %>"<% } %>
+    alt="<%= imageResult.alt %>"
+    class="sanity-image <%= cssClass %>"
+    <% if (imgWidth) { %>width="<%= imgWidth %>"<% } %>
+    <% if (imgHeight) { %>height="<%= imgHeight %>"<% } %>
+    <% if (useLazy) { %>loading="lazy"<% } %>
+  />
+<% } %>

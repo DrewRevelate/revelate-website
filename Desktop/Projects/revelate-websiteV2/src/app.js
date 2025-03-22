@@ -19,9 +19,9 @@ const helmetConfig = {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com', 'www.google-analytics.com'],
       styleSrc: ["'self'", "'unsafe-inline'", 'fonts.googleapis.com', 'cdnjs.cloudflare.com'],
-      imgSrc: ["'self'", 'data:', 'www.google-analytics.com'],
+      imgSrc: ["'self'", 'data:', 'www.google-analytics.com', 'cdn.sanity.io'],
       fontSrc: ["'self'", 'fonts.gstatic.com', 'cdnjs.cloudflare.com'],
-      connectSrc: ["'self'", 'www.google-analytics.com'],
+      connectSrc: ["'self'", 'www.google-analytics.com', '*.api.sanity.io'],
       frameSrc: ["'none'"],
       objectSrc: ["'none'"]
     }
@@ -157,15 +157,35 @@ app.locals.formatDate = (date) => {
 };
 
 app.locals.truncate = (str, len) => {
-  if (str.length > len) {
+  if (str && str.length > len) {
     return str.substring(0, len) + '...';
   }
-  return str;
+  return str || '';
+};
+
+// Helper for dynamically loading images from Sanity or fallback to local
+app.locals.getImage = (localPath, sanityId) => {
+  // If we have a Sanity ID, we'll try to use it first
+  // The actual implementation is in the view templates using res.locals.sanity
+  return {
+    id: sanityId || null,
+    localPath: localPath || null
+  };
+};
+
+// Dark mode detection helper
+app.locals.isDarkMode = (req) => {
+  // Implement your dark mode detection logic
+  // This could be based on cookies, user preferences, or system settings
+  return req.cookies && req.cookies.darkMode === 'true';
 };
 
 // Routes
 const pageRoutes = require('./routes/pages');
 const apiRoutes = require('./routes/api');
+
+// Sanity middleware
+const sanityMiddleware = require('./middleware/sanityMiddleware');
 
 // Track route performance in development
 if (process.env.NODE_ENV !== 'production') {
@@ -183,6 +203,9 @@ if (process.env.NODE_ENV !== 'production') {
     next();
   });
 }
+
+// Apply Sanity middleware to all routes
+app.use(sanityMiddleware);
 
 app.use('/', pageRoutes);
 app.use('/api', apiRoutes);

@@ -7,6 +7,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 const { validateContact } = require('../utils/validation');
+const { getImageUrl, getImageData, getImagesByCategory } = require('../utils/sanityUtils');
 
 // API endpoint to save contact form submissions with enhanced data collection
 router.post('/contacts', async (req, res) => {
@@ -177,6 +178,86 @@ router.get('/health', async (req, res) => {
       success: false,
       status: 'unhealthy',
       error: process.env.NODE_ENV === 'production' ? 'Database connection error' : error.message
+    });
+  }
+});
+
+// API endpoints for Sanity CMS images
+
+// Get a specific image by its identifier
+router.get('/images/:identifier', async (req, res) => {
+  try {
+    const { identifier } = req.params;
+    const { darkMode = 'false', width, height, quality } = req.query;
+    
+    // Set up options for image fetching
+    const options = {
+      darkMode: darkMode === 'true',
+      width: width ? parseInt(width, 10) : undefined,
+      height: height ? parseInt(height, 10) : undefined,
+      quality: quality ? parseInt(quality, 10) : undefined
+    };
+    
+    // Get the image URL from Sanity
+    const imageUrl = await getImageUrl(identifier, options);
+    
+    if (!imageUrl) {
+      return res.status(404).json({
+        success: false,
+        message: `Image with identifier "${identifier}" not found`
+      });
+    }
+    
+    // If successful, get the full image data
+    const imageData = await getImageData(identifier, options.darkMode);
+    
+    // Create srcset for responsive images
+    const sizes = [300, 600, 900, 1200, 1800];
+    const srcSet = sizes.map(size => {
+      const sizeOpts = { ...options, width: size };
+      return `${getImageUrl(identifier, sizeOpts)} ${size}w`;
+    }).join(', ');
+    
+    res.json({
+      success: true,
+      url: imageUrl,
+      srcSet: srcSet,
+      alt: imageData?.alt || '',
+      caption: imageData?.caption || '',
+      ...(imageData || {})
+    });
+  } catch (error) {
+    console.error('Error fetching image:', error);
+    res.status(500).json({
+      success: false,
+      message: process.env.NODE_ENV === 'production'
+        ? 'Error fetching image'
+        : error.message
+    });
+  }
+});
+
+// Get all images in a category
+router.get('/images/category/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const { darkMode = 'false' } = req.query;
+    
+    // Get images by category
+    const images = await getImagesByCategory(category, darkMode === 'true');
+    
+    res.json({
+      success: true,
+      count: images.length,
+      images: images
+    });
+  } catch (error) {
+    console.error('Error fetching images by category:', error);
+    res.status(500).json({
+      success: false,
+      message: process.env.NODE_ENV === 'production'
+        ? 'Error fetching images'
+        : error.message
     });
   }
 });

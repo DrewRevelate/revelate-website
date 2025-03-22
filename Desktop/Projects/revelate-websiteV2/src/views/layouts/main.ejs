@@ -1,179 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="<%= typeof darkMode !== 'undefined' && darkMode ? 'dark-mode' : '' %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= typeof title !== 'undefined' ? title : 'Revelate Operations | Data-Driven SaaS Consulting' %></title>
+    <meta name="description" content="<%= typeof metaDescription !== 'undefined' ? metaDescription : 'Revelate Operations helps businesses drive revenue growth through data and analysis, providing the technology and processes to transform raw information into actionable insights.' %>">
     
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
     
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Meta tags for SEO -->
+    <meta property="og:title" content="<%= typeof title !== 'undefined' ? title : 'Revelate Operations | Data-Driven SaaS Consulting' %>">
+    <meta property="og:description" content="<%= typeof metaDescription !== 'undefined' ? metaDescription : 'Revelate Operations helps businesses drive revenue growth through data and analysis, providing the technology and processes to transform raw information into actionable insights.' %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= typeof currentUrl !== 'undefined' ? currentUrl : 'https://revelateoperations.com' %>">
+    <meta property="og:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : 'https://revelateoperations.com/assets/images/og-image.jpg' %>">
     
-    <!-- Main stylesheets -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= typeof title !== 'undefined' ? title : 'Revelate Operations | Data-Driven SaaS Consulting' %>">
+    <meta name="twitter:description" content="<%= typeof metaDescription !== 'undefined' ? metaDescription : 'Revelate Operations helps businesses drive revenue growth through data and analysis, providing the technology and processes to transform raw information into actionable insights.' %>">
+    <meta name="twitter:image" content="<%= typeof ogImage !== 'undefined' ? ogImage : 'https://revelateoperations.com/assets/images/og-image.jpg' %>">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/header-footer.css">
-    
     <% if (typeof pageStylesheet !== 'undefined') { %>
-    <link rel="stylesheet" href="/assets/css/<%= pageStylesheet %>.css">
+        <link rel="stylesheet" href="/assets/css/<%= pageStylesheet %>.css">
     <% } %>
     
-    <% if (typeof metaDescription !== 'undefined') { %>
-    <meta name="description" content="<%= metaDescription %>">
-    <% } else { %>
-    <meta name="description" content="Revelate Operations provides data-driven SaaS consulting services, helping businesses optimize their CRM, enhance data analytics, and develop revenue operations strategies.">
-    <% } %>
+    <!-- Dark Mode Toggle - Include a light and dark theme stylesheet -->
+    <link rel="stylesheet" href="/assets/css/light-theme.css" id="light-theme">
+    <link rel="stylesheet" href="/assets/css/dark-theme.css" id="dark-theme" disabled>
     
-    <% if (typeof metaKeywords !== 'undefined') { %>
-    <meta name="keywords" content="<%= metaKeywords %>">
-    <% } else { %>
-    <meta name="keywords" content="SaaS consulting, data analytics, business intelligence, CRM management, revenue operations">
-    <% } %>
+    <!-- Inline critical CSS for faster page load -->
+    <style>
+        /* Critical CSS goes here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Dark mode */
+        body.dark-mode {
+            color: #f0f0f0;
+            background-color: #121212;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hide content until styles are loaded */
+        .content-wrapper {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .content-wrapper.loaded {
+            opacity: 1;
+        }
+    </style>
+    
+    <%- (typeof styles !== 'undefined' ? styles : '') %>
 </head>
-<body<% if (typeof bodyClass !== 'undefined') { %> class="<%= bodyClass %>"<% } %>>
-    <!-- Accessibility Skip Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+<body class="<%= typeof bodyClass !== 'undefined' ? bodyClass : '' %> <%= typeof darkMode !== 'undefined' && darkMode ? 'dark-mode' : '' %>">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     
-    <!-- Navigation -->
-    <%- include('../partials/navigation') %>
-
-    <!-- Page Content -->
-    <main id="main-content">
+    <!-- Header -->
+    <%- include('../partials/header') %>
+    
+    <!-- Main Content -->
+    <main class="content-wrapper">
         <%- body %>
     </main>
-
+    
     <!-- Footer -->
     <%- include('../partials/footer') %>
-
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Login Modal -->
-    <%- include('../partials/login-modal') %>
-
-    <!-- JavaScript -->
-    <script src="/assets/js/navigation.js"></script>
-    <script src="/assets/js/main.js"></script>
     
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+        <span class="light-icon">☀️</span>
+        <span class="dark-icon">🌙</span>
+    </button>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
     <% if (typeof pageScript !== 'undefined') { %>
-    <script src="/assets/js/<%= pageScript %>.js"></script>
+        <script src="/assets/js/<%= pageScript %>.js"></script>
     <% } %>
     
+    <!-- Dark Mode Script -->
     <script>
-        // Initialize navigation functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle mobile menu
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            const navLinks = document.querySelector('.nav-links');
+        // Dark mode toggle functionality
+        (function() {
+            const toggle = document.getElementById('dark-mode-toggle');
+            const htmlElement = document.documentElement;
+            const storedTheme = localStorage.getItem('theme');
             
-            if (mobileToggle && navLinks) {
-                mobileToggle.addEventListener('click', function() {
-                    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
-                    this.setAttribute('aria-expanded', !expanded);
-                    navLinks.classList.toggle('active');
-                    
-                    // Prevent scrolling when menu is open
-                    document.body.style.overflow = expanded ? '' : 'hidden';
-                });
+            // Check if user has a preference saved
+            if(storedTheme) {
+                htmlElement.classList.toggle('dark-mode', storedTheme === 'dark');
+                document.body.classList.toggle('dark-mode', storedTheme === 'dark');
                 
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!navLinks.contains(event.target) && !mobileToggle.contains(event.target) && navLinks.classList.contains('active')) {
-                        mobileToggle.setAttribute('aria-expanded', 'false');
-                        navLinks.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
+                // Toggle the stylesheets
+                document.getElementById('light-theme').disabled = storedTheme === 'dark';
+                document.getElementById('dark-theme').disabled = storedTheme === 'light';
+            } else {
+                // Check if user prefers dark mode at OS level
+                const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                htmlElement.classList.toggle('dark-mode', prefersDarkMode);
+                document.body.classList.toggle('dark-mode', prefersDarkMode);
                 
-                // Close menu on window resize if it gets into desktop mode
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth > 991 && navLinks.classList.contains('active')) {
-                        mobileToggle.setAttribute('aria-expanded', 'false');
-                        navLinks.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
+                // Toggle the stylesheets
+                document.getElementById('light-theme').disabled = prefersDarkMode;
+                document.getElementById('dark-theme').disabled = !prefersDarkMode;
+                
+                // Save the preference
+                localStorage.setItem('theme', prefersDarkMode ? 'dark' : 'light');
             }
             
-            // Handle transparent header for homepage
-            if (document.body.classList.contains('home-page')) {
-                const navbar = document.getElementById('navbar');
+            // Handle toggle click
+            toggle.addEventListener('click', () => {
+                const isDarkMode = htmlElement.classList.toggle('dark-mode');
+                document.body.classList.toggle('dark-mode', isDarkMode);
                 
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
-                });
+                // Toggle the stylesheets
+                document.getElementById('light-theme').disabled = isDarkMode;
+                document.getElementById('dark-theme').disabled = !isDarkMode;
                 
-                // Initial check
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                }
-            }
+                // Save the preference
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                
+                // Dispatch a custom event so other components can react
+                document.dispatchEvent(new CustomEvent('themeChanged', { detail: { darkMode: isDarkMode } }));
+            });
             
-            // Initialize scroll to top button
-            const scrollTopBtn = document.getElementById('scroll-top');
-            
-            if (scrollTopBtn) {
-                window.addEventListener('scroll', function() {
-                    if (window.pageYOffset > 300) {
-                        scrollTopBtn.classList.add('visible');
-                    } else {
-                        scrollTopBtn.classList.remove('visible');
-                    }
-                });
-                
-                scrollTopBtn.addEventListener('click', function() {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-            
-            // Initialize login modal
-            const portalBtn = document.getElementById('portal-btn');
-            const loginModal = document.getElementById('login-modal');
-            
-            if (portalBtn && loginModal) {
-                portalBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    loginModal.setAttribute('aria-hidden', 'false');
-                    document.body.style.overflow = 'hidden';
-                });
-                
-                const closeModal = document.querySelector('.close-modal');
-                if (closeModal) {
-                    closeModal.addEventListener('click', function() {
-                        loginModal.setAttribute('aria-hidden', 'true');
-                        document.body.style.overflow = '';
-                    });
-                }
-                
-                // Close modal when clicking outside
-                window.addEventListener('click', function(e) {
-                    if (e.target === loginModal) {
-                        loginModal.setAttribute('aria-hidden', 'true');
-                        document.body.style.overflow = '';
-                    }
-                });
-                
-                // Close modal with Escape key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && loginModal.getAttribute('aria-hidden') === 'false') {
-                        loginModal.setAttribute('aria-hidden', 'true');
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-        });
+            // Show content once everything is loaded
+            window.addEventListener('load', () => {
+                document.querySelector('.content-wrapper').classList.add('loaded');
+                document.getElementById('preloader').style.display = 'none';
+            });
+        })();
     </script>
+    
+    <%- (typeof scripts !== 'undefined' ? scripts : '') %>
 </body>
 </html>

@@ -1,0 +1,116 @@
+<header class="site-header <%= typeof transparentHeader !== 'undefined' && transparentHeader ? 'transparent-header' : '' %>">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo-container">
+                <a href="/" class="logo">
+                    <!-- Logo can be loaded from Sanity or fallback to local -->
+                    <% if (locals.sanity) { %>
+                        <% 
+                        // Use async/await pattern for cleaner code
+                        (async () => {
+                            try {
+                                // Get both light and dark logos from Sanity
+                                const lightLogo = await sanity.getImageData('main-logo', false);
+                                const darkLogo = await sanity.getImageData('main-logo', true);
+                                
+                                if (lightLogo && darkLogo) {
+                                    // If we have both, render both with appropriate classes
+                        %>
+                                    <img src="<%= lightLogo.url %>" alt="<%= lightLogo.alt || 'Revelate Operations' %>" class="light-logo">
+                                    <img src="<%= darkLogo.url %>" alt="<%= darkLogo.alt || 'Revelate Operations' %>" class="dark-logo">
+                        <%
+                                } else if (lightLogo) {
+                                    // If we only have light logo
+                        %>
+                                    <img src="<%= lightLogo.url %>" alt="<%= lightLogo.alt || 'Revelate Operations' %>">
+                        <%
+                                } else {
+                                    // Fallback to local logo
+                        %>
+                                    <img src="/assets/images/revelate-logo.svg" alt="Revelate Operations" class="light-logo">
+                                    <img src="/assets/images/revelate-logo-dark.svg" alt="Revelate Operations" class="dark-logo">
+                        <%
+                                }
+                            } catch (error) {
+                                // In case of error, use the local logo
+                        %>
+                                <img src="/assets/images/revelate-logo.svg" alt="Revelate Operations" class="light-logo">
+                                <img src="/assets/images/revelate-logo-dark.svg" alt="Revelate Operations" class="dark-logo">
+                        <%
+                            }
+                        })();
+                        %>
+                    <% } else { %>
+                        <!-- Fallback if Sanity is not available -->
+                        <img src="/assets/images/revelate-logo.svg" alt="Revelate Operations" class="light-logo">
+                        <img src="/assets/images/revelate-logo-dark.svg" alt="Revelate Operations" class="dark-logo">
+                    <% } %>
+                    <span class="logo-text">OPERATIONS</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item <%= path === '/' ? 'active' : '' %>">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item <%= path === '/services' ? 'active' : '' %>">
+                        <a href="/services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item <%= path === '/approach' ? 'active' : '' %>">
+                        <a href="/approach" class="nav-link">Approach</a>
+                    </li>
+                    <li class="nav-item <%= path.startsWith('/case-studies') ? 'active' : '' %>">
+                        <a href="/case-studies" class="nav-link">Case Studies</a>
+                    </li>
+                    <li class="nav-item <%= path === '/about' ? 'active' : '' %>">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item <%= path === '/contact' ? 'active' : '' %>">
+                        <a href="/contact" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item cta">
+                        <a href="/contact" class="button primary-button">Get Started</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <button class="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="container">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item <%= path === '/' ? 'active' : '' %>">
+                    <a href="/" class="mobile-nav-link">Home</a>
+                </li>
+                <li class="mobile-nav-item <%= path === '/services' ? 'active' : '' %>">
+                    <a href="/services" class="mobile-nav-link">Services</a>
+                </li>
+                <li class="mobile-nav-item <%= path === '/approach' ? 'active' : '' %>">
+                    <a href="/approach" class="mobile-nav-link">Approach</a>
+                </li>
+                <li class="mobile-nav-item <%= path.startsWith('/case-studies') ? 'active' : '' %>">
+                    <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+                </li>
+                <li class="mobile-nav-item <%= path === '/about' ? 'active' : '' %>">
+                    <a href="/about" class="mobile-nav-link">About</a>
+                </li>
+                <li class="mobile-nav-item <%= path === '/contact' ? 'active' : '' %>">
+                    <a href="/contact" class="mobile-nav-link">Contact</a>
+                </li>
+                <li class="mobile-nav-item cta">
+                    <a href="/contact" class="button primary-button mobile-cta">Get Started</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

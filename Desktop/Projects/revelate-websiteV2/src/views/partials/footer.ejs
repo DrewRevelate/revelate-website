@@ -1,64 +1,154 @@
-<footer class="footer">
+<footer class="site-footer">
     <div class="container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <img src="/assets/images/revelate-spiral-logo.png" alt="Revelate Logo" width="40" height="40">
-                    <h2>REVELATE</h2>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <!-- Logo can be loaded from Sanity or fallback to local -->
+                <% if (locals.sanity) { %>
+                    <% 
+                    // Use async/await pattern for cleaner code
+                    (async () => {
+                        try {
+                            // Try to get the footer logo from Sanity
+                            const footerLogo = await sanity.getImageData('footer-logo', false);
+                            
+                            if (footerLogo) {
+                                // If we have it, render it
+                    %>
+                                <img src="<%= footerLogo.url %>" alt="<%= footerLogo.alt || 'Revelate Operations' %>" class="light-logo">
+                    <%
+                            } else {
+                                // Fallback to local logo
+                    %>
+                                <img src="/assets/images/revelate-logo-white.svg" alt="Revelate Operations">
+                    <%
+                            }
+                        } catch (error) {
+                            // In case of error, use the local logo
+                    %>
+                            <img src="/assets/images/revelate-logo-white.svg" alt="Revelate Operations">
+                    <%
+                        }
+                    })();
+                    %>
+                <% } else { %>
+                    <!-- Fallback if Sanity is not available -->
+                    <img src="/assets/images/revelate-logo-white.svg" alt="Revelate Operations">
+                <% } %>
+                <span class="footer-tagline">Transforming data into actionable insights</span>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/approach">Our Approach</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
                 </div>
-                <p class="footer-about">Revelate Operations transforms your raw data into actionable insights, driving revenue growth and operational excellence through innovative, data-driven solutions.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/services#data-analytics">Data & Analytics</a></li>
+                        <li><a href="/services#revenue-operations">Revenue Operations</a></li>
+                        <li><a href="/services#crm">CRM Integration</a></li>
+                        <li><a href="/services#consulting">Strategic Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://www.linkedin.com/company/revelate-operations" target="_blank" rel="noopener noreferrer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" fill="currentColor"/>
+                                    <path d="M6 9H2V21H6V9Z" fill="currentColor"/>
+                                    <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" fill="currentColor"/>
+                                </svg>
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/revelate-operations" target="_blank" rel="noopener noreferrer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.839 21.489C9.339 21.582 9.5 21.27 9.5 21C9.5 20.759 9.493 20.055 9.49 19.244C6.728 19.862 6.139 17.931 6.139 17.931C5.685 16.791 5.029 16.48 5.029 16.48C4.121 15.88 5.098 15.894 5.098 15.894C6.102 15.967 6.629 16.909 6.629 16.909C7.521 18.368 8.97 17.979 9.519 17.722C9.61 17.07 9.859 16.68 10.137 16.419C7.942 16.155 5.638 15.286 5.638 11.544C5.638 10.423 6.029 9.505 6.649 8.789C6.546 8.531 6.203 7.525 6.747 6.148C6.747 6.148 7.587 5.875 9.478 7.167C10.292 6.942 11.15 6.829 12.004 6.825C12.858 6.83 13.716 6.942 14.531 7.167C16.42 5.875 17.259 6.148 17.259 6.148C17.803 7.525 17.461 8.531 17.357 8.789C17.978 9.505 18.367 10.423 18.367 11.544C18.367 15.296 16.059 16.151 13.858 16.41C14.202 16.731 14.512 17.368 14.512 18.34C14.512 19.735 14.5 20.665 14.5 21C14.5 21.272 14.659 21.587 15.167 21.487C19.138 20.161 22 16.415 22 12C22 6.477 17.523 2 12 2Z" fill="currentColor"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-links-column">
-                <h3 class="footer-heading">Services</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="/services#crm">CRM Management</a></li>
-                    <li class="footer-link"><a href="/services#bi">Business Intelligence</a></li>
-                    <li class="footer-link"><a href="/services#integration">Data Integration</a></li>
-                    <li class="footer-link"><a href="/services#lead-gen">Lead Generation</a></li>
-                    <li class="footer-link"><a href="/services#gtm">GTM Strategy</a></li>
-                    <li class="footer-link"><a href="/services#retention">Customer Retention</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links-column">
-                <h3 class="footer-heading">Company</h3>
-                <ul class="footer-links">
-                    <li class="footer-link"><a href="/about">About Us</a></li>
-                    <li class="footer-link"><a href="/approach">Our Process</a></li>
-                    <li class="footer-link"><a href="/case-studies">Case Studies</a></li>
-                    <li class="footer-link"><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h3 class="footer-heading">Contact Us</h3>
-                <div class="footer-contact-item">
-                    <i class="fas fa-phone footer-contact-icon"></i>
-                    <span>(555) 123-4567</span>
-                </div>
-                <div class="footer-contact-item">
-                    <i class="fas fa-envelope footer-contact-icon"></i>
-                    <span>info@revelateops.com</span>
-                </div>
-                <div class="footer-contact-item">
-                    <p class="availability">Available Monday - Friday<br>9:00 AM - 5:00 PM EST</p>
-                </div>
+            <div class="footer-newsletter">
+                <h3>Subscribe to our newsletter</h3>
+                <p>Get the latest insights on data, analytics, and revenue operations.</p>
+                <form id="newsletter-form" action="/api/subscribe" method="POST" class="newsletter-form">
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                    <button type="submit" class="button primary-button">Subscribe</button>
+                </form>
+                <div id="newsletter-message" class="newsletter-message"></div>
             </div>
         </div>
         
-        <div class="footer-divider"></div>
-        
         <div class="footer-bottom">
-            <p>&copy; <%= new Date().getFullYear() %> Revelate Operations, LLC. All rights reserved.</p>
-            <div class="footer-legal">
-                <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-of-service">Terms of Service</a>
+            <div class="copyright">
+                &copy; <%= new Date().getFullYear() %> Revelate Operations, LLC. All Rights Reserved.
+            </div>
+            <div class="legal-links">
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
             </div>
         </div>
     </div>
 </footer>
+
+<script>
+    // Newsletter form submission with AJAX
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('newsletter-form');
+        const message = document.getElementById('newsletter-message');
+        
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const email = form.querySelector('input[name="email"]').value;
+                
+                try {
+                    const response = await fetch('/api/subscribe', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Success message
+                        message.textContent = result.message;
+                        message.classList.add('success');
+                        message.classList.remove('error');
+                        form.reset();
+                    } else {
+                        // Error message
+                        message.textContent = result.message || 'There was a problem with your subscription. Please try again.';
+                        message.classList.add('error');
+                        message.classList.remove('success');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    message.textContent = 'There was a problem connecting to the server. Please try again later.';
+                    message.classList.add('error');
+                    message.classList.remove('success');
+                }
+            });
+        }
+    });
+</script>
