@@ -9,7 +9,9 @@
     "setup-db": "node src/scripts/setup-db.js",
     "init-sanity": "node src/scripts/init-sanity.js",
     "sanity-studio": "cd sanity-studio && npm run dev",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "build": "echo 'Static site, no build needed'",
+    "vercel-build": "echo 'Static site, no build needed'"
   },
   "engines": {
     "node": "18.x"
