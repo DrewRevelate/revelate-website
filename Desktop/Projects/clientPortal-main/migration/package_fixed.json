@@ -1,0 +1,17 @@
+{
+  "name": "revelateops-migration",
+  "version": "1.0.0",
+  "description": "Migration script for RevelateOps Client Portal",
+  "main": "migration_fixed.js",
+  "scripts": {
+    "migrate": "node migration_fixed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.40.0",
+    "dotenv": "^16.4.5",
+    "papaparse": "^5.4.1",
+    "uuid": "^9.0.1"
+  }
+}

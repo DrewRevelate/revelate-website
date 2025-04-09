@@ -1,0 +1,38 @@
+-- Add Calendly-related fields to the meetings table
+ALTER TABLE app.meetings
+ADD COLUMN IF NOT EXISTS calendly_event_uuid UUID,
+ADD COLUMN IF NOT EXISTS calendly_invitee_uuid UUID,
+ADD COLUMN IF NOT EXISTS reschedule_url TEXT,
+ADD COLUMN IF NOT EXISTS cancel_url TEXT,
+ADD COLUMN IF NOT EXISTS canceled_at TIMESTAMPTZ,
+ADD COLUMN IF NOT EXISTS cancel_reason TEXT,
+ADD COLUMN IF NOT EXISTS calendly_event_uri TEXT,
+ADD COLUMN IF NOT EXISTS calendly_invitee_uri TEXT;
+
+-- Add Calendly-related fields to the appointments table as well
+ALTER TABLE app.appointments
+ADD COLUMN IF NOT EXISTS calendly_event_uuid UUID,
+ADD COLUMN IF NOT EXISTS calendly_invitee_uuid UUID,
+ADD COLUMN IF NOT EXISTS reschedule_url TEXT,
+ADD COLUMN IF NOT EXISTS cancel_url TEXT,
+ADD COLUMN IF NOT EXISTS canceled_at TIMESTAMPTZ,
+ADD COLUMN IF NOT EXISTS cancel_reason TEXT,
+ADD COLUMN IF NOT EXISTS calendly_event_uri TEXT,
+ADD COLUMN IF NOT EXISTS calendly_invitee_uri TEXT;
+
+-- Add company_name field to contacts table if it doesn't exist
+ALTER TABLE app.profiles
+ADD COLUMN IF NOT EXISTS company_name TEXT;
+
+-- Add company_id field to meetings table if it doesn't exist
+ALTER TABLE app.meetings
+ADD COLUMN IF NOT EXISTS company_id UUID REFERENCES app.projects(id);
+
+-- Create indexes for better performance
+CREATE INDEX IF NOT EXISTS idx_meetings_calendly_event_uuid ON app.meetings(calendly_event_uuid);
+CREATE INDEX IF NOT EXISTS idx_meetings_calendly_invitee_uuid ON app.meetings(calendly_invitee_uuid);
+CREATE INDEX IF NOT EXISTS idx_meetings_start_time ON app.meetings(start_time);
+
+-- Create indexes for appointments table as well
+CREATE INDEX IF NOT EXISTS idx_appointments_calendly_event_uuid ON app.appointments(calendly_event_uuid);
+CREATE INDEX IF NOT EXISTS idx_appointments_calendly_invitee_uuid ON app.appointments(calendly_invitee_uuid);

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="300px" viewBox="0 0 400 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Data Visualization Illustration</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.15" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.05" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Data-Illustration" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Dashboard Background -->
+        <rect id="Dashboard" fill="url(#linearGradient-1)" x="50" y="50" width="300" height="200" rx="8"></rect>
+        
+        <!-- Bar Chart -->
+        <rect id="Bar1" fill="#FFFFFF" opacity="0.6" x="80" y="150" width="20" height="70" rx="2"></rect>
+        <rect id="Bar2" fill="#FFFFFF" opacity="0.8" x="110" y="120" width="20" height="100" rx="2"></rect>
+        <rect id="Bar3" fill="#FFFFFF" opacity="0.9" x="140" y="90" width="20" height="130" rx="2"></rect>
+        <rect id="Bar4" fill="#FFFFFF" x="170" y="70" width="20" height="150" rx="2"></rect>
+        <rect id="Bar5" fill="#FFFFFF" opacity="0.9" x="200" y="100" width="20" height="120" rx="2"></rect>
+        
+        <!-- Line Chart -->
+        <path id="Line" d="M240,180 C255,140 270,160 285,130 C300,100 315,120 330,90" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle id="Point1" fill="#FFFFFF" cx="240" cy="180" r="4"></circle>
+        <circle id="Point2" fill="#FFFFFF" cx="255" cy="140" r="4"></circle>
+        <circle id="Point3" fill="#FFFFFF" cx="270" cy="160" r="4"></circle>
+        <circle id="Point4" fill="#FFFFFF" cx="285" cy="130" r="4"></circle>
+        <circle id="Point5" fill="#FFFFFF" cx="300" cy="100" r="4"></circle>
+        <circle id="Point6" fill="#FFFFFF" cx="315" cy="120" r="4"></circle>
+        <circle id="Point7" fill="#FFFFFF" cx="330" cy="90" r="4"></circle>
+        
+        <!-- Dots -->
+        <circle id="Dot1" fill="#FFFFFF" opacity="0.3" cx="100" cy="40" r="5"></circle>
+        <circle id="Dot2" fill="#FFFFFF" opacity="0.3" cx="140" cy="30" r="3"></circle>
+        <circle id="Dot3" fill="#FFFFFF" opacity="0.3" cx="350" cy="50" r="4"></circle>
+        <circle id="Dot4" fill="#FFFFFF" opacity="0.3" cx="370" cy="80" r="2"></circle>
+        <circle id="Dot5" fill="#FFFFFF" opacity="0.3" cx="60" cy="200" r="3"></circle>
+        <circle id="Dot6" fill="#FFFFFF" opacity="0.3" cx="30" cy="150" r="2"></circle>
+        <circle id="Dot7" fill="#FFFFFF" opacity="0.3" cx="380" cy="250" r="4"></circle>
+        <circle id="Dot8" fill="#FFFFFF" opacity="0.3" cx="330" cy="270" r="3"></circle>
+    </g>
+</svg>
