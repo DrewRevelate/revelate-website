@@ -27,6 +27,7 @@ interface OptimizedImageProps extends Omit<ImageProps, 'onError'> {
  * - Support for modern image formats (WebP, AVIF)
  * - Art-directed responsive images
  * - Lazy loading with IntersectionObserver
+ * - Performance optimizations for Core Web Vitals
  */
 export default function OptimizedImage({
   src,
@@ -53,23 +54,46 @@ export default function OptimizedImage({
   // Generate responsive sizes if not provided
   const defaultSizes = sizes || 
     '(max-width: 640px) 100vw, (max-width: 768px) 75vw, (max-width: 1024px) 50vw, 33vw';
+  
+  // Generate a unique ID based on alt text or a random number if alt is missing
+  const imageId = `image-${alt?.replace(/\s+/g, '-') || Math.random().toString(36).substring(2, 9)}`;
 
   // Handle image load complete
   const handleLoad = () => {
     setIsLoading(false);
+    
+    // Send Core Web Vitals metric to analytics
+    if (window.performance && 'measure' in window.performance) {
+      try {
+        window.performance.measure(`image-load-${imageId}`, `image-start-${imageId}`);
+      } catch (e) {
+        // Measurement may fail if the start mark doesn't exist
+        console.debug('Performance measurement error:', e);
+      }
+    }
   };
 
   // Handle image load error
   const handleError = () => {
     setIsLoading(false);
     setError(true);
+    
+    // Log error for monitoring
+    console.error(`Failed to load image: ${src}`);
   };
+
+  // Performance mark when component mounts
+  useEffect(() => {
+    if (window.performance && 'mark' in window.performance) {
+      window.performance.mark(`image-start-${imageId}`);
+    }
+  }, [imageId]);
 
   // Setup intersection observer for lazy loading
   useEffect(() => {
     if (priority || eager || isVisible) return;
 
-    const element = document.getElementById(`image-${alt?.replace(/\s+/g, '-')}`);
+    const element = document.getElementById(imageId);
     if (!element) return;
 
     const observer = new IntersectionObserver(
@@ -77,19 +101,27 @@ export default function OptimizedImage({
         if (entry.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
+          
+          // Performance mark when image becomes visible
+          if (window.performance && 'mark' in window.performance) {
+            window.performance.mark(`image-visible-${imageId}`);
+          }
         }
       },
-      { rootMargin: '200px' } // Start loading when image is 200px from viewport
+      { 
+        rootMargin: '200px', // Start loading when image is 200px from viewport
+        threshold: 0.01 // Trigger when at least 1% of the image is visible
+      }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [alt, priority, eager, isVisible]);
+  }, [imageId, priority, eager, isVisible]);
 
   // Render loading placeholder if provided and image is loading
   if ((isLoading || !isVisible) && loadingPlaceholder) {
     return (
-      <div className={containerClassName} id={`image-${alt?.replace(/\s+/g, '-')}`}>
+      <div className={containerClassName} id={imageId}>
         {loadingPlaceholder}
       </div>
     );
@@ -102,10 +134,14 @@ export default function OptimizedImage({
     loading: priority ? 'eager' : 'lazy',
   };
 
+  // Calculate aspect ratio for layout stability
+  const aspectRatio = width && height ? `${width} / ${height}` : undefined;
+
   return (
     <div 
       className={cn("relative overflow-hidden", containerClassName)}
-      id={`image-${alt?.replace(/\s+/g, '-')}`}
+      id={imageId}
+      style={aspectRatio ? { ...style, aspectRatio } : style}
     >
       {isVisible && (
         <>
@@ -119,6 +155,7 @@ export default function OptimizedImage({
                   media={source.media}
                   srcSet={source.srcSet.join(', ')}
                   type={source.type || 'image/webp'}
+                  sizes={defaultSizes}
                 />
               ))}
               
@@ -193,6 +230,7 @@ export default function OptimizedImage({
               aria-hidden="true"
               className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse rounded-md"
               style={{ width, height }}
+              role="presentation"
             ></div>
           )}
         </>
@@ -204,6 +242,7 @@ export default function OptimizedImage({
           aria-hidden="true"
           className="bg-gray-200 dark:bg-gray-700 rounded-md"
           style={{ width, height }}
+          role="presentation"
         ></div>
       )}
     </div>

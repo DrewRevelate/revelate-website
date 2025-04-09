@@ -27,32 +27,37 @@ export const useSupabaseRealtime = (options: UseSupabaseRealtimeOptions) => {
   const [error, setError] = useState<Error | null>(null);
   
   useEffect(() => {
-    // Create a new subscription
-    let subscription = supabase
-      .channel(`public:${table}`)
-      .on('postgres_changes', {
-        event,
-        schema: 'public',
-        table,
-        ...(filter && filterValue ? { filter: `${filter}=eq.${filterValue}` } : {}),
-      }, (payload) => {
-        console.log('Realtime change received:', payload);
-        
-        // Call the onChange callback if provided
-        if (onChange) {
-          onChange(payload);
+    // Create a unique channel name
+    const channelName = `public:${table}:${event}:${filter || 'all'}:${filterValue || 'all'}`;
+    
+    // Create a new subscription with the correct syntax
+    const subscription = supabase
+      .channel(channelName)
+      .on(
+        'postgres_changes',
+        {
+          event,
+          schema: 'public',
+          table,
+          ...(filter && filterValue ? { filter: `${filter}=eq.${filterValue}` } : {}),
+        },
+        (payload) => {
+          console.log('Realtime change received:', payload);
+          
+          // Call the onChange callback if provided
+          if (onChange) {
+            onChange(payload);
+          }
+        }
+      )
+      .subscribe((status, err) => {
+        if (status !== 'SUBSCRIBED') {
+          console.error('Error subscribing to realtime changes:', status, err);
+          setError(err || new Error(`Failed to subscribe: ${status}`));
+        } else {
+          console.log(`Subscribed to ${table} changes`);
         }
       });
-
-    // Subscribe to the channel
-    subscription = subscription.subscribe((status, err) => {
-      if (status !== 'SUBSCRIBED') {
-        console.error('Error subscribing to realtime changes:', status, err);
-        setError(err || new Error(`Failed to subscribe: ${status}`));
-      } else {
-        console.log(`Subscribed to ${table} changes`);
-      }
-    });
 
     // Store the channel for later use
     setChannel(subscription);
@@ -64,7 +69,7 @@ export const useSupabaseRealtime = (options: UseSupabaseRealtimeOptions) => {
         supabase.removeChannel(subscription);
       }
     };
-  }, [table, event, filter, filterValue]);
+  }, [table, event, filter, filterValue, onChange]);
 
   return { channel, error };
 };
